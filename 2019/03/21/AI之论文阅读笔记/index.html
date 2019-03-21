@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>浮生若梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="AI之论文阅读笔记[TOC] 一.论文概况 论文名：《Playing Atari with Deep Reinforcement Learning》 作者：Volodymyr Mnih等  二.论文简介及解决问题&amp;emsp;&amp;emsp;本文提出了一种深度学习方法，利用强化学习的方法，直接从高维的感知输入中学习控制策略。 &amp;emsp;&amp;emsp;模型是一个卷积神经网络，利用 Q-learning的一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浮生若梦">
+<meta property="og:url" content="http://yoursite.com/2019/03/21/AI之论文阅读笔记/index.html">
+<meta property="og:site_name" content="浮生若梦">
+<meta property="og:description" content="AI之论文阅读笔记[TOC] 一.论文概况 论文名：《Playing Atari with Deep Reinforcement Learning》 作者：Volodymyr Mnih等  二.论文简介及解决问题&amp;emsp;&amp;emsp;本文提出了一种深度学习方法，利用强化学习的方法，直接从高维的感知输入中学习控制策略。 &amp;emsp;&amp;emsp;模型是一个卷积神经网络，利用 Q-learning的一">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-21T15:10:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浮生若梦">
+<meta name="twitter:description" content="AI之论文阅读笔记[TOC] 一.论文概况 论文名：《Playing Atari with Deep Reinforcement Learning》 作者：Volodymyr Mnih等  二.论文简介及解决问题&amp;emsp;&amp;emsp;本文提出了一种深度学习方法，利用强化学习的方法，直接从高维的感知输入中学习控制策略。 &amp;emsp;&amp;emsp;模型是一个卷积神经网络，利用 Q-learning的一">
+  
+    <link rel="alternate" href="/atom.xml" title="浮生若梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">浮生若梦</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-AI之论文阅读笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/21/AI之论文阅读笔记/" class="article-date">
+  <time datetime="2019-03-21T15:10:13.000Z" itemprop="datePublished">2019-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="AI之论文阅读笔记"><a href="#AI之论文阅读笔记" class="headerlink" title="AI之论文阅读笔记"></a>AI之论文阅读笔记</h1><p>[TOC]</p>
+<h2 id="一-论文概况"><a href="#一-论文概况" class="headerlink" title="一.论文概况"></a>一.论文概况</h2><ol>
+<li>论文名：《Playing Atari with Deep Reinforcement Learning》</li>
+<li>作者：Volodymyr Mnih等</li>
+</ol>
+<h2 id="二-论文简介及解决问题"><a href="#二-论文简介及解决问题" class="headerlink" title="二.论文简介及解决问题"></a>二.论文简介及解决问题</h2><p>&emsp;&emsp;本文提出了一种深度学习方法，利用强化学习的方法，直接从高维的感知输入中学习控制策略。</p>
+<p>&emsp;&emsp;模型是一个卷积神经网络，利用 Q-learning的一个变种来进行训练，输入是原始像素，输出是预测将来的奖励的 value function。</p>
+<h2 id="三-方式和细节"><a href="#三-方式和细节" class="headerlink" title="三.方式和细节"></a>三.方式和细节</h2><h3 id="1-强化学习从深度学习的角度面临的极大挑战"><a href="#1-强化学习从深度学习的角度面临的极大挑战" class="headerlink" title="1.强化学习从深度学习的角度面临的极大挑战"></a>1.强化学习从深度学习的角度面临的极大挑战</h3><p>&emsp;&emsp;（1）大部分成功的 深度学习算法都依赖于海量标注的数据， RL 算法，从另一个角度，必须从一个变换的奖励信号中进行学习，而且这种信号还经常是稀疏的，有噪声的，且是延迟的。</p>
+<p>&emsp;&emsp;（2）大部分深度学习算法都假设 data samples 是相互独立的，然而， RL 经常遇到 高度相关的状态。</p>
+<p>&emsp;&emsp;（3）在 RL 中数据分布随着算法学习到新的行为而改变，这对于深度学习假设固定的潜在分布是有问题的。</p>
+<h3 id="2-解决之道"><a href="#2-解决之道" class="headerlink" title="2.解决之道"></a>2.解决之道</h3><p>&emsp;&emsp;（1）通过Q-Learning使用reward来构造标签；</p>
+<p>&emsp;&emsp;（2）通过experience replay的方法来解决相关性及非静态分布问题.</p>
+<h3 id="3-背景知识"><a href="#3-背景知识" class="headerlink" title="3.背景知识"></a>3.背景知识</h3><p>&emsp;&emsp;（1）Q-learning算法；</p>
+<p>&emsp;&emsp;（2）神经网络来代替Q矩阵的方法.</p>
+<h2 id="四-其他人做的工作及弊端"><a href="#四-其他人做的工作及弊端" class="headerlink" title="四.其他人做的工作及弊端"></a>四.其他人做的工作及弊端</h2><p>&emsp;&emsp;1.之前也有人尝试用深度神经网络来估计环境environment，估值函数value function或者policy策略。</p>
+<p>&emsp;&emsp;2.这些方法还没有拓展到非线性控制nonlinear control。</p>
+<h2 id="四-优点和缺点"><a href="#四-优点和缺点" class="headerlink" title="四.优点和缺点"></a>四.优点和缺点</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>采用End-to-End的训练方式，无需人工采集样本；</li>
+<li>算法具有通用性，一样的网络可以学习不同的游戏；</li>
+<li>通过不断的测试训练，可以实时生成无尽的样本用于有监督训练。</li>
+</ol>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>由于输入的状态是短时的，所以只适用于处理只需短时记忆的问题，无法处理需要长时间经验的问题；</li>
+<li>使用CNN来训练不一定能够收敛，需要对网络的参数进行精良的设置才行。</li>
+</ol>
+<h2 id="五-总结"><a href="#五-总结" class="headerlink" title="五.总结"></a>五.总结</h2><p>&emsp;&emsp;此文章采用全新的方法结合深度学习和强化学习，效果很好，具有很不错的通用性。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/21/AI之论文阅读笔记/" data-id="cjtis2jon0004zoocp3n92fzy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/03/21/archlinux安装笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/21/培训感想改进版/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/21/白象的舞步来自南亚次大陆的网络攻击/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/21/盗梦空间：云托管的apt/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/21/第二章逆向分析HelloWord程序/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/21/Chapter1CBasics/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/21/Chapter2VariablesandFundamentalDataTypes/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 闳<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

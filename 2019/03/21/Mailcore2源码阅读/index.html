@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>浮生若梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Mailcore2 源码阅读笔记[TOC] 一、简介&amp;emsp;&amp;emsp;MailCore是一个第三方的邮件SDK，支持POP和IMAP 方式接收邮件，以及smtp邮件发送. 二、POP1.需要先创建MCOPOPSession，并配置连接邮箱需要的各个参数1234567891011MCOPOPSession *session = [[MCOPOPSession alloc] init];sess">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浮生若梦">
+<meta property="og:url" content="http://yoursite.com/2019/03/21/Mailcore2源码阅读/index.html">
+<meta property="og:site_name" content="浮生若梦">
+<meta property="og:description" content="Mailcore2 源码阅读笔记[TOC] 一、简介&amp;emsp;&amp;emsp;MailCore是一个第三方的邮件SDK，支持POP和IMAP 方式接收邮件，以及smtp邮件发送. 二、POP1.需要先创建MCOPOPSession，并配置连接邮箱需要的各个参数1234567891011MCOPOPSession *session = [[MCOPOPSession alloc] init];sess">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-21T15:10:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浮生若梦">
+<meta name="twitter:description" content="Mailcore2 源码阅读笔记[TOC] 一、简介&amp;emsp;&amp;emsp;MailCore是一个第三方的邮件SDK，支持POP和IMAP 方式接收邮件，以及smtp邮件发送. 二、POP1.需要先创建MCOPOPSession，并配置连接邮箱需要的各个参数1234567891011MCOPOPSession *session = [[MCOPOPSession alloc] init];sess">
+  
+    <link rel="alternate" href="/atom.xml" title="浮生若梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">浮生若梦</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Mailcore2源码阅读" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/21/Mailcore2源码阅读/" class="article-date">
+  <time datetime="2019-03-21T15:10:34.000Z" itemprop="datePublished">2019-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Mailcore2-源码阅读笔记"><a href="#Mailcore2-源码阅读笔记" class="headerlink" title="Mailcore2 源码阅读笔记"></a>Mailcore2 源码阅读笔记</h1><p>[TOC]</p>
+<h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>&emsp;&emsp;MailCore是一个第三方的邮件SDK，支持POP和IMAP 方式接收邮件，以及smtp邮件发送.</p>
+<h2 id="二、POP"><a href="#二、POP" class="headerlink" title="二、POP"></a>二、POP</h2><h3 id="1-需要先创建MCOPOPSession，并配置连接邮箱需要的各个参数"><a href="#1-需要先创建MCOPOPSession，并配置连接邮箱需要的各个参数" class="headerlink" title="1.需要先创建MCOPOPSession，并配置连接邮箱需要的各个参数"></a>1.需要先创建MCOPOPSession，并配置连接邮箱需要的各个参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">MCOPOPSession *session = [[MCOPOPSession alloc] init];</span><br><span class="line"></span><br><span class="line">session.hostname = @&quot;pop.qq.com&quot;;</span><br><span class="line"></span><br><span class="line">session.port = 995;</span><br><span class="line"></span><br><span class="line">[session setUsername:@&quot;myMail@qq.com&quot;];</span><br><span class="line"></span><br><span class="line">[sessionsetPassword:@&quot;yourPsw&quot;];</span><br><span class="line"></span><br><span class="line">[sessionsetConnectionType:MCOConnectionTypeTLS];</span><br></pre></td></tr></table></figure>
+<h3 id="2-配置好参数后，创建MCOPOPOperation，通过该对象来操作邮件"><a href="#2-配置好参数后，创建MCOPOPOperation，通过该对象来操作邮件" class="headerlink" title="2.配置好参数后，创建MCOPOPOperation，通过该对象来操作邮件"></a>2.配置好参数后，创建MCOPOPOperation，通过该对象来操作邮件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">MCOPOPOperation * checkOp = [sessioncheckAccountOperation];</span><br><span class="line"></span><br><span class="line">//开启异步请求，检查目前该配置是否能正确登录邮箱</span><br><span class="line"></span><br><span class="line">[checkOp start:^(NSError *error) &#123;</span><br><span class="line">         NSLog(@&quot;finished checking account.&quot;);</span><br><span class="line">         </span><br><span class="line">         if (error == nil) &#123;</span><br><span class="line">          //正确登录邮箱</span><br><span class="line">          /*在这里获取邮件头，通过邮件头可以获得邮件内容，详情看下面*/</span><br><span class="line">         &#125; else &#123;</span><br><span class="line"></span><br><span class="line">             NSLog(@&quot;登录邮箱失败，请检查网络重试,error loading account: %@&quot;, error);</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">         checkOp = nil;</span><br><span class="line"></span><br><span class="line">    &#125;];</span><br></pre></td></tr></table></figure>
+<h3 id="3-获取邮件头，通过MCOPOPFetchMessagesOperation来获取邮件头"><a href="#3-获取邮件头，通过MCOPOPFetchMessagesOperation来获取邮件头" class="headerlink" title="3.获取邮件头，通过MCOPOPFetchMessagesOperation来获取邮件头"></a>3.获取邮件头，通过MCOPOPFetchMessagesOperation来获取邮件头</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">MCOPOPFetchMessagesOperation * op = [session fetchMessagesOperation];</span><br><span class="line"></span><br><span class="line">//异步获取邮件头MCOPOPMessageInfo，保存在messages里</span><br><span class="line"></span><br><span class="line">[op start:^(NSError * error,NSArray * messages) &#123;</span><br><span class="line"></span><br><span class="line">    if (error==nil) &#123;</span><br><span class="line"></span><br><span class="line">  //通过messages中的邮件头信息，可以进一步请求获得最终的邮件内容,获取方法见下面4</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<h3 id="4-通过MCOPOPMessageInfo获取邮件内容-得到MCOMessageParser，可从中获得邮件标题，正文，附件等信息"><a href="#4-通过MCOPOPMessageInfo获取邮件内容-得到MCOMessageParser，可从中获得邮件标题，正文，附件等信息" class="headerlink" title="4.通过MCOPOPMessageInfo获取邮件内容,得到MCOMessageParser，可从中获得邮件标题，正文，附件等信息"></a>4.通过MCOPOPMessageInfo获取邮件内容,得到MCOMessageParser，可从中获得邮件标题，正文，附件等信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">MCOPOPMessageInfo *messageInfo= messages[0];//拿到一个邮件头</span><br><span class="line"></span><br><span class="line">int index= messageInfo.index;</span><br><span class="line"></span><br><span class="line">MCOPOPFetchMessageOperation*messageOperation=[session fetchMessageOperationWithIndex: index];</span><br><span class="line"></span><br><span class="line">//开启异步请求, messageData为邮件内容</span><br><span class="line"></span><br><span class="line">[messageOperation start:^(NSError * error, NSData *messageData) &#123;</span><br><span class="line"></span><br><span class="line">    // messageData is the RFC 822 formatted message data.</span><br><span class="line"></span><br><span class="line">         if (!error) &#123;</span><br><span class="line"></span><br><span class="line">    //由data转换为MCOMessageParser</span><br><span class="line"></span><br><span class="line">             MCOMessageParser * msgPaser =[MCOMessageParser messageParserWithData:messageData];</span><br><span class="line"></span><br><span class="line">    //可从msgPaser获得邮件信息，如：msgPaser.header.subject为邮件标题</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">             NSString *htmlString=[msgPaserhtmlBodyRendering];//获取邮件html正文</span><br><span class="line"></span><br><span class="line">                 messageOperation=nil;</span><br><span class="line"></span><br><span class="line">             &#125;else&#123;</span><br><span class="line"></span><br><span class="line">               </span><br><span class="line"></span><br><span class="line">                 NSLog(@&quot;获取邮件消息失败&quot;);</span><br><span class="line"></span><br><span class="line">             &#125;</span><br><span class="line"></span><br><span class="line">         &#125;];</span><br></pre></td></tr></table></figure>
+<h3 id="5-关于MCOMessageParser"><a href="#5-关于MCOMessageParser" class="headerlink" title="5.关于MCOMessageParser"></a>5.关于MCOMessageParser</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// MCOMessageHeader包含了邮件标题，时间等头信息</span><br><span class="line"></span><br><span class="line">MCOMessageHeader *header=msgPaser.header;</span><br><span class="line"></span><br><span class="line">//获得邮件正文的HTML内容,一般使用webView加载</span><br><span class="line"></span><br><span class="line">NSString * bodyHtml =[msgPaser htmlBodyRendering];</span><br><span class="line"></span><br><span class="line">//获取附件(多个)</span><br><span class="line"></span><br><span class="line">NSMutableArray *attachments=[[NSMutableArrayalloc]initWithArray:_msgPaser.attachments];</span><br><span class="line"></span><br><span class="line">MCOAttachment *attachment=attachments[0]; //拿到一个附件MCOAttachment,可从中得到文件名，文件内容data</span><br></pre></td></tr></table></figure>
+<h2 id="三、IMAP"><a href="#三、IMAP" class="headerlink" title="三、IMAP"></a>三、IMAP</h2><h3 id="1-需要先创建MCOIMAPSession，并配置连接邮箱需要的各个参数"><a href="#1-需要先创建MCOIMAPSession，并配置连接邮箱需要的各个参数" class="headerlink" title="1.需要先创建MCOIMAPSession，并配置连接邮箱需要的各个参数"></a>1.需要先创建MCOIMAPSession，并配置连接邮箱需要的各个参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">session = [[MCOIMAPSessionalloc]init];</span><br><span class="line"></span><br><span class="line">session.hostname =@&quot;imap.qq.com&quot;;</span><br><span class="line"></span><br><span class="line">session.port =993;</span><br><span class="line"></span><br><span class="line">[session setUsername:@&quot;mail@qq.com&quot;];</span><br><span class="line"></span><br><span class="line">[session setPassword:@&quot;psw&quot;];</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">[session setConnectionType:MCOConnectionTypeTLS];</span><br><span class="line"></span><br><span class="line">session.connectionLogger = ^(void * connectionID,MCOConnectionLogType type,NSData * data) &#123;</span><br><span class="line"></span><br><span class="line">        if (type != MCOConnectionLogTypeSentPrivate) &#123;</span><br><span class="line"></span><br><span class="line">            NSLog(@&quot;eventlogged:%p %i withData: %@&quot;, connectionID, type, [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">//检查登录邮箱</span><br><span class="line"></span><br><span class="line">MCOIMAPOperation *checkOp = [sessioncheckAccountOperation];</span><br><span class="line"></span><br><span class="line">    [checkOp start:^(NSError *error) &#123;</span><br><span class="line"></span><br><span class="line">         NSLog(@&quot;finished checking account.&quot;);</span><br><span class="line"></span><br><span class="line">         if (error == nil) &#123;</span><br><span class="line"></span><br><span class="line">//在这里获取邮件</span><br><span class="line"></span><br><span class="line">            [self getmail];</span><br><span class="line"></span><br><span class="line">         &#125; else &#123;</span><br><span class="line"></span><br><span class="line">             NSLog(@&quot;error loading account: %@&quot;, error);</span><br><span class="line"></span><br><span class="line">            [self hideLoading];</span><br><span class="line"></span><br><span class="line">            ALERT_SHOW(@&quot;登录邮箱失败，请检查网络重试&quot;);</span><br><span class="line"></span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">         checkOp = nil;</span><br><span class="line">    &#125;];</span><br></pre></td></tr></table></figure>
+<h3 id="2-获取邮件"><a href="#2-获取邮件" class="headerlink" title="2.获取邮件"></a>2.获取邮件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">MCOIMAPMessagesRequestKind requestKind = (MCOIMAPMessagesRequestKind)</span><br><span class="line"></span><br><span class="line">    (MCOIMAPMessagesRequestKindHeaders |MCOIMAPMessagesRequestKindStructure |</span><br><span class="line"></span><br><span class="line">     MCOIMAPMessagesRequestKindInternalDate |MCOIMAPMessagesRequestKindHeaderSubject |</span><br><span class="line"></span><br><span class="line">     MCOIMAPMessagesRequestKindFlags);</span><br><span class="line"></span><br><span class="line">MCOIndexSet *uids = [MCOIndexSetindexSetWithRange:MCORangeMake(1,UINT64_MAX)];</span><br><span class="line"></span><br><span class="line">MCOIMAPFetchMessagesOperation *fetchOperation = [sessionfetchMessagesByUIDOperationWithFolder:@&quot;INBOX&quot;requestKind:requestKinduids:uids];</span><br><span class="line"></span><br><span class="line">    //异步请求邮件，fetchedMessages为邮件列表，里面存放MCOIMAPMessage对象</span><br><span class="line"></span><br><span class="line">[fetchOperationstart:^(NSError * error,NSArray * fetchedMessages,MCOIndexSet * vanishedMessages) &#123;</span><br><span class="line"></span><br><span class="line">        if(error) &#123;</span><br><span class="line"></span><br><span class="line">            NSLog(@&quot;获取邮件列表失败。Error downloading message headers:%@&quot;, error);</span><br><span class="line"></span><br><span class="line">        &#125;else&#123;</span><br><span class="line"></span><br><span class="line">            // 在这里操作邮件内容，见3          </span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<h3 id="3-操作邮件内容"><a href="#3-操作邮件内容" class="headerlink" title="3.操作邮件内容"></a>3.操作邮件内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//拿出一个邮件MCOIMAPMessage(里面包含邮件头等信息)</span><br><span class="line"></span><br><span class="line">MCOIMAPMessage *message = fetchedMessages [0];</span><br><span class="line"></span><br><span class="line">//使用MCOIMAPMessageRenderingOperation来获得邮件概要信息</span><br><span class="line"></span><br><span class="line">NSString *uidKey = [NSStringstringWithFormat:@&quot;%d&quot;, message.uid];</span><br><span class="line"></span><br><span class="line">MCOIMAPMessageRenderingOperation *  messageRenderingOperation = [sessionplainTextBodyRenderingOperationWithMessage:messagefolder:@&quot;INBOX&quot;];</span><br><span class="line"></span><br><span class="line">        [messageRenderingOperationstart:^(NSString * plainTextBodyString,NSError * error) &#123;</span><br><span class="line"></span><br><span class="line">            // plainTextBodyString为邮件的正文文本信息</span><br><span class="line"></span><br><span class="line">        &#125;];</span><br></pre></td></tr></table></figure>
+<h3 id="4-取到邮件内容，最终取得该邮件的MCOMessageParser"><a href="#4-取到邮件内容，最终取得该邮件的MCOMessageParser" class="headerlink" title="4.取到邮件内容，最终取得该邮件的MCOMessageParser"></a>4.取到邮件内容，最终取得该邮件的MCOMessageParser</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">MCOIMAPFetchContentOperation * op = [sessionfetchMessageOperationWithFolder: @&quot;INBOX&quot;uid:[messageuid]];</span><br><span class="line">        //    [_opsaddObject:op];</span><br><span class="line"></span><br><span class="line">        [op start:^(NSError * error,NSData * data) &#123;</span><br><span class="line"></span><br><span class="line">            if ([error code] != MCOErrorNone) &#123;</span><br><span class="line"></span><br><span class="line">                ALERT_SHOW(@&quot;获取邮件数据失败&quot;);</span><br><span class="line"></span><br><span class="line">                return;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            NSAssert(data != nil, @&quot;data != nil&quot;);</span><br><span class="line"></span><br><span class="line">            //拿到MCOMessageParser后，如何处理，跟上文pop提到的MCOMessageParser一致</span><br><span class="line"></span><br><span class="line">            MCOMessageParser * msgPaser = [MCOMessageParsermessageParserWithData:data];</span><br><span class="line"></span><br><span class="line">        &#125;];</span><br></pre></td></tr></table></figure>
+<h2 id="四、SMTP"><a href="#四、SMTP" class="headerlink" title="四、SMTP"></a>四、SMTP</h2><h3 id="1-先创建MCOSMTPSession-配置好各个连接smtp邮箱的参数"><a href="#1-先创建MCOSMTPSession-配置好各个连接smtp邮箱的参数" class="headerlink" title="1.先创建MCOSMTPSession,配置好各个连接smtp邮箱的参数"></a>1.先创建MCOSMTPSession,配置好各个连接smtp邮箱的参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">MCOSMTPSession*smtpSession = [[[MCOSMTPSessionalloc]init]autorelease];</span><br><span class="line"></span><br><span class="line">smtpSession.username = @&quot;yoursmtp@qq.com&quot;;</span><br><span class="line"></span><br><span class="line">smtpSession.password = @&quot;yourpws&quot;;</span><br><span class="line"></span><br><span class="line">smtpSession.hostname = @&quot;smtp.qq.com&quot;;</span><br><span class="line"></span><br><span class="line">smtpSession.port = 465;</span><br><span class="line"></span><br><span class="line">smtpSession.connectionType = MCOConnectionTypeTLS;</span><br></pre></td></tr></table></figure>
+<h3 id="2-使用MCOMessageBuilder构建邮件体的发送内容"><a href="#2-使用MCOMessageBuilder构建邮件体的发送内容" class="headerlink" title="2.使用MCOMessageBuilder构建邮件体的发送内容"></a>2.使用MCOMessageBuilder构建邮件体的发送内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line">MCOMessageBuilder * builder = [[[MCOMessageBuilderalloc]init]autorelease];</span><br><span class="line"></span><br><span class="line">//构建邮件头</span><br><span class="line"></span><br><span class="line">   [[builder header] setFrom:[MCOAddress addressWithDisplayName:nil mailbox: @&quot;yoursmtp@qq.com&quot;]];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//设置邮件的接受人(可以多个)</span><br><span class="line"></span><br><span class="line">NSMutableArray *to = [NSMutableArrayarray];</span><br><span class="line"></span><br><span class="line">    NSArray *recipients=[@&quot;32232@qq.com;toyou@qq.com&quot;componentsSeparatedByString:@&quot;;&quot;];</span><br><span class="line"></span><br><span class="line">for(NSString *toAddressin recipients) &#123;</span><br><span class="line"></span><br><span class="line">//使用MCOAddress封装邮箱地址</span><br><span class="line"></span><br><span class="line">        MCOAddress *newAddress = [MCOAddressaddressWithMailbox:toAddress];</span><br><span class="line"></span><br><span class="line">[to addObject:newAddress];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    [[builder header] setTo:to];</span><br><span class="line"></span><br><span class="line">//设置抄送人(多个)</span><br><span class="line"></span><br><span class="line">NSArray *CC=[@&quot;cc32232@qq.com;cctoyou@qq.com&quot;componentsSeparatedByString:@&quot;;&quot;];</span><br><span class="line"></span><br><span class="line">        NSMutableArray *cc = [NSMutableArrayarray];</span><br><span class="line"></span><br><span class="line">        for(NSString *ccAddressin CC) &#123;</span><br><span class="line"></span><br><span class="line">            MCOAddress *newAddress = [MCOAddressaddressWithMailbox:ccAddress];</span><br><span class="line"></span><br><span class="line">                [ccaddObject:newAddress];</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">       [[builder header] setCc:cc];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//设置密送人（多个）</span><br><span class="line"></span><br><span class="line">           NSArray *BCC=[@&quot;bc32232@qq.com;bctoyou@qq.com&quot;componentsSeparatedByString:@&quot;;&quot;];</span><br><span class="line"></span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">        NSMutableArray *bcc = [NSMutableArrayarray];</span><br><span class="line"></span><br><span class="line">        for(NSString *bccAddressin BCC) &#123;</span><br><span class="line"></span><br><span class="line">            MCOAddress *newAddress = [MCOAddressaddressWithMailbox:bccAddress];</span><br><span class="line"></span><br><span class="line">               [bcc addObject:newAddress];</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        [[builder header] setBcc:bcc];</span><br><span class="line"></span><br><span class="line">//设置邮件标题</span><br><span class="line"></span><br><span class="line">[[builder header] setSubject: @&quot;给你的邮件&quot;];</span><br><span class="line"></span><br><span class="line">//设置邮件正文（纯文本）</span><br><span class="line"></span><br><span class="line">[builder setTextBody: @&quot;测试邮件的正文部分&quot;];</span><br><span class="line"></span><br><span class="line">ps:如果邮件是回复或者转发，原邮件中往往有附件以及正文中有其他图片资源，如果有需要你可将原文原封不动的也带过去，这里发送的正文就可以如下配置：</span><br><span class="line"></span><br><span class="line">NSString * bodyHtml=@”&lt;p&gt;我是原邮件正文&lt;/p&gt;”;</span><br><span class="line"></span><br><span class="line">NSString *body=@&quot;我是邮件回复的内容&quot;;</span><br><span class="line"></span><br><span class="line">NSMutableString*fullBodyHtml=[NSMutableStringstringWithFormat:@&quot;%@&lt;br/&gt;-------------原始邮件-------------&lt;br/&gt;%@&quot;,[body stringByReplacingOccurrencesOfString:@&quot;\n&quot;withString:@&quot;&lt;br/&gt;&quot;],bodyHtml];</span><br><span class="line"></span><br><span class="line"> [builder setHTMLBody:fullBodyHtml];</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">//添加正文里的附加资源</span><br><span class="line"></span><br><span class="line">NSArray *inattachments=msgPaser.htmlInlineAttachments;</span><br><span class="line"></span><br><span class="line">        for (MCOAttachment*attachmentininattachments) &#123;</span><br><span class="line"></span><br><span class="line">           [builder addRelatedAttachment:attachment];//添加html正文里的附加资源（图片）</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">//添加邮件附件</span><br><span class="line"></span><br><span class="line">for (MCOAttachment*attachmentinattachments) &#123;</span><br><span class="line"></span><br><span class="line">           [builder addAttachment:attachment];//添加附件</span><br><span class="line"></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-将构建好的邮件体发送出去"><a href="#3-将构建好的邮件体发送出去" class="headerlink" title="3.将构建好的邮件体发送出去"></a>3.将构建好的邮件体发送出去</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">NSData * rfc822Data =[builder data];</span><br><span class="line"></span><br><span class="line">MCOSMTPSendOperation *sendOperation = [smtpSessionsendOperationWithData:rfc822Data];</span><br><span class="line"></span><br><span class="line">[sendOperation start:^(NSError *error) &#123;</span><br><span class="line"></span><br><span class="line">        if(error) &#123;</span><br><span class="line"></span><br><span class="line">            NSLog(@&quot;%@邮件发送失败Error sending email:%@&quot;, username, error);</span><br><span class="line"></span><br><span class="line">        &#125; else &#123;</span><br><span class="line"></span><br><span class="line">            NSLog(@&quot;%@ Successfullysent email!&quot;, username);</span><br><span class="line"></span><br><span class="line">            UIAlertView *alert=[[UIAlertViewalloc]initWithTitle:@&quot;温馨提示&quot;message:@&quot;发送成功&quot;delegate:selfcancelButtonTitle:@&quot;确认&quot;otherButtonTitles:nil];</span><br><span class="line"></span><br><span class="line">            [alert show];</span><br><span class="line"></span><br><span class="line">            [alert release];</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;];</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/21/Mailcore2源码阅读/" data-id="cjtis2jre002dzoocwahb5rwt" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/03/21/14周任务/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/21/AndroidStudio工程使用说明/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/21/白象的舞步来自南亚次大陆的网络攻击/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/21/盗梦空间：云托管的apt/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/21/第二章逆向分析HelloWord程序/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/21/Chapter1CBasics/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/21/Chapter2VariablesandFundamentalDataTypes/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 闳<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

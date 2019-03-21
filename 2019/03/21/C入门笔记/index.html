@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>浮生若梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="C++入门阅读笔记[TOC] 1.C++ 中的类型限定符1231. const：const 类型的对象在程序执行期间不能被修改改变；2. volatile：修饰符 volatile 告诉编译器，变量的值可能以程序未明确指定的方式被改变；3. restrict：由 restrict 修饰的指针是唯一一种访问它所指向的对象的方式。只有 C99 增加了新的类型限定符 restrict。 2.句柄的理解（">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浮生若梦">
+<meta property="og:url" content="http://yoursite.com/2019/03/21/C入门笔记/index.html">
+<meta property="og:site_name" content="浮生若梦">
+<meta property="og:description" content="C++入门阅读笔记[TOC] 1.C++ 中的类型限定符1231. const：const 类型的对象在程序执行期间不能被修改改变；2. volatile：修饰符 volatile 告诉编译器，变量的值可能以程序未明确指定的方式被改变；3. restrict：由 restrict 修饰的指针是唯一一种访问它所指向的对象的方式。只有 C99 增加了新的类型限定符 restrict。 2.句柄的理解（">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://jbcdn2.b0.upaiyun.com/2016/11/ae91bded2fb09a4ae9b2d9d051bf7528.png">
+<meta property="og:updated_time" content="2019-03-21T15:10:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浮生若梦">
+<meta name="twitter:description" content="C++入门阅读笔记[TOC] 1.C++ 中的类型限定符1231. const：const 类型的对象在程序执行期间不能被修改改变；2. volatile：修饰符 volatile 告诉编译器，变量的值可能以程序未明确指定的方式被改变；3. restrict：由 restrict 修饰的指针是唯一一种访问它所指向的对象的方式。只有 C99 增加了新的类型限定符 restrict。 2.句柄的理解（">
+<meta name="twitter:image" content="http://jbcdn2.b0.upaiyun.com/2016/11/ae91bded2fb09a4ae9b2d9d051bf7528.png">
+  
+    <link rel="alternate" href="/atom.xml" title="浮生若梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">浮生若梦</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-C入门笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/21/C入门笔记/" class="article-date">
+  <time datetime="2019-03-21T15:10:32.000Z" itemprop="datePublished">2019-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="C-入门阅读笔记"><a href="#C-入门阅读笔记" class="headerlink" title="C++入门阅读笔记"></a>C++入门阅读笔记</h1><p>[TOC]</p>
+<h3 id="1-C-中的类型限定符"><a href="#1-C-中的类型限定符" class="headerlink" title="1.C++ 中的类型限定符"></a>1.C++ 中的类型限定符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. const：const 类型的对象在程序执行期间不能被修改改变；</span><br><span class="line">2. volatile：修饰符 volatile 告诉编译器，变量的值可能以程序未明确指定的方式被改变；</span><br><span class="line">3. restrict：由 restrict 修饰的指针是唯一一种访问它所指向的对象的方式。只有 C99 增加了新的类型限定符 restrict。</span><br></pre></td></tr></table></figure>
+<h3 id="2-句柄的理解"><a href="#2-句柄的理解" class="headerlink" title="2.句柄的理解"></a>2.句柄的理解</h3><p>（1）句柄与指针的区别<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">指针：指针指向系统中物理内存的地址；</span><br><span class="line">句柄：句柄是windows在内存中维护的一个对象内存物理地址列表的整数索引，句柄是一种指向指针的指针。</span><br></pre></td></tr></table></figure></p>
+<p>（2）句柄的其他知识<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- 由于windows是一种以虚拟内存为基础的操作系统，其内存管理器经常会在内存中来回的移动对象，以此来满足各种应用程序对内存的需求。</span><br><span class="line">- 对象的移动意味着对象内存地址的变化，正是因为如此，如果直接使用指针，在内存地址被改变后，系统将不知道到哪里去再调用这个对象。</span><br><span class="line">- windows系统为论文解决这个问题，系统专门为各种应用程序腾出了一定的内存地址（句柄）专门用来记录这些变化的地址</span><br><span class="line">- windows内存管理器在移动某些对象之后，他会将这些对象新的内存地址传给句柄，告诉他移动后对象去了哪里。</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-virtual关键字"><a href="#3-virtual关键字" class="headerlink" title="3.virtual关键字"></a>3.virtual关键字</h3><ul>
+<li>虚函数是指一个类中你希望重载的成员函数，当你用一个基类指针或引用指向一个继承类对象的时候，你调用一个虚函数，实际调用的是继承类的版本</li>
+<li>虚函数的调用取决于指向或者引用的对象的类型，而不是指针或者引用自身的类型。</li>
+<li>虚函数使得我们可以创建一个统一的基类指针列表，并且调用不同子类的函数而无需知道子类对象究竟是什么。</li>
+<li>只要基类里面被声明为虚函数，那么在子类中默认都是虚的</li>
+<li>静态函数不可以声明为虚函数，同时也不能被const 和 volatile关键字修饰。</li>
+<li>虚函数可以被私有化，但有一些细节需要注意。</li>
+</ul>
+<h3 id="4-C-零碎知识点"><a href="#4-C-零碎知识点" class="headerlink" title="4.C++零碎知识点"></a>4.C++零碎知识点</h3><ul>
+<li>In general, computer languages deal with two<br>concepts—data and algorithms.</li>
+</ul>
+<h3 id="5-namespace的作用"><a href="#5-namespace的作用" class="headerlink" title="5.namespace的作用"></a>5.namespace的作用</h3><p>1.实际上就是一个由程序设计者命名的内存区域，程序设计者可以根据需要指定一些有名字的空间域，把一些全局实体分别放在各个命名空间中，从而与其他全局实体分隔开来。</p>
+<p>2.在不同的作用域中可以定义相同名字的变量，互不于扰，系统能够区别它们；</p>
+<h3 id="6-const-char"><a href="#6-const-char" class="headerlink" title="6.const char *"></a>6.const char *</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">char * const p: 定义一个指向字符的指针常数，即const指针，常指针，这个指针是不可以p++的。 </span><br><span class="line">const char* p : 定义一个指向字符常数的指针，即常量指针，这个指针是可以p++的。 </span><br><span class="line">char const* p : 等同于const char* p</span><br></pre></td></tr></table></figure>
+<h3 id="7-深入浅出VA函数"><a href="#7-深入浅出VA函数" class="headerlink" title="7.深入浅出VA函数"></a>7.深入浅出VA函数</h3><ol>
+<li>ANSI C标准下，va的宏定义在stdarg.h中，它们有：va_list，va_start()，va_arg()，va_end()</li>
+<li>使用案例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//格式化到一个文件流，可用于日志文件</span><br><span class="line">FILE *logfile;</span><br><span class="line">int WriteLog(const char * format, ...)</span><br><span class="line">&#123;</span><br><span class="line">va_list arg_ptr;</span><br><span class="line">va_start(arg_ptr, format);</span><br><span class="line">int nWrittenBytes = vfprintf(logfile, format, arg_ptr);</span><br><span class="line">va_end(arg_ptr);</span><br><span class="line">return nWrittenBytes;</span><br><span class="line">&#125;</span><br><span class="line">…</span><br><span class="line">// 调用时，与使用printf()没有区别。</span><br><span class="line">WriteLog(&quot;%04d-%02d-%02d %02d:%02d:%02d  %s/%04d logged out.&quot;, </span><br><span class="line">nYear, nMonth, nDay, nHour, nMinute, szUserName, nUserID);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//求任意个自然数的平方和：</span><br><span class="line">int SqSum(int n1, ...)</span><br><span class="line">&#123;</span><br><span class="line">va_list arg_ptr;</span><br><span class="line">int nSqSum = 0, n = n1;</span><br><span class="line">va_start(arg_ptr, n1);</span><br><span class="line">while (n &gt; 0)</span><br><span class="line">&#123;</span><br><span class="line">    nSqSum += (n * n);</span><br><span class="line">    n = va_arg(arg_ptr, int);</span><br><span class="line">&#125;</span><br><span class="line">va_end(arg_ptr);</span><br><span class="line">return nSqSum;</span><br><span class="line">&#125;</span><br><span class="line">// 调用时</span><br><span class="line">int nSqSum = SqSum(7, 2, 7, 11, -1);</span><br></pre></td></tr></table></figure>
+<p>3.各大函数的使用方法</p>
+<ul>
+<li><p>va_list arg_ptr：定义一个指向个数可变的参数列表指针；</p>
+</li>
+<li><p>va_start(arg_ptr, argN)：使参数列表指针arg_ptr指向函数参数列表中的第一个可选参数， 说明：argN是位于第一个可选参数之前的固定参数，（或者说，最后一个固定参数；…之前的一个参数），函数参数列表中参数在内存中的顺序与函数声明时的顺序是一致的。如果有一va函数的声明是void va_test(char a, char b, char c, …)，则它的固定参数依次是a,b,c，最后一个固定参数argN为c，因此就是va_start(arg_ptr, c)。</p>
+</li>
+<li>va_arg(arg_ptr, type)：返回参数列表中指针arg_ptr所指的参数，返回类型为type，并使指针arg_ptr指向参数列表中下一个参数。</li>
+<li>va_copy(dest, src)：dest，src的类型都是va_list，va_copy()用于复制参数列表指针，将dest初始化为src。</li>
+<li>va_end(arg_ptr)：清空参数列表，并置参数指针arg_ptr无效。 说明：指针arg_ptr被置无效后，可以通过调用va_start()、va_copy()恢复arg_ptr。每次调用va_start() / va_copy()后，必须得有相应的va_end()与之匹配。参数指针可以在参数列表中随意地来回移动，但必须在va_start() … va_end()之内。</li>
+</ul>
+<p>4.使用的头文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;  </span><br><span class="line">#include &lt;stdarg.h&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="8-shared-ptr的使用"><a href="#8-shared-ptr的使用" class="headerlink" title="8.shared_ptr的使用"></a>8.shared_ptr的使用</h3><p>1.shared_ptr是一种智能指针（smart pointer），作用有如同指针，但会记录有多少个shared_ptrs共同指向一个对象。这便是所谓的引用计数（reference counting）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  引用计数指的是，所有管理同一个裸指针（rawpointer）的shared_ptr，都共享一个引用计器</span><br><span class="line">，每当一个shared_ptr被赋值（或拷贝构造）给其它shared_ptr时，这个共享的引用计数器就加</span><br><span class="line">1，当一个shared_ptr析构或者被用于管理其它裸指针时，这个引用计数器就减1，如果此时发现</span><br><span class="line">引用计数器为0，那么说明它是管理这个指针的最后一个shared_ptr了，于是我们释放指针指向</span><br><span class="line">的资源。</span><br></pre></td></tr></table></figure></p>
+<p>2.一旦最后一个这样的指针被销毁，也就是一旦某个对象的引用计数变为0，这个对象会被自动删除。这在非环形数据结构中防止资源泄露很有帮助。</p>
+<h3 id="9-实践过程中遇到的问题"><a href="#9-实践过程中遇到的问题" class="headerlink" title="9.实践过程中遇到的问题"></a>9.实践过程中遇到的问题</h3><p>1.不能将局域内的指针传回<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//代码</span><br><span class="line">char* getStringLength(const char* format,...)</span><br><span class="line">    &#123;   </span><br><span class="line">        char p[kLogMaxLength];</span><br><span class="line">        va_list arg;  </span><br><span class="line">        va_start(arg, format); </span><br><span class="line">        vsnprintf(p,kLogMaxLength,format,arg);</span><br><span class="line">        va_end(arg);</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        return p;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">报错： warning: address of stack memory associated with local</span><br><span class="line">      variable &apos;p&apos; returned [-Wreturn-stack-address]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//修正</span><br><span class="line">std::string parseParamater(const char* format,...)</span><br><span class="line">    &#123;   </span><br><span class="line">        char p[kLogMaxLength];</span><br><span class="line">        std::string q;</span><br><span class="line">        va_list arg;  </span><br><span class="line">        va_start(arg, format); </span><br><span class="line">        vsnprintf(p,kLogMaxLength,format,arg);</span><br><span class="line">        va_end(arg);</span><br><span class="line"></span><br><span class="line">        q = std::string(p);</span><br><span class="line">        return q;</span><br></pre></td></tr></table></figure>
+<p>2.typedef与宏定义易错点</p>
+<ul>
+<li>宏定义后面不要加”;”</li>
+<li>新名称在前面</li>
+</ul>
+<h3 id="10-内联函数"><a href="#10-内联函数" class="headerlink" title="10.内联函数"></a>10.内联函数</h3><p>1.在C语言中，我们使用宏定义函数这种借助编译器的优化技术来减少程序的执行时间，而在C++中内联函数作为编译器优化手段的一种技术，在降低运行时间上非常有用；</p>
+<p>2.内联函数是C++的增强特性之一，用来降低程序的运行时间。当内联函数收到编译器的指示时，即可发生内联：编译器将使用函数的定义体来替代函数调用语句，这种替代行为发生在编译阶段而非程序运行阶段。<br>3.定义函数时，在函数的最前面以关键字“inline”声明函数，即可使函数称为内联声明函数；</p>
+<p>4.优点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.它通过避免函数调用所带来的开销来提高你程序的运行速度。</span><br><span class="line">2.当函数调用发生时，它节省了变量弹栈、压栈的开销。</span><br><span class="line">3.它避免了一个函数执行完返回原现场的开销。</span><br><span class="line">4.通过将函数声明为内联，你可以把函数定义放在头文件内。</span><br></pre></td></tr></table></figure></p>
+<p>5.缺点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.因为代码的扩展，内联函数增大了可执行程序的体积。</span><br><span class="line">2.C++内联函数的展开是中编译阶段，这就意味着如果你的内联函数发生了改动，那么就需要重新编译代码。</span><br><span class="line">3.当你把内联函数放在头文件中时，它将会使你的头文件信息变多，不过头文件的使用者不用在意这些。</span><br><span class="line">4.有时候内联函数并不受到青睐，比如在嵌入式系统中，嵌入式系统的存储约束可能不允许体积很大的可执行程序。</span><br></pre></td></tr></table></figure></p>
+<p>6.什么时候该使用内联函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.当对程序执行性能有要求时，那么就使用内联函数吧。</span><br><span class="line">2.当你想宏定义一个函数时，那就果断使用内联函数吧。</span><br><span class="line">3.在类内部定义的函数会默认声明为inline函数，这有利于 类实现细节的隐藏。</span><br></pre></td></tr></table></figure></p>
+<h3 id="11-C-的单例"><a href="#11-C-的单例" class="headerlink" title="11 C++的单例"></a>11 C++的单例</h3><p>1.单例模式也称为单件模式、单子模式，可能是使用最广泛的设计模式；</p>
+<p>2.其意图是保证一个类仅有一个实例，并提供一个访问它的全局访问点，该实例被所有程序模块共享；</p>
+<p>3.有很多地方需要这样的功能模块，如系统的日志输出，GUI应用必须是单鼠标，MODEM的联接需要一条且只需要一条电话线，操作系统只能有一个窗口管理器，一台PC连一个键盘；</p>
+<p>4.单例类CSingleton有以下特征：</p>
+<ul>
+<li>它有一个指向唯一实例的静态指针m_pInstance，并且是私有的；</li>
+<li>它有一个公有的函数，可以获取这个唯一的实例，并且在需要的时候创建该实例；</li>
+<li>它的构造函数是私有的，这样就不能从别处创建该类的实例；</li>
+</ul>
+<h3 id="12-c-c-函数类型和函数指针类型"><a href="#12-c-c-函数类型和函数指针类型" class="headerlink" title="12 c/c++ 函数类型和函数指针类型"></a>12 c/c++ 函数类型和函数指针类型</h3><p>1.在C语言中，函数也是一种类型，可以定义指向函数的指针。我们知道，指针变量的内存单元存放一个地址值，而函数指针存放的就是函数的入口地址.</p>
+<p>2.c语言函数指针的定义形式：返回类型 (*函数指针名称)(参数类型,参数类型,参数类型，…);</p>
+<p>&emsp;c++函数指针的定义形式：返回类型（类名称::*函数成员名称）（参数类型，参数类型，参数类型，….);   </p>
+<p>3.函数作为实参使用时，会自动的转换成函数指针；</p>
+<p>4.当把函数名作为一个值使用时，该函数自动的转换成指针.</p>
+<h3 id="13-char类型与string类型的区别"><a href="#13-char类型与string类型的区别" class="headerlink" title="13 char类型与string类型的区别"></a>13 char类型与string类型的区别</h3><ol>
+<li><p>char是字符类型</p>
+</li>
+<li><p>string是字符串类型</p>
+</li>
+</ol>
+<p>虽然一字之差，但其本质是很大的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. char属于基础类型（C++)，在C#中它属于值类型（Value Type)。char类型的长度是固定的，上一篇讲到，在C++中它可能是1个字节</span><br><span class="line">，或者2个字节（取决于是否为Unicode Char），而在C#中，它永远是2个字节。</span><br><span class="line"></span><br><span class="line">2. string是一个模板类型，也就是一个class（C++)。在C#中它属于引用类型（Reference Type)。string的长度是无法明确取得的。</span><br><span class="line">也就是无法通过sizeof来取得，因为它不是一个基础类型，它本身并不固定长度，而取决于内部包含的 字符。</span><br></pre></td></tr></table></figure></p>
+<h3 id="14-引用（reference）与-指针（pointer）的区别与联系"><a href="#14-引用（reference）与-指针（pointer）的区别与联系" class="headerlink" title="14 引用（reference）与 指针（pointer）的区别与联系"></a>14 引用（reference）与 指针（pointer）的区别与联系</h3><h4 id="1-什么是引用？"><a href="#1-什么是引用？" class="headerlink" title="1.什么是引用？"></a>1.什么是引用？</h4><p>引用（reference）： 引用只是别名，不是实体类型（也就是说c++编译器不为引用单独分配内存空间），对一个对象的引用，就是直接对这个对象的操作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a = 3; //定义了一个整形变量a，并且赋初值3 </span><br><span class="line">int &amp; ra = a;//定义了一个引用 ra ,ra与变量占有同一块内存空间 </span><br><span class="line">a = 4; //此时 a 与ra 的值都为 4； </span><br><span class="line">ra = 5;//此时 a 与 ra的值都是5；</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-怎样使用引用？"><a href="#2-怎样使用引用？" class="headerlink" title="2.怎样使用引用？"></a>2.怎样使用引用？</h4><p>（1）引用必须初始化(引用必须指向所引用的对象)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a = 3;</span><br><span class="line">int&amp; ra = a;</span><br><span class="line">int &amp;b ;//错误，引用必须初始化</span><br><span class="line">const int &amp;b = 10;//正确对字面值常量10的引用</span><br></pre></td></tr></table></figure></p>
+<p>（2）引用不能为空<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int &amp;b ;//错误，引用不能为空必须有所引用的对象</span><br></pre></td></tr></table></figure></p>
+<p>(3)引用不能更换目标<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main(void)&#123;</span><br><span class="line">    int a = 3;</span><br><span class="line">    int b = 4;</span><br><span class="line">    int&amp; ra = a;</span><br><span class="line">    // int&amp; ra = b;//错误，多次初始化</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-引用与指针的联系与区别"><a href="#3-引用与指针的联系与区别" class="headerlink" title="3.引用与指针的联系与区别"></a>3.引用与指针的联系与区别</h4><p>&emsp;&emsp;在c++底层中，引用是通过指针实现的。也就是说，在实现层面上，引用就是指针，但是从c++的程序语言层面上来说，引用不是实体类型（不为引用单独分配内存空间）因此，引用与指针之间的区别主要体现在以下几个方面： </p>
+<p>（1）存在空指针，但是不存在空引用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">void * a;//空指针，合法</span><br><span class="line">//void&amp; b;//空引用，不合法</span><br></pre></td></tr></table></figure></p>
+<p>（2）虽然c++编译器会警告，但是指针可以不初始化，而引用必须初始化，并且，引用的目标一旦确定，后面不能再更改，指针可以更改其指向的目标。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main(void)&#123;</span><br><span class="line">    void * a;</span><br><span class="line">    //void&amp; b;</span><br><span class="line"></span><br><span class="line">    int x = 1;</span><br><span class="line">    int y = 2;</span><br><span class="line">    int z = 3 ;</span><br><span class="line">    //指针c可以不初始化，可以更改其指向的目标，</span><br><span class="line">    int * c;</span><br><span class="line">    c = &amp;x;</span><br><span class="line">    c = &amp;y;</span><br><span class="line"></span><br><span class="line">    //引用必须初始化，不可以更改其指向的目标</span><br><span class="line">    //int&amp; ra ;//报错，ra 必须要指定初值</span><br><span class="line">    int &amp; ra = x;</span><br><span class="line">    ra = y;//这里只是把y的值赋给 ra 也就是x 而并不是使引用的目标由 对x的引用到对y的引用</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>（3）存在指针数组 ，不存在引用数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int* a[3] =&#123;&amp;x,&amp;y,&amp;z &#125;;//定义了一个有三个整形指针变量的指针数组 a ，合法</span><br><span class="line">//int&amp; a [3] =&#123;x,y ,z&#125;;//报错，不允许使用引用数组，因为引用没有内存的分配</span><br></pre></td></tr></table></figure></p>
+<h4 id="4-总结"><a href="#4-总结" class="headerlink" title="4.总结"></a>4.总结</h4><p>在c++底层中，引用是通过指针实现的，所以，在实现层面上来说，引用就是指针，但是在c++语法上来说，c++编译器并不为引用类型分配内存，所以引用不能为空，必须被初始化，一旦初始化不能更改引用对象。所有对引用的操作都是对原始对象的操作</p>
+<h3 id="15-向量初始化数组"><a href="#15-向量初始化数组" class="headerlink" title="15 向量初始化数组"></a>15 向量初始化数组</h3><h4 id="1-不带参数的构造函数初始化"><a href="#1-不带参数的构造函数初始化" class="headerlink" title="1.不带参数的构造函数初始化"></a>1.不带参数的构造函数初始化</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//初始化一个size为0的vector</span><br><span class="line">vector&lt;int&gt; abc;</span><br></pre></td></tr></table></figure>
+<h4 id="2-带参数的构造函数初始化"><a href="#2-带参数的构造函数初始化" class="headerlink" title="2.带参数的构造函数初始化"></a>2.带参数的构造函数初始化</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//初始化size,但每个元素值为默认值</span><br><span class="line">vector&lt;int&gt; abc(10);    //初始化了10个默认值为0的元素</span><br><span class="line">//初始化size,并且设置初始值</span><br><span class="line">vector&lt;int&gt; cde(10，1);    //初始化了10个值为1的元素</span><br></pre></td></tr></table></figure>
+<h4 id="3-通过数组地址初始化"><a href="#3-通过数组地址初始化" class="headerlink" title="3.通过数组地址初始化"></a>3.通过数组地址初始化</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a[5] = &#123;1,2,3,4,5&#125;;</span><br><span class="line">//通过数组a的地址初始化，注意地址是从0到5（左闭右开区间）</span><br><span class="line">vector&lt;int&gt; b(a, a+5);</span><br></pre></td></tr></table></figure>
+<h4 id="4-通过同类型的vector初始化"><a href="#4-通过同类型的vector初始化" class="headerlink" title="4.通过同类型的vector初始化"></a>4.通过同类型的vector初始化</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt; a(5,1);</span><br><span class="line">//通过a初始化</span><br><span class="line">vector&lt;int&gt; b(a);</span><br></pre></td></tr></table></figure>
+<h4 id="5-通过insert初始化"><a href="#5-通过insert初始化" class="headerlink" title="5.通过insert初始化"></a>5.通过insert初始化</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//insert初始化方式将同类型的迭代器对应的始末区间（左闭右开区间）内的值插入到vector中</span><br><span class="line">vector&lt;int&gt; a(6,6);</span><br><span class="line">vecot&lt;int&gt; b;</span><br><span class="line">//将a[0]~a[2]插入到b中，b.size()由0变为3</span><br><span class="line">b.insert(b.begin(), a.begin(), a.begin() + 3);</span><br></pre></td></tr></table></figure>
+<h3 id="16-多态"><a href="#16-多态" class="headerlink" title="16 多态"></a>16 多态</h3><h4 id="1-多态概述"><a href="#1-多态概述" class="headerlink" title="1.多态概述"></a>1.多态概述</h4><ul>
+<li>多态性可以简单地概括为“一个接口，多种方法”，程序在运行时才决定调用的函数，它是面向对象编程领域的核心概念。</li>
+<li><p>多态与非多态的实质区别就是函数地址是早绑定还是晚绑定。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- 如果函数的调用，在编译器编译期间就可以确定函数的调用地址，并生产代码，是静态的，就是说地址是早绑定的。</span><br><span class="line"></span><br><span class="line">- 如果函数调用的地址不能在编译器期间确定，需要在运行时才确定，这就属于晚绑定。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>多态的作用:多态的目的则是为了接口重用</p>
+</li>
+<li>封装可以使得代码模块化，继承可以扩展已存在的代码，他们的目的都是为了代码重用。</li>
+</ul>
+<h4 id="2-多太分类"><a href="#2-多太分类" class="headerlink" title="2.多太分类"></a>2.多太分类</h4><p>(1)多态有静态多态，也有动态多态，静态多态，比如函数重载，能够在编译器确定应该调用哪个函数；动态多态，比如继承加虚函数的方式<br><img src="http://jbcdn2.b0.upaiyun.com/2016/11/ae91bded2fb09a4ae9b2d9d051bf7528.png" alt></p>
+<p>(2) 静态多态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">long long Add(int left, int right)  </span><br><span class="line">&#123;  </span><br><span class="line">    return left + right;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line">double Add(float left, float right)  </span><br><span class="line">&#123;  </span><br><span class="line">    return left + right;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line">int main()  </span><br><span class="line">&#123;  </span><br><span class="line">    cout&lt;&lt;Add(10, 20)&lt;&lt;endl; //语句一  </span><br><span class="line">    cout&lt;&lt;Add(12.34f, 43.12f)&lt;&lt;endl; //语句二  </span><br><span class="line">  </span><br><span class="line">    return 0;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>(3)动态多态<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>  </span></span><br><span class="line"><span class="class">&#123;</span>  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">GoToWashRoom</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function">    </span>&#123;  </span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"Person--&gt;?"</span>&lt;&lt;<span class="built_in">endl</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;;  </span><br><span class="line">  </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Man</span> :</span> <span class="keyword">public</span> Person  </span><br><span class="line">&#123;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">GoToWashRoom</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function">    </span>&#123;  </span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"Man--&gt;Please Left"</span>&lt;&lt;<span class="built_in">endl</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;;  </span><br><span class="line">  </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Woman</span> :</span> <span class="keyword">public</span> Person  </span><br><span class="line">&#123;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">GoToWashRoom</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function">    </span>&#123;  </span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"Woman--&gt;Please Right"</span>&lt;&lt;<span class="built_in">endl</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    Person per, *pp;  </span><br><span class="line">    Man man, *pm;  </span><br><span class="line">    Woman woman, *pw;  </span><br><span class="line">  </span><br><span class="line">    pp = &amp;per;  </span><br><span class="line">    pm = &amp;man;  </span><br><span class="line">    pw = &amp;woman;  </span><br><span class="line">      </span><br><span class="line">    <span class="comment">//第一组       //这些都是毫无疑问的  </span></span><br><span class="line">    per.GoToWashRoom(); <span class="comment">//调用基类Person类的函数  </span></span><br><span class="line">    pp-&gt;GoToWashRoom();  <span class="comment">//调用基类Person类的函数  </span></span><br><span class="line">    man.GoToWashRoom(); <span class="comment">//调用派生类Man类的函数   </span></span><br><span class="line">    pm-&gt;GoToWashRoom();  <span class="comment">//调用派生类Man类的函数   </span></span><br><span class="line">    woman.GoToWashRoom();   <span class="comment">//调用派生类Woman类的函数   </span></span><br><span class="line">    pw-&gt;GoToWashRoom();  <span class="comment">//调用派生类Woman类的函数   </span></span><br><span class="line">      </span><br><span class="line">    <span class="comment">//第二组  </span></span><br><span class="line">    pp = &amp;man;  </span><br><span class="line">    pp-&gt;GoToWashRoom();  <span class="comment">//调用基类Person类的函数  </span></span><br><span class="line">    pp = &amp;woman;  </span><br><span class="line">    pp-&gt;GoToWashRoom();  <span class="comment">//调用基类Person类的函数  </span></span><br><span class="line">      </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-多态小结"><a href="#3-多态小结" class="headerlink" title="3.多态小结"></a>3.多态小结</h4><ul>
+<li>基类中定义了虚函数，在派生类中该函数始终保持虚函数的特性</li>
+<li>只有类的成员函数才能定义为虚函数，静态成员函数不能定义为虚函数</li>
+<li>如果在类外定义虚函数，只能在声明函数时加virtual关键字，定义时不用加</li>
+<li>构造函数不能定义为虚函数，虽然可以将operator=定义为虚函数，但最好不要这么做，使用时容 易混淆</li>
+<li>最好将基类的析构函数声明为虚函数。(析构函数比较特殊，因为派生类的析构函数跟基类的析构 函数名称不一样，但是构成覆盖，这里编译器做了特殊处理)</li>
+</ul>
+<h3 id="十七-map用法详解"><a href="#十七-map用法详解" class="headerlink" title="十七 map用法详解"></a>十七 map用法详解</h3><h4 id="1-map简介"><a href="#1-map简介" class="headerlink" title="1.map简介"></a>1.map简介</h4><p>map是一类关联式容器。它的特点是增加和删除节点对迭代器的影响很小，除了那个操作节点，对其他的节点都没有什么影响。对于迭代器来说，可以修改实值，而不能修改key。</p>
+<h4 id="2-map的功能"><a href="#2-map的功能" class="headerlink" title="2.map的功能"></a>2.map的功能</h4><ul>
+<li>自动建立Key － value的对应。key 和 value可以是任意你需要的类型。</li>
+<li><p>根据key值快速查找记录，查找的复杂度基本是Log(N)，如果有1000个记录，最多查找10次，1,000,000个记录，最多查找20次。</p>
+</li>
+<li><p>快速插入Key -Value 记录。</p>
+</li>
+</ul>
+<h4 id="3-数据的插入"><a href="#3-数据的插入" class="headerlink" title="3.数据的插入"></a>3.数据的插入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;map&gt;  </span><br><span class="line">  </span><br><span class="line">#include &lt;string&gt;  </span><br><span class="line">  </span><br><span class="line">#include &lt;iostream&gt;  </span><br><span class="line">  </span><br><span class="line">using namespace std;  </span><br><span class="line">  </span><br><span class="line">int main()  </span><br><span class="line">  </span><br><span class="line">&#123;  </span><br><span class="line">  </span><br><span class="line">    map&lt;int, string&gt; mapStudent;  </span><br><span class="line">  </span><br><span class="line">    mapStudent.insert(map&lt;int, string&gt;::value_type (1, &quot;student_one&quot;));  </span><br><span class="line">  </span><br><span class="line">    mapStudent.insert(map&lt;int, string&gt;::value_type (2, &quot;student_two&quot;));  </span><br><span class="line">  </span><br><span class="line">    mapStudent.insert(map&lt;int, string&gt;::value_type (3, &quot;student_three&quot;));  </span><br><span class="line">  </span><br><span class="line">    map&lt;int, string&gt;::iterator iter;  </span><br><span class="line">  </span><br><span class="line">    for(iter = mapStudent.begin(); iter != mapStudent.end(); iter++)  </span><br><span class="line">  </span><br><span class="line">       cout&lt;&lt;iter-&gt;first&lt;&lt;&apos; &apos;&lt;&lt;iter-&gt;second&lt;&lt;endl;  </span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-数据的查找"><a href="#4-数据的查找" class="headerlink" title="4.数据的查找"></a>4.数据的查找</h4><ul>
+<li>第一种：用count函数来判定关键字是否出现，其缺点是无法定位数据出现位置,由于map的特性，一对一的映射关系，就决定了count函数的返回值只有两个，要么是0，要么是1，出现的情况，当然是返回1了</li>
+</ul>
+<ul>
+<li>第二种：用find函数来定位数据出现位置，它返回的一个迭代器，当数据出现时，它返回数据所在位置的迭代器，如果map中没有要查找的数据，它返回的迭代器等于end函数返回的迭代器。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;map&gt;  </span><br><span class="line">  </span><br><span class="line">#include &lt;string&gt;  </span><br><span class="line">  </span><br><span class="line">#include &lt;iostream&gt;  </span><br><span class="line">  </span><br><span class="line">using namespace std;  </span><br><span class="line">  </span><br><span class="line">int main()  </span><br><span class="line">  </span><br><span class="line">&#123;  </span><br><span class="line">  </span><br><span class="line">    map&lt;int, string&gt; mapStudent;  </span><br><span class="line">  </span><br><span class="line">    mapStudent.insert(pair&lt;int, string&gt;(1, &quot;student_one&quot;));  </span><br><span class="line">  </span><br><span class="line">    mapStudent.insert(pair&lt;int, string&gt;(2, &quot;student_two&quot;));  </span><br><span class="line">  </span><br><span class="line">    mapStudent.insert(pair&lt;int, string&gt;(3, &quot;student_three&quot;));  </span><br><span class="line">  </span><br><span class="line">    map&lt;int, string&gt;::iterator iter;  </span><br><span class="line">  </span><br><span class="line">    iter = mapStudent.find(1);  </span><br><span class="line">  </span><br><span class="line">    if(iter != mapStudent.end())  </span><br><span class="line">  </span><br><span class="line">       cout&lt;&lt;&quot;Find, the value is &quot;&lt;&lt;iter-&gt;second&lt;&lt;endl;  </span><br><span class="line">  </span><br><span class="line">    else  </span><br><span class="line">  </span><br><span class="line">       cout&lt;&lt;&quot;Do not Find&quot;&lt;&lt;endl;  </span><br><span class="line">      </span><br><span class="line">    return 0;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="5-数据的删除"><a href="#5-数据的删除" class="headerlink" title="5.数据的删除"></a>5.数据的删除</h4><ul>
+<li><p>iterator erase（iterator it);//通过一个条目对象删除</p>
+</li>
+<li><p>iterator erase（iterator first，iterator - last）//删除一个范围</p>
+</li>
+<li><p>size_type erase(const Key&amp;key);//通过关键字删除</p>
+</li>
+<li><p>clear()就相当于enumMap.erase(enumMap.begin(),enumMap.end());</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;map&gt;  </span><br><span class="line">  </span><br><span class="line">#include &lt;string&gt;  </span><br><span class="line">  </span><br><span class="line">#include &lt;iostream&gt;  </span><br><span class="line">  </span><br><span class="line">using namespace std;  </span><br><span class="line">  </span><br><span class="line">int main()  </span><br><span class="line">  </span><br><span class="line">&#123;  </span><br><span class="line">  </span><br><span class="line">       map&lt;int, string&gt; mapStudent;  </span><br><span class="line">  </span><br><span class="line">       mapStudent.insert(pair&lt;int, string&gt;(1, &quot;student_one&quot;));  </span><br><span class="line">  </span><br><span class="line">       mapStudent.insert(pair&lt;int, string&gt;(2, &quot;student_two&quot;));  </span><br><span class="line">  </span><br><span class="line">       mapStudent.insert(pair&lt;int, string&gt;(3, &quot;student_three&quot;));  </span><br><span class="line">  </span><br><span class="line">        //如果你要演示输出效果，请选择以下的一种，你看到的效果会比较好  </span><br><span class="line">  </span><br><span class="line">       //如果要删除1,用迭代器删除  </span><br><span class="line">  </span><br><span class="line">       map&lt;int, string&gt;::iterator iter;  </span><br><span class="line">  </span><br><span class="line">       iter = mapStudent.find(1);  </span><br><span class="line">  </span><br><span class="line">       mapStudent.erase(iter);  </span><br><span class="line">  </span><br><span class="line">       //如果要删除1，用关键字删除  </span><br><span class="line">  </span><br><span class="line">       int n = mapStudent.erase(1);//如果删除了会返回1，否则返回0  </span><br><span class="line">  </span><br><span class="line">       //用迭代器，成片的删除  </span><br><span class="line">  </span><br><span class="line">       //一下代码把整个map清空  </span><br><span class="line">  </span><br><span class="line">       mapStudent.erase( mapStudent.begin(), mapStudent.end() );  </span><br><span class="line">  </span><br><span class="line">       //成片删除要注意的是，也是STL的特性，删除区间是一个前闭后开的集合  </span><br><span class="line">  </span><br><span class="line">       //自个加上遍历代码，打印输出吧  </span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="6-map的基本操作函数"><a href="#6-map的基本操作函数" class="headerlink" title="6.map的基本操作函数"></a>6.map的基本操作函数</h4><pre><code>begin()         返回指向map头部的迭代器
+
+clear(）        删除所有元素
+
+count()         返回指定元素出现的次数
+
+empty()         如果map为空则返回true
+
+end()           返回指向map末尾的迭代器
+
+equal_range()   返回特殊条目的迭代器对
+
+erase()         删除一个元素
+
+find()          查找一个元素
+
+get_allocator() 返回map的配置器
+
+insert()        插入元素
+
+key_comp()      返回比较元素key的函数
+
+lower_bound()   返回键值&gt;=给定元素的第一个位置
+
+max_size()      返回可以容纳的最大元素个数
+
+rbegin()        返回一个指向map尾部的逆向迭代器
+
+rend()          返回一个指向map头部的逆向迭代器
+
+size()          返回map中元素的个数
+
+swap()           交换两个map
+
+upper_bound()    返回键值&gt;给定元素的第一个位置
+
+value_comp()     返回比较元素value的函数
+</code></pre><h3 id="18-vector容器"><a href="#18-vector容器" class="headerlink" title="18 vector容器"></a>18 vector容器</h3><h4 id="1-vector是什么"><a href="#1-vector是什么" class="headerlink" title="1.vector是什么"></a>1.vector是什么</h4><p>向量（Vector）是一个封装了动态大小数组的顺序容器（Sequence Container）。跟任意其它类型容器一样，它能够存放各种类型的对象。可以简单的认为，向量是一个能够存放任意类型的动态数组。</p>
+<h4 id="2-vector函数"><a href="#2-vector函数" class="headerlink" title="2. vector函数"></a>2. vector函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">1.push_back 在数组的最后添加一个数据</span><br><span class="line"></span><br><span class="line">2.pop_back 去掉数组的最后一个数据</span><br><span class="line"></span><br><span class="line">3.at 得到编号位置的数据</span><br><span class="line"></span><br><span class="line">4.begin 得到数组头的指针</span><br><span class="line"></span><br><span class="line">5.end 得到数组的最后一个单元+1的指针</span><br><span class="line"></span><br><span class="line">6．front 得到数组头的引用</span><br><span class="line"></span><br><span class="line">7.back 得到数组的最后一个单元的引用</span><br><span class="line"></span><br><span class="line">8.max_size 得到vector最大可以是多大</span><br><span class="line"></span><br><span class="line">9.capacity 当前vector分配的大小</span><br><span class="line"></span><br><span class="line">10.size 当前使用数据的大小</span><br><span class="line"></span><br><span class="line">11.resize 改变当前使用数据的大小，如果它比当前使用的大，者填充默认值</span><br><span class="line"></span><br><span class="line">12.reserve 改变当前vecotr所分配空间的大小</span><br><span class="line"></span><br><span class="line">13.erase 删除指针指向的数据项</span><br><span class="line"></span><br><span class="line">14.clear 清空当前的vector</span><br><span class="line"></span><br><span class="line">15.rbegin 将vector反转后的开始指针返回(其实就是原来的end-1)</span><br><span class="line"></span><br><span class="line">16.rend 将vector反转构的结束指针返回(其实就是原来的begin-1)</span><br><span class="line"></span><br><span class="line">17.empty 判断vector是否为空</span><br><span class="line"></span><br><span class="line">18.swap 与另一个vector交换数据</span><br></pre></td></tr></table></figure>
+<h3 id="19-纯虚函数"><a href="#19-纯虚函数" class="headerlink" title="19 纯虚函数"></a>19 纯虚函数</h3><h4 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h4><p>纯虚函数是在基类中声明的虚函数，它在基类中没有定义，但要求任何派生类都要定义自己的实现方法。在基类中实现纯虚函数的方法是在函数原型后加“=0”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">virtual void funtion1()=0</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-引入原因"><a href="#2-引入原因" class="headerlink" title="2.引入原因"></a>2.引入原因</h4><ul>
+<li>1、为了方便使用多态特性，我们常常需要在基类中定义虚拟函数。</li>
+<li>2、在很多情况下，基类本身生成对象是不合情理的。例如，动物作为一个基类可以派生出老虎、孔雀等子类，但动物本身生成对象明显不合常理</li>
+</ul>
+<h4 id="3-总结"><a href="#3-总结" class="headerlink" title="3.总结"></a>3.总结</h4><ul>
+<li>虚函数必须实现，如果不实现，编译器将报错，错误提示为：<br>error LNK<em>**</em>: unresolved external symbol “public: virtual void __thiscall ClassName::virtualFunctionName(void)”</li>
+<li>实现了纯虚函数的子类，该纯虚函数在子类中就编程了虚函数，子类的子类即孙子类可以覆盖该虚函数，由多态方式调用的时候动态绑定</li>
+<li>在有动态分配堆上内存的时候，析构函数必须是虚函数，但没有必要是纯虚的。</li>
+<li>析构函数应当是虚函数，将调用相应对象类型的析构函数，因此，如果指针指向的是子类对象，将调用子类的析构函数，然后自动调用基类的析构函数</li>
+</ul>
+<h3 id="20-抽象类的介绍"><a href="#20-抽象类的介绍" class="headerlink" title="20 抽象类的介绍"></a>20 抽象类的介绍</h3><h4 id="1-定义-1"><a href="#1-定义-1" class="headerlink" title="1.定义"></a>1.定义</h4><p>称带有纯虚函数的类为抽象类。</p>
+<h4 id="2-抽象类的作用："><a href="#2-抽象类的作用：" class="headerlink" title="2.抽象类的作用："></a>2.抽象类的作用：</h4><p>抽象类的主要作用是将有关的操作作为结果接口组织在一个继承层次结构中，由它来为派生类提供一个公共的根，派生类将具体实现在其基类中作为接口的操作。所以派生类实际上刻画了一组子类的操作接口的通用语义，这些语义也传给子类，子类可以具体实现这些语义，也可以再将这些语义传给自己的子类。</p>
+<h4 id="3-使用抽象类时注意："><a href="#3-使用抽象类时注意：" class="headerlink" title="3.使用抽象类时注意："></a>3.使用抽象类时注意：</h4><ul>
+<li>抽象类只能作为基类来使用，其纯虚函数的实现由派生类给出。如果派生类中没有重新定义纯虚函数，而只是继承基类的纯虚函数，则这个派生类仍然还是一个抽象类。如果派生类中给出了基类纯虚函数的实现，则该派生类就不再是抽象类了，它是一个可以建立对象的具体的类。</li>
+<li>抽象类是不能定义对象的。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/21/C入门笔记/" data-id="cjtis2jrv002jzoocojo18k9a" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/03/21/周计划会议纪要/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/21/Objective-C入门教程/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/21/白象的舞步来自南亚次大陆的网络攻击/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/21/盗梦空间：云托管的apt/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/21/第二章逆向分析HelloWord程序/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/21/Chapter1CBasics/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/21/Chapter2VariablesandFundamentalDataTypes/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 闳<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

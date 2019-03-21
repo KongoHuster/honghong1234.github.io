@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>浮生若梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="深信服代码规范总结1.字符串要定义成宏；1方便后期代码的维护 2.外部的参数要进行检测； 3.类名首字母要大写；错误示例1class logger: public boost::serialization::singleton&amp;lt;logger&amp;gt; 4.记得添加命名空间1例如：未添加命名空间，namespace::cb 5.成员变量添加注释 6.变量p命名不规范，改成message1方便后期">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浮生若梦">
+<meta property="og:url" content="http://yoursite.com/2019/03/21/深信服代码规范总结/index.html">
+<meta property="og:site_name" content="浮生若梦">
+<meta property="og:description" content="深信服代码规范总结1.字符串要定义成宏；1方便后期代码的维护 2.外部的参数要进行检测； 3.类名首字母要大写；错误示例1class logger: public boost::serialization::singleton&amp;lt;logger&amp;gt; 4.记得添加命名空间1例如：未添加命名空间，namespace::cb 5.成员变量添加注释 6.变量p命名不规范，改成message1方便后期">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-21T15:10:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浮生若梦">
+<meta name="twitter:description" content="深信服代码规范总结1.字符串要定义成宏；1方便后期代码的维护 2.外部的参数要进行检测； 3.类名首字母要大写；错误示例1class logger: public boost::serialization::singleton&amp;lt;logger&amp;gt; 4.记得添加命名空间1例如：未添加命名空间，namespace::cb 5.成员变量添加注释 6.变量p命名不规范，改成message1方便后期">
+  
+    <link rel="alternate" href="/atom.xml" title="浮生若梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">浮生若梦</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-深信服代码规范总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/21/深信服代码规范总结/" class="article-date">
+  <time datetime="2019-03-21T15:10:30.000Z" itemprop="datePublished">2019-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="深信服代码规范总结"><a href="#深信服代码规范总结" class="headerlink" title="深信服代码规范总结"></a>深信服代码规范总结</h2><p>1.字符串要定义成宏；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">方便后期代码的维护</span><br></pre></td></tr></table></figure></p>
+<p>2.外部的参数要进行检测；</p>
+<p>3.类名首字母要大写；<br>错误示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class logger: public boost::serialization::singleton&lt;logger&gt;</span><br></pre></td></tr></table></figure></p>
+<p>4.记得添加命名空间<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例如：未添加命名空间，namespace::cb</span><br></pre></td></tr></table></figure></p>
+<p>5.成员变量添加注释</p>
+<p>6.变量p命名不规范，改成message<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">方便后期维护和阅读</span><br></pre></td></tr></table></figure></p>
+<p>7.类的成员变量使用m_小写开头，静态全局变量使用s_小写开头，全局变量使用g_小写开头。</p>
+<p>8.头文件的包含顺序：先是我们的头文件，再是系统的头文件，这样做如果我们的头文件中少包含了一个必需的系统头文件时就能发现。</p>
+<p>9.类的声明中先声明public，再声明private，让使用者一眼便能看到他能调用的东西。</p>
+<p>10.如果一个类不能被复制或赋值，把拷贝构造函数和赋值操作符禁用掉</p>
+<p>11.类的所有成员都需要初始化</p>
+<p>12.模块内定义全局变量量应该声明为static</p>
+<p>13.误用引用类型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">整型或者枚举类型等基础数据类型(int、float、double)不不需⽤用使⽤用引⽤用类型</span><br><span class="line"></span><br><span class="line">int creatTrigger(const int &amp;triggerType)</span><br><span class="line">&#123;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line">int &amp;triggerType不需要引用</span><br></pre></td></tr></table></figure></p>
+<p>14.复杂流程添加必要的注释</p>
+<p>15.在对⼀些参数和返回值等等这些地⽅都加上DEBUG⽇日志</p>
+<p>16.时间戳变量time_t本质是一个长整形变量 </p>
+<p>17.bool类型只能赋值为true或false，不能写1或0</p>
+<p>18.新建一个指针指向一个类，需要给他具体的值，不能让它为空<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">错误：<span class="built_in">std</span>::<span class="built_in">shared_ptr</span>&lt;EASMessage&gt; msg；</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">正确：<span class="built_in">std</span>::<span class="built_in">shared_ptr</span>&lt;EASMessage&gt; msg = <span class="built_in">std</span>::<span class="built_in">shared_ptr</span>&lt;EASMessage&gt;(<span class="keyword">new</span> EASMessage);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/21/深信服代码规范总结/" data-id="cjtis2jqa001gzooc0ycy2ul9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/03/21/设计模式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/21/SQL/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/21/白象的舞步来自南亚次大陆的网络攻击/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/21/盗梦空间：云托管的apt/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/21/第二章逆向分析HelloWord程序/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/21/Chapter1CBasics/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/21/Chapter2VariablesandFundamentalDataTypes/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 闳<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
