@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
-<html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<html >
+<head>
   <meta charset="UTF-8">
   
     <title>闪灯实验 | 闳</title>
@@ -20,7 +20,7 @@
 <meta property="og:description" content="实验遇到问题和实现方法1.软件建立工程问题（1）问题 实验建立工程时不知道怎么跑起来 （2）解决方法再仔细地阅读了PPt，发现需要添加如下代码123ORG 0x0end">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=101811138,3323407575&fm=27&gp=0.jpg">
-<meta property="og:updated_time" content="2019-03-22T04:27:55.000Z">
+<meta property="og:updated_time" content="2019-03-22T04:52:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="闪灯实验">
 <meta name="twitter:description" content="实验遇到问题和实现方法1.软件建立工程问题（1）问题 实验建立工程时不知道怎么跑起来 （2）解决方法再仔细地阅读了PPt，发现需要添加如下代码123ORG 0x0end">
@@ -38,14 +38,14 @@
     
     <link rel="stylesheet" href="/css/style.css">
 </head>
-</html>
+
   <body>
     <header>
       
 <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="闳" title="闳"></a>
+				<a href="/"><img src="/img/logo.png" alt="闳" title="闳"/></a>
 			</div>
 			
 			<div id="textlogo">
@@ -68,13 +68,13 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search">
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
 					</li>
 				</ul>
-			</ul></nav>			
+			</nav>			
 </div>
     </header>
     <div id="container">
@@ -90,7 +90,7 @@
        
 		<a href="/about" title="柳柳" target="_blank" itemprop="author">柳柳</a>
 		
-  </p><p class="article-time">
+  <p class="article-time">
     <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished"> Published 2018-10-06</time>
     
   </p>
@@ -118,7 +118,7 @@
 <h4 id="4-小灯不亮"><a href="#4-小灯不亮" class="headerlink" title="4.小灯不亮"></a>4.小灯不亮</h4><p>（1）程序下载下去，但是小灯不亮</p>
 <p>（2）解决方法</p>
 <ul>
-<li>重新检查了一遍线路连接问题，仔细核对了下列图片<br><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=101811138,3323407575&amp;fm=27&amp;gp=0.jpg" alt><br>发现并没有问题</li>
+<li>重新检查了一遍线路连接问题，仔细核对了下列图片<br><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=101811138,3323407575&amp;fm=27&amp;gp=0.jpg" alt=""><br>发现并没有问题</li>
 <li>我们开始使万用表检查各个引脚和地之间的电压差，发现只有VPP/MCLR/RE3才有5V的电压，其他的电压极为微弱</li>
 <li><p>我们尝试把延时函数注释掉，想只是简单地点亮小灯，但是小灯任然不亮</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;p16f1786.inc&gt;</span><br><span class="line">ORG 0x0</span><br><span class="line"></span><br><span class="line">BANKSEL PORTA	;扫描到宏定义BANKSEL时，会自动查询BANK，</span><br><span class="line">		;然后把宏指令编译成相应的设置STATUS里面PR1和PR0的指令</span><br><span class="line">CLRF PORTA	;将PORTA清零</span><br><span class="line">BANKSEL LATA	;Data Latch</span><br><span class="line">CLRF LATA</span><br><span class="line">BANKSEL ANSELA</span><br><span class="line">CLRF ANSELA	;digital I/O</span><br><span class="line">BANKSEL TRISA</span><br><span class="line">MOVLW B&apos;00000000&apos;;Set RA&lt;5:3&gt; as inputs and set RA&lt;2:0&gt; as outputs</span><br><span class="line">MOVWF TRISA	;将‘00111000’赋值给TRISA</span><br><span class="line">		LOOP</span><br><span class="line">banksel PORTA</span><br><span class="line">movlw 0FFH</span><br><span class="line">xorwf PORTA, f</span><br><span class="line">;CALL DELAY</span><br><span class="line">;GOTO LOOP </span><br><span class="line">    </span><br><span class="line">;   DELAY</span><br><span class="line">;	MOVLW 006H </span><br><span class="line">;	MOVWF 20H</span><br><span class="line">;	LOOP1</span><br><span class="line">;	    MOVLW 0EBH </span><br><span class="line">;	    MOVWF 21H </span><br><span class="line">;	    LOOP2</span><br><span class="line">;		MOVLW 0ECH </span><br><span class="line">;		MOVWF 22H </span><br><span class="line">;		LOOP3</span><br><span class="line">;		    DECFSZ 22H </span><br><span class="line">;		    GOTO LOOP3 </span><br><span class="line">;		DECFSZ 21H </span><br><span class="line">;		GOTO LOOP2</span><br><span class="line">;		banksel PORTA</span><br><span class="line">;		movlw 0FFH</span><br><span class="line">;		xorwf PORTA, f </span><br><span class="line">;	    DECFSZ 20H </span><br><span class="line">;	    GOTO LOOP1	</span><br><span class="line">;	    RETURN</span><br><span class="line">	    </span><br><span class="line">	end</span><br></pre></td></tr></table></figure>
@@ -150,7 +150,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/10/06/闪灯实验/" data-title="闪灯实验 | 闳" data-tsina class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/10/06/闪灯实验/" data-title="闪灯实验 | 闳" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -163,9 +163,9 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev">
+ <div class="prev" >
  <a href="/2018/10/06/钱彦旻师兄语音识别现状/" title="钱彦旻师兄_语音识别现状">
-  <strong>上一篇：</strong><br>
+  <strong>上一篇：</strong><br/>
   <span>
   钱彦旻师兄_语音识别现状</span>
 </a>
@@ -173,8 +173,8 @@
 
 
 <div class="next">
-<a href="/2018/10/06/非诚勿扰/" title="非诚勿扰">
- <strong>下一篇：</strong><br> 
+<a href="/2018/10/06/非诚勿扰/"  title="非诚勿扰">
+ <strong>下一篇：</strong><br/> 
  <span>非诚勿扰
 </span>
 </a>
@@ -358,7 +358,7 @@
 			
 		
 			
-				<li><a href="/tags/对分易/" title="对分易">对分易<sup>1</sup></a></li>
+				<li><a href="/tags/区块链/" title="区块链">区块链<sup>1</sup></a></li>
 			
 		
 			
@@ -405,14 +405,14 @@
 
   <div class="weiboshow">
   <p class="asidetitle">Weibo</p>
-    <iframe width="100%" height="119" class="share_self" frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
 </div>
 
 
 </aside>
 </div>
     </div>
-    <footer><div id="footer">
+    <footer><div id="footer" >
 	
 	<div class="line">
 		<span></span>
@@ -421,11 +421,11 @@
 	
 	
 	<section class="info">
-		<p> Hello ,I&#39;m Larry Page in Google. <br>
+		<p> Hello ,I&#39;m Larry Page in Google. <br/>
 			This is my blog,believe it or not.</p>
 	</section>
 	 
-	<div class="social-font">
+	<div class="social-font" class="clearfix">
 		
 		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
 		
@@ -633,7 +633,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

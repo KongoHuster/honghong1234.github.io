@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
-<html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<html >
+<head>
   <meta charset="UTF-8">
   
     <title>Android studio安装与学习 | 闳</title>
@@ -21,7 +21,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://www.runoob.com/wp-content/uploads/2015/06/16510882.jpg">
 <meta property="og:image" content="http://www.runoob.com/wp-content/uploads/2015/06/12352621.jpg">
-<meta property="og:updated_time" content="2019-03-22T04:27:52.000Z">
+<meta property="og:updated_time" content="2019-03-22T04:52:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android studio安装与学习">
 <meta name="twitter:description" content="android studio安装与学习一、环境安装踩坑1.windows下代理配置 Manual proxy configuration  SOCKS 123Host Name:127.0.0.1Poet Number:1080 2.mac下代理配置 Manual proxy configuration  HTTP 123Host Name:127.0.0.1Poet Number:1087">
@@ -39,14 +39,14 @@
     
     <link rel="stylesheet" href="/css/style.css">
 </head>
-</html>
+
   <body>
     <header>
       
 <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="闳" title="闳"></a>
+				<a href="/"><img src="/img/logo.png" alt="闳" title="闳"/></a>
 			</div>
 			
 			<div id="textlogo">
@@ -69,13 +69,13 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search">
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
 					</li>
 				</ul>
-			</ul></nav>			
+			</nav>			
 </div>
     </header>
     <div id="container">
@@ -91,7 +91,7 @@
        
 		<a href="/about" title="柳柳" target="_blank" itemprop="author">柳柳</a>
 		
-  </p><p class="article-time">
+  <p class="article-time">
     <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished"> Published 2018-10-06</time>
     
   </p>
@@ -146,12 +146,12 @@
 </code></pre></li>
 <li>build.gradle：//Module的Gradle构建脚本</li>
 </ul>
-<h2 id="三、Android系统特性与平台架构"><a href="#三、Android系统特性与平台架构" class="headerlink" title="三、Android系统特性与平台架构"></a>三、Android系统特性与平台架构</h2><h3 id="1-平台架构图："><a href="#1-平台架构图：" class="headerlink" title="1.平台架构图："></a>1.平台架构图：</h3><p><img src="http://www.runoob.com/wp-content/uploads/2015/06/16510882.jpg" alt></p>
+<h2 id="三、Android系统特性与平台架构"><a href="#三、Android系统特性与平台架构" class="headerlink" title="三、Android系统特性与平台架构"></a>三、Android系统特性与平台架构</h2><h3 id="1-平台架构图："><a href="#1-平台架构图：" class="headerlink" title="1.平台架构图："></a>1.平台架构图：</h3><p><img src="http://www.runoob.com/wp-content/uploads/2015/06/16510882.jpg" alt=""></p>
 <h3 id="2-架构的简单理解："><a href="#2-架构的简单理解：" class="headerlink" title="2.架构的简单理解："></a>2.架构的简单理解：</h3><ul>
 <li>Application(应用程序层) 我们一般说的应用层的开发就是在这个层次上进行的，当然包括了系统内置的一组应用程序，使用的是Java语言</li>
 <li><p>Application Framework(应用程序框架层) 无论系统内置或者我们自己编写的App，都需要使用到这层，比如我们想弄来电黑名单，自动挂断电话，我们就需要用到电话管理(TelephonyManager) 通过该层我们就可以很轻松的实现挂断操作，而不需要关心底层实现</p>
 </li>
-<li><p>Libraries(库) + Android Runtime(Android运行时) Android给我们提供了一组C/C++库，为平台的不同组件所使用，比如媒体框架；而Android Runtime则由Android核心库集 + Dalvik虚拟机构成，Dalvik虚拟机是针对移动设备的虚拟机，它的特点:不需要很快的CPU计算速度和大量的内存空间;而每个App都单独地运行在单独的Dalvik虚拟机内每个app对于一条Dalvik进程）而他的简单运行流程如：<br><img src="http://www.runoob.com/wp-content/uploads/2015/06/12352621.jpg" alt></p>
+<li><p>Libraries(库) + Android Runtime(Android运行时) Android给我们提供了一组C/C++库，为平台的不同组件所使用，比如媒体框架；而Android Runtime则由Android核心库集 + Dalvik虚拟机构成，Dalvik虚拟机是针对移动设备的虚拟机，它的特点:不需要很快的CPU计算速度和大量的内存空间;而每个App都单独地运行在单独的Dalvik虚拟机内每个app对于一条Dalvik进程）而他的简单运行流程如：<br><img src="http://www.runoob.com/wp-content/uploads/2015/06/12352621.jpg" alt=""></p>
 </li>
 <li>Linux内核 这里就是涉及底层驱动的东西了，一些系统服务，比如安全性，内存管理以及进程管理等</li>
 </ul>
@@ -177,7 +177,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/10/06/androidstudio安装与学习/" data-title="Android studio安装与学习 | 闳" data-tsina class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/10/06/androidstudio安装与学习/" data-title="Android studio安装与学习 | 闳" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -190,9 +190,9 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev">
+ <div class="prev" >
  <a href="/2018/10/06/XcodeDebug使用手册/" title="Xcode Debug使用手册">
-  <strong>上一篇：</strong><br>
+  <strong>上一篇：</strong><br/>
   <span>
   Xcode Debug使用手册</span>
 </a>
@@ -200,9 +200,9 @@
 
 
 <div class="next">
-<a href="/2018/10/06/Unix环境高级编程/" title="Unix环境高级编程">
- <strong>下一篇：</strong><br> 
- <span>Unix环境高级编程
+<a href="/2018/10/06/archlinux安装笔记/"  title="archlinux 安装笔记">
+ <strong>下一篇：</strong><br/> 
+ <span>archlinux 安装笔记
 </span>
 </a>
 </div>
@@ -385,7 +385,7 @@
 			
 		
 			
-				<li><a href="/tags/对分易/" title="对分易">对分易<sup>1</sup></a></li>
+				<li><a href="/tags/区块链/" title="区块链">区块链<sup>1</sup></a></li>
 			
 		
 			
@@ -432,14 +432,14 @@
 
   <div class="weiboshow">
   <p class="asidetitle">Weibo</p>
-    <iframe width="100%" height="119" class="share_self" frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
 </div>
 
 
 </aside>
 </div>
     </div>
-    <footer><div id="footer">
+    <footer><div id="footer" >
 	
 	<div class="line">
 		<span></span>
@@ -448,11 +448,11 @@
 	
 	
 	<section class="info">
-		<p> Hello ,I&#39;m Larry Page in Google. <br>
+		<p> Hello ,I&#39;m Larry Page in Google. <br/>
 			This is my blog,believe it or not.</p>
 	</section>
 	 
-	<div class="social-font">
+	<div class="social-font" class="clearfix">
 		
 		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
 		
@@ -660,7 +660,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

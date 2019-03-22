@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
-<html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<html >
+<head>
   <meta charset="UTF-8">
   
     <title>程序设计思想与方法 | 闳</title>
@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://wizardforcel.gitbooks.io/sjtu-cs902-courseware/content/img/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E6%96%B9%E6%B3%95204066.png">
 <meta property="og:image" content="https://wizardforcel.gitbooks.io/sjtu-cs902-courseware/content/img/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E6%96%B9%E6%B3%95206135.png">
 <meta property="og:image" content="https://wizardforcel.gitbooks.io/sjtu-cs902-courseware/content/img/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E6%96%B9%E6%B3%95227730.png">
-<meta property="og:updated_time" content="2019-03-22T04:27:55.000Z">
+<meta property="og:updated_time" content="2019-03-22T04:52:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="程序设计思想与方法">
 <meta name="twitter:description" content="第一章 计算与计算思维一、计算机语言1.高级语言的翻译有两种方式：编译和解释； 2.编译器（compiler）将高级语言程序（称为源代码）完整地翻译成等价的机器语言程序（称为目标代码）；">
@@ -42,14 +42,14 @@
     
     <link rel="stylesheet" href="/css/style.css">
 </head>
-</html>
+
   <body>
     <header>
       
 <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="闳" title="闳"></a>
+				<a href="/"><img src="/img/logo.png" alt="闳" title="闳"/></a>
 			</div>
 			
 			<div id="textlogo">
@@ -72,13 +72,13 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search">
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
 					</li>
 				</ul>
-			</ul></nav>			
+			</nav>			
 </div>
     </header>
     <div id="container">
@@ -94,7 +94,7 @@
        
 		<a href="/about" title="柳柳" target="_blank" itemprop="author">柳柳</a>
 		
-  </p><p class="article-time">
+  <p class="article-time">
     <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished"> Published 2018-10-06</time>
     
   </p>
@@ -119,7 +119,7 @@
 <h3 id="二、异常处理"><a href="#二、异常处理" class="headerlink" title="二、异常处理"></a>二、异常处理</h3><p>1.具体的检测方式有两种， 一种是在执行任务之前检测条件，另一种是执行任务之后检测返回状态码或错误码。</p>
 <p>2.异常处理机制</p>
 <p>异常处理机制的基本思想是：程序运行 时如果发生错误，就“抛出”一个异常，而系统能够“捕获”这个异常并执行特定的异常处 理代码。</p>
-<p><img src="https://wizardforcel.gitbooks.io/sjtu-cs902-courseware/content/img/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E6%96%B9%E6%B3%9579929.png" alt></p>
+<p><img src="https://wizardforcel.gitbooks.io/sjtu-cs902-courseware/content/img/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E6%96%B9%E6%B3%9579929.png" alt=""></p>
 <h3 id="三、结构化程序设计"><a href="#三、结构化程序设计" class="headerlink" title="三、结构化程序设计"></a>三、结构化程序设计</h3><p>1.开发新系统阶段的任务大体上就是程序设计，它本身又可划分为几个步骤，构成程序开 发周期（PDC）。PDC 的各个步骤如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1.明确需求：明确问题是什么，理解用户在功能方面的要求。</span><br><span class="line"></span><br><span class="line">2.制定程序规格：描述程序要“做什么”。</span><br><span class="line"></span><br><span class="line">3.设计程序逻辑：设计程序的解题过程，即描述“怎么做”。</span><br><span class="line"></span><br><span class="line">4.实现：使用一种编程语言来实现设计，即编写程序代码。</span><br><span class="line"></span><br><span class="line">5.测试与排错：用样本数据执行程序，测试结果是否与预期吻合。如果发现有错误（行 话称为 bug）则排除错误（debug）。</span><br><span class="line"></span><br><span class="line">6.维护程序：根据用户需求持续开发、改进程序。 程序规格描述程序的要做什么事情，对于简单程序通常只需要描述程序的输入和输出分别是什么。</span><br></pre></td></tr></table></figure></p>
 <p>2.好的算法和程序就像逻辑的诗歌。读和维护 都很愉快。</p>
 <h2 id="第四章-模块化编程"><a href="#第四章-模块化编程" class="headerlink" title="第四章 模块化编程"></a>第四章 模块化编程</h2><h3 id="一、模块化编程基本概念"><a href="#一、模块化编程基本概念" class="headerlink" title="一、模块化编程基本概念"></a>一、模块化编程基本概念</h3><p>1.模块一般具有如下特征：</p>
@@ -135,9 +135,9 @@
 <h2 id="第六章-大量数据的表示和处理"><a href="#第六章-大量数据的表示和处理" class="headerlink" title="第六章 大量数据的表示和处理"></a>第六章 大量数据的表示和处理</h2><h3 id="一、简单数据和复杂数据"><a href="#一、简单数据和复杂数据" class="headerlink" title="一、简单数据和复杂数据"></a>一、简单数据和复杂数据</h3><p>1.简单数据一般指单个数据，并且没有内部结构， 不可分割。复杂数据正相反，可在两方面呈现复杂性：一是数量多，即待处理的数据是由大 量相互关联的成员数据组成的；二是有内部结构，即数据在内部由若干分量组成，每个分量 本身可能又由更小的分量组成。</p>
 <h3 id="二、几种高级数据结构"><a href="#二、几种高级数据结构" class="headerlink" title="二、几种高级数据结构"></a>二、几种高级数据结构</h3><p>1.链表：列表是由许多数据按次序排列形成的一种数据结构，列表成员之间的逻辑关 系是由他们的排列次序表示的。</p>
 <p>但连续存储结构有也有缺点：如 果需要增加新成员，必须移动大量数据以便为新成员腾出空间；如果要删除某个数据，删除 后必须移动大量数据以便填补空缺、保持连续性。</p>
-<p><img src="https://wizardforcel.gitbooks.io/sjtu-cs902-courseware/content/img/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E6%96%B9%E6%B3%95200997.png" alt></p>
-<p>2.堆栈：堆栈（stack）也是一种数据集合体，其中的数据构成一种具有“后进先出（LIFO）”性 质的数据结构，即最后加入堆栈的数据总是首先取出。<br><img src="https://wizardforcel.gitbooks.io/sjtu-cs902-courseware/content/img/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E6%96%B9%E6%B3%95204066.png" alt></p>
-<p>3.队列队列（queue）也是数据集合体，其中的数据成员有序排列。与堆栈的“后进先出”相 反，队列具有“先进先出（FIFO）”的性质，即最先加入队列的数据将最先移出队列。<br><img src="https://wizardforcel.gitbooks.io/sjtu-cs902-courseware/content/img/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E6%96%B9%E6%B3%95206135.png" alt></p>
+<p><img src="https://wizardforcel.gitbooks.io/sjtu-cs902-courseware/content/img/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E6%96%B9%E6%B3%95200997.png" alt=""></p>
+<p>2.堆栈：堆栈（stack）也是一种数据集合体，其中的数据构成一种具有“后进先出（LIFO）”性 质的数据结构，即最后加入堆栈的数据总是首先取出。<br><img src="https://wizardforcel.gitbooks.io/sjtu-cs902-courseware/content/img/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E6%96%B9%E6%B3%95204066.png" alt=""></p>
+<p>3.队列队列（queue）也是数据集合体，其中的数据成员有序排列。与堆栈的“后进先出”相 反，队列具有“先进先出（FIFO）”的性质，即最先加入队列的数据将最先移出队列。<br><img src="https://wizardforcel.gitbooks.io/sjtu-cs902-courseware/content/img/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E6%96%B9%E6%B3%95206135.png" alt=""></p>
 <h2 id="第七章-面向对象思想与编程"><a href="#第七章-面向对象思想与编程" class="headerlink" title="第七章 面向对象思想与编程"></a>第七章 面向对象思想与编程</h2><p>面向对象思想和方法具有强大的描述复杂数据和构建复杂系统的能力，因此面向对象编 程已成为当今流行的编程范型，是大多数程序员在解决问题时的不二之选。</p>
 <h3 id="一、数据与操作：两种观点"><a href="#一、数据与操作：两种观点" class="headerlink" title="一、数据与操作：两种观点"></a>一、数据与操作：两种观点</h3><p>1.关于数据和操作这两部分的关系，在程序设计思想和方法的发展过程中存在两种不同的 观点：一种是传统的以操作为中心的面向过程观点，一种是现代的以数据为中心的面向对象 观点。</p>
 <h4 id="1、面向过程的观点"><a href="#1、面向过程的观点" class="headerlink" title="1、面向过程的观点"></a>1、面向过程的观点</h4><p>1.在数据与操作分离的传统观点下，通常以算法过程的设计为主线来展开程序设计，故可称为以过程为中心的程序设计。</p>
@@ -160,7 +160,7 @@
 <h4 id="4-类与模块化"><a href="#4-类与模块化" class="headerlink" title="4.类与模块化"></a>4.类与模块化</h4><p>1.对复杂程序一般有两种分解方法：功能分解和数据分解。功能分解是面向过程编程的基 础，依赖于子程序（如函数）概念，以过程为中心来建立功能模块；数据分解则是面向对象 编程的基础，依赖于类的概念，以数据为中心来建立数据模块。</p>
 <p>2.当然可以让每个类单独构成一个模块，但这样一来，当类的数目很多时会导致模块 数目过多，反而增加程序的复杂性。</p>
 <h4 id="5-对象的集合体"><a href="#5-对象的集合体" class="headerlink" title="5.对象的集合体"></a>5.对象的集合体</h4><p>1.用 集合体表示大量的数据成员，而每个数据成员是一个具有复杂内部结构的对象。我们不妨用 下面的公式来表达这个思想：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">类 + 集合体 ＝ 任意复杂的数据</span><br></pre></td></tr></table></figure></p>
-<h3 id="三、超类与子类"><a href="#三、超类与子类" class="headerlink" title="三、超类与子类"></a>三、超类与子类</h3><p><img src="https://wizardforcel.gitbooks.io/sjtu-cs902-courseware/content/img/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E6%96%B9%E6%B3%95227730.png" alt></p>
+<h3 id="三、超类与子类"><a href="#三、超类与子类" class="headerlink" title="三、超类与子类"></a>三、超类与子类</h3><p><img src="https://wizardforcel.gitbooks.io/sjtu-cs902-courseware/content/img/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E6%96%B9%E6%B3%95227730.png" alt=""></p>
 <p>为了描述这种一般与特殊的关系，面向对象语言中提供了相应的类定义方式。具有一般性的类称为超类（superclass），具有特殊性的类称为子类（subclass）①。例如在图 7.11 中， “人”是“学生”的超类，“学生”是“人”的子类；“人”也是“教师”的超类，“教师”是 “人”的子类；“学生”又是“研究生”的超类，“研究生”是“学生”的子类；等等。</p>
 <h4 id="1-继承"><a href="#1-继承" class="headerlink" title="1.继承"></a>1.继承</h4><p>1.子类拥有超类的一切特性，凡是超类适用的地方，子类也适用。</p>
 <p>2.子类除了继承超类的属性，还包含一些自己的特殊属性。</p>
@@ -250,7 +250,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/10/06/程序设计思想与方法/" data-title="程序设计思想与方法 | 闳" data-tsina class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/10/06/程序设计思想与方法/" data-title="程序设计思想与方法 | 闳" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -263,9 +263,9 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev">
+ <div class="prev" >
  <a href="/2018/10/06/C入门笔记/" title="C++入门笔记">
-  <strong>上一篇：</strong><br>
+  <strong>上一篇：</strong><br/>
   <span>
   C++入门笔记</span>
 </a>
@@ -450,7 +450,7 @@
 			
 		
 			
-				<li><a href="/tags/对分易/" title="对分易">对分易<sup>1</sup></a></li>
+				<li><a href="/tags/区块链/" title="区块链">区块链<sup>1</sup></a></li>
 			
 		
 			
@@ -497,14 +497,14 @@
 
   <div class="weiboshow">
   <p class="asidetitle">Weibo</p>
-    <iframe width="100%" height="119" class="share_self" frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
 </div>
 
 
 </aside>
 </div>
     </div>
-    <footer><div id="footer">
+    <footer><div id="footer" >
 	
 	<div class="line">
 		<span></span>
@@ -513,11 +513,11 @@
 	
 	
 	<section class="info">
-		<p> Hello ,I&#39;m Larry Page in Google. <br>
+		<p> Hello ,I&#39;m Larry Page in Google. <br/>
 			This is my blog,believe it or not.</p>
 	</section>
 	 
-	<div class="social-font">
+	<div class="social-font" class="clearfix">
 		
 		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
 		
@@ -725,7 +725,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
-<html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<html >
+<head>
   <meta charset="UTF-8">
   
     <title>云托管的apt | 闳</title>
@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://www.symantec.com/connect/sites/default/files/users/user-4223931/Email%20sample.png">
 <meta property="og:image" content="https://www.symantec.com/connect/sites/default/files/users/user-4223931/Bueaty%20Queen.png">
 <meta property="og:image" content="https://www.symantec.com/connect/sites/default/files/users/user-4223931/bcs-wp-inception-Malware-Installation-Chain-diagram.jpg">
-<meta property="og:updated_time" content="2019-03-22T04:28:09.000Z">
+<meta property="og:updated_time" content="2019-03-22T04:53:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="云托管的apt">
 <meta name="twitter:description" content="背景&amp;emsp;&amp;emsp;Blue CoatLabs的研究人员已经确定了以前未记录的攻击框架的出现，该框架被用于发起高度针对性的攻击，以便从受害者的计算机中获取并从中提取机密信息。由于恶意软件设计中使用了很多层，我们将其命名为Inception–这是对2010年电影“Inception”的一个参考，该电影讲述了一个进入人们梦想并从潜意识中窃取秘密的小偷。目标包括担任战略职位的人员：石油，金融和工">
@@ -40,14 +40,14 @@
     
     <link rel="stylesheet" href="/css/style.css">
 </head>
-</html>
+
   <body>
     <header>
       
 <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="闳" title="闳"></a>
+				<a href="/"><img src="/img/logo.png" alt="闳" title="闳"/></a>
 			</div>
 			
 			<div id="textlogo">
@@ -70,13 +70,13 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search">
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
 					</li>
 				</ul>
-			</ul></nav>			
+			</nav>			
 </div>
     </header>
     <div id="container">
@@ -92,7 +92,7 @@
        
 		<a href="/about" title="柳柳" target="_blank" itemprop="author">柳柳</a>
 		
-  </p><p class="article-time">
+  <p class="article-time">
     <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished"> Published 2018-10-06</time>
     
   </p>
@@ -112,13 +112,13 @@
 <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>&emsp;&emsp;最初的恶意软件组件嵌入在RTF格式（RTF）文件中。利用此文件格式的漏洞利用远程访问受害者的计算机。<br>。</p>
 <h3 id="危害"><a href="#危害" class="headerlink" title="危害"></a>危害</h3><p>&emsp;&emsp;该框架以这样的方式设计，即可以通过云服务执行所有感染后通信（即目标调查，配置更新，恶意软件更新和数据泄漏）。此框架的恶意软件组件遵循插件模型，其中新的恶意软件依赖于其他先前提供的恶意软件组件来与框架交互。</p>
 <h3 id="攻击复现"><a href="#攻击复现" class="headerlink" title="攻击复现"></a>攻击复现</h3><p>在Blue Coat观察到的所有情况下，初始恶意软件组件都嵌入在RTF格式（RTF）文件中。利用此文件格式的漏洞利用远程访问受害者的计算机。这些文件通过附带利用的Word文档的网络钓鱼电子邮件传递给受害者。</p>
-<p><img src="https://www.symantec.com/connect/sites/default/files/users/user-4223931/Email%20sample.png" alt></p>
+<p><img src="https://www.symantec.com/connect/sites/default/files/users/user-4223931/Email%20sample.png" alt=""></p>
 <p>网络钓鱼电子邮件示例</p>
-<p><img src="https://www.symantec.com/connect/sites/default/files/users/user-4223931/Bueaty%20Queen.png" alt></p>
+<p><img src="https://www.symantec.com/connect/sites/default/files/users/user-4223931/Bueaty%20Queen.png" alt=""></p>
 <p>当用户点击附件时，显示Word文档以避免引起用户的怀疑，同时以编码形式存储在文档内的恶意内容写入其磁盘。对于许多漏洞利用广告系列而言不同寻常，丢弃文件的名称各不相同，并且已经明确随机化，以避免按名称进行检测。</p>
 <p>恶意软件从受感染的计算机收集系统信息，包括操作系统版本，计算机名称，用户名，用户组成员身份，运行的进程，区域设置ID以及系统驱动器和卷信息。所有这些系统信息都经过加密并通过WebDAV发送到云存储。该框架的设计使得恶意软件感染后的所有通信（即目标调查，配置更新，恶意软件更新和数据泄漏）都可以通过云服务执行。</p>
 <p>此框架的恶意软件组件遵循插件模型，新的恶意软件依赖已有的恶意软件组件与框架进行交互。如果没有初始安装程序，则后续的单独模块都不会起作用，并且大多数模块仅存在于内存中 - 在重新启动时消失。</p>
-<p><img src="https://www.symantec.com/connect/sites/default/files/users/user-4223931/bcs-wp-inception-Malware-Installation-Chain-diagram.jpg" alt></p>
+<p><img src="https://www.symantec.com/connect/sites/default/files/users/user-4223931/bcs-wp-inception-Malware-Installation-Chain-diagram.jpg" alt=""></p>
 <p>攻击者已经扩大了他们的努力，包括Android，BlackBerry和iOS设备的恶意软件。</p>
 <p>这些用于收集受害者的信息，包括电话录音。特别是在Android平台上，他们正在记录定期上传给攻击者的MP4声音文件的来电和拨出电话。</p>
 <p>与此同时，有迹象表明大规模MMS网络钓鱼活动可能针对选定的个人。根据Blue Coat研究人员获得的数据，目标受害者可能是许多移动运营商的客户 - 我们知道有60多家移动运营商受到影响，但实际数字可能要高得多。MMS网络钓鱼消息是为亚洲（包括俄罗斯领域和中国），非洲，中东和欧洲的多个国家准备的。</p>
@@ -150,7 +150,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/10/06/盗梦空间：云托管的apt/" data-title="云托管的apt | 闳" data-tsina class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/10/06/盗梦空间：云托管的apt/" data-title="云托管的apt | 闳" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -163,18 +163,18 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev">
- <a href="/2018/10/06/白象的舞步来自南亚次大陆的网络攻击/" title="白象的舞步——来自南亚次大陆的网络攻击">
-  <strong>上一篇：</strong><br>
+ <div class="prev" >
+ <a href="/2018/10/06/父亲的信/" title="父亲的信">
+  <strong>上一篇：</strong><br/>
   <span>
-  白象的舞步——来自南亚次大陆的网络攻击</span>
+  父亲的信</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2018/10/06/第一章Java语言概述/" title="第一章 Java语言概述">
- <strong>下一篇：</strong><br> 
+<a href="/2018/10/06/第一章Java语言概述/"  title="第一章 Java语言概述">
+ <strong>下一篇：</strong><br/> 
  <span>第一章 Java语言概述
 </span>
 </a>
@@ -358,7 +358,7 @@
 			
 		
 			
-				<li><a href="/tags/对分易/" title="对分易">对分易<sup>1</sup></a></li>
+				<li><a href="/tags/区块链/" title="区块链">区块链<sup>1</sup></a></li>
 			
 		
 			
@@ -405,14 +405,14 @@
 
   <div class="weiboshow">
   <p class="asidetitle">Weibo</p>
-    <iframe width="100%" height="119" class="share_self" frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
 </div>
 
 
 </aside>
 </div>
     </div>
-    <footer><div id="footer">
+    <footer><div id="footer" >
 	
 	<div class="line">
 		<span></span>
@@ -421,11 +421,11 @@
 	
 	
 	<section class="info">
-		<p> Hello ,I&#39;m Larry Page in Google. <br>
+		<p> Hello ,I&#39;m Larry Page in Google. <br/>
 			This is my blog,believe it or not.</p>
 	</section>
 	 
-	<div class="social-font">
+	<div class="social-font" class="clearfix">
 		
 		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
 		
@@ -633,7 +633,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

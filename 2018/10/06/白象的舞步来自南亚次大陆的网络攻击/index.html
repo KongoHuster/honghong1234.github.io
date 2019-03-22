@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
-<html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<html >
+<head>
   <meta charset="UTF-8">
   
     <title>白象的舞步——来自南亚次大陆的网络攻击 | 闳</title>
@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://www.antiy.com/response/WhiteElephant/image018.png">
 <meta property="og:image" content="https://www.antiy.com/response/WhiteElephant/image019.png">
 <meta property="og:image" content="https://www.antiy.com/response/WhiteElephant/image020.jpg">
-<meta property="og:updated_time" content="2019-03-22T04:28:09.000Z">
+<meta property="og:updated_time" content="2019-03-22T04:53:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="白象的舞步——来自南亚次大陆的网络攻击">
 <meta name="twitter:description" content="一、现象&amp;emsp;&amp;emsp;“白象一代”投放了至少近千个不同HASH的PE样本，使用了超过500个C&amp;amp;C域名地址；其开发人员较多，开发团队技能混杂，样本使用了VC、VB、.net、Autoit等多种环境开发编译；同时其未使用复杂的加密算法，也未发现使用0day漏洞和1day的漏洞，而更多的是采用被部分中国安全研究者称为“乱扔EXE”的简易社会工程学——鱼叉式网络钓鱼攻击。PE免杀处理是">
@@ -41,14 +41,14 @@
     
     <link rel="stylesheet" href="/css/style.css">
 </head>
-</html>
+
   <body>
     <header>
       
 <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="闳" title="闳"></a>
+				<a href="/"><img src="/img/logo.png" alt="闳" title="闳"/></a>
 			</div>
 			
 			<div id="textlogo">
@@ -71,13 +71,13 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search">
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
 					</li>
 				</ul>
-			</ul></nav>			
+			</nav>			
 </div>
     </header>
     <div id="container">
@@ -93,7 +93,7 @@
        
 		<a href="/about" title="柳柳" target="_blank" itemprop="author">柳柳</a>
 		
-  </p><p class="article-time">
+  <p class="article-time">
     <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished"> Published 2018-10-06</time>
     
   </p>
@@ -127,7 +127,7 @@
 <li>获取电脑主机信息；</li>
 <li>在当前用户以及所有用户启动文件夹中添加启动项。</li>
 </ul>
-<h4 id="回传指定服务器的流程"><a href="#回传指定服务器的流程" class="headerlink" title="回传指定服务器的流程"></a>回传指定服务器的流程</h4><p><img src="https://www.antiy.com/response/WhiteElephant/image016.jpg" alt></p>
+<h4 id="回传指定服务器的流程"><a href="#回传指定服务器的流程" class="headerlink" title="回传指定服务器的流程"></a>回传指定服务器的流程</h4><p><img src="https://www.antiy.com/response/WhiteElephant/image016.jpg" alt=""></p>
 <h4 id="样本运行后衍生文件列表及功能"><a href="#样本运行后衍生文件列表及功能" class="headerlink" title="样本运行后衍生文件列表及功能"></a>样本运行后衍生文件列表及功能</h4><ul>
 <li><a href="https://blog.csdn.net/xfxf996/article/details/81264036" target="_blank" rel="noopener">spoolsv.exe</a>:键盘记录</li>
 <li><a href="https://www.superantispyware.com/definition/ssmss/" target="_blank" rel="noopener">ssmss.exe</a>:回传记录</li>
@@ -137,13 +137,13 @@
 </ul>
 <h4 id="分析spoolsv-exe"><a href="#分析spoolsv-exe" class="headerlink" title="分析spoolsv.exe"></a>分析spoolsv.exe</h4><p>1.样本运行后解密内部配置数据，共有两处解密函数；</p>
 <p>解密1</p>
-<p><img src="https://www.antiy.com/response/WhiteElephant/image018.png" alt></p>
+<p><img src="https://www.antiy.com/response/WhiteElephant/image018.png" alt=""></p>
 <p>解密2</p>
-<p><img src="https://www.antiy.com/response/WhiteElephant/image019.png" alt></p>
+<p><img src="https://www.antiy.com/response/WhiteElephant/image019.png" alt=""></p>
 <p>2.使用CMD命令添加注册表启动项：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run:InternetDownloadServices</span><br><span class="line">C:\WINDOWS\windowss\spoolsv.exe</span><br></pre></td></tr></table></figure></p>
 <p>3.创建事件对象Global{9A8FEAD9-92E9-3F1AD79150C2}、使用注册窗体的方式执行恶意功能代码；</p>
 <p>4.记录用户的窗体名称和键盘输入，特别是对Internet Explorer，Mozilla FireFox的子窗体进行记录，达到记录URL地址的目的,记录的内容写入 sonic. ax；</p>
-<p><img src="https://www.antiy.com/response/WhiteElephant/image020.jpg" alt></p>
+<p><img src="https://www.antiy.com/response/WhiteElephant/image020.jpg" alt=""></p>
 <h3 id="三、分析"><a href="#三、分析" class="headerlink" title="三、分析"></a>三、分析</h3><p>1.“白象二代”组织的攻击主要通过鱼叉式钓鱼电子邮件，大部分邮件以插入恶意链接的方式进行攻击，通过精心构造的诱饵内容诱导受害者打开链接，一旦打开恶意链接就会下载带有漏洞的恶意文档。</p>
 <p>2.大部分的攻击都是利用了CVE-2014-4114漏洞的PPS文件、少量利用CVE-2015-1641漏洞的rtf文件。</p>
 <p>3.攻击的目标大部分为教育、军事、科研等机构；</p>
@@ -180,7 +180,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/10/06/白象的舞步来自南亚次大陆的网络攻击/" data-title="白象的舞步——来自南亚次大陆的网络攻击 | 闳" data-tsina class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/10/06/白象的舞步来自南亚次大陆的网络攻击/" data-title="白象的舞步——来自南亚次大陆的网络攻击 | 闳" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -193,19 +193,19 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev">
- <a href="/2018/10/06/父亲的信/" title="父亲的信">
-  <strong>上一篇：</strong><br>
+ <div class="prev" >
+ <a href="/2018/10/06/点创面试感悟/" title="点创面试感悟">
+  <strong>上一篇：</strong><br/>
   <span>
-  父亲的信</span>
+  点创面试感悟</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2018/10/06/盗梦空间：云托管的apt/" title="云托管的apt">
- <strong>下一篇：</strong><br> 
- <span>云托管的apt
+<a href="/2018/10/06/父亲的信/"  title="父亲的信">
+ <strong>下一篇：</strong><br/> 
+ <span>父亲的信
 </span>
 </a>
 </div>
@@ -388,7 +388,7 @@
 			
 		
 			
-				<li><a href="/tags/对分易/" title="对分易">对分易<sup>1</sup></a></li>
+				<li><a href="/tags/区块链/" title="区块链">区块链<sup>1</sup></a></li>
 			
 		
 			
@@ -435,14 +435,14 @@
 
   <div class="weiboshow">
   <p class="asidetitle">Weibo</p>
-    <iframe width="100%" height="119" class="share_self" frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
 </div>
 
 
 </aside>
 </div>
     </div>
-    <footer><div id="footer">
+    <footer><div id="footer" >
 	
 	<div class="line">
 		<span></span>
@@ -451,11 +451,11 @@
 	
 	
 	<section class="info">
-		<p> Hello ,I&#39;m Larry Page in Google. <br>
+		<p> Hello ,I&#39;m Larry Page in Google. <br/>
 			This is my blog,believe it or not.</p>
 	</section>
 	 
-	<div class="social-font">
+	<div class="social-font" class="clearfix">
 		
 		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
 		
@@ -663,7 +663,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

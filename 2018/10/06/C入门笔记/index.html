@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
-<html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<html >
+<head>
   <meta charset="UTF-8">
   
     <title>C++入门笔记 | 闳</title>
@@ -20,7 +20,7 @@
 <meta property="og:description" content="[TOC] 1.C++ 中的类型限定符1231. const：const 类型的对象在程序执行期间不能被修改改变；2. volatile：修饰符 volatile 告诉编译器，变量的值可能以程序未明确指定的方式被改变；3. restrict：由 restrict 修饰的指针是唯一一种访问它所指向的对象的方式。只有 C99 增加了新的类型限定符 restrict。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://jbcdn2.b0.upaiyun.com/2016/11/ae91bded2fb09a4ae9b2d9d051bf7528.png">
-<meta property="og:updated_time" content="2019-03-22T04:28:03.000Z">
+<meta property="og:updated_time" content="2019-03-22T04:52:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++入门笔记">
 <meta name="twitter:description" content="[TOC] 1.C++ 中的类型限定符1231. const：const 类型的对象在程序执行期间不能被修改改变；2. volatile：修饰符 volatile 告诉编译器，变量的值可能以程序未明确指定的方式被改变；3. restrict：由 restrict 修饰的指针是唯一一种访问它所指向的对象的方式。只有 C99 增加了新的类型限定符 restrict。">
@@ -38,14 +38,14 @@
     
     <link rel="stylesheet" href="/css/style.css">
 </head>
-</html>
+
   <body>
     <header>
       
 <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="闳" title="闳"></a>
+				<a href="/"><img src="/img/logo.png" alt="闳" title="闳"/></a>
 			</div>
 			
 			<div id="textlogo">
@@ -68,13 +68,13 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search">
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
 					</li>
 				</ul>
-			</ul></nav>			
+			</nav>			
 </div>
     </header>
     <div id="container">
@@ -90,7 +90,7 @@
        
 		<a href="/about" title="柳柳" target="_blank" itemprop="author">柳柳</a>
 		
-  </p><p class="article-time">
+  <p class="article-time">
     <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished"> Published 2018-10-06</time>
     
   </p>
@@ -199,7 +199,7 @@
 </li>
 <li>封装可以使得代码模块化，继承可以扩展已存在的代码，他们的目的都是为了代码重用。</li>
 </ul>
-<h4 id="2-多太分类"><a href="#2-多太分类" class="headerlink" title="2.多太分类"></a>2.多太分类</h4><p>(1)多态有静态多态，也有动态多态，静态多态，比如函数重载，能够在编译器确定应该调用哪个函数；动态多态，比如继承加虚函数的方式<br><img src="http://jbcdn2.b0.upaiyun.com/2016/11/ae91bded2fb09a4ae9b2d9d051bf7528.png" alt></p>
+<h4 id="2-多太分类"><a href="#2-多太分类" class="headerlink" title="2.多太分类"></a>2.多太分类</h4><p>(1)多态有静态多态，也有动态多态，静态多态，比如函数重载，能够在编译器确定应该调用哪个函数；动态多态，比如继承加虚函数的方式<br><img src="http://jbcdn2.b0.upaiyun.com/2016/11/ae91bded2fb09a4ae9b2d9d051bf7528.png" alt=""></p>
 <p>(2) 静态多态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">long long Add(int left, int right)  </span><br><span class="line">&#123;  </span><br><span class="line">    return left + right;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line">double Add(float left, float right)  </span><br><span class="line">&#123;  </span><br><span class="line">    return left + right;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line">int main()  </span><br><span class="line">&#123;  </span><br><span class="line">    cout&lt;&lt;Add(10, 20)&lt;&lt;endl; //语句一  </span><br><span class="line">    cout&lt;&lt;Add(12.34f, 43.12f)&lt;&lt;endl; //语句二  </span><br><span class="line">  </span><br><span class="line">    return 0;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>(3)动态多态<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>  </span></span><br><span class="line"><span class="class">&#123;</span>  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">GoToWashRoom</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function">    </span>&#123;  </span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"Person--&gt;?"</span>&lt;&lt;<span class="built_in">endl</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;;  </span><br><span class="line">  </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Man</span> :</span> <span class="keyword">public</span> Person  </span><br><span class="line">&#123;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">GoToWashRoom</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function">    </span>&#123;  </span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"Man--&gt;Please Left"</span>&lt;&lt;<span class="built_in">endl</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;;  </span><br><span class="line">  </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Woman</span> :</span> <span class="keyword">public</span> Person  </span><br><span class="line">&#123;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">GoToWashRoom</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function">    </span>&#123;  </span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"Woman--&gt;Please Right"</span>&lt;&lt;<span class="built_in">endl</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    Person per, *pp;  </span><br><span class="line">    Man man, *pm;  </span><br><span class="line">    Woman woman, *pw;  </span><br><span class="line">  </span><br><span class="line">    pp = &amp;per;  </span><br><span class="line">    pm = &amp;man;  </span><br><span class="line">    pw = &amp;woman;  </span><br><span class="line">      </span><br><span class="line">    <span class="comment">//第一组       //这些都是毫无疑问的  </span></span><br><span class="line">    per.GoToWashRoom(); <span class="comment">//调用基类Person类的函数  </span></span><br><span class="line">    pp-&gt;GoToWashRoom();  <span class="comment">//调用基类Person类的函数  </span></span><br><span class="line">    man.GoToWashRoom(); <span class="comment">//调用派生类Man类的函数   </span></span><br><span class="line">    pm-&gt;GoToWashRoom();  <span class="comment">//调用派生类Man类的函数   </span></span><br><span class="line">    woman.GoToWashRoom();   <span class="comment">//调用派生类Woman类的函数   </span></span><br><span class="line">    pw-&gt;GoToWashRoom();  <span class="comment">//调用派生类Woman类的函数   </span></span><br><span class="line">      </span><br><span class="line">    <span class="comment">//第二组  </span></span><br><span class="line">    pp = &amp;man;  </span><br><span class="line">    pp-&gt;GoToWashRoom();  <span class="comment">//调用基类Person类的函数  </span></span><br><span class="line">    pp = &amp;woman;  </span><br><span class="line">    pp-&gt;GoToWashRoom();  <span class="comment">//调用基类Person类的函数  </span></span><br><span class="line">      </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h4 id="3-多态小结"><a href="#3-多态小结" class="headerlink" title="3.多态小结"></a>3.多态小结</h4><ul>
@@ -315,7 +315,7 @@ value_comp()     返回比较元素value的函数
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/10/06/C入门笔记/" data-title="C++入门笔记 | 闳" data-tsina class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/10/06/C入门笔记/" data-title="C++入门笔记 | 闳" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -328,18 +328,18 @@ value_comp()     返回比较元素value的函数
 	
 <nav class="article-nav clearfix">
  
- <div class="prev">
- <a href="/2018/10/06/武汉旅游攻略/" title="武汉旅游攻略">
-  <strong>上一篇：</strong><br>
+ <div class="prev" >
+ <a href="/2018/10/06/设计模式/" title="设计模式">
+  <strong>上一篇：</strong><br/>
   <span>
-  武汉旅游攻略</span>
+  设计模式</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2018/10/06/程序设计思想与方法/" title="程序设计思想与方法">
- <strong>下一篇：</strong><br> 
+<a href="/2018/10/06/程序设计思想与方法/"  title="程序设计思想与方法">
+ <strong>下一篇：</strong><br/> 
  <span>程序设计思想与方法
 </span>
 </a>
@@ -523,7 +523,7 @@ value_comp()     返回比较元素value的函数
 			
 		
 			
-				<li><a href="/tags/对分易/" title="对分易">对分易<sup>1</sup></a></li>
+				<li><a href="/tags/区块链/" title="区块链">区块链<sup>1</sup></a></li>
 			
 		
 			
@@ -570,14 +570,14 @@ value_comp()     返回比较元素value的函数
 
   <div class="weiboshow">
   <p class="asidetitle">Weibo</p>
-    <iframe width="100%" height="119" class="share_self" frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
 </div>
 
 
 </aside>
 </div>
     </div>
-    <footer><div id="footer">
+    <footer><div id="footer" >
 	
 	<div class="line">
 		<span></span>
@@ -586,11 +586,11 @@ value_comp()     返回比较元素value的函数
 	
 	
 	<section class="info">
-		<p> Hello ,I&#39;m Larry Page in Google. <br>
+		<p> Hello ,I&#39;m Larry Page in Google. <br/>
 			This is my blog,believe it or not.</p>
 	</section>
 	 
-	<div class="social-font">
+	<div class="social-font" class="clearfix">
 		
 		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
 		
@@ -798,7 +798,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
