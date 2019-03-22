@@ -62,32 +62,48 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-14周任务" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-区块链技术分享会" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/22/14周任务/" class="article-date">
-  <time datetime="2019-03-22T01:06:38.000Z" itemprop="datePublished">2019-03-22</time>
+    <a href="/2018/10/06/区块链技术分享会/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/讲座分享/">讲座分享</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/区块链技术分享会/">区块链 技术分享会</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="14周任务"><a href="#14周任务" class="headerlink" title="14周任务"></a>14周任务</h1><p>协议的同学这两天任务：</p>
-<ol>
-<li>配置开发环境：Android Studio 3.1.2 + NDK r15c（暂定，后续有必要再切换到最新版）<a href="https://developer.android.com/studio/#downloads" target="_blank" rel="noopener">https://developer.android.com/studio/#downloads</a>  <a href="https://developer.android.com/ndk/downloads/older_releases" target="_blank" rel="noopener">https://developer.android.com/ndk/downloads/older_releases</a></li>
-<li>下载开源项目：<a href="https://github.com/LineageOS/android_packages_apps_Exchange" target="_blank" rel="noopener">https://github.com/LineageOS/android_packages_apps_Exchange</a></li>
-<li>安装 Wireshark、下载群文件里的文档，</li>
-<li>熟悉已经写好的 EAS 协议代码，参考其他命令尝试完成 EasProvision 命令</li>
-</ol>
-
+        <h2 id="达闼科技"><a href="#达闼科技" class="headerlink" title="达闼科技"></a>达闼科技</h2><h3 id="1-区块链如何工作"><a href="#1-区块链如何工作" class="headerlink" title="1.区块链如何工作"></a>1.区块链如何工作</h3><ul>
+<li>P2P网络</li>
+<li>在每个节点上都会记录更改
+        
+          <p class="article-more-link">
+            <a href="/2018/10/06/区块链技术分享会/#more">Read More</a>
+          </p>
+        
       
-    </div>
+    </li></ul></div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/14周任务/" data-id="cjtjd6pu70000n8ocwjnpsjdy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/06/区块链技术分享会/" data-id="cjtjfqss4001js2oc7oavrsvo" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/区块链/">区块链</a></li></ul>
+
     </footer>
   </div>
   
@@ -95,27 +111,45 @@
 
 
   
-    <article id="post-邮件模块分工" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2018Dian团队年终茶话会总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/22/邮件模块分工/" class="article-date">
-  <time datetime="2019-03-22T01:06:37.000Z" itemprop="datePublished">2019-03-22</time>
+    <a href="/2018/10/06/2018Dian团队年终茶话会总结/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/2018Dian团队年终茶话会/">2018Dian团队年终茶话会</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/2018Dian团队年终茶话会总结/">2018Dian团队年终茶话会总结</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="邮件模块分工"><a href="#邮件模块分工" class="headerlink" title="邮件模块分工"></a>邮件模块分工</h2><h3 id="一、大致分化"><a href="#一、大致分化" class="headerlink" title="一、大致分化"></a>一、大致分化</h3><p>1.分为POP3、IMAP、Exchange三个协议；</p>
-<p>2.上层有Folder、Message、MessageHeader三个基类；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.基类 and 派生类</span><br><span class="line">一个类可以派生自多个类，这意味着，它可以从多个基类继承数据和函数。定义一个派生类，我们使用一个类派生列表来指定基类。类派生列表以一个或多个基类命名，形式如下：</span><br><span class="line"></span><br><span class="line">class derived-class: access-specifier base-class</span><br><span class="line"></span><br><span class="line">其中，访问修饰符 access-specifier 是 public、protected 或 private 其中的一个，base-class 是之前定义过的某个类的名称。</span><br></pre></td></tr></table></figure></p>
+        <p>&emsp;&emsp;Dian团队2018年终茶话会在欢声笑语中结束了，16级种子班的《非诚勿扰–程序员专场》获得了观众的一致好评。</p>
+<p>&emsp;&emsp;回顾此次节目的准备，可以说困难重重，各种事务夹杂在一起。刚开始的时候我们需要准备期末考试，到后期各个项目组有各自的节目需要准备，<br>16级种子班已经渐渐成为本次茶话会节目准备的主力军，能投入到班上节目的精力相对减少。就这样，我们一边做课设，一边做项目，一边准备着节<br>目，最终也熬了过来。 在这个节目准备的过程，我深深体会到一个负责人需要考虑的问题真的是极多，事无巨细。大到整个剧情的设计，时间的安<br>排，小到道具谁来买，桌子有多高。<br>在整个后期准备的过程中，我深深感受到年终茶话会的魅力，它对于团队凝聚力的提升具有难以想象的作用。平时我们都是在不同的项目组工作，<br>很难有共同的目标，一起经历磨炼。如果没有年终茶话会，我们最熟悉的应该就只有在项目组待过的同学，而有了茶话会以后，一个班一起准备节目，<br>一起剪视频，一起排练节目，一个班的同学都是好兄弟，感情加深了许多，大家相互之间也亲切了许多。</p>
+<p>&emsp;&emsp;在各个节目中，无不体现Dian团队技术与文化的积淀，我看到了用心制作的视频，精心准备的道具，排练了一遍又一遍的动作。我们将自己的和谐<br>融洽、紧张活泼的生活融入到各个舞蹈、歌曲、相声、小品中。罗振宁在《时间的朋友》跨年演讲中这么定义创新：“创新就是要回到母体，然后强化<br>母体”。16级种子班的节目就是先回到我们每天生活和对于美好爱情的向往的母体，然后用小品的形式将母体强化，从而创造出大家喜欢的好作品。这样的例子在Dian团队的发展历程中比比皆是。人们向往团体生活，集体协作，这是母体，而刘玉老师创建Dian团队，让大家有机会作为一个集体去战胜各个<br>困难，完成项目，这就是对于母体的强化；人自古就希望被后人记住，希望自己的成就能以一定的形式保留下来，将记忆物化，这就是母体，所以Dian团<br>有了每年年末无论再怎么忙，大家都要出一本年鉴，来记录今年团的生活，这就是对于母体的强化。</p>
+<p>&emsp;&emsp;这就是Dian团队的不断创新的方法，我们的节目来源于生活，却又高于生活。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/邮件模块分工/" data-id="cjtjd6pxd002fn8oc71t3eovk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/06/2018Dian团队年终茶话会总结/" data-id="cjtjfqsqg0000s2oc30qznbsy" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/节目策划/">节目策划</a></li></ul>
+
     </footer>
   </div>
   
@@ -123,37 +157,57 @@
 
 
   
-    <article id="post-XcodeDebug使用手册" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-微机原理要求" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/22/XcodeDebug使用手册/" class="article-date">
-  <time datetime="2019-03-22T01:06:37.000Z" itemprop="datePublished">2019-03-22</time>
+    <a href="/2018/10/06/微机原理要求/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/微机原理/">微机原理</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/微机原理要求/">微机原理要求</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Xcode-Debug使用手册"><a href="#Xcode-Debug使用手册" class="headerlink" title="Xcode Debug使用手册"></a>Xcode Debug使用手册</h2><h3 id="一、LLDB基础知识"><a href="#一、LLDB基础知识" class="headerlink" title="一、LLDB基础知识"></a>一、LLDB基础知识</h3><h4 id="1-LLDB控制台"><a href="#1-LLDB控制台" class="headerlink" title="1.LLDB控制台"></a>1.LLDB控制台</h4><p>(1).Xcode中内嵌了LLDB控制台，在Xcode中代码的下方，我们可以看到LLDB控制台。<br><img src="http://upload-images.jianshu.io/upload_images/1122433-97b0619a169dcb50.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
-<p>(2).LLDB控制台平时会输出一些log信息。如果我们想输入命令调试，必须让程序进入暂停状态。让程序进入暂停状态的方式主要有2种：</p>
+        <h1 id="微机原理笔记"><a href="#微机原理笔记" class="headerlink" title="微机原理笔记"></a>微机原理笔记</h1><h3 id="一、报告要求"><a href="#一、报告要求" class="headerlink" title="一、报告要求"></a>一、报告要求</h3><p>1.每天10点前提交工作日志</p>
 <ul>
-<li>断点或者watchpoint: 在代码中设置一个断点（watchpoint），当程序运行到断点位置的时候，会进入stop状态</li>
-<li>直接暂停，控制台上方有一个暂停按钮，上图红框已标出，点击即可暂停程序</li>
+<li>记录每天遇到的问题、观察到的现象、分析过程和解 决途径</li>
+<li>格式：编号-姓名-工作日志-日期.doc</li>
 </ul>
-<h4 id="2-LLDB语法"><a href="#2-LLDB语法" class="headerlink" title="2.LLDB语法"></a>2.LLDB语法</h4><ul>
-<li>command: breakpoint 表示断点命令</li>
-<li>action: set 表示设置断点</li>
-<li>option: -n 表示根据方法name设置断点</li>
-<li>arguement: mian 表示方法名为mian</li>
-</ul>
-<h4 id="3-LLDB命令"><a href="#3-LLDB命令" class="headerlink" title="3.LLDB命令"></a>3.LLDB命令</h4>
+<p>2.课设要求：</p>
+<ul>
+<li>根据题目每组3~5人</li>
+<li>原理图</li>
+<li>外壳选择</li>
+<li>PCB布线</li>
+<li>外投制版
+        
+          <p class="article-more-link">
+            <a href="/2018/10/06/微机原理要求/#more">Read More</a>
+          </p>
+        
       
-    </div>
+    </li></ul></div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/XcodeDebug使用手册/" data-id="cjtjd6pvd000sn8ocf0pr2jra" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/06/微机原理要求/" data-id="cjtjfqssa001qs2ocj77yzk6v" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微机原理/">微机原理</a></li></ul>
+
     </footer>
   </div>
   
@@ -161,57 +215,48 @@
 
 
   
-    <article id="post-AndroidStudio工程使用说明" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-C语言作业" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/22/AndroidStudio工程使用说明/" class="article-date">
-  <time datetime="2019-03-22T01:06:37.000Z" itemprop="datePublished">2019-03-22</time>
+    <a href="/2018/10/06/C语言作业/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/讲座培训/">讲座培训</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/C语言作业/">C语言作业--阴浩</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Android-Studio-工程使用说明"><a href="#Android-Studio-工程使用说明" class="headerlink" title="Android Studio 工程使用说明"></a>Android Studio 工程使用说明</h2><p>下面用<code>${CORE_PATH}</code>代指本目录下的<code>CoreBusiness/CoreBusiness</code>目录</p>
-<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><ul>
-<li>点击 <code>File -&gt; Open</code>选择<code>settings.gradle</code>文件所在的目录导入工程</li>
-</ul>
-<h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><ul>
-<li>使用 Android Studio 进行编码，代码风格设置参见本文最后的部分</li>
-<li><strong>代码文件</strong>写在 <code>${CORE_PATH}</code>目录下的指定文件夹中，例如<code>Base</code>，每增加一个<code>.cpp</code>文件要在<code>${CORE_PATH}/jni/Android.mk</code>的<code>LOCAL_SRC_FILES</code>中增加一行，类似这样的写法<code>$(CORE_SRC_PATH)/Business/YourSource.cpp</code></li>
-<li><strong>单元测试代码</strong>写在<code>${CORE_PATH}/Tests</code>中，每个模块自行建立子目录，新增的<code>.cpp</code>文件同样需要添加在<strong>Tests</strong>目录里的<code>Android.mk</code> 中，类似这样的写法<code>$(TEST_SRC_PATH)/Example/Hello.cpp</code></li>
-<li><strong>本地调试或测试的代码</strong>写在 <code>${CORE_PATH}/jni/NativeTest.cpp</code>中，<strong>不必上库</strong></li>
-</ul>
-<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><h4 id="二进制可执行文件（单元测试代码）"><a href="#二进制可执行文件（单元测试代码）" class="headerlink" title="二进制可执行文件（单元测试代码）"></a>二进制可执行文件（单元测试代码）</h4><p><strong>Linux:</strong> 命令行进入<code>${CORE_PATH}</code>目录，执行<code>ndk-build</code></p>
-<p><strong>Windows:</strong> 同上，如果失败则执行这条命令（注意没有换行）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ndk-build NDK_PROJECT_PATH=. APP_BUILD_SCRIPT=jni/Android.mk NDK_APPLICATION_MK=jni/Application.mk</span><br></pre></td></tr></table></figure>
-<h4 id="本地调试用-APK"><a href="#本地调试用-APK" class="headerlink" title="本地调试用 APK"></a>本地调试用 APK</h4><p>直接在 Android Studio 中点击运行/调试按钮即可</p>
-<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><h4 id="运行单元测试代码"><a href="#运行单元测试代码" class="headerlink" title="运行单元测试代码"></a>运行单元测试代码</h4><p>插上手机后，</p>
-<p><strong>Linux:</strong> 命令行进入<code>${CORE_PATH}</code>目录，执行<code>./run_test.sh libs</code>即可把这些可执行文件推到手机中自动执行单元测试中的代码</p>
-<p><strong>Windows:</strong> 命令行进入<code>${CORE_PATH}</code>目录，执行<code>run_test.bat libs</code>即可把这些可执行文件推到手机中自动执行单元测试中的代码</p>
-<h4 id="运行-调试测试-APK"><a href="#运行-调试测试-APK" class="headerlink" title="运行/调试测试 APK"></a>运行/调试测试 APK</h4><p>直接在 Android Studio 中点击运行/调试按钮即可</p>
-<h3 id="Android-Studio-使用技巧"><a href="#Android-Studio-使用技巧" class="headerlink" title="Android Studio 使用技巧"></a>Android Studio 使用技巧</h3><h4 id="代码风格设置"><a href="#代码风格设置" class="headerlink" title="代码风格设置"></a>代码风格设置</h4><p>点击菜单<code>File&gt;Settings&gt;Editor&gt;Code Style&gt;C/C++</code>，设置以下几项：</p>
-<ul>
-<li><code>Tabs and Intents&gt;Intent member of namespace</code>，设为<code>0</code></li>
-<li><code>Wrapping and Braces&gt;Braces placement&gt;In namespaces</code>，设为<code>next line</code></li>
-</ul>
-<p>其他选项保持不变即可，不要在意公司编码规范中其他大括号的约束，只要一个模块中保持一致即可</p>
-<h4 id="NDK-设置"><a href="#NDK-设置" class="headerlink" title="NDK 设置"></a>NDK 设置</h4><p>新导入一个工程时 Android Studio 经常会找不到 ndk 所在的目录，点击<code>File&gt;Project Structure</code>，在里面设置即可</p>
-<h4 id="Android-Studio-的一些问题与使用技巧"><a href="#Android-Studio-的一些问题与使用技巧" class="headerlink" title="Android Studio 的一些问题与使用技巧"></a>Android Studio 的一些问题与使用技巧</h4><ul>
-<li>C++ 开发一定要把左侧边栏那个下拉框从<code>Android</code>改成<code>Project</code>，这样才能看到所有文件</li>
-<li>新增一个<code>.cpp</code>文件时一定要把它加入的对应的<code>Android.mk</code>文件中，然后点击<code>Android Studio</code>中的<code>Sync Project with Gradle Files</code>按钮（一般在保存文件的那个软盘按钮的右边）</li>
-<li>Android Studio 有时候会抽风，明明有那个文件但是 include 的时候却是红色的，此时可以点击一下<code>Build-&gt;Refresh Linked C++ Projects</code>刷新一下工程</li>
-<li>Android Studio 的一个万能快捷键是<code>按两下 Shift</code>，这时会弹出一个框，在这里可以搜索任何东西（包括但不限于：文件、符号、IDE 设置）</li>
-<li>对一个符号右键选择<code>Refactor</code>可以对该符号进行重构，比如改函数名，改函数参数，这个修改会应用到所有调用的地方。</li>
-</ul>
-
+        <h1 id="C语言作业"><a href="#C语言作业" class="headerlink" title="C语言作业"></a>C语言作业</h1><p>[TOC]</p>
+<h3 id="1-采用多文件编译方式运行main"><a href="#1-采用多文件编译方式运行main" class="headerlink" title="1.采用多文件编译方式运行main"></a>1.采用多文件编译方式运行main</h3><p>指令输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">patch -p0 main.c  v1.0.patch  // 给main.c文件打上补丁</span><br><span class="line">gcc -c add_minus.c  </span><br><span class="line">gcc main.c add_minus.o</span><br></pre></td></tr></table></figure></p>
+<p>运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;./a.out</span><br></pre></td></tr></table></figure></p>
+        
+          <p class="article-more-link">
+            <a href="/2018/10/06/C语言作业/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/AndroidStudio工程使用说明/" data-id="cjtjd6pui0006n8ocnyaf8cpw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/06/C语言作业/" data-id="cjtjfqsqu0004s2ocuiiu88jv" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dian/">Dian</a></li></ul>
+
     </footer>
   </div>
   
@@ -219,41 +264,47 @@
 
 
   
-    <article id="post-Objective-C入门教程" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-机器学习训练笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/22/Objective-C入门教程/" class="article-date">
-  <time datetime="2019-03-22T01:06:36.000Z" itemprop="datePublished">2019-03-22</time>
+    <a href="/2018/10/06/机器学习训练笔记/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/机器学习/">机器学习</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/机器学习训练笔记/">光电设计大赛机器学习训练笔记</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Objective-C-入门教程"><a href="#Objective-C-入门教程" class="headerlink" title="Objective-C 入门教程"></a>Objective-C 入门教程</h2><h3 id="一、Objective-C：C的超集"><a href="#一、Objective-C：C的超集" class="headerlink" title="一、Objective-C：C的超集"></a>一、Objective-C：C的超集</h3><p>&emsp;&emsp;Objective-Objective-C是C语言的严格超集－－任何C语言程序不经修改就可以直接通过Objective-C编译器，在Objective-C中使用C语言代码也是完全合法的。Objective-C被描述为盖在C语言上的薄薄一层，因为Objective-C的原意就是在C语言主体上加入面向对象的特性。</p>
-<h3 id="二、Objective-C代码的文件扩展名"><a href="#二、Objective-C代码的文件扩展名" class="headerlink" title="二、Objective-C代码的文件扩展名"></a>二、Objective-C代码的文件扩展名</h3><ul>
-<li>.h头文件:头文件包含类，类型，函数和常数的声明。</li>
-<li>.m源代码文件:这是典型的源代码文件扩展名，可以包含 Objective-C 和 C 代码。</li>
-<li>.mm源代码文件:带有这种扩展名的源代码文件，除了可以包含Objective-C和C代码以外还可以包含C+ +代码。仅在你的Objective-C代码中确实需要使用C++类或者特性的时候才用这种扩展名。</li>
-</ul>
-<h3 id="三、类"><a href="#三、类" class="headerlink" title="三、类"></a>三、类</h3><h4 id="1-类的基础知识"><a href="#1-类的基础知识" class="headerlink" title="1.类的基础知识"></a>1.类的基础知识</h4><ul>
-<li>Objective-C 的类规格说明包含了两个部分：定义（interface）与实现（implementation）。定义（interface）部分包含了类声明和实例变量的定义，以及类相关的方法。</li>
-<li>类的定义文件遵循C语言之惯例以.h为后缀，实现文件以.m为后缀。</li>
-</ul>
-<h4 id="2-类声明图"><a href="#2-类声明图" class="headerlink" title="2.类声明图"></a>2.类声明图</h4><p><img src="http://www.runoob.com/wp-content/uploads/2015/08/2011021920525849.jpg" alt></p>
-<h4 id="3-Interface"><a href="#3-Interface" class="headerlink" title="3.Interface"></a>3.Interface</h4><p>&emsp;&emsp;定义部分，清楚定义了类的名称、数据成员和方法。 以关键字@interface作为开始，@end作为结束。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@interface MyObject : NSObject &#123;</span><br><span class="line">    int memberVar1; // 实体变量</span><br><span class="line">    id  memberVar2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+(return_type) class_method; // 类方法</span><br><span class="line"></span><br><span class="line">-(return_type) instance_method1; // 实例方法</span><br><span class="line">-(return_type) instance_method2: (int) p1;</span><br><span class="line">-(return_type) instance_method3: (int) p1 andPar: (int) p2;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<h4 id="4-Implementation"><a href="#4-Implementation" class="headerlink" title="4.Implementation"></a>4.Implementation</h4><p>&emsp;&emsp;实现区块则包含了公开方法的实现，以及定义私有（private）变量及方法。 以关键字@implementation作为区块起头，@end结尾。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">@implementation MyObject &#123;</span><br><span class="line">  int memberVar3; //私有實體變數</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+(return_type) class_method &#123;</span><br><span class="line">    .... //method implementation</span><br><span class="line">&#125;</span><br><span class="line">-(return_type) instance_method1 &#123;</span><br><span class="line">     ....</span><br><span class="line">&#125;</span><br><span class="line">-(return_type) instance_method2: (int) p1 &#123;</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br><span class="line">-(return_type) instance_method3: (int) p1 andPar: (int) p2 &#123;</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;值得一提的是不只Interface区块可定义实体变量，Implementation区块也可以定义实体变量，两者的差别在于访问权限的不同，Interface区块内的实体变量默认权限为protected，宣告于implementation区块的实体变量则默认为private。</p>
-
+        <h1 id="机器学习训练笔记"><a href="#机器学习训练笔记" class="headerlink" title="机器学习训练笔记"></a>机器学习训练笔记</h1><h3 id="1-环境变量的设置"><a href="#1-环境变量的设置" class="headerlink" title="1.环境变量的设置"></a>1.环境变量的设置</h3><p>&emsp;&emsp;在 ‘此电脑’-‘属性’- ‘高级系统设置’ -‘环境变量’-‘系统变量’ 中新建名为‘PYTHONPATH’的变量，将<br>models/research/ 及 models/research/slim 两个文件夹的完整目录添加，分号隔开，效果如下图：</p>
+<p><img src="https://img-blog.csdn.net/20180117105805435?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZHlfZ3VveA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt><br>(注意一定要使用分号)<br>
+        
+          </p><p class="article-more-link">
+            <a href="/2018/10/06/机器学习训练笔记/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/Objective-C入门教程/" data-id="cjtjd6pv4000jn8ockiz4nyqt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/06/机器学习训练笔记/" data-id="cjtjfqsse001xs2ocni2byl8k" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
     </footer>
   </div>
   
@@ -261,213 +312,56 @@
 
 
   
-    <article id="post-C入门笔记" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Dian团队文档培训感想" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/22/C入门笔记/" class="article-date">
-  <time datetime="2019-03-22T01:06:36.000Z" itemprop="datePublished">2019-03-22</time>
+    <a href="/2018/10/06/Dian团队文档培训感想/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/讲座分享/">讲座分享</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/Dian团队文档培训感想/">Dian团队文档培训感想</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="C-入门阅读笔记"><a href="#C-入门阅读笔记" class="headerlink" title="C++入门阅读笔记"></a>C++入门阅读笔记</h1><p>[TOC]</p>
-<h3 id="1-C-中的类型限定符"><a href="#1-C-中的类型限定符" class="headerlink" title="1.C++ 中的类型限定符"></a>1.C++ 中的类型限定符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. const：const 类型的对象在程序执行期间不能被修改改变；</span><br><span class="line">2. volatile：修饰符 volatile 告诉编译器，变量的值可能以程序未明确指定的方式被改变；</span><br><span class="line">3. restrict：由 restrict 修饰的指针是唯一一种访问它所指向的对象的方式。只有 C99 增加了新的类型限定符 restrict。</span><br></pre></td></tr></table></figure>
-<h3 id="2-句柄的理解"><a href="#2-句柄的理解" class="headerlink" title="2.句柄的理解"></a>2.句柄的理解</h3><p>（1）句柄与指针的区别<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">指针：指针指向系统中物理内存的地址；</span><br><span class="line">句柄：句柄是windows在内存中维护的一个对象内存物理地址列表的整数索引，句柄是一种指向指针的指针。</span><br></pre></td></tr></table></figure></p>
-<p>（2）句柄的其他知识<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- 由于windows是一种以虚拟内存为基础的操作系统，其内存管理器经常会在内存中来回的移动对象，以此来满足各种应用程序对内存的需求。</span><br><span class="line">- 对象的移动意味着对象内存地址的变化，正是因为如此，如果直接使用指针，在内存地址被改变后，系统将不知道到哪里去再调用这个对象。</span><br><span class="line">- windows系统为论文解决这个问题，系统专门为各种应用程序腾出了一定的内存地址（句柄）专门用来记录这些变化的地址</span><br><span class="line">- windows内存管理器在移动某些对象之后，他会将这些对象新的内存地址传给句柄，告诉他移动后对象去了哪里。</span><br></pre></td></tr></table></figure></p>
-<h3 id="3-virtual关键字"><a href="#3-virtual关键字" class="headerlink" title="3.virtual关键字"></a>3.virtual关键字</h3><ul>
-<li>虚函数是指一个类中你希望重载的成员函数，当你用一个基类指针或引用指向一个继承类对象的时候，你调用一个虚函数，实际调用的是继承类的版本</li>
-<li>虚函数的调用取决于指向或者引用的对象的类型，而不是指针或者引用自身的类型。</li>
-<li>虚函数使得我们可以创建一个统一的基类指针列表，并且调用不同子类的函数而无需知道子类对象究竟是什么。</li>
-<li>只要基类里面被声明为虚函数，那么在子类中默认都是虚的</li>
-<li>静态函数不可以声明为虚函数，同时也不能被const 和 volatile关键字修饰。</li>
-<li>虚函数可以被私有化，但有一些细节需要注意。</li>
+        <h1 id="培训感想"><a href="#培训感想" class="headerlink" title="培训感想"></a>培训感想</h1><ul>
+<li><h2 id="一-学习内容"><a href="#一-学习内容" class="headerlink" title="一.学习内容"></a>一.<strong>学习内容</strong></h2><ul>
+<li><h3 id="1-学习了简报的内容的修改；"><a href="#1-学习了简报的内容的修改；" class="headerlink" title="1.学习了简报的内容的修改；"></a>1.学习了简报的内容的修改；</h3></li>
+<li><h3 id="2-学习了word在审阅模式下如何批改他人的文章；"><a href="#2-学习了word在审阅模式下如何批改他人的文章；" class="headerlink" title="2.学习了word在审阅模式下如何批改他人的文章；"></a>2.学习了word在审阅模式下如何批改他人的文章；</h3></li>
+<li><h3 id="3-了解了markdown如何使用。"><a href="#3-了解了markdown如何使用。" class="headerlink" title="3.了解了markdown如何使用。"></a>3.了解了markdown如何使用。</h3></li>
 </ul>
-<h3 id="4-C-零碎知识点"><a href="#4-C-零碎知识点" class="headerlink" title="4.C++零碎知识点"></a>4.C++零碎知识点</h3><ul>
-<li>In general, computer languages deal with two<br>concepts—data and algorithms.</li>
-</ul>
-<h3 id="5-namespace的作用"><a href="#5-namespace的作用" class="headerlink" title="5.namespace的作用"></a>5.namespace的作用</h3><p>1.实际上就是一个由程序设计者命名的内存区域，程序设计者可以根据需要指定一些有名字的空间域，把一些全局实体分别放在各个命名空间中，从而与其他全局实体分隔开来。</p>
-<p>2.在不同的作用域中可以定义相同名字的变量，互不于扰，系统能够区别它们；</p>
-<h3 id="6-const-char"><a href="#6-const-char" class="headerlink" title="6.const char *"></a>6.const char *</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">char * const p: 定义一个指向字符的指针常数，即const指针，常指针，这个指针是不可以p++的。 </span><br><span class="line">const char* p : 定义一个指向字符常数的指针，即常量指针，这个指针是可以p++的。 </span><br><span class="line">char const* p : 等同于const char* p</span><br></pre></td></tr></table></figure>
-<h3 id="7-深入浅出VA函数"><a href="#7-深入浅出VA函数" class="headerlink" title="7.深入浅出VA函数"></a>7.深入浅出VA函数</h3><ol>
-<li>ANSI C标准下，va的宏定义在stdarg.h中，它们有：va_list，va_start()，va_arg()，va_end()</li>
-<li>使用案例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//格式化到一个文件流，可用于日志文件</span><br><span class="line">FILE *logfile;</span><br><span class="line">int WriteLog(const char * format, ...)</span><br><span class="line">&#123;</span><br><span class="line">va_list arg_ptr;</span><br><span class="line">va_start(arg_ptr, format);</span><br><span class="line">int nWrittenBytes = vfprintf(logfile, format, arg_ptr);</span><br><span class="line">va_end(arg_ptr);</span><br><span class="line">return nWrittenBytes;</span><br><span class="line">&#125;</span><br><span class="line">…</span><br><span class="line">// 调用时，与使用printf()没有区别。</span><br><span class="line">WriteLog(&quot;%04d-%02d-%02d %02d:%02d:%02d  %s/%04d logged out.&quot;, </span><br><span class="line">nYear, nMonth, nDay, nHour, nMinute, szUserName, nUserID);</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//求任意个自然数的平方和：</span><br><span class="line">int SqSum(int n1, ...)</span><br><span class="line">&#123;</span><br><span class="line">va_list arg_ptr;</span><br><span class="line">int nSqSum = 0, n = n1;</span><br><span class="line">va_start(arg_ptr, n1);</span><br><span class="line">while (n &gt; 0)</span><br><span class="line">&#123;</span><br><span class="line">    nSqSum += (n * n);</span><br><span class="line">    n = va_arg(arg_ptr, int);</span><br><span class="line">&#125;</span><br><span class="line">va_end(arg_ptr);</span><br><span class="line">return nSqSum;</span><br><span class="line">&#125;</span><br><span class="line">// 调用时</span><br><span class="line">int nSqSum = SqSum(7, 2, 7, 11, -1);</span><br></pre></td></tr></table></figure>
-<p>3.各大函数的使用方法</p>
-<ul>
-<li><p>va_list arg_ptr：定义一个指向个数可变的参数列表指针；</p>
-</li>
-<li><p>va_start(arg_ptr, argN)：使参数列表指针arg_ptr指向函数参数列表中的第一个可选参数， 说明：argN是位于第一个可选参数之前的固定参数，（或者说，最后一个固定参数；…之前的一个参数），函数参数列表中参数在内存中的顺序与函数声明时的顺序是一致的。如果有一va函数的声明是void va_test(char a, char b, char c, …)，则它的固定参数依次是a,b,c，最后一个固定参数argN为c，因此就是va_start(arg_ptr, c)。</p>
-</li>
-<li>va_arg(arg_ptr, type)：返回参数列表中指针arg_ptr所指的参数，返回类型为type，并使指针arg_ptr指向参数列表中下一个参数。</li>
-<li>va_copy(dest, src)：dest，src的类型都是va_list，va_copy()用于复制参数列表指针，将dest初始化为src。</li>
-<li>va_end(arg_ptr)：清空参数列表，并置参数指针arg_ptr无效。 说明：指针arg_ptr被置无效后，可以通过调用va_start()、va_copy()恢复arg_ptr。每次调用va_start() / va_copy()后，必须得有相应的va_end()与之匹配。参数指针可以在参数列表中随意地来回移动，但必须在va_start() … va_end()之内。</li>
-</ul>
-<p>4.使用的头文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;  </span><br><span class="line">#include &lt;stdarg.h&gt;</span><br></pre></td></tr></table></figure></p>
-<h3 id="8-shared-ptr的使用"><a href="#8-shared-ptr的使用" class="headerlink" title="8.shared_ptr的使用"></a>8.shared_ptr的使用</h3><p>1.shared_ptr是一种智能指针（smart pointer），作用有如同指针，但会记录有多少个shared_ptrs共同指向一个对象。这便是所谓的引用计数（reference counting）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  引用计数指的是，所有管理同一个裸指针（rawpointer）的shared_ptr，都共享一个引用计器</span><br><span class="line">，每当一个shared_ptr被赋值（或拷贝构造）给其它shared_ptr时，这个共享的引用计数器就加</span><br><span class="line">1，当一个shared_ptr析构或者被用于管理其它裸指针时，这个引用计数器就减1，如果此时发现</span><br><span class="line">引用计数器为0，那么说明它是管理这个指针的最后一个shared_ptr了，于是我们释放指针指向</span><br><span class="line">的资源。</span><br></pre></td></tr></table></figure></p>
-<p>2.一旦最后一个这样的指针被销毁，也就是一旦某个对象的引用计数变为0，这个对象会被自动删除。这在非环形数据结构中防止资源泄露很有帮助。</p>
-<h3 id="9-实践过程中遇到的问题"><a href="#9-实践过程中遇到的问题" class="headerlink" title="9.实践过程中遇到的问题"></a>9.实践过程中遇到的问题</h3><p>1.不能将局域内的指针传回<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//代码</span><br><span class="line">char* getStringLength(const char* format,...)</span><br><span class="line">    &#123;   </span><br><span class="line">        char p[kLogMaxLength];</span><br><span class="line">        va_list arg;  </span><br><span class="line">        va_start(arg, format); </span><br><span class="line">        vsnprintf(p,kLogMaxLength,format,arg);</span><br><span class="line">        va_end(arg);</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        return p;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">报错： warning: address of stack memory associated with local</span><br><span class="line">      variable &apos;p&apos; returned [-Wreturn-stack-address]</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//修正</span><br><span class="line">std::string parseParamater(const char* format,...)</span><br><span class="line">    &#123;   </span><br><span class="line">        char p[kLogMaxLength];</span><br><span class="line">        std::string q;</span><br><span class="line">        va_list arg;  </span><br><span class="line">        va_start(arg, format); </span><br><span class="line">        vsnprintf(p,kLogMaxLength,format,arg);</span><br><span class="line">        va_end(arg);</span><br><span class="line"></span><br><span class="line">        q = std::string(p);</span><br><span class="line">        return q;</span><br></pre></td></tr></table></figure>
-<p>2.typedef与宏定义易错点</p>
-<ul>
-<li>宏定义后面不要加”;”</li>
-<li>新名称在前面</li>
-</ul>
-<h3 id="10-内联函数"><a href="#10-内联函数" class="headerlink" title="10.内联函数"></a>10.内联函数</h3><p>1.在C语言中，我们使用宏定义函数这种借助编译器的优化技术来减少程序的执行时间，而在C++中内联函数作为编译器优化手段的一种技术，在降低运行时间上非常有用；</p>
-<p>2.内联函数是C++的增强特性之一，用来降低程序的运行时间。当内联函数收到编译器的指示时，即可发生内联：编译器将使用函数的定义体来替代函数调用语句，这种替代行为发生在编译阶段而非程序运行阶段。<br>3.定义函数时，在函数的最前面以关键字“inline”声明函数，即可使函数称为内联声明函数；</p>
-<p>4.优点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.它通过避免函数调用所带来的开销来提高你程序的运行速度。</span><br><span class="line">2.当函数调用发生时，它节省了变量弹栈、压栈的开销。</span><br><span class="line">3.它避免了一个函数执行完返回原现场的开销。</span><br><span class="line">4.通过将函数声明为内联，你可以把函数定义放在头文件内。</span><br></pre></td></tr></table></figure></p>
-<p>5.缺点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.因为代码的扩展，内联函数增大了可执行程序的体积。</span><br><span class="line">2.C++内联函数的展开是中编译阶段，这就意味着如果你的内联函数发生了改动，那么就需要重新编译代码。</span><br><span class="line">3.当你把内联函数放在头文件中时，它将会使你的头文件信息变多，不过头文件的使用者不用在意这些。</span><br><span class="line">4.有时候内联函数并不受到青睐，比如在嵌入式系统中，嵌入式系统的存储约束可能不允许体积很大的可执行程序。</span><br></pre></td></tr></table></figure></p>
-<p>6.什么时候该使用内联函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.当对程序执行性能有要求时，那么就使用内联函数吧。</span><br><span class="line">2.当你想宏定义一个函数时，那就果断使用内联函数吧。</span><br><span class="line">3.在类内部定义的函数会默认声明为inline函数，这有利于 类实现细节的隐藏。</span><br></pre></td></tr></table></figure></p>
-<h3 id="11-C-的单例"><a href="#11-C-的单例" class="headerlink" title="11 C++的单例"></a>11 C++的单例</h3><p>1.单例模式也称为单件模式、单子模式，可能是使用最广泛的设计模式；</p>
-<p>2.其意图是保证一个类仅有一个实例，并提供一个访问它的全局访问点，该实例被所有程序模块共享；</p>
-<p>3.有很多地方需要这样的功能模块，如系统的日志输出，GUI应用必须是单鼠标，MODEM的联接需要一条且只需要一条电话线，操作系统只能有一个窗口管理器，一台PC连一个键盘；</p>
-<p>4.单例类CSingleton有以下特征：</p>
-<ul>
-<li>它有一个指向唯一实例的静态指针m_pInstance，并且是私有的；</li>
-<li>它有一个公有的函数，可以获取这个唯一的实例，并且在需要的时候创建该实例；</li>
-<li>它的构造函数是私有的，这样就不能从别处创建该类的实例；</li>
-</ul>
-<h3 id="12-c-c-函数类型和函数指针类型"><a href="#12-c-c-函数类型和函数指针类型" class="headerlink" title="12 c/c++ 函数类型和函数指针类型"></a>12 c/c++ 函数类型和函数指针类型</h3><p>1.在C语言中，函数也是一种类型，可以定义指向函数的指针。我们知道，指针变量的内存单元存放一个地址值，而函数指针存放的就是函数的入口地址.</p>
-<p>2.c语言函数指针的定义形式：返回类型 (*函数指针名称)(参数类型,参数类型,参数类型，…);</p>
-<p>&emsp;c++函数指针的定义形式：返回类型（类名称::*函数成员名称）（参数类型，参数类型，参数类型，….);   </p>
-<p>3.函数作为实参使用时，会自动的转换成函数指针；</p>
-<p>4.当把函数名作为一个值使用时，该函数自动的转换成指针.</p>
-<h3 id="13-char类型与string类型的区别"><a href="#13-char类型与string类型的区别" class="headerlink" title="13 char类型与string类型的区别"></a>13 char类型与string类型的区别</h3><ol>
-<li><p>char是字符类型</p>
-</li>
-<li><p>string是字符串类型</p>
-</li>
-</ol>
-<p>虽然一字之差，但其本质是很大的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. char属于基础类型（C++)，在C#中它属于值类型（Value Type)。char类型的长度是固定的，上一篇讲到，在C++中它可能是1个字节</span><br><span class="line">，或者2个字节（取决于是否为Unicode Char），而在C#中，它永远是2个字节。</span><br><span class="line"></span><br><span class="line">2. string是一个模板类型，也就是一个class（C++)。在C#中它属于引用类型（Reference Type)。string的长度是无法明确取得的。</span><br><span class="line">也就是无法通过sizeof来取得，因为它不是一个基础类型，它本身并不固定长度，而取决于内部包含的 字符。</span><br></pre></td></tr></table></figure></p>
-<h3 id="14-引用（reference）与-指针（pointer）的区别与联系"><a href="#14-引用（reference）与-指针（pointer）的区别与联系" class="headerlink" title="14 引用（reference）与 指针（pointer）的区别与联系"></a>14 引用（reference）与 指针（pointer）的区别与联系</h3><h4 id="1-什么是引用？"><a href="#1-什么是引用？" class="headerlink" title="1.什么是引用？"></a>1.什么是引用？</h4><p>引用（reference）： 引用只是别名，不是实体类型（也就是说c++编译器不为引用单独分配内存空间），对一个对象的引用，就是直接对这个对象的操作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a = 3; //定义了一个整形变量a，并且赋初值3 </span><br><span class="line">int &amp; ra = a;//定义了一个引用 ra ,ra与变量占有同一块内存空间 </span><br><span class="line">a = 4; //此时 a 与ra 的值都为 4； </span><br><span class="line">ra = 5;//此时 a 与 ra的值都是5；</span><br></pre></td></tr></table></figure></p>
-<h4 id="2-怎样使用引用？"><a href="#2-怎样使用引用？" class="headerlink" title="2.怎样使用引用？"></a>2.怎样使用引用？</h4><p>（1）引用必须初始化(引用必须指向所引用的对象)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a = 3;</span><br><span class="line">int&amp; ra = a;</span><br><span class="line">int &amp;b ;//错误，引用必须初始化</span><br><span class="line">const int &amp;b = 10;//正确对字面值常量10的引用</span><br></pre></td></tr></table></figure></p>
-<p>（2）引用不能为空<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int &amp;b ;//错误，引用不能为空必须有所引用的对象</span><br></pre></td></tr></table></figure></p>
-<p>(3)引用不能更换目标<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main(void)&#123;</span><br><span class="line">    int a = 3;</span><br><span class="line">    int b = 4;</span><br><span class="line">    int&amp; ra = a;</span><br><span class="line">    // int&amp; ra = b;//错误，多次初始化</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="3-引用与指针的联系与区别"><a href="#3-引用与指针的联系与区别" class="headerlink" title="3.引用与指针的联系与区别"></a>3.引用与指针的联系与区别</h4><p>&emsp;&emsp;在c++底层中，引用是通过指针实现的。也就是说，在实现层面上，引用就是指针，但是从c++的程序语言层面上来说，引用不是实体类型（不为引用单独分配内存空间）因此，引用与指针之间的区别主要体现在以下几个方面： </p>
-<p>（1）存在空指针，但是不存在空引用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">void * a;//空指针，合法</span><br><span class="line">//void&amp; b;//空引用，不合法</span><br></pre></td></tr></table></figure></p>
-<p>（2）虽然c++编译器会警告，但是指针可以不初始化，而引用必须初始化，并且，引用的目标一旦确定，后面不能再更改，指针可以更改其指向的目标。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main(void)&#123;</span><br><span class="line">    void * a;</span><br><span class="line">    //void&amp; b;</span><br><span class="line"></span><br><span class="line">    int x = 1;</span><br><span class="line">    int y = 2;</span><br><span class="line">    int z = 3 ;</span><br><span class="line">    //指针c可以不初始化，可以更改其指向的目标，</span><br><span class="line">    int * c;</span><br><span class="line">    c = &amp;x;</span><br><span class="line">    c = &amp;y;</span><br><span class="line"></span><br><span class="line">    //引用必须初始化，不可以更改其指向的目标</span><br><span class="line">    //int&amp; ra ;//报错，ra 必须要指定初值</span><br><span class="line">    int &amp; ra = x;</span><br><span class="line">    ra = y;//这里只是把y的值赋给 ra 也就是x 而并不是使引用的目标由 对x的引用到对y的引用</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>（3）存在指针数组 ，不存在引用数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int* a[3] =&#123;&amp;x,&amp;y,&amp;z &#125;;//定义了一个有三个整形指针变量的指针数组 a ，合法</span><br><span class="line">//int&amp; a [3] =&#123;x,y ,z&#125;;//报错，不允许使用引用数组，因为引用没有内存的分配</span><br></pre></td></tr></table></figure></p>
-<h4 id="4-总结"><a href="#4-总结" class="headerlink" title="4.总结"></a>4.总结</h4><p>在c++底层中，引用是通过指针实现的，所以，在实现层面上来说，引用就是指针，但是在c++语法上来说，c++编译器并不为引用类型分配内存，所以引用不能为空，必须被初始化，一旦初始化不能更改引用对象。所有对引用的操作都是对原始对象的操作</p>
-<h3 id="15-向量初始化数组"><a href="#15-向量初始化数组" class="headerlink" title="15 向量初始化数组"></a>15 向量初始化数组</h3><h4 id="1-不带参数的构造函数初始化"><a href="#1-不带参数的构造函数初始化" class="headerlink" title="1.不带参数的构造函数初始化"></a>1.不带参数的构造函数初始化</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//初始化一个size为0的vector</span><br><span class="line">vector&lt;int&gt; abc;</span><br></pre></td></tr></table></figure>
-<h4 id="2-带参数的构造函数初始化"><a href="#2-带参数的构造函数初始化" class="headerlink" title="2.带参数的构造函数初始化"></a>2.带参数的构造函数初始化</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//初始化size,但每个元素值为默认值</span><br><span class="line">vector&lt;int&gt; abc(10);    //初始化了10个默认值为0的元素</span><br><span class="line">//初始化size,并且设置初始值</span><br><span class="line">vector&lt;int&gt; cde(10，1);    //初始化了10个值为1的元素</span><br></pre></td></tr></table></figure>
-<h4 id="3-通过数组地址初始化"><a href="#3-通过数组地址初始化" class="headerlink" title="3.通过数组地址初始化"></a>3.通过数组地址初始化</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a[5] = &#123;1,2,3,4,5&#125;;</span><br><span class="line">//通过数组a的地址初始化，注意地址是从0到5（左闭右开区间）</span><br><span class="line">vector&lt;int&gt; b(a, a+5);</span><br></pre></td></tr></table></figure>
-<h4 id="4-通过同类型的vector初始化"><a href="#4-通过同类型的vector初始化" class="headerlink" title="4.通过同类型的vector初始化"></a>4.通过同类型的vector初始化</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt; a(5,1);</span><br><span class="line">//通过a初始化</span><br><span class="line">vector&lt;int&gt; b(a);</span><br></pre></td></tr></table></figure>
-<h4 id="5-通过insert初始化"><a href="#5-通过insert初始化" class="headerlink" title="5.通过insert初始化"></a>5.通过insert初始化</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//insert初始化方式将同类型的迭代器对应的始末区间（左闭右开区间）内的值插入到vector中</span><br><span class="line">vector&lt;int&gt; a(6,6);</span><br><span class="line">vecot&lt;int&gt; b;</span><br><span class="line">//将a[0]~a[2]插入到b中，b.size()由0变为3</span><br><span class="line">b.insert(b.begin(), a.begin(), a.begin() + 3);</span><br></pre></td></tr></table></figure>
-<h3 id="16-多态"><a href="#16-多态" class="headerlink" title="16 多态"></a>16 多态</h3><h4 id="1-多态概述"><a href="#1-多态概述" class="headerlink" title="1.多态概述"></a>1.多态概述</h4><ul>
-<li>多态性可以简单地概括为“一个接口，多种方法”，程序在运行时才决定调用的函数，它是面向对象编程领域的核心概念。</li>
-<li><p>多态与非多态的实质区别就是函数地址是早绑定还是晚绑定。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- 如果函数的调用，在编译器编译期间就可以确定函数的调用地址，并生产代码，是静态的，就是说地址是早绑定的。</span><br><span class="line"></span><br><span class="line">- 如果函数调用的地址不能在编译器期间确定，需要在运行时才确定，这就属于晚绑定。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>多态的作用:多态的目的则是为了接口重用</p>
-</li>
-<li>封装可以使得代码模块化，继承可以扩展已存在的代码，他们的目的都是为了代码重用。</li>
-</ul>
-<h4 id="2-多太分类"><a href="#2-多太分类" class="headerlink" title="2.多太分类"></a>2.多太分类</h4><p>(1)多态有静态多态，也有动态多态，静态多态，比如函数重载，能够在编译器确定应该调用哪个函数；动态多态，比如继承加虚函数的方式<br><img src="http://jbcdn2.b0.upaiyun.com/2016/11/ae91bded2fb09a4ae9b2d9d051bf7528.png" alt></p>
-<p>(2) 静态多态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">long long Add(int left, int right)  </span><br><span class="line">&#123;  </span><br><span class="line">    return left + right;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line">double Add(float left, float right)  </span><br><span class="line">&#123;  </span><br><span class="line">    return left + right;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line">int main()  </span><br><span class="line">&#123;  </span><br><span class="line">    cout&lt;&lt;Add(10, 20)&lt;&lt;endl; //语句一  </span><br><span class="line">    cout&lt;&lt;Add(12.34f, 43.12f)&lt;&lt;endl; //语句二  </span><br><span class="line">  </span><br><span class="line">    return 0;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>(3)动态多态<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>  </span></span><br><span class="line"><span class="class">&#123;</span>  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">GoToWashRoom</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function">    </span>&#123;  </span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"Person--&gt;?"</span>&lt;&lt;<span class="built_in">endl</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;;  </span><br><span class="line">  </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Man</span> :</span> <span class="keyword">public</span> Person  </span><br><span class="line">&#123;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">GoToWashRoom</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function">    </span>&#123;  </span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"Man--&gt;Please Left"</span>&lt;&lt;<span class="built_in">endl</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;;  </span><br><span class="line">  </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Woman</span> :</span> <span class="keyword">public</span> Person  </span><br><span class="line">&#123;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">GoToWashRoom</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function">    </span>&#123;  </span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"Woman--&gt;Please Right"</span>&lt;&lt;<span class="built_in">endl</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    Person per, *pp;  </span><br><span class="line">    Man man, *pm;  </span><br><span class="line">    Woman woman, *pw;  </span><br><span class="line">  </span><br><span class="line">    pp = &amp;per;  </span><br><span class="line">    pm = &amp;man;  </span><br><span class="line">    pw = &amp;woman;  </span><br><span class="line">      </span><br><span class="line">    <span class="comment">//第一组       //这些都是毫无疑问的  </span></span><br><span class="line">    per.GoToWashRoom(); <span class="comment">//调用基类Person类的函数  </span></span><br><span class="line">    pp-&gt;GoToWashRoom();  <span class="comment">//调用基类Person类的函数  </span></span><br><span class="line">    man.GoToWashRoom(); <span class="comment">//调用派生类Man类的函数   </span></span><br><span class="line">    pm-&gt;GoToWashRoom();  <span class="comment">//调用派生类Man类的函数   </span></span><br><span class="line">    woman.GoToWashRoom();   <span class="comment">//调用派生类Woman类的函数   </span></span><br><span class="line">    pw-&gt;GoToWashRoom();  <span class="comment">//调用派生类Woman类的函数   </span></span><br><span class="line">      </span><br><span class="line">    <span class="comment">//第二组  </span></span><br><span class="line">    pp = &amp;man;  </span><br><span class="line">    pp-&gt;GoToWashRoom();  <span class="comment">//调用基类Person类的函数  </span></span><br><span class="line">    pp = &amp;woman;  </span><br><span class="line">    pp-&gt;GoToWashRoom();  <span class="comment">//调用基类Person类的函数  </span></span><br><span class="line">      </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="3-多态小结"><a href="#3-多态小结" class="headerlink" title="3.多态小结"></a>3.多态小结</h4><ul>
-<li>基类中定义了虚函数，在派生类中该函数始终保持虚函数的特性</li>
-<li>只有类的成员函数才能定义为虚函数，静态成员函数不能定义为虚函数</li>
-<li>如果在类外定义虚函数，只能在声明函数时加virtual关键字，定义时不用加</li>
-<li>构造函数不能定义为虚函数，虽然可以将operator=定义为虚函数，但最好不要这么做，使用时容 易混淆</li>
-<li>最好将基类的析构函数声明为虚函数。(析构函数比较特殊，因为派生类的析构函数跟基类的析构 函数名称不一样，但是构成覆盖，这里编译器做了特殊处理)</li>
-</ul>
-<h3 id="十七-map用法详解"><a href="#十七-map用法详解" class="headerlink" title="十七 map用法详解"></a>十七 map用法详解</h3><h4 id="1-map简介"><a href="#1-map简介" class="headerlink" title="1.map简介"></a>1.map简介</h4><p>map是一类关联式容器。它的特点是增加和删除节点对迭代器的影响很小，除了那个操作节点，对其他的节点都没有什么影响。对于迭代器来说，可以修改实值，而不能修改key。</p>
-<h4 id="2-map的功能"><a href="#2-map的功能" class="headerlink" title="2.map的功能"></a>2.map的功能</h4><ul>
-<li>自动建立Key － value的对应。key 和 value可以是任意你需要的类型。</li>
-<li><p>根据key值快速查找记录，查找的复杂度基本是Log(N)，如果有1000个记录，最多查找10次，1,000,000个记录，最多查找20次。</p>
-</li>
-<li><p>快速插入Key -Value 记录。</p>
-</li>
-</ul>
-<h4 id="3-数据的插入"><a href="#3-数据的插入" class="headerlink" title="3.数据的插入"></a>3.数据的插入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;map&gt;  </span><br><span class="line">  </span><br><span class="line">#include &lt;string&gt;  </span><br><span class="line">  </span><br><span class="line">#include &lt;iostream&gt;  </span><br><span class="line">  </span><br><span class="line">using namespace std;  </span><br><span class="line">  </span><br><span class="line">int main()  </span><br><span class="line">  </span><br><span class="line">&#123;  </span><br><span class="line">  </span><br><span class="line">    map&lt;int, string&gt; mapStudent;  </span><br><span class="line">  </span><br><span class="line">    mapStudent.insert(map&lt;int, string&gt;::value_type (1, &quot;student_one&quot;));  </span><br><span class="line">  </span><br><span class="line">    mapStudent.insert(map&lt;int, string&gt;::value_type (2, &quot;student_two&quot;));  </span><br><span class="line">  </span><br><span class="line">    mapStudent.insert(map&lt;int, string&gt;::value_type (3, &quot;student_three&quot;));  </span><br><span class="line">  </span><br><span class="line">    map&lt;int, string&gt;::iterator iter;  </span><br><span class="line">  </span><br><span class="line">    for(iter = mapStudent.begin(); iter != mapStudent.end(); iter++)  </span><br><span class="line">  </span><br><span class="line">       cout&lt;&lt;iter-&gt;first&lt;&lt;&apos; &apos;&lt;&lt;iter-&gt;second&lt;&lt;endl;  </span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="4-数据的查找"><a href="#4-数据的查找" class="headerlink" title="4.数据的查找"></a>4.数据的查找</h4><ul>
-<li>第一种：用count函数来判定关键字是否出现，其缺点是无法定位数据出现位置,由于map的特性，一对一的映射关系，就决定了count函数的返回值只有两个，要么是0，要么是1，出现的情况，当然是返回1了</li>
-</ul>
-<ul>
-<li>第二种：用find函数来定位数据出现位置，它返回的一个迭代器，当数据出现时，它返回数据所在位置的迭代器，如果map中没有要查找的数据，它返回的迭代器等于end函数返回的迭代器。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;map&gt;  </span><br><span class="line">  </span><br><span class="line">#include &lt;string&gt;  </span><br><span class="line">  </span><br><span class="line">#include &lt;iostream&gt;  </span><br><span class="line">  </span><br><span class="line">using namespace std;  </span><br><span class="line">  </span><br><span class="line">int main()  </span><br><span class="line">  </span><br><span class="line">&#123;  </span><br><span class="line">  </span><br><span class="line">    map&lt;int, string&gt; mapStudent;  </span><br><span class="line">  </span><br><span class="line">    mapStudent.insert(pair&lt;int, string&gt;(1, &quot;student_one&quot;));  </span><br><span class="line">  </span><br><span class="line">    mapStudent.insert(pair&lt;int, string&gt;(2, &quot;student_two&quot;));  </span><br><span class="line">  </span><br><span class="line">    mapStudent.insert(pair&lt;int, string&gt;(3, &quot;student_three&quot;));  </span><br><span class="line">  </span><br><span class="line">    map&lt;int, string&gt;::iterator iter;  </span><br><span class="line">  </span><br><span class="line">    iter = mapStudent.find(1);  </span><br><span class="line">  </span><br><span class="line">    if(iter != mapStudent.end())  </span><br><span class="line">  </span><br><span class="line">       cout&lt;&lt;&quot;Find, the value is &quot;&lt;&lt;iter-&gt;second&lt;&lt;endl;  </span><br><span class="line">  </span><br><span class="line">    else  </span><br><span class="line">  </span><br><span class="line">       cout&lt;&lt;&quot;Do not Find&quot;&lt;&lt;endl;  </span><br><span class="line">      </span><br><span class="line">    return 0;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="5-数据的删除"><a href="#5-数据的删除" class="headerlink" title="5.数据的删除"></a>5.数据的删除</h4><ul>
-<li><p>iterator erase（iterator it);//通过一个条目对象删除</p>
-</li>
-<li><p>iterator erase（iterator first，iterator - last）//删除一个范围</p>
-</li>
-<li><p>size_type erase(const Key&amp;key);//通过关键字删除</p>
-</li>
-<li><p>clear()就相当于enumMap.erase(enumMap.begin(),enumMap.end());</p>
-</li>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;map&gt;  </span><br><span class="line">  </span><br><span class="line">#include &lt;string&gt;  </span><br><span class="line">  </span><br><span class="line">#include &lt;iostream&gt;  </span><br><span class="line">  </span><br><span class="line">using namespace std;  </span><br><span class="line">  </span><br><span class="line">int main()  </span><br><span class="line">  </span><br><span class="line">&#123;  </span><br><span class="line">  </span><br><span class="line">       map&lt;int, string&gt; mapStudent;  </span><br><span class="line">  </span><br><span class="line">       mapStudent.insert(pair&lt;int, string&gt;(1, &quot;student_one&quot;));  </span><br><span class="line">  </span><br><span class="line">       mapStudent.insert(pair&lt;int, string&gt;(2, &quot;student_two&quot;));  </span><br><span class="line">  </span><br><span class="line">       mapStudent.insert(pair&lt;int, string&gt;(3, &quot;student_three&quot;));  </span><br><span class="line">  </span><br><span class="line">        //如果你要演示输出效果，请选择以下的一种，你看到的效果会比较好  </span><br><span class="line">  </span><br><span class="line">       //如果要删除1,用迭代器删除  </span><br><span class="line">  </span><br><span class="line">       map&lt;int, string&gt;::iterator iter;  </span><br><span class="line">  </span><br><span class="line">       iter = mapStudent.find(1);  </span><br><span class="line">  </span><br><span class="line">       mapStudent.erase(iter);  </span><br><span class="line">  </span><br><span class="line">       //如果要删除1，用关键字删除  </span><br><span class="line">  </span><br><span class="line">       int n = mapStudent.erase(1);//如果删除了会返回1，否则返回0  </span><br><span class="line">  </span><br><span class="line">       //用迭代器，成片的删除  </span><br><span class="line">  </span><br><span class="line">       //一下代码把整个map清空  </span><br><span class="line">  </span><br><span class="line">       mapStudent.erase( mapStudent.begin(), mapStudent.end() );  </span><br><span class="line">  </span><br><span class="line">       //成片删除要注意的是，也是STL的特性，删除区间是一个前闭后开的集合  </span><br><span class="line">  </span><br><span class="line">       //自个加上遍历代码，打印输出吧  </span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="6-map的基本操作函数"><a href="#6-map的基本操作函数" class="headerlink" title="6.map的基本操作函数"></a>6.map的基本操作函数</h4><pre><code>begin()         返回指向map头部的迭代器
-
-clear(）        删除所有元素
-
-count()         返回指定元素出现的次数
-
-empty()         如果map为空则返回true
-
-end()           返回指向map末尾的迭代器
-
-equal_range()   返回特殊条目的迭代器对
-
-erase()         删除一个元素
-
-find()          查找一个元素
-
-get_allocator() 返回map的配置器
-
-insert()        插入元素
-
-key_comp()      返回比较元素key的函数
-
-lower_bound()   返回键值&gt;=给定元素的第一个位置
-
-max_size()      返回可以容纳的最大元素个数
-
-rbegin()        返回一个指向map尾部的逆向迭代器
-
-rend()          返回一个指向map头部的逆向迭代器
-
-size()          返回map中元素的个数
-
-swap()           交换两个map
-
-upper_bound()    返回键值&gt;给定元素的第一个位置
-
-value_comp()     返回比较元素value的函数
-</code></pre><h3 id="18-vector容器"><a href="#18-vector容器" class="headerlink" title="18 vector容器"></a>18 vector容器</h3><h4 id="1-vector是什么"><a href="#1-vector是什么" class="headerlink" title="1.vector是什么"></a>1.vector是什么</h4><p>向量（Vector）是一个封装了动态大小数组的顺序容器（Sequence Container）。跟任意其它类型容器一样，它能够存放各种类型的对象。可以简单的认为，向量是一个能够存放任意类型的动态数组。</p>
-<h4 id="2-vector函数"><a href="#2-vector函数" class="headerlink" title="2. vector函数"></a>2. vector函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">1.push_back 在数组的最后添加一个数据</span><br><span class="line"></span><br><span class="line">2.pop_back 去掉数组的最后一个数据</span><br><span class="line"></span><br><span class="line">3.at 得到编号位置的数据</span><br><span class="line"></span><br><span class="line">4.begin 得到数组头的指针</span><br><span class="line"></span><br><span class="line">5.end 得到数组的最后一个单元+1的指针</span><br><span class="line"></span><br><span class="line">6．front 得到数组头的引用</span><br><span class="line"></span><br><span class="line">7.back 得到数组的最后一个单元的引用</span><br><span class="line"></span><br><span class="line">8.max_size 得到vector最大可以是多大</span><br><span class="line"></span><br><span class="line">9.capacity 当前vector分配的大小</span><br><span class="line"></span><br><span class="line">10.size 当前使用数据的大小</span><br><span class="line"></span><br><span class="line">11.resize 改变当前使用数据的大小，如果它比当前使用的大，者填充默认值</span><br><span class="line"></span><br><span class="line">12.reserve 改变当前vecotr所分配空间的大小</span><br><span class="line"></span><br><span class="line">13.erase 删除指针指向的数据项</span><br><span class="line"></span><br><span class="line">14.clear 清空当前的vector</span><br><span class="line"></span><br><span class="line">15.rbegin 将vector反转后的开始指针返回(其实就是原来的end-1)</span><br><span class="line"></span><br><span class="line">16.rend 将vector反转构的结束指针返回(其实就是原来的begin-1)</span><br><span class="line"></span><br><span class="line">17.empty 判断vector是否为空</span><br><span class="line"></span><br><span class="line">18.swap 与另一个vector交换数据</span><br></pre></td></tr></table></figure>
-<h3 id="19-纯虚函数"><a href="#19-纯虚函数" class="headerlink" title="19 纯虚函数"></a>19 纯虚函数</h3><h4 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h4><p>纯虚函数是在基类中声明的虚函数，它在基类中没有定义，但要求任何派生类都要定义自己的实现方法。在基类中实现纯虚函数的方法是在函数原型后加“=0”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">virtual void funtion1()=0</span><br></pre></td></tr></table></figure></p>
-<h4 id="2-引入原因"><a href="#2-引入原因" class="headerlink" title="2.引入原因"></a>2.引入原因</h4><ul>
-<li>1、为了方便使用多态特性，我们常常需要在基类中定义虚拟函数。</li>
-<li>2、在很多情况下，基类本身生成对象是不合情理的。例如，动物作为一个基类可以派生出老虎、孔雀等子类，但动物本身生成对象明显不合常理</li>
-</ul>
-<h4 id="3-总结"><a href="#3-总结" class="headerlink" title="3.总结"></a>3.总结</h4><ul>
-<li>虚函数必须实现，如果不实现，编译器将报错，错误提示为：<br>error LNK<em>**</em>: unresolved external symbol “public: virtual void __thiscall ClassName::virtualFunctionName(void)”</li>
-<li>实现了纯虚函数的子类，该纯虚函数在子类中就编程了虚函数，子类的子类即孙子类可以覆盖该虚函数，由多态方式调用的时候动态绑定</li>
-<li>在有动态分配堆上内存的时候，析构函数必须是虚函数，但没有必要是纯虚的。</li>
-<li>析构函数应当是虚函数，将调用相应对象类型的析构函数，因此，如果指针指向的是子类对象，将调用子类的析构函数，然后自动调用基类的析构函数</li>
-</ul>
-<h3 id="20-抽象类的介绍"><a href="#20-抽象类的介绍" class="headerlink" title="20 抽象类的介绍"></a>20 抽象类的介绍</h3><h4 id="1-定义-1"><a href="#1-定义-1" class="headerlink" title="1.定义"></a>1.定义</h4><p>称带有纯虚函数的类为抽象类。</p>
-<h4 id="2-抽象类的作用："><a href="#2-抽象类的作用：" class="headerlink" title="2.抽象类的作用："></a>2.抽象类的作用：</h4><p>抽象类的主要作用是将有关的操作作为结果接口组织在一个继承层次结构中，由它来为派生类提供一个公共的根，派生类将具体实现在其基类中作为接口的操作。所以派生类实际上刻画了一组子类的操作接口的通用语义，这些语义也传给子类，子类可以具体实现这些语义，也可以再将这些语义传给自己的子类。</p>
-<h4 id="3-使用抽象类时注意："><a href="#3-使用抽象类时注意：" class="headerlink" title="3.使用抽象类时注意："></a>3.使用抽象类时注意：</h4><ul>
-<li>抽象类只能作为基类来使用，其纯虚函数的实现由派生类给出。如果派生类中没有重新定义纯虚函数，而只是继承基类的纯虚函数，则这个派生类仍然还是一个抽象类。如果派生类中给出了基类纯虚函数的实现，则该派生类就不再是抽象类了，它是一个可以建立对象的具体的类。</li>
-<li>抽象类是不能定义对象的。</li>
-</ul>
-
+<li><h2 id="二-学习感想"><a href="#二-学习感想" class="headerlink" title="二.学习感想"></a>二.<strong>学习感想</strong></h2><ul>
+<li><h3 id="1-点团队作风十分严谨认真，在工作-中不能有半点马虎；"><a href="#1-点团队作风十分严谨认真，在工作-中不能有半点马虎；" class="headerlink" title="1.点团队作风十分严谨认真，在工作 中不能有半点马虎；"></a>1.点团队作风十分严谨认真，在工作 中不能有半点马虎；</h3></li>
+<li><h3 id="2-markdown真的十分有趣，比word下编辑有感觉多了，要好好学习markdown的使用；"><a href="#2-markdown真的十分有趣，比word下编辑有感觉多了，要好好学习markdown的使用；" class="headerlink" title="2.markdown真的十分有趣，比word下编辑有感觉多了，要好好学习markdown的使用；"></a>2.markdown真的十分有趣，比word下编辑有感觉多了，要好好学习markdown的使用；</h3></li>
+<li><h3 id="3-作业写起来特别有意思。"><a href="#3-作业写起来特别有意思。" class="headerlink" title="3.作业写起来特别有意思。"></a>3.作业写起来特别有意思。</h3>
+        
+          <p class="article-more-link">
+            <a href="/2018/10/06/Dian团队文档培训感想/#more">Read More</a>
+          </p>
+        
       
-    </div>
+    </li></ul></li></ul></div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/C入门笔记/" data-id="cjtjd6pys002rn8ocf5bl5stt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/06/Dian团队文档培训感想/" data-id="cjtjfqsqx0005s2oc8uypxy1j" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dian/">Dian</a></li></ul>
+
     </footer>
   </div>
   
@@ -475,61 +369,47 @@ value_comp()     返回比较元素value的函数
 
 
   
-    <article id="post-Cprimer阅读笔记" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EventBus使用详解" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/22/Cprimer阅读笔记/" class="article-date">
-  <time datetime="2019-03-22T01:06:36.000Z" itemprop="datePublished">2019-03-22</time>
+    <a href="/2018/10/06/EventBus使用详解/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/EventBus使用详解/">EventBus使用详解</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="C-primer阅读笔记"><a href="#C-primer阅读笔记" class="headerlink" title="C++ primer阅读笔记"></a>C++ primer阅读笔记</h1><p>[TOC]</p>
-<h2 id="第二章-开始学习C"><a href="#第二章-开始学习C" class="headerlink" title="第二章 开始学习C++"></a>第二章 开始学习C++</h2><h3 id="2-1-进入C"><a href="#2-1-进入C" class="headerlink" title="2.1 进入C++"></a>2.1 进入C++</h3><p>1.cin.get();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对于有些程序，要让窗口一直打开，直到按下任何按键，就必须添加cin.get();</span><br></pre></td></tr></table></figure></p>
-<p>2.C语言的输出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">“，C++能够使用printf( )、scanf( )和其他所有标准C输入和输出函数，只需要包含常规C语言的stdio.h文件”</span><br></pre></td></tr></table></figure></p>
-<p>3.“头文件命名约定”</p>
-<ul>
-<li>以.h结尾:C++ 旧式风格如iostream.h，C++程序可以使用，<br>math.h，C和C++都可以使用</li>
-<li>没有扩展名：iostream C++程序可以使用，使用namespace std</li>
-<li>加上前缀c，没有扩展名，如cmath，C++程序可以使用，可以使用不是C的特性，如namespace std</li>
-</ul>
-<p>4.控制符endl<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- endl是一个特殊的C++符号，表示一个重要的概念：重起一行。</span><br><span class="line">-</span><br></pre></td></tr></table></figure></p>
-<h3 id="2-2-C-语句"><a href="#2-2-C-语句" class="headerlink" title="2.2 C++语句"></a>2.2 C++语句</h3><p>1.赋值运算符“=”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C++（和C）有一项不寻常的特性—可以连续使用赋值运算符。例如，下面的代码是合法的：</span><br><span class="line">x=y=z=87</span><br></pre></td></tr></table></figure></p>
-<h3 id="2-3-其他C-语句"><a href="#2-3-其他C-语句" class="headerlink" title="2.3 其他C++语句"></a>2.3 其他C++语句</h3><p>1.使用cout进行拼接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; &quot;Now you have&quot;</span><br><span class="line">     &lt;&lt; &quot;carraots&quot;</span><br><span class="line">     &lt;&lt;&quot;carrots&quot;</span><br><span class="line">     &lt;&lt; endl;</span><br></pre></td></tr></table></figure></p>
-<p>2.类的简介</p>
-<ul>
-<li>类描述了一种数据类型的全部属性（包括可使用它执行的操作），对象是根据这些描述创建的实体。</li>
-</ul>
-<p>3.main函数返回值问题</p>
-<ul>
-<li>main( )的返回值并不是返回给程序的其他部分，而是返回给操作系统。很多操作系统都可以使用程序的返回值。</li>
-<li>通常的约定是，退出值为0则意味着程序运行成功，为非零则意味着存在问题。</li>
-</ul>
-<h3 id="第7章-函数——C-的编程模块"><a href="#第7章-函数——C-的编程模块" class="headerlink" title="第7章 函数——C++的编程模块"></a>第7章 函数——C++的编程模块</h3><h4 id="7-1-函数和数组"><a href="#7-1-函数和数组" class="headerlink" title="7.1 函数和数组"></a>7.1 函数和数组</h4><p>1.函数如何使用指针来处理数组</p>
-<ul>
-<li>int *arr和int arr [ ]的含义是相同的</li>
-</ul>
-<p>2.显示数组及用const保护数组</p>
-<ul>
-<li>创建显示数组内容的函数很简单。只需将数组名和填充的元素数目传递给函数，然后该函数使用循环来显示每个元素。</li>
-<li>添加了const就无法对变量的值进行更改</li>
-<li>没有添加const的变量传入函数，在函数内只是对于变量的拷贝进行更改</li>
-</ul>
-<p>3.使用数组区间的函数</p>
-<ul>
-<li>对于处理数组的C++ 函数，必须将数组中的数据种类、数组的起始位置和数组中元素数量提交给它；传统的C/C++方法是，将指向数组起始处的指针作为一个参数，将数组长度作为第二个参数（指针指出数组的位置和数据类型）</li>
-<li>另一种给函数提供所需信息的方法，即指定元素区间（range），这可以通过传递两个指针来完成：一个指针标识数组的开头，另一个指针标识数组的尾部。</li>
-</ul>
-
+        <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><h3 id="1-四种订阅函数"><a href="#1-四种订阅函数" class="headerlink" title="1.四种订阅函数"></a>1.四种订阅函数</h3><p>1、onEvent<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onEvent:如果使用onEvent作为订阅函数，那么该事件在哪个线程发布出来的，onEvent</span><br><span class="line">就会在这个线程中运行，也就是说发布事件和接收事件线程在同一个线程。使用这个方</span><br><span class="line">法时，在onEvent方法中不能执行耗时操作，如果执行耗时操作容易导致事件分发延迟</span><br></pre></td></tr></table></figure></p>
+<p>2、onEventMainThread<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">onEventMainThread:如果使用onEventMainThread作为订阅函数，那么不论事件是在哪</span><br><span class="line">个线程中发布出来的，onEventMainThread都会在UI线程中执行，接收事件就会在UI线</span><br><span class="line">程中运行，这个在Android中是非常有用的，因为在Android中只能在UI线程中跟新UI，</span><br><span class="line">所以在onEvnetMainThread方法中是不能执行耗时操作的。</span><br></pre></td></tr></table></figure></p>
+        
+          <p class="article-more-link">
+            <a href="/2018/10/06/EventBus使用详解/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/Cprimer阅读笔记/" data-id="cjtjd6pum0009n8oca8brvfrs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/06/EventBus使用详解/" data-id="cjtjfqsqy0006s2oc3m2ikxu3" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
     </footer>
   </div>
   
@@ -537,27 +417,47 @@ value_comp()     返回比较元素value的函数
 
 
   
-    <article id="post-RefactoringImprovingtheDesignofExistingCode" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Git使用方法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/22/RefactoringImprovingtheDesignofExistingCode/" class="article-date">
-  <time datetime="2019-03-22T01:06:35.000Z" itemprop="datePublished">2019-03-22</time>
+    <a href="/2018/10/06/Git使用方法/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/git学习/">git学习</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/Git使用方法/">Git使用方法</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Refactoring-Improving-the-Design-of-Existing-Code"><a href="#Refactoring-Improving-the-Design-of-Existing-Code" class="headerlink" title="Refactoring: Improving the Design of Existing Code"></a>Refactoring: Improving the Design of Existing Code</h2><h2 id="Chapter-1-Refactoring-a-First-Example"><a href="#Chapter-1-Refactoring-a-First-Example" class="headerlink" title="Chapter 1 Refactoring ,a First Example"></a>Chapter 1 Refactoring ,a First Example</h2><h3 id="1-The-First-Step-in-Refactoring"><a href="#1-The-First-Step-in-Refactoring" class="headerlink" title="1. The First Step in Refactoring"></a>1. The First Step in Refactoring</h3><p>1.I need to build a solid set of tests for that section of code. The tests are essential because even though I follow refactorings structured to avoid most of the opportunities for introducing bugs, I’m still human and still make mistakes. Thus I need solid tests.</p>
-<p>2.Before you start refactoring, check that you have a solid suite of tests. These tests must be self-checking.</p>
-<h3 id="2-Decomposing-and-Redistributing-the-Statement-Methon"><a href="#2-Decomposing-and-Redistributing-the-Statement-Methon" class="headerlink" title="2.Decomposing and Redistributing the Statement Methon"></a>2.Decomposing and Redistributing the Statement Methon</h3>
+        <h2 id="Usage-of-git"><a href="#Usage-of-git" class="headerlink" title="Usage of git"></a>Usage of git</h2><h3 id="1-Git-Tools-Submodules"><a href="#1-Git-Tools-Submodules" class="headerlink" title="1.Git Tools - Submodules"></a>1.Git Tools - Submodules</h3><h4 id="1-Why-you-should-use-sumbmodules"><a href="#1-Why-you-should-use-sumbmodules" class="headerlink" title="1.Why you should use sumbmodules"></a>1.Why you should use sumbmodules</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">It often happens that while working on one project, you need to use another project from within it. Perhaps it’s a library that </span><br><span class="line">a third party developed or that you’re developing separately and </span><br><span class="line">using in multiple parent projects. A common issue arises in these scenarios: you want to be able to treat the two projects </span><br><span class="line">as separate yet still be able to use one from within the other.</span><br></pre></td></tr></table></figure>
+<h4 id="2-Starting-with-Submodules"><a href="#2-Starting-with-Submodules" class="headerlink" title="2.Starting with Submodules"></a>2.Starting with Submodules</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule add https://github.com/chaconinc/DbConnector</span><br><span class="line">Cloning into &apos;DbConnector&apos;...</span><br><span class="line">remote: Counting objects: 11, done.</span><br><span class="line">remote: Compressing objects: 100% (10/10), done.</span><br><span class="line">remote: Total 11 (delta 0), reused 11 (delta 0)</span><br><span class="line">Unpacking objects: 100% (11/11), done.</span><br><span class="line">Checking connectivity... done.</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2018/10/06/Git使用方法/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/RefactoringImprovingtheDesignofExistingCode/" data-id="cjtjd6pv8000mn8ocbzph7tjc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/06/Git使用方法/" data-id="cjtjfqsr0000as2oceepj3os9" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
     </footer>
   </div>
   
@@ -565,30 +465,48 @@ value_comp()     返回比较元素value的函数
 
 
   
-    <article id="post-RoadoflearningC" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-深信服代码规范总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/22/RoadoflearningC/" class="article-date">
-  <time datetime="2019-03-22T01:06:35.000Z" itemprop="datePublished">2019-03-22</time>
+    <a href="/2018/10/06/深信服代码规范总结/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/深信服/">深信服</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/深信服代码规范总结/">深信服代码规范总结</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Road-of-learning-C"><a href="#Road-of-learning-C" class="headerlink" title="Road of learning C++"></a>Road of learning C++</h1><p>[TOC]</p>
-<h2 id="I-Details-of-using-C"><a href="#I-Details-of-using-C" class="headerlink" title="I.Details of using C++"></a>I.Details of using C++</h2><h3 id="1-converting"><a href="#1-converting" class="headerlink" title="1.converting"></a>1.converting</h3><p>(1)Convert string to integer</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// stoi example</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;   // std::cout</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;     // std::string, std::stoi</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> str_dec = <span class="string">"2001, A Space Odyssey"</span>;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> str_hex = <span class="string">"40c3"</span>;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> str_bin = <span class="string">"-10010110001"</span>;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> str_auto = <span class="string">"0x7f"</span>;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">string</span>::size_type sz;   <span class="comment">// alias of size_t</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> i_dec = <span class="built_in">std</span>::stoi (str_dec,&amp;sz);</span><br><span class="line">  <span class="keyword">int</span> i_hex = <span class="built_in">std</span>::stoi (str_hex,<span class="literal">nullptr</span>,<span class="number">16</span>);</span><br><span class="line">  <span class="keyword">int</span> i_bin = <span class="built_in">std</span>::stoi (str_bin,<span class="literal">nullptr</span>,<span class="number">2</span>);</span><br><span class="line">  <span class="keyword">int</span> i_auto = <span class="built_in">std</span>::stoi (str_auto,<span class="literal">nullptr</span>,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; str_dec &lt;&lt; <span class="string">": "</span> &lt;&lt; i_dec &lt;&lt; <span class="string">" and ["</span> &lt;&lt; str_dec.substr(sz) &lt;&lt; <span class="string">"]\n"</span>;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; str_hex &lt;&lt; <span class="string">": "</span> &lt;&lt; i_hex &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; str_bin &lt;&lt; <span class="string">": "</span> &lt;&lt; i_bin &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; str_auto &lt;&lt; <span class="string">": "</span> &lt;&lt; i_auto &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>(2)Convert string to long int<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">// stol example</span><br><span class="line">#include &lt;iostream&gt;   // std::cout</span><br><span class="line">#include &lt;string&gt;     // std::string, std::stol</span><br><span class="line"></span><br><span class="line">int main ()</span><br><span class="line">&#123;</span><br><span class="line">  std::string str_dec = &quot;1987520&quot;;</span><br><span class="line">  std::string str_hex = &quot;2f04e009&quot;;</span><br><span class="line">  std::string str_bin = &quot;-11101001100100111010&quot;;</span><br><span class="line">  std::string str_auto = &quot;0x7fffff&quot;;</span><br><span class="line"></span><br><span class="line">  std::string::size_type sz;   // alias of size_t</span><br><span class="line"></span><br><span class="line">  long li_dec = std::stol (str_dec,&amp;sz);</span><br><span class="line">  long li_hex = std::stol (str_hex,nullptr,16);</span><br><span class="line">  long li_bin = std::stol (str_bin,nullptr,2);</span><br><span class="line">  long li_auto = std::stol (str_auto,nullptr,0);</span><br><span class="line"></span><br><span class="line">  std::cout &lt;&lt; str_dec &lt;&lt; &quot;: &quot; &lt;&lt; li_dec &lt;&lt; &apos;\n&apos;;</span><br><span class="line">  std::cout &lt;&lt; str_hex &lt;&lt; &quot;: &quot; &lt;&lt; li_hex &lt;&lt; &apos;\n&apos;;</span><br><span class="line">  std::cout &lt;&lt; str_bin &lt;&lt; &quot;: &quot; &lt;&lt; li_bin &lt;&lt; &apos;\n&apos;;</span><br><span class="line">  std::cout &lt;&lt; str_auto &lt;&lt; &quot;: &quot; &lt;&lt; li_auto &lt;&lt; &apos;\n&apos;;</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>(3)Convert bool to string<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">std::to_string(bool);</span><br></pre></td></tr></table></figure></p>
-
+        <h2 id="深信服代码规范总结"><a href="#深信服代码规范总结" class="headerlink" title="深信服代码规范总结"></a>深信服代码规范总结</h2><p>1.字符串要定义成宏；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">方便后期代码的维护</span><br></pre></td></tr></table></figure></p>
+<p>2.外部的参数要进行检测；</p>
+<p>3.类名首字母要大写；<br>错误示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class logger: public boost::serialization::singleton&lt;logger&gt;</span><br></pre></td></tr></table></figure></p>
+        
+          <p class="article-more-link">
+            <a href="/2018/10/06/深信服代码规范总结/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/RoadoflearningC/" data-id="cjtjd6pv9000nn8ocv6wrorxb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/06/深信服代码规范总结/" data-id="cjtjfqssl0028s2ocp0brlvdn" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/深信服/">深信服</a></li></ul>
+
     </footer>
   </div>
   
@@ -596,34 +514,47 @@ value_comp()     返回比较元素value的函数
 
 
   
-    <article id="post-ExperienceofCinSF" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-父亲的信" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/22/ExperienceofCinSF/" class="article-date">
-  <time datetime="2019-03-22T01:06:35.000Z" itemprop="datePublished">2019-03-22</time>
+    <a href="/2018/10/06/父亲的信/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/文学/">文学</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/父亲的信/">父亲的信</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Experience-of-C-in-SF"><a href="#Experience-of-C-in-SF" class="headerlink" title="Experience of C++ in SF"></a>Experience of C++ in SF</h1><p>[TOC]</p>
-<h2 id="1-Attachment-moudule"><a href="#1-Attachment-moudule" class="headerlink" title="1.Attachment moudule"></a>1.Attachment moudule</h2><h3 id="1-perfect-using-in-Attachment"><a href="#1-perfect-using-in-Attachment" class="headerlink" title="(1) perfect using in Attachment"></a>(1) perfect using in Attachment</h3><h4 id="a-Checkout-of-parameter"><a href="#a-Checkout-of-parameter" class="headerlink" title="a. Checkout of parameter"></a>a. Checkout of parameter</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * set attachment id</span></span><br><span class="line"><span class="comment"> * @param  attachmentId is a string</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">void</span> Attachment::setAttachmentId(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp;attachmentId) &#123;</span><br><span class="line">	<span class="comment">//Checkout of parameter</span></span><br><span class="line">	<span class="keyword">if</span> (attachmentId.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		SE_LOG_WARN(kAttachmentModule,<span class="string">"set attachmentId get an empty string"</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	m_attachmentId = attachmentId;</span><br><span class="line">	SE_LOG_DEBUG(kAttachmentModule,<span class="string">"setattachmentId success"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="b-Using-get-to-judge-shared-ptr-is-null"><a href="#b-Using-get-to-judge-shared-ptr-is-null" class="headerlink" title="b.Using get to judge shared_ptr is null"></a>b.Using get to judge shared_ptr is null</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">shared_ptr</span>&lt;Attachment&gt; attachment;</span><br><span class="line"><span class="keyword">if</span>(attachment.get() == <span class="literal">NULL</span>) &#123;</span><br><span class="line">	<span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>c.Using empty to judge string is empty<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">std::string Id; </span><br><span class="line">// check Id is empty</span><br><span class="line">if (Id.empty()) &#123;</span><br><span class="line">	SE_LOG_ERROR(kAttachmentModule,&quot;getAttachment get an empty Id&quot;);</span><br><span class="line">	return finalget;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="2-Knowledge-in-Attachment"><a href="#2-Knowledge-in-Attachment" class="headerlink" title="(2) Knowledge in Attachment"></a>(2) Knowledge in Attachment</h3><h4 id="a-uint64-t"><a href="#a-uint64-t" class="headerlink" title="a.uint64_t"></a>a.uint64_t</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">uint8_t</span><br><span class="line">uint16_t</span><br><span class="line">uint32_t</span><br><span class="line">uint64_t</span><br><span class="line"> </span><br><span class="line">unsigned integer type with width of exactly 8, 16, 32 and 64 bits respectively </span><br><span class="line">(provided only if the implementation directly supports the type)</span><br></pre></td></tr></table></figure>
-<h4 id="b-using-of-rapidJson"><a href="#b-using-of-rapidJson" class="headerlink" title="b.using of rapidJson"></a>b.using of rapidJson</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//define </span></span><br><span class="line">StringBuffer strbuf; </span><br><span class="line">Writer&lt;StringBuffer&gt; writer(strbuf); </span><br><span class="line"></span><br><span class="line"><span class="comment">//How to write json</span></span><br><span class="line">writer.StartObject(); </span><br><span class="line">writer.Key(F_JSON_ATT_ID);</span><br><span class="line">writer.String(m_id.c_str());</span><br><span class="line"></span><br><span class="line"><span class="comment">//Write Bool</span></span><br><span class="line">writer.Key(F_JSON_ATT_IS_Forward); </span><br><span class="line">writer.Bool(True);</span><br><span class="line"></span><br><span class="line"><span class="comment">//Write Int</span></span><br><span class="line">writer.Key(F_JSON_ATT_DOWNLOADDATE); </span><br><span class="line">writer.Uint64(m_downloadDate); </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//Ending of writing</span></span><br><span class="line">writer.EndObject(); </span><br><span class="line"></span><br><span class="line"><span class="comment">//Return std::string </span></span><br><span class="line"><span class="keyword">return</span> <span class="keyword">return</span> strbuf.GetString();</span><br></pre></td></tr></table></figure>
-<h4 id="c-std-lock-guard"><a href="#c-std-lock-guard" class="headerlink" title="c.std::lock_guard"></a>c.std::lock_guard</h4><p>(1)what is std::lock_guard<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The class lock_guard is a mutex wrapper that provides a convenient RAII-style </span><br><span class="line">mechanism for owning a mutex for the duration of a scoped block.</span><br></pre></td></tr></table></figure></p>
-<p>(2)how to using std::lock_guard<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;thread&gt;</span><br><span class="line">#include &lt;mutex&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line"> </span><br><span class="line">int g_i = 0;</span><br><span class="line">std::mutex g_i_mutex;  // protects g_i</span><br><span class="line"> </span><br><span class="line">void safe_increment()</span><br><span class="line">&#123;</span><br><span class="line">    std::lock_guard&lt;std::mutex&gt; lock(g_i_mutex);</span><br><span class="line">    ++g_i;</span><br><span class="line"> </span><br><span class="line">    std::cout &lt;&lt; std::this_thread::get_id() &lt;&lt; &quot;: &quot; &lt;&lt; g_i &lt;&lt; &apos;\n&apos;;</span><br><span class="line"> </span><br><span class="line">    // g_i_mutex is automatically released when lock</span><br><span class="line">    // goes out of scope</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    std::cout &lt;&lt; &quot;main: &quot; &lt;&lt; g_i &lt;&lt; &apos;\n&apos;;</span><br><span class="line"> </span><br><span class="line">    std::thread t1(safe_increment);</span><br><span class="line">    std::thread t2(safe_increment);</span><br><span class="line"> </span><br><span class="line">    t1.join();</span><br><span class="line">    t2.join();</span><br><span class="line"> </span><br><span class="line">    std::cout &lt;&lt; &quot;main: &quot; &lt;&lt; g_i &lt;&lt; &apos;\n&apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>(3)output<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">main: <span class="number">0</span></span><br><span class="line"><span class="number">140641306900224</span>: <span class="number">1</span></span><br><span class="line"><span class="number">140641298507520</span>: <span class="number">2</span></span><br><span class="line">main: <span class="number">2</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="d-std-thread"><a href="#d-std-thread" class="headerlink" title="d.std::thread"></a>d.std::thread</h4><h2 id="2-DataBase-Moudul"><a href="#2-DataBase-Moudul" class="headerlink" title="2.DataBase Moudul;"></a>2.DataBase Moudul;</h2>
+        <p>昨天晚上在床上一直无法入眠，想了好多事，我发现人在各种事情的挤压下会变得手足无措，害怕，担忧。</p>
+<p>我开始读先生手账，里面有一篇父亲写给女儿的信，因为自己女婿出轨，父亲鼓励女儿和女婿离婚，开始自己新的生活。<br>
+        
+          </p><p class="article-more-link">
+            <a href="/2018/10/06/父亲的信/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/ExperienceofCinSF/" data-id="cjtjd6pux000cn8oc270ih56f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/06/父亲的信/" data-id="cjtjfqssm002cs2ockyu1u00u" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/散文/">散文</a></li></ul>
+
     </footer>
   </div>
   
@@ -635,7 +566,7 @@ value_comp()     返回比较元素value的函数
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -646,7 +577,7 @@ value_comp()     返回比较元素value的函数
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/网安组/">网安组</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2018Dian团队年终茶话会/">2018Dian团队年终茶话会</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java学习/">Java学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux学习/">Linux学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL学习/">SQL学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git学习/">git学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/微机原理/">微机原理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/">操作系统</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/敏捷开发/">敏捷开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/文学/">文学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/材料物理化学/">材料物理化学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/深信服/">深信服</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/网安组/">网安组</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/讲座分享/">讲座分享</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/讲座培训/">讲座培训</a></li></ul>
     </div>
   </div>
 
@@ -656,7 +587,7 @@ value_comp()     返回比较元素value的函数
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络安全/">网络安全</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dian/">Dian</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-虚拟机/">Java 虚拟机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PPT/">PPT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode调试/">Xcode调试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/《人月神话》/">《人月神话》</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/区块链/">区块链</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微机原理/">微机原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/散文/">散文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅游攻略/">旅游攻略</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习/">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/材料物理化学/">材料物理化学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/深信服/">深信服</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络安全/">网络安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/节目策划/">节目策划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/讲座分享/">讲座分享</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/逆向工程/">逆向工程</a></li></ul>
     </div>
   </div>
 
@@ -666,7 +597,7 @@ value_comp()     返回比较元素value的函数
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/网络安全/" style="font-size: 10px;">网络安全</a>
+      <a href="/tags/Android/" style="font-size: 12px;">Android</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Dian/" style="font-size: 12px;">Dian</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Java-虚拟机/" style="font-size: 10px;">Java 虚拟机</a> <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/PPT/" style="font-size: 10px;">PPT</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Xcode调试/" style="font-size: 10px;">Xcode调试</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/《人月神话》/" style="font-size: 10px;">《人月神话》</a> <a href="/tags/区块链/" style="font-size: 10px;">区块链</a> <a href="/tags/微机原理/" style="font-size: 14px;">微机原理</a> <a href="/tags/操作系统/" style="font-size: 12px;">操作系统</a> <a href="/tags/散文/" style="font-size: 12px;">散文</a> <a href="/tags/数据结构/" style="font-size: 18px;">数据结构</a> <a href="/tags/旅游攻略/" style="font-size: 10px;">旅游攻略</a> <a href="/tags/机器学习/" style="font-size: 12px;">机器学习</a> <a href="/tags/材料物理化学/" style="font-size: 14px;">材料物理化学</a> <a href="/tags/深信服/" style="font-size: 12px;">深信服</a> <a href="/tags/网络安全/" style="font-size: 12px;">网络安全</a> <a href="/tags/节目策划/" style="font-size: 12px;">节目策划</a> <a href="/tags/讲座分享/" style="font-size: 10px;">讲座分享</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/逆向工程/" style="font-size: 10px;">逆向工程</a>
     </div>
   </div>
 
@@ -688,23 +619,23 @@ value_comp()     返回比较元素value的函数
       <ul>
         
           <li>
-            <a href="/2019/03/22/第二章逆向分析HelloWord程序/">(no title)</a>
+            <a href="/2019/03/22/对分课堂阅读笔记/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/22/Chapter2VariablesandFundamentalDataTypes/">(no title)</a>
+            <a href="/2019/03/22/第一章基础/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/22/Chapter1CBasics/">(no title)</a>
+            <a href="/2019/03/22/第二章开始连接/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/22/第三章数据类型与运算符/">(no title)</a>
+            <a href="/2019/03/22/第三章网络互连md/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/22/第二章理解结构化程序设计/">(no title)</a>
+            <a href="/2019/03/22/第五章端到端协议/">(no title)</a>
           </li>
         
       </ul>

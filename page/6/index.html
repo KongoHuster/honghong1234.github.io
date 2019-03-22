@@ -62,56 +62,48 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-二数据结构线性表" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-第十章异常处理" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/22/二数据结构线性表/" class="article-date">
-  <time datetime="2019-03-22T01:06:29.000Z" itemprop="datePublished">2019-03-22</time>
+    <a href="/2018/10/06/第十章异常处理/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java学习/">Java学习</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/第十章异常处理/">第十章 异常处理</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、线性表"><a href="#一、线性表" class="headerlink" title="一、线性表"></a>一、线性表</h2><h3 id="1-主要概念"><a href="#1-主要概念" class="headerlink" title="1. 主要概念"></a>1. 主要概念</h3><ul>
-<li>线性表是数据结构中最简单的数据存储结构，可以理解为“线性的表”。</li>
-<li>对于线性表中的数据来说，位于当前数据之前的数据统称为“前趋元素”，前边紧挨着的数据称为“直接前趋”；同样，后边的数据统称为“后继元素”，后边紧挨着的数据称为“直接后继”。</li>
-</ul>
-<h3 id="2-线性表的分类"><a href="#2-线性表的分类" class="headerlink" title="2.线性表的分类"></a>2.线性表的分类</h3><ul>
-<li>数据元素在内存中集中存储，采用顺序表示结构，简称“顺序存储”；</li>
-<li>数据元素在内存中分散存储，采用链式表示结构，简称“链式存储”。</li>
-</ul>
-<h3 id="3-顺序表的实现方法"><a href="#3-顺序表的实现方法" class="headerlink" title="3.顺序表的实现方法"></a>3.顺序表的实现方法</h3><h4 id="定义顺序表的结构"><a href="#定义顺序表的结构" class="headerlink" title="定义顺序表的结构"></a>定义顺序表的结构</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Table</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> * head;<span class="comment">//声明了一个名为head的长度不确定的数组，也叫“动态数组”</span></span><br><span class="line">    <span class="keyword">int</span> length;<span class="comment">//记录当前顺序表的长度</span></span><br><span class="line">    <span class="keyword">int</span> size;<span class="comment">//记录顺序表分配的存储容量</span></span><br><span class="line">&#125;table;</span><br></pre></td></tr></table></figure>
-<h4 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">table addTable(table t,int elem,int add)</span><br><span class="line">&#123;</span><br><span class="line">    if (add&gt;t.length+1||add&lt;1) &#123;</span><br><span class="line">        printf(&quot;插入位置有问题&quot;);</span><br><span class="line">        return t;</span><br><span class="line">    &#125;</span><br><span class="line">    if (t.length&gt;=t.size) &#123;</span><br><span class="line">        t.head=(int *)realloc(t.head, (t.size+1)*sizeof(int));</span><br><span class="line">        if (!t.head) &#123;</span><br><span class="line">            printf(&quot;存储分配失败&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        t.size+=1;</span><br><span class="line">    &#125;</span><br><span class="line">    for (int i=t.length-1; i&gt;=add-1; i--) &#123;</span><br><span class="line">        t.head[i+1]=t.head[i];</span><br><span class="line">    &#125;</span><br><span class="line">    t.head[add-1]=elem;</span><br><span class="line">    t.length++;</span><br><span class="line">    return t;</span><br><span class="line">&#125;</span><br><span class="line">table delTable(table t,int add)&#123;</span><br><span class="line">    if (add&gt;t.length || add&lt;1) &#123;</span><br><span class="line">        printf(&quot;被删除元素的位置有误&quot;);</span><br><span class="line">        exit(0);</span><br><span class="line">    &#125;</span><br><span class="line">    for (int i=add; i&lt;t.length; i++) &#123;</span><br><span class="line">        t.head[i-1]=t.head[i];</span><br><span class="line">    &#125;</span><br><span class="line">    t.length--;</span><br><span class="line">    return t;</span><br><span class="line">&#125;</span><br><span class="line">int selectTable(table t,int elem)&#123;</span><br><span class="line">    for (int i=0; i&lt;t.length; i++) &#123;</span><br><span class="line">        if (t.head[i]==elem) &#123;</span><br><span class="line">            return i+1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return -1;</span><br><span class="line">&#125;</span><br><span class="line">table amendTable(table t,int elem,int newElem)&#123;</span><br><span class="line">    int add=selectTable(t, elem);</span><br><span class="line">    t.head[add-1]=newElem;</span><br><span class="line">    return t;</span><br><span class="line">&#125;</span><br><span class="line">void displayTable(table t)&#123;</span><br><span class="line">    for (int i=0;i&lt;t.length;i++) &#123;</span><br><span class="line">        printf(&quot;%d&quot;,t.head[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4-顺序表的有缺点"><a href="#4-顺序表的有缺点" class="headerlink" title="4.顺序表的有缺点"></a>4.顺序表的有缺点</h3><ul>
-<li><p>顺序表实现的基础，完全借用了数组这一数据类型，优点是在对数据进行遍历时，数据在连续的物理空间中存放，查找的速度比较快。</p>
-</li>
-<li><p>但是由于数组本身的限制，在向顺序表中新增或者删除数据元素时，如果被操作位置后续有很多数据元素，后续所有的数据元素都需要前移，最后虽然实现了功能，但是程序总体效率不高。</p>
-</li>
-</ul>
-<h2 id="二、-链表（单链表）-动态链表"><a href="#二、-链表（单链表）-动态链表" class="headerlink" title="二、 链表（单链表）-动态链表"></a>二、 链表（单链表）-动态链表</h2><h3 id="1-链表中数据元素的构成"><a href="#1-链表中数据元素的构成" class="headerlink" title="1.链表中数据元素的构成"></a>1.链表中数据元素的构成</h3><ul>
-<li>本身的信息，称为“数据域”；</li>
-<li>指向直接后继的指针，称为“指针域”。</li>
-</ul>
-<p>这两部分信息组成数据元素的存储结构，称之为“结点”。n个结点通过指针域相互链接，组成一个链表。</p>
-<h3 id="2-头结点、头指针和首元结点"><a href="#2-头结点、头指针和首元结点" class="headerlink" title="2.头结点、头指针和首元结点"></a>2.头结点、头指针和首元结点</h3><ul>
-<li>头结点：有时，在链表的第一个结点之前会额外增设一个结点，结点的数据域一般不存放数据（有些情况下也可以存放链表的长度等信息），此结点被称为头结点。</li>
-<li>首元结点：链表中第一个元素所在的结点，它是头结点后边的第一个结点。</li>
-<li>头指针：永远指向链表中第一个结点的位置（如果链表有头结点，头指针指向头结点；否则，头指针指向首元结点）。</li>
-</ul>
-<h3 id="3-总结"><a href="#3-总结" class="headerlink" title="3.总结"></a>3.总结</h3><p>线性表的链式存储相比于顺序存储，有两大优势：<br>链式存储的数据元素在物理结构没有限制，当内存空间中没有足够大的连续的内存空间供顺序表使用时，可能使用链表能解决问题。（链表每次申请的都是单个数据元素的存储空间，可以利用上一些内存碎片）<br>链表中结点之间采用指针进行链接，当对链表中的数据元素实行插入或者删除操作时，只需要改变指针的指向，无需像顺序表那样移动插入或删除位置的后续元素，简单快捷。</p>
-<p>链表和顺序表相比，不足之处在于，当做遍历操作时，由于链表中结点的物理位置不相邻，使得计算机查找起来相比较顺序表，速度要慢。</p>
-<h2 id="三、静态链表"><a href="#三、静态链表" class="headerlink" title="三、静态链表"></a>三、静态链表</h2><h3 id="1-静态链表中结点的构成"><a href="#1-静态链表中结点的构成" class="headerlink" title="1.静态链表中结点的构成"></a>1.静态链表中结点的构成</h3><p>静态链表中每个结点既有自己的数据部分，还需要存储下一个结点的位置，所以静态链表的存储实现使用的是结构体数组，包含两部分： 数据域 和 游标（存放的是下一个结点在数组中的位置下标）。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">typedef struct &#123;</span><br><span class="line">    int data;//数据域</span><br><span class="line">    int cur;//游标</span><br><span class="line">&#125;component;</span><br></pre></td></tr></table></figure>
-<h3 id="2-总结"><a href="#2-总结" class="headerlink" title="2.总结"></a>2.总结</h3><p>静态链表综合了顺序表和动态链表的优点：使用数组存储数据元素，便于做查找遍历操作；同时，在数组中借鉴了动态链表的特点，在链表中插入或者删除结点时只需更改相关结点的游标，不需要移动大量元素。</p>
-
+        <h2 id="第十章-异常处理"><a href="#第十章-异常处理" class="headerlink" title="第十章 异常处理"></a>第十章 异常处理</h2><h3 id="一、使用try…catch捕获异常"><a href="#一、使用try…catch捕获异常" class="headerlink" title="一、使用try…catch捕获异常"></a>一、使用try…catch捕获异常</h3><ul>
+<li>执行try块里的业务逻辑代码时出现异常，系统自动生成一个异常对象，该异常对象被提交给Java运行时环境，这个过程被称为抛出（throw）异常。</li>
+<li>Java运行时环境收到异常对象时，会寻找能处理该异常对象的catch块，如果找到合适的catch块并把该异常对象交给该catch块处理。
+        
+          <p class="article-more-link">
+            <a href="/2018/10/06/第十章异常处理/#more">Read More</a>
+          </p>
+        
       
-    </div>
+    </li></ul></div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/二数据结构线性表/" data-id="cjtjd6pvj0010n8ocor80db9j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/06/第十章异常处理/" data-id="cjtjfqstp0046s2occub79om6" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
     </footer>
   </div>
   
@@ -119,122 +111,29 @@
 
 
   
-    <article id="post-一算法时间复杂度和空间复杂度的计算" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-第四章字符串" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/22/一算法时间复杂度和空间复杂度的计算/" class="article-date">
-  <time datetime="2019-03-22T01:06:29.000Z" itemprop="datePublished">2019-03-22</time>
+    <a href="/2018/10/06/第四章字符串/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/算法/">算法</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、算法"><a href="#一、算法" class="headerlink" title="一、算法"></a>一、算法</h2><p>算法，即解决问题的方法。同一个问题，使用不同的算法，虽然得到的结果相同，但是耗费的时间和资源是不同的。</p>
-<h2 id="二、“好”算法的标准"><a href="#二、“好”算法的标准" class="headerlink" title="二、“好”算法的标准"></a>二、“好”算法的标准</h2><h3 id="1-标准"><a href="#1-标准" class="headerlink" title="1.标准"></a>1.标准</h3><ul>
-<li>算法的运行时间。（称为“时间复杂度”）</li>
-<li>运行算法所需的内存空间大小。（称为“空间复杂度”）</li>
-</ul>
-<h3 id="2-时间复杂度的表示"><a href="#2-时间复杂度的表示" class="headerlink" title="2.时间复杂度的表示"></a>2.时间复杂度的表示</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">算法的时间复杂度的表示方式为：</span><br><span class="line">O(频度)</span><br></pre></td></tr></table></figure>
-<p>常用的时间复杂度的排序<br>列举了几种常见的算法时间复杂度的比较（又小到大）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">O(1)常数阶 &lt; O(logn)对数阶 &lt; O(n)线性阶 &lt; O(n2)平方阶 &lt; O(n3)(立方阶) &lt; O(2n) (指数阶)</span><br></pre></td></tr></table></figure></p>
-<h3 id="3-一个重要的原则"><a href="#3-一个重要的原则" class="headerlink" title="3.一个重要的原则"></a>3.一个重要的原则</h3><p>拿时间换空间，用空间换时间</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">谷歌浏览器相比于其他的浏览器，运行速度要快。是因为它占用了更多的内存空间，以空间换取了时间。</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/一算法时间复杂度和空间复杂度的计算/" data-id="cjtjd6pvh000xn8oc1bth1t0p" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
+      <header class="article-header">
+        
   
-</article>
-
-
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/第四章字符串/">第四章 字符串</a>
+    </h1>
   
-    <article id="post-非诚勿扰" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/22/非诚勿扰/" class="article-date">
-  <time datetime="2019-03-22T01:06:29.000Z" itemprop="datePublished">2019-03-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>柳柳的想法：</p>
-<ul>
-<li style="list-style: none"><input type="checkbox"> 故事框架：Dian团队16级种子班参加非诚勿扰节目，台上有八位女嘉宾（由我们班的8个小仙女本色出演，当然还有男扮女装），Dian的成员作为男嘉宾上台相亲，从中展现我们团队和种子班的生活。</li>
-<li style="list-style: none"><input type="checkbox"> 故事梗概：三到四位男嘉宾依次登场，有的心里只有技术，有的很爱摸鱼，唯有学习好、唱歌好、热爱生活的畅畅赢得了女嘉宾云云的芳心，牵手成功。</li>
-<li style="list-style: none"><input type="checkbox"> 故事细节：1.畅畅和云云牵手成功后可以录段牵手成功感言；2.男嘉宾的要录自我介绍，这样就很好地把我们的生活录入视频中去了；3.男嘉宾需要录朋友的对于男嘉宾的评价和看法，这样就能消耗将近12个人出演，而且是视频里，减少台上出差错的可能；</li>
-<li style="list-style: none"><input type="checkbox"> 演员；1.八位女嘉宾，云云牵手成功后再来一位女装上台；2.一位主持人；3.三位男嘉宾；4.每位男嘉宾会有大概五位好朋友录视频对他进行评价和描述；</li>
-<li style="list-style: none"><input type="checkbox"> 道具：女嘉宾要按的灯（这个应该很好解决）</li>
-<li style="list-style: none"><input type="checkbox"> 音乐：男嘉宾出场《 Can You Feel It》，失败退场《可惜不是你》等</li>
-</ul>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/非诚勿扰/" data-id="cjtjd6pxh002in8oc07er9zkw" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-三栈和队列" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/22/三栈和队列/" class="article-date">
-  <time datetime="2019-03-22T01:06:28.000Z" itemprop="datePublished">2019-03-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-栈的“先进后出”原则"><a href="#1-栈的“先进后出”原则" class="headerlink" title="1. 栈的“先进后出”原则"></a>1. 栈的“先进后出”原则</h3><ul>
-<li>使用栈存储数据元素，对数据元素的“存”和“取”有严格的规定：数据按一定的顺序存储到栈中，当需要调取栈中某数据元素时，需要将在该数据元素之后进栈的先出栈，该数据元素才能从栈中提取出来。</li>
-</ul>
-<h3 id="2-栈操作数据元素的方法"><a href="#2-栈操作数据元素的方法" class="headerlink" title="2.栈操作数据元素的方法"></a>2.栈操作数据元素的方法</h3><ul>
-<li>数据元素用栈的数据结构存储起来，称为“入栈”，也叫“压栈”。</li>
-<li>数据元素由于某种原因需要从栈结构中提取出来，称为“出栈”，也叫“弹栈”。</li>
-</ul>
-<h3 id="3-栈的“上溢”和“下溢”"><a href="#3-栈的“上溢”和“下溢”" class="headerlink" title="3.栈的“上溢”和“下溢”"></a>3.栈的“上溢”和“下溢”</h3><ul>
-<li>“上溢”：在栈已经存满数据元素的情况下，如果继续向栈内存入数据，栈存储就会出错。</li>
-<li>“下溢”：在栈内为空的状态下，如果对栈继续进行取数据的操作，就会出错。</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/三栈和队列/" data-id="cjtjd6pvi000yn8ocajx17dmp" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-四字符串" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/22/四字符串/" class="article-date">
-  <time datetime="2019-03-22T01:06:28.000Z" itemprop="datePublished">2019-03-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -265,9 +164,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/四字符串/" data-id="cjtjd6pvp0016n8ociwr4f4qt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/06/第四章字符串/" data-id="cjtjfqstr0048s2oc9qoy93m8" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+
     </footer>
   </div>
   
@@ -275,40 +176,90 @@
 
 
   
-    <article id="post-第五章数组和广义表" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-InstallCentOS" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/22/第五章数组和广义表/" class="article-date">
-  <time datetime="2019-03-22T01:06:28.000Z" itemprop="datePublished">2019-03-22</time>
+    <a href="/2018/10/06/InstallCentOS/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux学习/">Linux学习</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/InstallCentOS/">Install CentOS</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、多维数组"><a href="#一、多维数组" class="headerlink" title="一、多维数组"></a>一、多维数组</h2><h3 id="1-数组VS顺序表"><a href="#1-数组VS顺序表" class="headerlink" title="1.数组VS顺序表"></a>1.数组VS顺序表</h3><ul>
-<li><p>数组和顺序表的本质不同。数组作为一种数据类型，作用是将类型相同的数据存储在一整块内存中，数组中存储的数据之间没有任何逻辑关系，谁也不认识谁。</p>
-</li>
-<li><p>如果用一句话来描述两者之间的关系，就是：用数组来存储的线性表是顺序表。</p>
-</li>
-</ul>
-<h2 id="二、矩阵压缩存储"><a href="#二、矩阵压缩存储" class="headerlink" title="二、矩阵压缩存储"></a>二、矩阵压缩存储</h2><h3 id="1-对称矩阵"><a href="#1-对称矩阵" class="headerlink" title="1.对称矩阵"></a>1.对称矩阵</h3><ul>
-<li>如果n阶矩阵中的元素满足： aij = aji ( i 为行标， j 为列标)，就称这个矩阵为对称矩阵。</li>
-</ul>
-<h3 id="2-稀疏矩阵"><a href="#2-稀疏矩阵" class="headerlink" title="2.稀疏矩阵"></a>2.稀疏矩阵</h3><ul>
-<li>稀疏矩阵，简单的说，就是矩阵中只含有少量的非 0 元素，相比于使用普通方式将矩阵中的所有数据元素一一存储，不如只存储非 0 元素更节省内存空间。</li>
-</ul>
-<h3 id="3-十字链表"><a href="#3-十字链表" class="headerlink" title="3.十字链表"></a>3.十字链表</h3><ul>
-<li>例如在进行“将矩阵 B 加到矩阵 A 上”的操作时，矩阵 A 中的数据元素会发生很大的变化，之前的 0 元素可能变成非 0 元素，非 0 元素也可能变成 0 （正负数相加为 0）。在这种情况下，就需要使用链表的存储结构来存储矩阵，这种存储方式称为：十字链表法。</li>
-</ul>
+        <h2 id="1-Set-network"><a href="#1-Set-network" class="headerlink" title="1 Set network"></a>1 Set network</h2><p>(1)cat /etc/sysconfig/network-scripts/ifcfg-enp2s0<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">root@centos1 ~]# cat /etc/sysconfig/network-scripts/ifcfg-enp2s0</span><br><span class="line">HWADDR=00:E0:69:01:6A:96</span><br><span class="line">TYPE=Ethernet</span><br><span class="line">BOOTPROTO=dhcp</span><br><span class="line">DEFROUTE=yes</span><br><span class="line">PEERDNS=yes</span><br><span class="line">PEERROUTES=yes</span><br><span class="line">IPV4_FAILURE_FATAL=no</span><br><span class="line">IPV6INIT=yes</span><br><span class="line">IPV6_AUTOCONF=yes</span><br><span class="line">IPV6_DEFROUTE=yes</span><br><span class="line">IPV6_PEERDNS=yes</span><br><span class="line">IPV6_PEERROUTES=yes</span><br><span class="line">IPV6_FAILURE_FATAL=no</span><br><span class="line">NAME=enp2s0</span><br><span class="line">UUID=5b0a7d76-1602-4e19-aee6-29f57618ca01</span><br><span class="line">ONBOOT=no</span><br></pre></td></tr></table></figure></p>
+        
+          <p class="article-more-link">
+            <a href="/2018/10/06/InstallCentOS/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/06/InstallCentOS/" data-id="cjtjfqsrc000ls2ocl2wzgfj5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-遇到的各种坑" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/06/遇到的各种坑/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux学习/">Linux学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/遇到的各种坑/">遇到的各种坑</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-Ubantu下使用不了pip"><a href="#1-Ubantu下使用不了pip" class="headerlink" title="1.Ubantu下使用不了pip"></a>1.Ubantu下使用不了pip</h3><p>报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ImportError cannot import name main</span><br></pre></td></tr></table></figure></p>
+<p>解决方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m pip install --user &quot;Packcage&quot;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/第五章数组和广义表/" data-id="cjtjd6pwy0024n8ockq8ol2ud" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/06/遇到的各种坑/" data-id="cjtjfqstv004fs2occter2q0q" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
     </footer>
   </div>
   
@@ -316,223 +267,193 @@
 
 
   
-    <article id="post-第六章树" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Objective-C入门教程" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/22/第六章树/" class="article-date">
-  <time datetime="2019-03-22T01:06:27.000Z" itemprop="datePublished">2019-03-22</time>
+    <a href="/2018/10/06/Objective-C入门教程/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/深信服/">深信服</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/Objective-C入门教程/">Objective-C 入门教程</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、树的结点"><a href="#一、树的结点" class="headerlink" title="一、树的结点"></a>一、树的结点</h2><h3 id="1、数据结构中的树存储结构"><a href="#1、数据结构中的树存储结构" class="headerlink" title="1、数据结构中的树存储结构"></a>1、数据结构中的树存储结构</h3><h4 id="树的结点"><a href="#树的结点" class="headerlink" title="树的结点"></a>树的结点</h4><p><img src="http://data.biancheng.net/uploads/allimg/170830/2-1FS0094003158.png" alt></p>
+        <h2 id="Objective-C-入门教程"><a href="#Objective-C-入门教程" class="headerlink" title="Objective-C 入门教程"></a>Objective-C 入门教程</h2><h3 id="一、Objective-C：C的超集"><a href="#一、Objective-C：C的超集" class="headerlink" title="一、Objective-C：C的超集"></a>一、Objective-C：C的超集</h3><p>&emsp;&emsp;Objective-Objective-C是C语言的严格超集－－任何C语言程序不经修改就可以直接通过Objective-C编译器，在Objective-C中使用C语言代码也是完全合法的。Objective-C被描述为盖在C语言上的薄薄一层，因为Objective-C的原意就是在C语言主体上加入面向对象的特性。<br>
+        
+          </p><p class="article-more-link">
+            <a href="/2018/10/06/Objective-C入门教程/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/06/Objective-C入门教程/" data-id="cjtjfqsrf000ns2ocambacrxq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-钱彦旻师兄语音识别现状" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/06/钱彦旻师兄语音识别现状/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/讲座分享/">讲座分享</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/钱彦旻师兄语音识别现状/">钱彦旻师兄_语音识别现状</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="师兄简介"><a href="#师兄简介" class="headerlink" title="师兄简介"></a>师兄简介</h2><p>报告主题：智能语音识别技术<br>报告人简介：钱彦旻，思必驰-上海交大智能人机交互实验室副主任，上海交通大学计算机科学与工程系副教授，博士生导师。IEEE、ISCA会员，上海交通大学计算机科学与工程系副教授。清华大学博士，英国剑桥大学工程系MIL机器智能实验室博士后，上海市青年英才扬帆计划获得者，目前国际上最流行的语音识别开源工具包Kaldi的唯一亚洲创始成员。有10余年从事智能语音及语言处理、人机交互、模式识别及机器学习的研究和产业化工作经验。研究领域包括：语音识别，说话人和语种识别，语音情感感知，自然语言理解，深度学习建模，多媒体信号处理等。2014年，因在智能语音技术产业化方面的贡献，获得中国人工智能学会颁发的“吴文俊人工智能科学技术奖”。<br>
+        
+          </p><p class="article-more-link">
+            <a href="/2018/10/06/钱彦旻师兄语音识别现状/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/06/钱彦旻师兄语音识别现状/" data-id="cjtjfqsu0004ns2ocen2e4ktq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/讲座分享/">讲座分享</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-闪灯实验" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/06/闪灯实验/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/微机原理/">微机原理</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/闪灯实验/">闪灯实验</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="闪灯实验"><a href="#闪灯实验" class="headerlink" title="闪灯实验"></a>闪灯实验</h1><h3 id="实验遇到问题和实现方法"><a href="#实验遇到问题和实现方法" class="headerlink" title="实验遇到问题和实现方法"></a>实验遇到问题和实现方法</h3><h4 id="1-软件建立工程问题"><a href="#1-软件建立工程问题" class="headerlink" title="1.软件建立工程问题"></a>1.软件建立工程问题</h4><p>（1）问题</p>
+<p>实验建立工程时不知道怎么跑起来</p>
+<p>（2）解决方法<br>再仔细地阅读了PPt，发现需要添加如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ORG 0x0</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
+        
+          <p class="article-more-link">
+            <a href="/2018/10/06/闪灯实验/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/06/闪灯实验/" data-id="cjtjfqsu2004qs2ocnudn6vnr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微机原理/">微机原理</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-非诚勿扰" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/06/非诚勿扰/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/2018Dian团队年终茶话会/">2018Dian团队年终茶话会</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/非诚勿扰/">非诚勿扰</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>柳柳的想法：</p>
 <ul>
-<li><p>结点：使用树结构存储的每一个数据元素都被称为“结点”。例如，图 1（A）中，数据元素 A 就是一个结点；</p>
-</li>
-<li><p>父结点（双亲结点）、子结点和兄弟结点：对于图 1（A）中的结点 A、B、C、D 来说，A 是 B、C、D 结点的父结点（也称为“双亲结点”），而 B、C、D 都是 A 结点的子结点（也称“孩子结点”）。对于 B、C、D 来说，它们都有相同的父结点，所以它们互为兄弟结点。</p>
-</li>
-</ul>
-<h4 id="子树和空树"><a href="#子树和空树" class="headerlink" title="子树和空树"></a>子树和空树</h4><ul>
-<li>子树：如图 1（A）中，整棵树的根结点为结点 A，而如果单看结点 B、E、F、K、L 组成的部分来说，也是棵树，而且节点 B 为这棵树的根结点。所以称 B、E、F、K、L 这几个结点组成的树为整棵树的子树；同样，结点 E、K、L 构成的也是一棵子树，根结点为 E。</li>
-<li>空树：如果集合本身为空，那么构成的树就被称为空树。空树中没有结点。</li>
-</ul>
-<h4 id="结点的度和层次"><a href="#结点的度和层次" class="headerlink" title="结点的度和层次"></a>结点的度和层次</h4><ul>
-<li>对于一个结点，拥有的子树数（结点有多少分支）称为结点的度（Degree）。</li>
-<li>结点的层次：从一棵树的树根开始，树根所在层为第一层，根的孩子结点所在的层为第二层，依次类推。</li>
-</ul>
-<h4 id="有序树和无序树"><a href="#有序树和无序树" class="headerlink" title="有序树和无序树"></a>有序树和无序树</h4><ul>
-<li>如果树中结点的子树从左到右看，谁在左边，谁在右边，是有规定的，这棵树称为有序树；反之称为无序树。</li>
-</ul>
-<h4 id="森林"><a href="#森林" class="headerlink" title="森林"></a>森林</h4><ul>
-<li>由 m（m &gt;= 0）个互不相交的树组成的集合被称为森林。图 1（A）中，分别以 B、C、D 为根结点的三棵子树就可以称为森林</li>
-</ul>
-<h3 id="2、二叉树顺序存储和链式存储"><a href="#2、二叉树顺序存储和链式存储" class="headerlink" title="2、二叉树顺序存储和链式存储"></a>2、二叉树顺序存储和链式存储</h3><h4 id="满二叉树和完全二叉树"><a href="#满二叉树和完全二叉树" class="headerlink" title="满二叉树和完全二叉树"></a>满二叉树和完全二叉树</h4><ul>
-<li>如果二叉树中除了叶子结点，每个结点的度都为 2，那么此二叉树为满二叉树。</li>
-<li>如果二叉树除了最后一层外为满二叉树，最后一层的结点依次从左到右分布，此二叉树为完全二叉树。</li>
-</ul>
-<h4 id="二叉树的性质"><a href="#二叉树的性质" class="headerlink" title="二叉树的性质"></a>二叉树的性质</h4><ul>
-<li>二叉树中，第 i 层最多有2i-1个结点。</li>
-<li>如果二叉树的深度为 K，那么此二叉树最多有2K-1个结点。</li>
-<li>二叉树中，终端结点数（叶子结点数）为 n0，度为 2 的结点数为 n2，则n0 = n2 + 1。</li>
-</ul>
-<h4 id="二叉树的存储结构"><a href="#二叉树的存储结构" class="headerlink" title="二叉树的存储结构"></a>二叉树的存储结构</h4><ul>
-<li>顺序储存：借用数组将二叉树中的数据元素存储起来。此方式只适用于完全二叉树，如果想存储普通二叉树，需要将普通二叉树转化为完全二叉树。</li>
-<li>链式存储：Lchild 代表指向左孩子的指针域；data 为数据域；Rchild 代表指向右孩子的指针域。使用此种结点构建的二叉树称为“二叉链表”。</li>
-</ul>
-<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><ul>
-<li>如果是普通二叉树，用链式存储结构；如果是完全二叉树，用顺序存储结构</li>
-</ul>
-<h3 id="3-二叉树前序遍历、中序遍历和后序遍历"><a href="#3-二叉树前序遍历、中序遍历和后序遍历" class="headerlink" title="3.二叉树前序遍历、中序遍历和后序遍历"></a>3.二叉树前序遍历、中序遍历和后序遍历</h3><ul>
-<li>先访问根结点，再遍历左右子树，称为“先序遍历”；</li>
-<li>遍历左子树，之后访问根结点，然后遍历右子树，称为“中序遍历”；</li>
-<li>遍历完左右子树，再访问根结点，称为“后序遍历”。</li>
-</ul>
-<h3 id="4-线索二叉树的创建及对其遍历"><a href="#4-线索二叉树的创建及对其遍历" class="headerlink" title="4.线索二叉树的创建及对其遍历"></a>4.线索二叉树的创建及对其遍历</h3><h4 id="线索二叉树"><a href="#线索二叉树" class="headerlink" title="线索二叉树"></a>线索二叉树</h4><ul>
-<li><p>在遍历的同时，使用二叉树中空闲的内存空间记录某些结点的前趋和后继元素的位置（不是全部）。这样在算法后期需要遍历二叉树时，就可以利用保存的结点信息，提高了遍历的效率。使用这种方法构建的二叉树，即为“线索二叉树”。</p>
-</li>
-<li><p>如果在二叉树中想保存每个结点前趋和后继所在的位置信息，最直接的想法就是改变结点的结构，即添加两个指针域，分别指向该结点的前趋和后继。</p>
-</li>
-</ul>
-<h4 id="对二叉树进行线索化"><a href="#对二叉树进行线索化" class="headerlink" title="对二叉树进行线索化"></a>对二叉树进行线索化</h4><ul>
-<li>线索化的过程即为在遍历的过程中修改空指针的过程。</li>
-</ul>
-<h3 id="5、树的双亲表示法、孩子表示法和孩子兄弟表示法"><a href="#5、树的双亲表示法、孩子表示法和孩子兄弟表示法" class="headerlink" title="5、树的双亲表示法、孩子表示法和孩子兄弟表示法"></a>5、树的双亲表示法、孩子表示法和孩子兄弟表示法</h3><h4 id="双亲表示法"><a href="#双亲表示法" class="headerlink" title="双亲表示法"></a>双亲表示法</h4><ul>
-<li><p>取一块连续的内存空间，在存储每个结点的同时，各自都附加一个记录其父结点位置的变量。</p>
-</li>
-<li><p>在树结构中，除了树根外，每个结点都只有一个父结点（又叫“双亲结点”）。</p>
-</li>
-</ul>
-<h4 id="孩子表示法"><a href="#孩子表示法" class="headerlink" title="孩子表示法"></a>孩子表示法</h4><ul>
-<li>将树中的每个结点的孩子结点排列成一个线性表，用链表存储起来。对于含有 n 个结点的树来说，就会有 n 个单链表，将 n 个单链表的头指针存储在一个线性表中，这样的表示方法就是孩子表示法。</li>
-<li>如果结点没有孩子（例如叶子结点），那么它的单链表为空表。</li>
-</ul>
-<h4 id="孩子兄弟表示法"><a href="#孩子兄弟表示法" class="headerlink" title="孩子兄弟表示法"></a>孩子兄弟表示法</h4><ul>
-<li><p>使用链式存储结构存储普通树。链表中每个结点由 3 部分组成：其中孩子指针域，表示指向当前结点的第一个孩子结点，兄弟结点表示指向当前结点的下一个兄弟结点。</p>
-</li>
-<li><p>通过孩子兄弟表示法，普通树转化为了二叉树，所以孩子兄弟表示法又被称为“二叉树表示法”或者“二叉链表表示法”。</p>
-</li>
-</ul>
-<h3 id="6、哈夫曼树"><a href="#6、哈夫曼树" class="headerlink" title="6、哈夫曼树"></a>6、哈夫曼树</h3><h4 id="常见名词"><a href="#常见名词" class="headerlink" title="常见名词"></a>常见名词</h4><ul>
-<li><p>路径：在一棵树中，一个结点到另一个结点之间的通路，称为路径。图 1 中，从根结点到结点 a 之间的通路就是一条路径。</p>
-</li>
-<li><p>路径长度：在一条路径中，每经过一个结点，路径长度都要加 1 。例如在一棵树中，规定根结点所在层数为1层，那么从根结点到第 i 层结点的路径长度为 i - 1 。图 1 中从根结点到结点 c 的路径长度为 3。</p>
-</li>
-<li><p>结点的权：给每一个结点赋予一个新的数值，被称为这个结点的权。例如，图 1 中结点 a 的权为 7，结点 b 的权为 5。</p>
-</li>
-<li><p>结点的带权路径长度：指的是从根结点到该结点之间的路径长度与该结点的权的乘积。例如，图 1 中结点 b 的带权路径长度为 2 * 5 = 10 。</p>
-</li>
-</ul>
-<h4 id="什么是哈夫曼树"><a href="#什么是哈夫曼树" class="headerlink" title="什么是哈夫曼树"></a>什么是哈夫曼树</h4><ul>
-<li>当用 n 个结点（都做叶子结点且都有各自的权值）试图构建一棵树时，如果构建的这棵树的带权路径长度最小，称这棵树为“最优二叉树”，有时也叫“赫夫曼树”或者“哈夫曼树”。</li>
-</ul>
-<h4 id="构建哈夫曼树"><a href="#构建哈夫曼树" class="headerlink" title="构建哈夫曼树"></a>构建哈夫曼树</h4><p>对于给定的有各自权值的 n 个结点，构建哈夫曼树有一个行之有效的办法：</p>
-<ul>
-<li>在 n 个权值中选出两个最小的权值，对应的两个结点组成一个新的二叉树，且新二叉树的根结点的权值为左右孩子权值的和；</li>
-<li>在原有的 n 个权值中删除那两个最小的权值，同时将新的权值加入到 n–2 个权值的行列中，以此类推；</li>
-<li>重复 1 和 2，直到所以的结点构建成了一棵二叉树为止，这棵树就是哈夫曼树。</li>
-</ul>
-<h3 id="7-哈夫曼编码"><a href="#7-哈夫曼编码" class="headerlink" title="7.哈夫曼编码"></a>7.哈夫曼编码</h3>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/第六章树/" data-id="cjtjd6px10027n8ocllji9kt9" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-敏捷开发" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/22/敏捷开发/" class="article-date">
-  <time datetime="2019-03-22T01:06:27.000Z" itemprop="datePublished">2019-03-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="一-瀑布模型的特点"><a href="#一-瀑布模型的特点" class="headerlink" title="一.瀑布模型的特点"></a>一.瀑布模型的特点</h3><p>（传统的开发方式）</p>
-<p>1、强调文档</p>
-<p>前一个阶段的输出就是下一个阶段的输入，文档是个阶段衔接的唯一信息。所以很多开发人员好象是在开发文档，而不是开发软件，因为要到开发的后期才可以看到软件的“模样”。 </p>
-<p>2、没有迭代与反馈。瀑布模型对反馈没有涉及，所以对变化的客户需求非常不容易适应。瀑布就意味着没有回头路。 </p>
-<p>3、管理人员喜欢瀑布模型的原因是把文档理解为开发的速度，可以方便地界定不同阶段的里程碑。</p>
-<h3 id="二、敏捷开发"><a href="#二、敏捷开发" class="headerlink" title="二、敏捷开发"></a>二、敏捷开发</h3><h4 id="极限编程"><a href="#极限编程" class="headerlink" title="极限编程"></a>极限编程</h4><h4 id="Scrum"><a href="#Scrum" class="headerlink" title="Scrum"></a>Scrum</h4><ul>
-<li>三个角色：PO（管理者–确保大家做正确的事）;SM（敏捷教练–确保大家正确地做事）;Team</li>
-<li>三个工件：产品Backlog（产品需求清单）；迭代Backlog（迭代任务清单）；燃尽图；</li>
-<li>四个会议：迭代计划会议；迭代验收会议；每日站立会议；迭代回顾会议（后面两者关注团队，前面两者关注）</li>
-</ul>
-<h4 id="良好的测试分层设计"><a href="#良好的测试分层设计" class="headerlink" title="良好的测试分层设计"></a>良好的测试分层设计</h4><ul>
-<li>单元测试： 测试每个单元</li>
-<li>集成测试： 各个单元之间的测试</li>
-<li>系统测试： 测试整个系统的完整性，可用性</li>
-<li><p>验收测试： 用户来测试</p>
-</li>
-<li><p>静态测试</p>
-</li>
-<li><p>动态测试</p>
-</li>
-<li><p>黑盒测试 </p>
-</li>
-<li>白盒测试</li>
-</ul>
-<h2 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h2><ul>
-<li>《人月神话》</li>
-<li>解析极限编程–拥抱变化</li>
-</ul>
-<h2 id="三、敏捷开发知识"><a href="#三、敏捷开发知识" class="headerlink" title="三、敏捷开发知识"></a>三、敏捷开发知识</h2><h3 id="1-小结"><a href="#1-小结" class="headerlink" title="1.小结"></a>1.小结</h3><ul>
-<li>文字描述难以准确；</li>
-<li>需求描述重点并不在属性；</li>
-<li>客户很难一次描述清楚自己的需求；</li>
-<li>需求经过传递会有失真</li>
-</ul>
-<h3 id="2-User-Story"><a href="#2-User-Story" class="headerlink" title="2.User Story"></a>2.User Story</h3><h4 id="一个好的用户故事包括三个要素："><a href="#一个好的用户故事包括三个要素：" class="headerlink" title="一个好的用户故事包括三个要素："></a>一个好的用户故事包括三个要素：</h4><ul>
-<li>1.角色：谁要使用这个功能。</li>
-<li>2.功能：需要完成什么样的功能。</li>
-<li>3.价值：为什么需要这个功能，这个功能带来什么样的价值。</li>
-</ul>
-<h3 id="3-持续集成"><a href="#3-持续集成" class="headerlink" title="3.持续集成"></a>3.持续集成</h3><p><a href="https://www.jianshu.com/p/1cd01bcc77f2" target="_blank" rel="noopener">为什么要持续集成</a></p>
-<h3 id="4-TDD-测试驱动开发"><a href="#4-TDD-测试驱动开发" class="headerlink" title="4.TDD 测试驱动开发"></a>4.TDD 测试驱动开发</h3><p>测试驱动开发，英文全称Test-Driven Development，简称TDD，是一种不同于传统软件开发流程的新型的开发方法。它要求在编写某个功能的代码之前先编写测试代码，然后只编写使测试通过的功能代码，通过测试来推动整个开发的进行。这有助于编写简洁可用和高质量的代码，并加速开发过程</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/敏捷开发/" data-id="cjtjd6pvt001cn8oclfz3yl9i" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-《人月神话》阅读笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/22/《人月神话》阅读笔记/" class="article-date">
-  <time datetime="2019-03-22T01:06:26.000Z" itemprop="datePublished">2019-03-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="一、好的句子"><a href="#一、好的句子" class="headerlink" title="一、好的句子"></a>一、好的句子</h3><ul>
-<li>程序员，就像诗人一样，几乎仅<br>仅工作在单纯的思考中；</li>
-<li>创建事物的纯粹快乐。如同小孩在玩泥巴时感到愉快一样，成年人喜欢创 建事物，特别是自己进行设计。我想这种快乐是上帝创造世界的折射，一种呈现在每片独特、 崭新的树叶和雪花上的喜悦</li>
-</ul>
-<h3 id="二、系统测试"><a href="#二、系统测试" class="headerlink" title="二、系统测试"></a>二、系统测试</h3><h4 id="对于软件任务的进度安排，以下是我使用了很多年的经验法则"><a href="#对于软件任务的进度安排，以下是我使用了很多年的经验法则" class="headerlink" title="对于软件任务的进度安排，以下是我使用了很多年的经验法则:"></a>对于软件任务的进度安排，以下是我使用了很多年的经验法则:</h4><ul>
-<li>1/3 计划</li>
-<li>1/6 编码</li>
-<li>1/4 构件测试和早期系统测试</li>
-<li>1/4 系统测试，所有的构件已完成</li>
-</ul>
-<h3 id="三、外科手术队伍-The-Surgical-Team"><a href="#三、外科手术队伍-The-Surgical-Team" class="headerlink" title="三、外科手术队伍(The Surgical Team)"></a>三、外科手术队伍(The Surgical Team)</h3><ul>
-<li>Mills建议大型项目<br>的每一个部分由一个团队解决，但是该队伍以类似外科手术的方式组建，而并非一拥而上。<br>也就是说，同每个成员截取问题某个部分的做法相反，由一个人来进行问题的分解，其他人 给予他所需要的支持，以提高效率和生产力。</li>
-</ul>
-<p>2.删除监狱、医院、炸弹相关功能</p>
-<ul>
-<li>删除监狱、医院、炸弹</li>
-<li>地图上的监狱、医院都改为公园，显示符号P</li>
-<li>玩家到达公园，不做任何处理</li>
+<li style="list-style: none"><input type="checkbox"> 故事框架：Dian团队16级种子班参加非诚勿扰节目，台上有八位女嘉宾（由我们班的8个小仙女本色出演，当然还有男扮女装），Dian的成员作为男嘉宾上台相亲，从中展现我们团队和种子班的生活。</li>
+<li style="list-style: none"><input type="checkbox"> 故事梗概：三到四位男嘉宾依次登场，有的心里只有技术，有的很爱摸鱼，唯有学习好、唱歌好、热爱生活的畅畅赢得了女嘉宾云云的芳心，牵手成功。</li>
+<li style="list-style: none"><input type="checkbox"> 故事细节：1.畅畅和云云牵手成功后可以录段牵手成功感言；2.男嘉宾的要录自我介绍，这样就很好地把我们的生活录入视频中去了；3.男嘉宾需要录朋友的对于男嘉宾的评价和看法，这样就能消耗将近12个人出演，而且是视频里，减少台上出差错的可能；</li>
+<li style="list-style: none"><input type="checkbox"> 演员；1.八位女嘉宾，云云牵手成功后再来一位女装上台；2.一位主持人；3.三位男嘉宾；4.每位男嘉宾会有大概五位好朋友录视频对他进行评价和描述；</li>
+<li style="list-style: none"><input type="checkbox"> 道具：女嘉宾要按的灯（这个应该很好解决）</li>
+<li style="list-style: none"><input type="checkbox"> 音乐：男嘉宾出场《 Can You Feel It》，失败退场《可惜不是你》等</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/《人月神话》阅读笔记/" data-id="cjtjd6pvh000wn8ocf5kl1ah5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/06/非诚勿扰/" data-id="cjtjfqsu4004us2oc4ta9ga2n" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/节目策划/">节目策划</a></li></ul>
+
     </footer>
   </div>
   
@@ -542,13 +463,27 @@
   
     <article id="post-PPT美化四步法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/22/PPT美化四步法/" class="article-date">
-  <time datetime="2019-03-22T01:06:26.000Z" itemprop="datePublished">2019-03-22</time>
+    <a href="/2018/10/06/PPT美化四步法/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/讲座分享/">讲座分享</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/PPT美化四步法/">PPT 美化四步法</a>
+    </h1>
+  
+
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -561,30 +496,67 @@
 <li>推荐软件：</li>
 </ul>
 <p>字体管家</p>
-<h4 id="配色"><a href="#配色" class="headerlink" title="配色"></a>配色</h4><p>取色器取色</p>
-<h4 id="配图"><a href="#配图" class="headerlink" title="配图"></a>配图</h4><p>从官网去找配图</p>
-<h2 id="二、排版"><a href="#二、排版" class="headerlink" title="二、排版"></a>二、排版</h2><ul>
-<li><p>统一字体</p>
-</li>
-<li><p>突出标题</p>
-</li>
-<li><p>分层对齐</p>
-</li>
-<li><p>提炼标题</p>
-</li>
-<li><p>调整间距<br>1.2~1.4</p>
-</li>
-<li><p>增加缩进</p>
-</li>
-</ul>
-<h2 id="三、应用"><a href="#三、应用" class="headerlink" title="三、应用"></a>三、应用</h2><p>《写个大家看的设计书》<br>《和秋叶一起学PPT》</p>
-
+<h4 id="配色"><a href="#配色" class="headerlink" title="配色"></a>配色</h4><p>取色器取色<br>
+        
+          </p><p class="article-more-link">
+            <a href="/2018/10/06/PPT美化四步法/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/PPT美化四步法/" data-id="cjtjd6pv7000ln8oc9ophb8zj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/06/PPT美化四步法/" data-id="cjtjfqsri000rs2oc6ydomur5" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PPT/">PPT</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java零散知识积累" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/06/Java零散知识积累/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java学习/">Java学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/Java零散知识积累/">Java 零散知识积累计</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、Java-重写-Override-与重载-Overload"><a href="#一、Java-重写-Override-与重载-Overload" class="headerlink" title="一、Java 重写(Override)与重载(Overload)"></a>一、Java 重写(Override)与重载(Overload)</h2><h3 id="1-重写"><a href="#1-重写" class="headerlink" title="1.重写"></a>1.重写</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>重写是子类对父类的允许访问的方法的实现过程进行重新编写, 返回值和形参都不能改变。即外壳不变，核心重写！<br>
+        
+          </p><p class="article-more-link">
+            <a href="/2018/10/06/Java零散知识积累/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/06/Java零散知识积累/" data-id="cjtjfqsv2006bs2ocfratb0y4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
     </footer>
   </div>
   
@@ -596,7 +568,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -607,7 +579,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/网安组/">网安组</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2018Dian团队年终茶话会/">2018Dian团队年终茶话会</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java学习/">Java学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux学习/">Linux学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL学习/">SQL学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git学习/">git学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/微机原理/">微机原理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/">操作系统</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/敏捷开发/">敏捷开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/文学/">文学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/材料物理化学/">材料物理化学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/深信服/">深信服</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/网安组/">网安组</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/讲座分享/">讲座分享</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/讲座培训/">讲座培训</a></li></ul>
     </div>
   </div>
 
@@ -617,7 +589,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络安全/">网络安全</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dian/">Dian</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-虚拟机/">Java 虚拟机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PPT/">PPT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode调试/">Xcode调试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/《人月神话》/">《人月神话》</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/区块链/">区块链</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微机原理/">微机原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/散文/">散文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅游攻略/">旅游攻略</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习/">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/材料物理化学/">材料物理化学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/深信服/">深信服</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络安全/">网络安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/节目策划/">节目策划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/讲座分享/">讲座分享</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/逆向工程/">逆向工程</a></li></ul>
     </div>
   </div>
 
@@ -627,7 +599,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/网络安全/" style="font-size: 10px;">网络安全</a>
+      <a href="/tags/Android/" style="font-size: 12px;">Android</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Dian/" style="font-size: 12px;">Dian</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Java-虚拟机/" style="font-size: 10px;">Java 虚拟机</a> <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/PPT/" style="font-size: 10px;">PPT</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Xcode调试/" style="font-size: 10px;">Xcode调试</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/《人月神话》/" style="font-size: 10px;">《人月神话》</a> <a href="/tags/区块链/" style="font-size: 10px;">区块链</a> <a href="/tags/微机原理/" style="font-size: 14px;">微机原理</a> <a href="/tags/操作系统/" style="font-size: 12px;">操作系统</a> <a href="/tags/散文/" style="font-size: 12px;">散文</a> <a href="/tags/数据结构/" style="font-size: 18px;">数据结构</a> <a href="/tags/旅游攻略/" style="font-size: 10px;">旅游攻略</a> <a href="/tags/机器学习/" style="font-size: 12px;">机器学习</a> <a href="/tags/材料物理化学/" style="font-size: 14px;">材料物理化学</a> <a href="/tags/深信服/" style="font-size: 12px;">深信服</a> <a href="/tags/网络安全/" style="font-size: 12px;">网络安全</a> <a href="/tags/节目策划/" style="font-size: 12px;">节目策划</a> <a href="/tags/讲座分享/" style="font-size: 10px;">讲座分享</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/逆向工程/" style="font-size: 10px;">逆向工程</a>
     </div>
   </div>
 
@@ -649,23 +621,23 @@
       <ul>
         
           <li>
-            <a href="/2019/03/22/第二章逆向分析HelloWord程序/">(no title)</a>
+            <a href="/2019/03/22/对分课堂阅读笔记/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/22/Chapter2VariablesandFundamentalDataTypes/">(no title)</a>
+            <a href="/2019/03/22/第一章基础/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/22/Chapter1CBasics/">(no title)</a>
+            <a href="/2019/03/22/第二章开始连接/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/22/第三章数据类型与运算符/">(no title)</a>
+            <a href="/2019/03/22/第三章网络互连md/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/22/第二章理解结构化程序设计/">(no title)</a>
+            <a href="/2019/03/22/第五章端到端协议/">(no title)</a>
           </li>
         
       </ul>

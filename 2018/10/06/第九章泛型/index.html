@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>第九章 泛型 | 浮生若梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第九章 泛型一、集合优缺点 Java集合不会知道我们需要用它来保存什么类型的对象，所以他们把集合设计成能保存任何类型的对象，只要就具有很好的通用性。 这样做也带来两个问题：123集合对元素类型没有任何限制，这样可能引发一些问题：例如想创建一个只能保存Dog对象的集合，但程序也可以轻易地将Cat对象“丢”进去，所以可能引发异常。由于把对象“丢进”集合时，集合丢失了对象的状态信息，集合只知道它盛装的是">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第九章 泛型">
+<meta property="og:url" content="http://yoursite.com/2018/10/06/第九章泛型/index.html">
+<meta property="og:site_name" content="浮生若梦">
+<meta property="og:description" content="第九章 泛型一、集合优缺点 Java集合不会知道我们需要用它来保存什么类型的对象，所以他们把集合设计成能保存任何类型的对象，只要就具有很好的通用性。 这样做也带来两个问题：123集合对元素类型没有任何限制，这样可能引发一些问题：例如想创建一个只能保存Dog对象的集合，但程序也可以轻易地将Cat对象“丢”进去，所以可能引发异常。由于把对象“丢进”集合时，集合丢失了对象的状态信息，集合只知道它盛装的是">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-22T02:18:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第九章 泛型">
+<meta name="twitter:description" content="第九章 泛型一、集合优缺点 Java集合不会知道我们需要用它来保存什么类型的对象，所以他们把集合设计成能保存任何类型的对象，只要就具有很好的通用性。 这样做也带来两个问题：123集合对元素类型没有任何限制，这样可能引发一些问题：例如想创建一个只能保存Dog对象的集合，但程序也可以轻易地将Cat对象“丢”进去，所以可能引发异常。由于把对象“丢进”集合时，集合丢失了对象的状态信息，集合只知道它盛装的是">
+  
+    <link rel="alternate" href="/atom.xml" title="浮生若梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">浮生若梦</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-第九章泛型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/06/第九章泛型/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java学习/">Java学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      第九章 泛型
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第九章-泛型"><a href="#第九章-泛型" class="headerlink" title="第九章 泛型"></a>第九章 泛型</h2><h3 id="一、集合优缺点"><a href="#一、集合优缺点" class="headerlink" title="一、集合优缺点"></a>一、集合优缺点</h3><ul>
+<li>Java集合不会知道我们需要用它来保存什么类型的对象，所以他们把集合设计成能保存任何类型的对象，只要就具有很好的通用性。</li>
+<li>这样做也带来两个问题：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">集合对元素类型没有任何限制，这样可能引发一些问题：例如想创建一个只能保存Dog对象的集合，但程序也可以轻易地将Cat对象“丢”进去，所以可能引发异常。</span><br><span class="line"></span><br><span class="line">由于把对象“丢进”集合时，集合丢失了对象的状态信息，集合只知道它盛装的是Object，因此取出集合元素后通常还需要进行强制类型转换。这种强制类型转换既会增加编程的复杂度、也可能引发ClassCastException</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<h3 id="二、泛型"><a href="#二、泛型" class="headerlink" title="二、泛型"></a>二、泛型</h3><ul>
+<li>所谓泛型：就是允许在定义类、接口指定类型形参，这个类型形参在将在声明变量、创建对象时确定（即传入实际的类型参数，也可称为类型实参）。</li>
+<li>JDK1.5改写了集合框架中的全部接口和类，为这些接口、类增加了泛型支持，从而可以在声明集合变量、创建集合对象时传入类型实参，这就是前面程序看到List<string>和ArrayList<string>两种类型。</string></string></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/06/第九章泛型/" data-id="cjtjfqst60037s2ocgl805aa8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/06/第三部分物质结构/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          第三部分 物质结构
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/10/06/第二章数据结构线性表/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">第二章 数据结构线性表</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2018Dian团队年终茶话会/">2018Dian团队年终茶话会</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java学习/">Java学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux学习/">Linux学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL学习/">SQL学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git学习/">git学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/微机原理/">微机原理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/">操作系统</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/敏捷开发/">敏捷开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/文学/">文学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/材料物理化学/">材料物理化学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/深信服/">深信服</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/网安组/">网安组</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/讲座分享/">讲座分享</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/讲座培训/">讲座培训</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dian/">Dian</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-虚拟机/">Java 虚拟机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PPT/">PPT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode调试/">Xcode调试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/《人月神话》/">《人月神话》</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/区块链/">区块链</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微机原理/">微机原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/散文/">散文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅游攻略/">旅游攻略</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习/">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/材料物理化学/">材料物理化学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/深信服/">深信服</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络安全/">网络安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/节目策划/">节目策划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/讲座分享/">讲座分享</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/逆向工程/">逆向工程</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 12px;">Android</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Dian/" style="font-size: 12px;">Dian</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Java-虚拟机/" style="font-size: 10px;">Java 虚拟机</a> <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/PPT/" style="font-size: 10px;">PPT</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Xcode调试/" style="font-size: 10px;">Xcode调试</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/《人月神话》/" style="font-size: 10px;">《人月神话》</a> <a href="/tags/区块链/" style="font-size: 10px;">区块链</a> <a href="/tags/微机原理/" style="font-size: 14px;">微机原理</a> <a href="/tags/操作系统/" style="font-size: 12px;">操作系统</a> <a href="/tags/散文/" style="font-size: 12px;">散文</a> <a href="/tags/数据结构/" style="font-size: 18px;">数据结构</a> <a href="/tags/旅游攻略/" style="font-size: 10px;">旅游攻略</a> <a href="/tags/机器学习/" style="font-size: 12px;">机器学习</a> <a href="/tags/材料物理化学/" style="font-size: 14px;">材料物理化学</a> <a href="/tags/深信服/" style="font-size: 12px;">深信服</a> <a href="/tags/网络安全/" style="font-size: 12px;">网络安全</a> <a href="/tags/节目策划/" style="font-size: 12px;">节目策划</a> <a href="/tags/讲座分享/" style="font-size: 10px;">讲座分享</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/逆向工程/" style="font-size: 10px;">逆向工程</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/22/对分课堂阅读笔记/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/第一章基础/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/第二章开始连接/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/第三章网络互连md/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/第五章端到端协议/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 闳<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

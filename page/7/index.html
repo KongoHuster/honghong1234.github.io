@@ -64,13 +64,27 @@
   
     <article id="post-操作系统" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/22/操作系统/" class="article-date">
-  <time datetime="2019-03-22T01:06:25.000Z" itemprop="datePublished">2019-03-22</time>
+    <a href="/2018/10/06/操作系统/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/操作系统/">操作系统</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/操作系统/">操作系统</a>
+    </h1>
+  
+
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -85,200 +99,20 @@
 <li>处理机管理（CPU的管理）</li>
 <li>存储器管理（三种存储结构）</li>
 <li>设备管理</li>
-<li>信息管理</li>
-</ul>
-<h5 id="处理机管理"><a href="#处理机管理" class="headerlink" title="处理机管理"></a>处理机管理</h5><ul>
-<li>将系统中的各台处理机分给要求的用户作业使用。</li>
-<li>处理机管理的要点是调度策略和调度算法。</li>
-</ul>
-<h6 id="存储器管理"><a href="#存储器管理" class="headerlink" title="存储器管理"></a>存储器管理</h6><ul>
-<li>按一定策略将主存空间分配给各作业</li>
-<li>记录存储器的使用情况，防止存贮破坏或损坏</li>
-</ul>
-<h4 id="4-操作系统的性能指标"><a href="#4-操作系统的性能指标" class="headerlink" title="4.操作系统的性能指标"></a>4.操作系统的性能指标</h4><p>系统的可靠性</p>
-<ul>
-<li>系统能发现、诊断和恢复硬件、软件故障的能力。</li>
-</ul>
-<p>系统吞吐率</p>
-<ul>
-<li>系统在单位时间内所处理的信息量</li>
-</ul>
-<p>系统响应时间</p>
-<ul>
-<li>从系统接收数据到输出结果的时间间隔</li>
-</ul>
-<p>系统资源利用率</p>
-<ul>
-<li>系统中各部件、各种设备的使用程度</li>
-</ul>
-<p>可移植性</p>
-<ul>
-<li>操作系统从一个硬件环境转移到另一个硬件环境仍能 正常工作的能力</li>
-</ul>
-<h3 id="二、Process-Management"><a href="#二、Process-Management" class="headerlink" title="二、Process Management"></a>二、Process Management</h3><h4 id="1-Carousel-Management-Model"><a href="#1-Carousel-Management-Model" class="headerlink" title="1.Carousel Management Model"></a>1.Carousel Management Model</h4><ul>
-<li>Interruption Managerment Ability</li>
-<li>Privilege Level</li>
-<li>Process Control and Process Management </li>
-</ul>
-<h4 id="2-Interruption"><a href="#2-Interruption" class="headerlink" title="2.Interruption"></a>2.Interruption</h4><ul>
-<li>Interruption is an important part of OS.</li>
-<li>OS is drived by  Interruption </li>
-<li>Interruption is the response of CPU to OS. </li>
-</ul>
-<h4 id="3-Interruption-types"><a href="#3-Interruption-types" class="headerlink" title="3.Interruption types"></a>3.Interruption types</h4><ul>
-<li><p>Complusive Interruption </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入/输出(I/O)中断:主要来自外部设备通道(自旋锁)</span><br><span class="line">程序性中断:运行程序中本身的中断</span><br><span class="line">(如溢出，缺页中断，缺段中断，地址越界) </span><br><span class="line">时钟中断(difficult to time in OS)</span><br><span class="line">控制台中断</span><br><span class="line">硬件故障</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Voluntary Interruption</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">execute I/O, create process, allocate memory</span><br><span class="line"> </span><br><span class="line">send/receive Messages Semaphore operation</span><br></pre></td></tr></table></figure>
-<h3 id="4-Privilege-control-system"><a href="#4-Privilege-control-system" class="headerlink" title="4.Privilege control system"></a>4.Privilege control system</h3><ul>
-<li><p>Privilege levels</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ring0 ~ ring3</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Privileged instruction and privilege registers </p>
-</li>
-</ul>
-<h3 id="5-Process-Control-and-Process-Management"><a href="#5-Process-Control-and-Process-Management" class="headerlink" title="5.Process Control and Process Management"></a>5.Process Control and Process Management</h3><ul>
-<li><p>Process </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">进程是具有独立功能的程序关于某个数据集合上的一次运行活动，是系统进行资源分配和调度的独立单位</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>The difference between process and program</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">动态与静态的差异</span><br><span class="line">进程包括程序与数据</span><br><span class="line">一个程序可以对应多个进程 </span><br><span class="line">一个进程可以涉及多个程序</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>进程的性质</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">结构性:包括数据集合和运行于其上的程序</span><br><span class="line"></span><br><span class="line">共享性:同一程序同时运行于不同数据集合上时，构成不同的进程</span><br><span class="line"></span><br><span class="line">动态性:进程是程序在数据集合上的一次执行过 程，是动态概念;而程序是一组有序指令序列， 是静态概念</span><br><span class="line"></span><br><span class="line">独立性:是系统中资源分配和保护的基本单位，也是系统调度的独立单位(单线程进程)</span><br><span class="line"></span><br><span class="line">制约性:并发进程之间存在着制约性，在进行的 关键点上需要相互等待或互通消息</span><br><span class="line"></span><br><span class="line">并发性:进程可以并发地执行</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>进程的状态</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">运行态(Running)</span><br><span class="line"> 进程占有CPU，并在CPU上运行</span><br><span class="line">就绪态(Ready)</span><br><span class="line"> 一个进程已经具备运行条件，但由于无CPU暂时不能运行的状态(当调度给其CPU时，立即可以运行)  </span><br><span class="line">等待态(Blocked)</span><br><span class="line"> 指进程因等待某种事件的发生而暂时不能运行的状态 (即使CPU空闲，该进程也不可运行</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>进程的描述</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">进程程序块：标识信息（PID，PPID，user）、状态信息（用户使用的寄存器、控制和状态的寄存器--程序计数器和条件寄存器、堆栈指针）、控制信息</span><br><span class="line">（空闲链，占用链）</span><br><span class="line"></span><br><span class="line">进程数据块</span><br><span class="line"></span><br><span class="line">系统、用户堆栈</span><br><span class="line"></span><br><span class="line">进程控制块</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>进程控制信息</p>
-</li>
-</ul>
-<p>1.调度和状态信息；</p>
-<p>2.进程在有关队列中的链接指针；</p>
-<p>3.进程间的通信信息（标志位、信号和信号量、消息队列等）；</p>
-<p>4.主存使用信息；</p>
-<p>5.进程得到有关服务的优先级。</p>
-<ul>
-<li>进程控制</li>
-</ul>
-<p>创建、撤消进程以及完成进程各状态之间的转换。 由具有特定功能的原语完成。</p>
-<ul>
-<li>创建进程</li>
-</ul>
-<p>1.创建PCB；</p>
-<p>2.赋予一个统一进程标识符</p>
-<p>3.为进程映象分配空间</p>
-<p>4.初始化进程控制块</p>
-<p>5.许多默认值 (如: 状态为 New，无I/O设备或文 件…)</p>
-<p>6.设置相应的链接</p>
-<ul>
-<li>进程切换</li>
-</ul>
-<p>1.保存被中断进程的处理器现场信息</p>
-<p>2.修改被中断进程的进程控制块的有关信息，如<br>进程状态等</p>
-<p>3.把被中断进程的PCB加入有关队列</p>
-<p>4.选择下一个占有处理器运行的进程</p>
-<p>5.修改被选中进程的PCB的有关信息</p>
-<p>6.根据被选中进程设置操作系统用到的地址转换 和存储保护信息</p>
-<p>7.根据被选中进程恢复处理器现场</p>
-<ul>
-<li>撤销进程</li>
-</ul>
-<p>1.根据撤销进程标识号，从相应队列中找到它的 PCB</p>
-<p>2.将该进程拥有的资源归还给父进程或操作系统</p>
-<p>3.若该进程拥有子进程，应先撤销它的所有子孙<br>进程，以防它们脱离控制</p>
-<p>4.被撤销进程出队，将它的PCB归还到PCB池</p>
-<h2 id="三、线程、并发、通信问题"><a href="#三、线程、并发、通信问题" class="headerlink" title="三、线程、并发、通信问题"></a>三、线程、并发、通信问题</h2><h3 id="1-进程"><a href="#1-进程" class="headerlink" title="1 进程"></a>1 进程</h3><ul>
-<li>进程的优点<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">将程序和运行时的数据合集进行统一管理</span><br><span class="line"></span><br><span class="line">为操作系统管理多用户、多任务环境提供了基础</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li>进程的不足<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">各进程的相对独立性为数据共享带来的限制</span><br><span class="line"></span><br><span class="line">进程不能很好的利用多处理器资源--单个进程只能在一个处理器上运行</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="2-线程"><a href="#2-线程" class="headerlink" title="2 线程"></a>2 线程</h3><ul>
-<li><p>定义</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">进程中的一条执行路径，是系统进行处理器调度的基 本单位，同一个进程中的所有线程共享进程获得的主 存空间和资源</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>线程独立拥有的资源</p>
-</li>
-<li><p>特点</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">并行性: 同一进程的多个线程可在一个或多个处理器上并发运行</span><br><span class="line"></span><br><span class="line">共享性: 一个进程下的线程共享进程获得的主存空间和一切资源</span><br><span class="line"></span><br><span class="line">动态性：线程也是程序在相应数据集上的一次执行，由创建而产生， 至撤销而消亡，有其生命周期</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>线程的优点</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">创建一个新线程花费时间少(结束亦如此)</span><br><span class="line"></span><br><span class="line">两个线程的切换花费时间少(不同的线程需要切换内核)</span><br><span class="line"></span><br><span class="line">因为同一进程内的线程共享内存和文件，因此它们之</span><br><span class="line">间相互通信无须调用内核</span><br><span class="line"></span><br><span class="line">适合多处理机系统</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>线程的实现</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">内核级线程（一对一）</span><br><span class="line"></span><br><span class="line">用户级线程（用线程库来实现调用，一个进程管理所有线程）</span><br><span class="line"></span><br><span class="line">混合式线程（多对多）</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="3-同步和互斥"><a href="#3-同步和互斥" class="headerlink" title="3.同步和互斥"></a>3.同步和互斥</h3><ul>
-<li><p>临界段</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">进程中访问共享变量的代码段</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>临界资源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">允许多个进程共享使用的资源</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>临界段设计原则</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">每次允许一个进程停留在临界段</span><br><span class="line">进程只能在临界段内逗留有限时间</span><br><span class="line">进程不能在无限期等待在临界段之外</span><br><span class="line">临界段外进程不可以阻止其他进程进入临界段</span><br><span class="line">不能预期和假定进程进展的相对速度以及可用的处理</span><br><span class="line">器的数目</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>临界段的实现</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">软件方法：复杂，局限性大</span><br><span class="line"></span><br><span class="line">硬件方法：简单实用，使用广泛</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>硬件指令法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用公共变量标识是否占用临界资源</span><br><span class="line">用一条不可打断的指令完成对公共变量的测试和修改</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>PV操作</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">P(S)操作——将信号量S减1</span><br><span class="line">V(S)操作——将信号量S加1</span><br><span class="line"></span><br><span class="line">互斥——售票系统</span><br><span class="line">同步——生产者消费者问题</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>当前操作系统当中的同步互斥手段</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">信号量</span><br><span class="line"></span><br><span class="line">读写锁</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>其他的同步互斥概念</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spinlock(自旋锁)--只g有多CPU才会用到</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="4-存储器的管理"><a href="#4-存储器的管理" class="headerlink" title="4.存储器的管理"></a>4.存储器的管理</h3><ul>
-<li><p>存储器管理的目的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">尽可能的充分利用存储器资源</span><br><span class="line"></span><br><span class="line">尽可能满足作业进程对存储器的需求</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>对抗目标——内存碎片</p>
-</li>
-<li>存储器分配方案</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.固定分区方案</span><br><span class="line"></span><br><span class="line">2.可变分区方案</span><br><span class="line"></span><br><span class="line">3.虚拟存储方案</span><br></pre></td></tr></table></figure>
-<ul>
-<li>固定/可变分区方案的问题</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">内存分区是唯一的,</span><br><span class="line"></span><br><span class="line">无法实现数据共享</span><br></pre></td></tr></table></figure>
-<ul>
-<li>虚拟存储方案</li>
-</ul>
-<p>分页管理(可以申请可变分区，定buffer一般都是4k的整数倍，由操作系统当中的页面映像表标识页面与实际地址的 转换关系);</p>
-<p>分段管理–作业进程根据存储对象不同在不同的段内存储，缺页中断;</p>
-<p>段页式管理;</p>
-<ul>
-<li>实现的核心</li>
-</ul>
-<p>处理机管理– 作业调度，作业共享、同步、互斥</p>
-<p>存储器管理– 充分利用存储器，尽可能满足进程要求</p>
-
+<li><p>信息管理</p>
+        
+          <p class="article-more-link">
+            <a href="/2018/10/06/操作系统/#more">Read More</a>
+          </p>
+        
       
-    </div>
+    </li></ul></div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/操作系统/" data-id="cjtjd6pvs001bn8oc8h7a7ktn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/06/操作系统/" data-id="cjtjfqsv3006cs2ocmbaog9s7" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/操作系统/">操作系统</a></li></ul>
+
     </footer>
   </div>
   
@@ -286,102 +120,50 @@
 
 
   
-    <article id="post-剧本头脑风暴" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-武汉旅游攻略" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/22/剧本头脑风暴/" class="article-date">
-  <time datetime="2019-03-22T01:06:25.000Z" itemprop="datePublished">2019-03-22</time>
+    <a href="/2018/10/06/武汉旅游攻略/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/文学/">文学</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/武汉旅游攻略/">武汉旅游攻略</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="一、各个观点"><a href="#一、各个观点" class="headerlink" title="一、各个观点"></a>一、各个观点</h3><p>雷紫薇：</p>
-<ul>
-<li>以打怪为主题展开；</li>
-<li>我们被bug包围了，我们要拿到一些精神，这些精神在各个小故事里面，才能救出这个人</li>
-<li>加入种子车王争霸</li>
-</ul>
-<p>赵永辉：</p>
-<ul>
-<li>一个小孩，来到Dian团队修炼，修炼成功时，一天到光明顶汇聚；</li>
-<li>女儿国国王被叼走了，然后大家召集到光明顶来救他</li>
-<li>不拜关公，拜黑老师</li>
-</ul>
-<p>易子闳</p>
-<ul>
-<li>光明顶之前有一次采访项目组，展现各个项目组风貌</li>
-</ul>
-<p>李雪扬</p>
-<ul>
-<li>先确定我们的团队精神基调，然后再去想梗，传承的精神；</li>
-</ul>
-<p>黄小虎：</p>
-<ul>
-<li>到光明顶了，很安静，飘来一阵歌声</li>
-</ul>
-<p>郭浩：</p>
-<ul>
-<li>把各个小说融合到一块，各个帮派对应各个项目组；</li>
-<li>有一堆人去演各个bug，我们最终解决这些bug，围攻光明顶。</li>
-</ul>
-<p>岳畅</p>
-<ul>
-<li>上山路上会有各种烧烤店</li>
-</ul>
-<p>陆国航</p>
-<ul>
-<li>师父不断怼徒弟的bug桥段</li>
-</ul>
-<p>孙昊海</p>
-<ul>
-<li>各种流行语“绝了、小事儿”</li>
-<li>笨雕先飞</li>
-</ul>
-<p>周宇轩</p>
-<ul>
-<li>每个实验室是一个门派，为攻光明顶之前，去拜访往届长老，拍摄钟Sir，漏出钟Sir<br>的半张脸</li>
-</ul>
-<p>张鑫</p>
-<ul>
-<li>每个实验室出场有一个鲜明的标记，例如：陆国航每天扎着小辫子</li>
-<li>添加舞美</li>
-<li>突然闪电一下，性别互换</li>
-</ul>
-<p>邬昕昱</p>
-<ul>
-<li>演bug</li>
-</ul>
-<p>齐嘉程</p>
-<ul>
-<li>记者去拍摄，拍到很私密的画面</li>
-<li>性别互换，雕叼错了人</li>
-</ul>
-<p>赵欣然</p>
-<ul>
-<li>盗梦空间，进入每层梦境会有一个bug，可以穿起来各个小故事</li>
-<li>知道所有真相，底层的梦境是沙雕的梦境</li>
-</ul>
-<p>陈列可</p>
-<ul>
-<li>会发出声音的雕，另外一个会重复</li>
-<li>雕叫“绝了”，字幕里面会显示</li>
-</ul>
-<h3 id="二、报名"><a href="#二、报名" class="headerlink" title="二、报名"></a>二、报名</h3><ul>
-<li>剪辑：雷紫薇、赵永辉、曾耀佩</li>
-<li>编剧：李雪扬、陆国航、易子闳、周宇轩</li>
-<li>拍摄：邹琪珺</li>
-<li>旁白：陈列可</li>
-</ul>
-
+        <h1 id="武汉旅游攻略"><a href="#武汉旅游攻略" class="headerlink" title="武汉旅游攻略"></a>武汉旅游攻略</h1><p>[TOC]</p>
+<h2 id="一、交通"><a href="#一、交通" class="headerlink" title="一、交通"></a>一、交通</h2><h3 id="高铁"><a href="#高铁" class="headerlink" title="高铁"></a>高铁</h3><ul>
+<li>武汉有三大火车站，汉口、武汉、武昌</li>
+<li>三个火车站各有特点，汉口站为民国时期的建筑风格，武汉站较为现代化，武昌是老火车站，但不失宏伟的气势。其中汉口和武汉站是高铁站，武昌站是火车站.武汉大学距离两个高铁站基本一样,建议来的时候到汉口站，回去走武汉站。</li>
+<li>汉口站
+        
+          <p class="article-more-link">
+            <a href="/2018/10/06/武汉旅游攻略/#more">Read More</a>
+          </p>
+        
       
-    </div>
+    </li></ul></div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/剧本头脑风暴/" data-id="cjtjd6pvl0012n8octxxvfv00" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/06/武汉旅游攻略/" data-id="cjtjfqsv5006es2ocwugkiegt" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/旅游攻略/">旅游攻略</a></li></ul>
+
     </footer>
   </div>
   
@@ -389,44 +171,49 @@
 
 
   
-    <article id="post-Unix环境高级编程" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SQL" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/22/Unix环境高级编程/" class="article-date">
-  <time datetime="2019-03-22T01:06:25.000Z" itemprop="datePublished">2019-03-22</time>
+    <a href="/2018/10/06/SQL/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/SQL学习/">SQL学习</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/SQL/">第一部分 化学热力学基础</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Unix环境高级编程"><a href="#Unix环境高级编程" class="headerlink" title="Unix环境高级编程"></a>Unix环境高级编程</h1><h2 id="第一章-UNIX基础知识"><a href="#第一章-UNIX基础知识" class="headerlink" title="第一章 UNIX基础知识"></a>第一章 UNIX基础知识</h2><h3 id="1-1-登录"><a href="#1-1-登录" class="headerlink" title="1.1 登录"></a>1.1 登录</h3><h4 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h4><p>常用的shell<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Bourne shell, /bin/sh </span><br><span class="line">C shell, /bin/csh</span><br><span class="line">KornShell, /bin/ksh</span><br></pre></td></tr></table></figure></p>
-<h3 id="1-3-文件和目录"><a href="#1-3-文件和目录" class="headerlink" title="1.3 文件和目录"></a>1.3 文件和目录</h3><h4 id="1-文件系统"><a href="#1-文件系统" class="headerlink" title="1 文件系统"></a>1 文件系统</h4><p>U N I X 文件系统是目录和文件的一种层次安排，目录的起点称为根 字符/。</p>
-<h4 id="2-路径名"><a href="#2-路径名" class="headerlink" title="2 路径名"></a>2 路径名</h4><p>0 个 或 多 个 以 斜 线 分 隔 的 文 件 名 序 列 ( 可 以 任 选 地 以 斜 线 开 头 ) 构 成 路 径 名 ( p a t h n a m e )，以 斜 线 开 头 的 路 径 名 称 为 绝 对 路 径 名 ( a b s o l u t e p a t h n a m e )， 否 则 称 为 相 对 路 径 名 ( r e l a t i v e p a t h n a m e )。</p>
-<h4 id="3-工作目录"><a href="#3-工作目录" class="headerlink" title="3 工作目录"></a>3 工作目录</h4><p>每个进程都有一个工作目录 (working directory，有时称为当前工作目录 (current working d i r e c t o r y ) ) 。所有相对路径名都从工作目录开始解释。进程可以用 c h d i r 函 数 更 改 其 工 作 目 录 。 </p>
-<h4 id="4-起始目录"><a href="#4-起始目录" class="headerlink" title="4 起始目录"></a>4 起始目录</h4><p>登录时，工作目录设置为起始目录 ( h o m e d i r e c t o r y ) ，该起始目录从口令文件(见 1 . 2节)中下载的登录项中取得。</p>
-<h3 id="1-4-输入和输出"><a href="#1-4-输入和输出" class="headerlink" title="1.4 输入和输出"></a>1.4 输入和输出</h3><h4 id="1-文件描述符"><a href="#1-文件描述符" class="headerlink" title="1 文件描述符"></a>1 文件描述符</h4><p>文字描述符是一个小的非负整数，内核用以标识一个特定进程正在存访的文件。</p>
-<h4 id="2-程序和进程"><a href="#2-程序和进程" class="headerlink" title="2 程序和进程"></a>2 程序和进程</h4><h5 id="（1）程序"><a href="#（1）程序" class="headerlink" title="（1）程序"></a>（1）程序</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">程序( p r o g r a m ) 是 存 放 在 磁 盘 文 件 中 的 可 执 行 文 件 。</span><br></pre></td></tr></table></figure>
-<h5 id="2-进程和进程id"><a href="#2-进程和进程id" class="headerlink" title="(2)进程和进程id"></a>(2)进程和进程id</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">程 序 的 执 行 实 例 被 称 为 进 程 ( p r o c e s s )。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">每个 U N I X 进程都一定有一个唯一的数字标识符，称为进程 I D ( p r o c e s s I D )。进程 I D总是 一非负整数。</span><br></pre></td></tr></table></figure>
-<h3 id="1-5-UNIX时间"><a href="#1-5-UNIX时间" class="headerlink" title="1.5 UNIX时间"></a>1.5 UNIX时间</h3><p>（1）日历时间；</p>
-<p>（2）进程时间：这也被称为 C P U 时 间 ， 用 以 度 量 进 程 使 用 的 中 央 处 理 机 资 源 。 进 程 时 间 以 时 钟 滴 答 计 算 ， 多 年 来 ， 每 秒 钟 取 为 5 0 、 6 0 或 1 0 0 个 滴 答 。</p>
-<h2 id="第七章-UNIX进程环境"><a href="#第七章-UNIX进程环境" class="headerlink" title="第七章 UNIX进程环境"></a>第七章 UNIX进程环境</h2><h3 id="一、main函数"><a href="#一、main函数" class="headerlink" title="一、main函数"></a>一、main函数</h3><p>1.C 程序总是从 main函数开始执行。 main函数的原型是:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int main(intargc, char *argv[]);</span><br></pre></td></tr></table></figure></p>
-<p>2.其中，argc是命令行参数的数目，argv是指向参数的各个指针所构成的数组。              </p>
-<h3 id="二、进程终止"><a href="#二、进程终止" class="headerlink" title="二、进程终止"></a>二、进程终止</h3><p>1.有五种方式使进程终止: </p>
-<p>(1) 正常终止:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(a) 从 m a i n返回。</span><br><span class="line"></span><br><span class="line">(b) 调用 e x i t 。</span><br><span class="line"></span><br><span class="line">(c) 调用 _ e x i t 。</span><br></pre></td></tr></table></figure></p>
-<p>(2) 异常终止:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(a) 调用 a b o r t ( 见第 1 0 章 )。</span><br><span class="line"></span><br><span class="line">(b) 由一个信号终止 ( 见第 1 0章 )。</span><br></pre></td></tr></table></figure></p>
-<p>2.e x i t 和 _ e x i t 函数</p>
-<p>(1)e x i t和_ e x i t函数用于正常终止一个程序: _ e x i t 立即进入内核， e x i t则先执行一些清除处理 ( 包括调用执行各终止处理程序，关闭所有标准 I / O流等 ) ，然后进入内核。</p>
-<p>3.</p>
-
+        <h2 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h2><h3 id="一、SQL简介"><a href="#一、SQL简介" class="headerlink" title="一、SQL简介"></a>一、SQL简介</h3><h4 id="1-SQL-是什么？"><a href="#1-SQL-是什么？" class="headerlink" title="1.SQL 是什么？"></a>1.SQL 是什么？</h4><ul>
+<li>SQL，指结构化查询语言，全称是 Structured Query Language。</li>
+<li>SQL 让您可以访问和处理数据库。</li>
+<li>SQL 是一种 ANSI（American National Standards Institute 美国国家标准化组织）标准的计算机语言。
+        
+          <p class="article-more-link">
+            <a href="/2018/10/06/SQL/#more">Read More</a>
+          </p>
+        
       
-    </div>
+    </li></ul></div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/Unix环境高级编程/" data-id="cjtjd6pvc000rn8ochypnqhhg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/06/SQL/" data-id="cjtjfqsro000ts2ockxvy33tv" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/">SQL</a></li></ul>
+
     </footer>
   </div>
   
@@ -434,133 +221,48 @@
 
 
   
-    <article id="post-计算机系统概述" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Ubantusetssh" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/22/计算机系统概述/" class="article-date">
-  <time datetime="2019-03-22T01:06:24.000Z" itemprop="datePublished">2019-03-22</time>
+    <a href="/2018/10/06/Ubantusetssh/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux学习/">Linux学习</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/Ubantusetssh/">Ubantu  set ssh</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、计算机系统概述"><a href="#一、计算机系统概述" class="headerlink" title="一、计算机系统概述"></a>一、计算机系统概述</h2><p>[TOC]</p>
-<h3 id="1-什么是计算机（思路：冯诺依曼体系结构）"><a href="#1-什么是计算机（思路：冯诺依曼体系结构）" class="headerlink" title="1.什么是计算机（思路：冯诺依曼体系结构）"></a>1.什么是计算机（思路：冯诺依曼体系结构）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">科学：发现一些之前没有的技术</span><br><span class="line"></span><br><span class="line">技术：实现实现一些之前没有的技术</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">图灵：图灵对于人工智能的发展有诸多贡献，例如图灵曾写过一篇名为《Computing Machinery and </span><br><span class="line">Intelligence》的论文，提问“机器会思考吗？”（Can Machines Think?），作为一种用于判定机器是否具有智能的测试方法，即图灵测试。</span><br><span class="line"></span><br><span class="line">冯诺依曼：</span><br></pre></td></tr></table></figure>
-<h4 id="（1）五大硬件（连接方式：总线）"><a href="#（1）五大硬件（连接方式：总线）" class="headerlink" title="（1）五大硬件（连接方式：总线）"></a>（1）五大硬件（连接方式：总线）</h4><ul>
-<li>控制器</li>
-<li>运算器</li>
-<li>存储器</li>
-<li>输出设备</li>
-<li>输入设备</li>
-</ul>
-<h4 id="（2）软件"><a href="#（2）软件" class="headerlink" title="（2）软件"></a>（2）软件</h4><ul>
-<li>有操作系统的应用设计（通用计算机）</li>
-<li>无操作系统的应用设计</li>
-</ul>
-<h3 id="2-数电–存储器的应用"><a href="#2-数电–存储器的应用" class="headerlink" title="2.数电–存储器的应用"></a>2.数电–存储器的应用</h3><ul>
-<li>CP的作用：读取RAM的数据</li>
-<li>带上电复位(预置)由时钟驱动的计数器， 可将RAM当中的数据按固定顺序泵</li>
-<li>最重要的两个信号：CP和Reset信号</li>
-</ul>
-<h3 id="3-什么是电子计算机"><a href="#3-什么是电子计算机" class="headerlink" title="3.什么是电子计算机"></a>3.什么是电子计算机</h3><h4 id="（1）冯氏体系的特点（程序存储、顺序执行）"><a href="#（1）冯氏体系的特点（程序存储、顺序执行）" class="headerlink" title="（1）冯氏体系的特点（程序存储、顺序执行）"></a>（1）冯氏体系的特点（程序存储、顺序执行）</h4><ul>
-<li>存储器是字长固定的、顺序线性编址的唯一结构</li>
-<li>机器以运算器为中心，输入输出设备与存储器之间的 数据传送都途径运算器</li>
-</ul>
-<h4 id="（2）指令系统的分类"><a href="#（2）指令系统的分类" class="headerlink" title="（2）指令系统的分类"></a>（2）指令系统的分类</h4><ul>
-<li><p>CISC</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">指令种类丰富</span><br><span class="line"></span><br><span class="line">强调ALU硬件解码(OPCode)能力 </span><br><span class="line"></span><br><span class="line">代码密度高(程序占用空间小)</span><br><span class="line"></span><br><span class="line">指令长度不固定</span><br><span class="line"></span><br><span class="line">指令执行周期不固定</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>RISC</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">大多数指令在单周期内完成</span><br><span class="line"></span><br><span class="line">采用LOAD/STORE结构，凡是CPU执行部件中所需 要的操作数都来自于通用寄存器中，运算结果也只放 在通用寄存器</span><br><span class="line"></span><br><span class="line">固定的指令格式，使得译码过程简单</span><br><span class="line"></span><br><span class="line">减少指令和寻址方式的种类</span><br><span class="line"></span><br><span class="line">代码密度相对低</span><br></pre></td></tr></table></figure>
-<h4 id="（3）其他的一些概念"><a href="#（3）其他的一些概念" class="headerlink" title="（3）其他的一些概念"></a>（3）其他的一些概念</h4><ul>
-<li>常规流水线</li>
-<li>超标量和SIMD（SIMD–单指令多数据，GPU使用SIMD完成）</li>
-</ul>
-<h3 id="4-计算机的存储结构"><a href="#4-计算机的存储结构" class="headerlink" title="4.计算机的存储结构"></a>4.计算机的存储结构</h3><ul>
-<li><p>冯诺依曼结构</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">性能较差，安全没有哈佛结构</span><br><span class="line"></span><br><span class="line">灵活性好</span><br><span class="line"></span><br><span class="line">造价便宜</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>哈佛结构</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">性能好，数据和程序是完全分开的，安全性好</span><br><span class="line"></span><br><span class="line">造价昂贵</span><br><span class="line"></span><br><span class="line">DSP使用该方法</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>改进的哈佛结构</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">51单片机等嵌入式系统</span><br><span class="line"></span><br><span class="line">执行时，数据和程序是完全分开的，安全性好</span><br><span class="line"></span><br><span class="line">但是便捷性较差</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="5-计算机的输入与输出设备"><a href="#5-计算机的输入与输出设备" class="headerlink" title="5.计算机的输入与输出设备"></a>5.计算机的输入与输出设备</h3><h3 id="6、有无操作系统的应用设计"><a href="#6、有无操作系统的应用设计" class="headerlink" title="6、有无操作系统的应用设计"></a>6、有无操作系统的应用设计</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">交叉编译：就是在一个平台上生成另一个平台上的可执行代码。同一个体系结构可以运行不同的操作系统；同样，同一个操作系统也可以在不同的体系结构上运行。</span><br></pre></td></tr></table></figure>
-<h4 id="（1）有操作系统的应用设计"><a href="#（1）有操作系统的应用设计" class="headerlink" title="（1）有操作系统的应用设计"></a>（1）有操作系统的应用设计</h4><ul>
-<li>操作系统设计（其中可分为：资源管理和任务调度）</li>
-<li>应用程序设计</li>
-</ul>
-<h4 id="（2）无操作系统的应用设计"><a href="#（2）无操作系统的应用设计" class="headerlink" title="（2）无操作系统的应用设计"></a>（2）无操作系统的应用设计</h4><h3 id="7-软件存储"><a href="#7-软件存储" class="headerlink" title="7.软件存储"></a>7.软件存储</h3><ul>
-<li>通用存储器存储：硬盘、软盘、U盘、SSD</li>
-<li>专用存储器存储：FLASH、DOM</li>
-</ul>
-<h3 id="8-软件下载-针对嵌入式应用"><a href="#8-软件下载-针对嵌入式应用" class="headerlink" title="8.软件下载(针对嵌入式应用)"></a>8.软件下载(针对嵌入式应用)</h3><ul>
-<li>专用编程器</li>
-<li>JTAG接口</li>
-<li>ISP在系统编程</li>
-</ul>
-<h3 id="9-计算机的分类"><a href="#9-计算机的分类" class="headerlink" title="9.计算机的分类"></a>9.计算机的分类</h3><ul>
-<li>巨型机、大型机、中型机、小型机</li>
-<li>微机（PC）</li>
-<li>单板机（通信行业使用较多）</li>
-<li>单片机</li>
-<li>片上系统（SOC 在手机使用较多）</li>
-</ul>
-<h3 id="10-嵌入式系统的概念"><a href="#10-嵌入式系统的概念" class="headerlink" title="10.嵌入式系统的概念"></a>10.嵌入式系统的概念</h3><ul>
-<li>IEEE(电气和电子工程师协会)定义嵌入式系统：控制、监视或者辅 助操作机器和设备运行的装置</li>
-<li>嵌入式系统的构架可以分成四个部分:处理器、 存储器、输入输出(I/O)和软件</li>
-<li>嵌入式处理器分类<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">微控制器MCU：单片机</span><br><span class="line"></span><br><span class="line">DSP处理器</span><br><span class="line"></span><br><span class="line">微处理器MPU</span><br><span class="line"></span><br><span class="line">嵌入式片上系统SOC：嵌入式系统一般由以下几组嵌入式微处理器、外围硬件设备、嵌入式操作系统、特定的应用程序。</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="11-单片机技术基础"><a href="#11-单片机技术基础" class="headerlink" title="11.单片机技术基础"></a>11.单片机技术基础</h3><h4 id="（1）单片机特点"><a href="#（1）单片机特点" class="headerlink" title="（1）单片机特点"></a>（1）单片机特点</h4><ul>
-<li>体积小</li>
-<li>成本低</li>
-<li>功耗低</li>
-<li>面向应用为主，特别是嵌入式应用 </li>
-<li>运算能力弱，控制能力较强</li>
-</ul>
-<h3 id="12-实验小结"><a href="#12-实验小结" class="headerlink" title="12.实验小结"></a>12.实验小结</h3><h4 id="（1）VCC、VDD、VSS、VPP的区别"><a href="#（1）VCC、VDD、VSS、VPP的区别" class="headerlink" title="（1）VCC、VDD、VSS、VPP的区别"></a>（1）VCC、VDD、VSS、VPP的区别</h4><ul>
-<li>VCC:C=circuit 表示电路的意思, 即接入电路的电压</li>
-<li>VDD:D=device 表示器件的意思, 即器件内部的工作电压，在普通的电子电路中，一般Vcc&gt;Vdd !</li>
-<li>VSS：S=series 表示公共连接的意思，也就是负极。</li>
-<li>VPP：编程/擦除电压。</li>
-</ul>
-<h4 id="（2）PIC16的汇编语言小结"><a href="#（2）PIC16的汇编语言小结" class="headerlink" title="（2）PIC16的汇编语言小结"></a>（2）PIC16的汇编语言小结</h4><p>1.PIC16系列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">1、ADDWF f,d;将f中的内容与W中的内容相加,存储在d提定的寄存器中.</span><br><span class="line">2、ANDWF f,d;将f中的内容与W中的内容逻辑与运算</span><br><span class="line">4、CLRW   ;将W清零</span><br><span class="line">3、CLRF  f;将f清零</span><br><span class="line">5、COMF  f,d;将f取反</span><br><span class="line">6、DECF f,d; f减1</span><br><span class="line">7、DECFSZ f,d; f减1，为0则跳过</span><br><span class="line">8、INCF f,d; f加1</span><br><span class="line">9、INCFSZ f,d; f加1，为0则跳过</span><br><span class="line">10、IORWF f,d; 将f中的内容与W中的内容逻辑或运算</span><br><span class="line">11、MOVF f,d; 传送f,d=0则传给W,d=1则传给自已</span><br><span class="line">12、MOVWF f;将w传给f</span><br><span class="line">13、RLF f,d;将F执行带进位循环左移</span><br><span class="line">14、RRF f,d;将F执行带进位循环右移</span><br><span class="line">15、SUBWF f,d;将f减去W</span><br><span class="line">16、SWAPF f,d;将f中的两个半字节进行交换</span><br><span class="line">17、XORWF f,d; W与f作逻辑异或运算</span><br><span class="line"></span><br><span class="line">面向位的操作类指令</span><br><span class="line">18、BCF f,b ;将F寄存器中的某位清零</span><br><span class="line">19、BSF f,b ;将F寄存器中的某位置1</span><br><span class="line">20、BTFSC f,b ;F中的某位为0则跳过</span><br><span class="line">21、BTFSS f,b ;F中的某位为1则跳过</span><br><span class="line"></span><br><span class="line">立即数操作指令</span><br><span class="line">22、ADDLW k;W与立即数相加</span><br><span class="line">23、ANDLW K;立即数与W作逻辑与运算</span><br><span class="line">24、IORLW k;立即数与W作逻辑或运算</span><br><span class="line">25、MOVLW k;将立即数传送给W</span><br><span class="line">26、CALL k;调用子程序</span><br><span class="line">27、GOTO k;跳转到地址</span><br><span class="line">28、RETFIE ;中断返回使能</span><br><span class="line">29、RETLW k;返回时将立即数送入W</span><br><span class="line">30、RETURN ;从子程序返回</span><br><span class="line">31、SLEEP ;进入待机模式</span><br><span class="line">32、SUBLW k;立即数减去W</span><br><span class="line">33、XORLW k;立即数与WREG作逻辑异或运算</span><br><span class="line">34、NOP ;执行NOP指令只使程序计数器PC加1，所以占用一个机器周期。</span><br></pre></td></tr></table></figure></p>
-<p>2.具体指令的深度解析</p>
-<ul>
-<li><p>BANKSEL</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">通过banksel宏汇编指令，由编译器自动完成寄存器切换选择工作</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>CLRF </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将 f 清零</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>NOP<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NOP指令通常用于控制时序的目的，强制内存对齐，防止流水线灾难（en:Hazard (computer architecture)），占据分支指令造成的延迟（delay slot），或是作为占位符以供程序的改善</span><br></pre></td></tr></table></figure></p>
-<p>3.关键字深度解读</p>
-<ul>
-<li>PORTA  引脚A</li>
-<li>LATA PORTA的数据锁存器（同理有LATB）</li>
-<li></li>
-</ul>
-<h4 id="（3）配置位的设置总结"><a href="#（3）配置位的设置总结" class="headerlink" title="（3）配置位的设置总结"></a>（3）配置位的设置总结</h4><ul>
-<li>在汇编程序里加入<strong>CONFIG xxxxx（注意下划线_是两条不是一条，后面的“xxxxx”是你需要配置的各个配置位信息。比如：</strong>CONFIG _CP_OFF &amp; _DEBUG_ON &amp;    _WRT_ENABLE_ON &amp; _CPD_OFF &amp; _LVP_OFF &amp; _BODEN_OFF &amp; _PWRTE_ON &amp; _WDT_OFF &amp; _XT_OSC  </li>
-<li>各个配置位的含意<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">WDTEN 开看门狗</span><br><span class="line">HS代表 高速</span><br><span class="line">PROTECT 保护</span><br><span class="line">WDTDIS 看门狗关闭</span><br><span class="line">PWRTEN 上电复位</span><br><span class="line">BOREN 掉电复位</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="（4）PIC16F1786手册的深度阅读"><a href="#（4）PIC16F1786手册的深度阅读" class="headerlink" title="（4）PIC16F1786手册的深度阅读"></a>（4）PIC16F1786手册的深度阅读</h4>
+        <p>1.You should download shadowsocks<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install shadowsocks</span><br></pre></td></tr></table></figure></p>
+<p>2.Write a congfig json<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/ss-conf.json</span><br></pre></td></tr></table></figure></p>
+<p>3.The content of config<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">“server”:”0.0.0.0”,</span><br><span class="line">“server_port”:8838,</span><br><span class="line">“local_address”:”127.0.0.1”,</span><br><span class="line">“local_port”:1080,</span><br><span class="line">“password”:”123456”,</span><br><span class="line">“timeout”:600,</span><br><span class="line">“method”:”aes-256-cfb”</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        
+          <p class="article-more-link">
+            <a href="/2018/10/06/Ubantusetssh/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/计算机系统概述/" data-id="cjtjd6px4002bn8oc8cdr7ivq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/06/Ubantusetssh/" data-id="cjtjfqsrq000xs2oc3iwl8uez" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
     </footer>
   </div>
   
@@ -568,48 +270,47 @@
 
 
   
-    <article id="post-微机原理要求" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-设计模式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/22/微机原理要求/" class="article-date">
-  <time datetime="2019-03-22T01:06:24.000Z" itemprop="datePublished">2019-03-22</time>
+    <a href="/2018/10/06/设计模式/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C/">C++</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/设计模式/">设计模式</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="微机原理笔记"><a href="#微机原理笔记" class="headerlink" title="微机原理笔记"></a>微机原理笔记</h1><h3 id="一、报告要求"><a href="#一、报告要求" class="headerlink" title="一、报告要求"></a>一、报告要求</h3><p>1.每天10点前提交工作日志</p>
-<ul>
-<li>记录每天遇到的问题、观察到的现象、分析过程和解 决途径</li>
-<li>格式：编号-姓名-工作日志-日期.doc</li>
-</ul>
-<p>2.课设要求：</p>
-<ul>
-<li>根据题目每组3~5人</li>
-<li>原理图</li>
-<li>外壳选择</li>
-<li>PCB布线</li>
-<li>外投制版</li>
-</ul>
-<p>3.七个小实验</p>
-<ul>
-<li>实验一:闪灯实验(Hello world)</li>
-<li>实验二:采用查询定时器的闪灯实验</li>
-<li>实验三:采用定时器中断的闪灯实验</li>
-<li>实验四:走马灯动态显示实验</li>
-<li>实验五:按键实验</li>
-<li>实验六:外设实验(A/D与I2C接口实验)  </li>
-<li>实验七:串口实验</li>
-</ul>
-
+        <h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><h2 id="设计模式简介"><a href="#设计模式简介" class="headerlink" title="设计模式简介"></a>设计模式简介</h2><p>1.设计模式（Design pattern）</p>
+<p>它代表了最佳的实践，通常被有经验的面向对象的软件开发人员所采用。设计模式是软件开发人员在软件开发过程中面临的一般问题的解决方案。这些解决方案是众多软件开发人员经过相当长的一段时间的试验和错误总结出来的。<br>
+        
+          </p><p class="article-more-link">
+            <a href="/2018/10/06/设计模式/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/微机原理要求/" data-id="cjtjd6pvs001an8oc7dy5fh3z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/06/设计模式/" data-id="cjtjfqsv9006ls2ocjfvedd52" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
     </footer>
   </div>
   
@@ -617,103 +318,47 @@
 
 
   
-    <article id="post-闪灯实验" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-C入门笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/22/闪灯实验/" class="article-date">
-  <time datetime="2019-03-22T01:06:24.000Z" itemprop="datePublished">2019-03-22</time>
+    <a href="/2018/10/06/C入门笔记/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C/">C++</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="闪灯实验"><a href="#闪灯实验" class="headerlink" title="闪灯实验"></a>闪灯实验</h1><h3 id="实验遇到问题和实现方法"><a href="#实验遇到问题和实现方法" class="headerlink" title="实验遇到问题和实现方法"></a>实验遇到问题和实现方法</h3><h4 id="1-软件建立工程问题"><a href="#1-软件建立工程问题" class="headerlink" title="1.软件建立工程问题"></a>1.软件建立工程问题</h4><p>（1）问题</p>
-<p>实验建立工程时不知道怎么跑起来</p>
-<p>（2）解决方法<br>再仔细地阅读了PPt，发现需要添加如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ORG 0x0</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
-<h4 id="2-没有定义相关变量的报错"><a href="#2-没有定义相关变量的报错" class="headerlink" title="2.没有定义相关变量的报错"></a>2.没有定义相关变量的报错</h4><p>（1）问题<br>将文档中的代码写入程序中，编译发现没有定义相关变量的报错</p>
-<p>（2）解决方法<br>百度和询问同学后得知没有引用头文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;p16f1786.inc&gt;</span><br></pre></td></tr></table></figure></p>
-<h4 id="3-程序下载问题"><a href="#3-程序下载问题" class="headerlink" title="3.程序下载问题"></a>3.程序下载问题</h4><p>（1）问题</p>
-<p>程序无法下载，找不到设备id</p>
-<p>（2）解决方法</p>
-<p>问了陈明霏和郭浩组，他们也遇到过这个问题，但是他们解决了这个问题方法如下：</p>
-<p>File-&gt;Project Properties-&gt;Families中更改为5V</p>
-<h4 id="4-小灯不亮"><a href="#4-小灯不亮" class="headerlink" title="4.小灯不亮"></a>4.小灯不亮</h4><p>（1）程序下载下去，但是小灯不亮</p>
-<p>（2）解决方法</p>
-<ul>
-<li>重新检查了一遍线路连接问题，仔细核对了下列图片<br><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=101811138,3323407575&amp;fm=27&amp;gp=0.jpg" alt><br>发现并没有问题</li>
-<li>我们开始使万用表检查各个引脚和地之间的电压差，发现只有VPP/MCLR/RE3才有5V的电压，其他的电压极为微弱</li>
-<li><p>我们尝试把延时函数注释掉，想只是简单地点亮小灯，但是小灯任然不亮</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;p16f1786.inc&gt;</span><br><span class="line">ORG 0x0</span><br><span class="line"></span><br><span class="line">BANKSEL PORTA	;扫描到宏定义BANKSEL时，会自动查询BANK，</span><br><span class="line">		;然后把宏指令编译成相应的设置STATUS里面PR1和PR0的指令</span><br><span class="line">CLRF PORTA	;将PORTA清零</span><br><span class="line">BANKSEL LATA	;Data Latch</span><br><span class="line">CLRF LATA</span><br><span class="line">BANKSEL ANSELA</span><br><span class="line">CLRF ANSELA	;digital I/O</span><br><span class="line">BANKSEL TRISA</span><br><span class="line">MOVLW B&apos;00000000&apos;;Set RA&lt;5:3&gt; as inputs and set RA&lt;2:0&gt; as outputs</span><br><span class="line">MOVWF TRISA	;将‘00111000’赋值给TRISA</span><br><span class="line">		LOOP</span><br><span class="line">banksel PORTA</span><br><span class="line">movlw 0FFH</span><br><span class="line">xorwf PORTA, f</span><br><span class="line">;CALL DELAY</span><br><span class="line">;GOTO LOOP </span><br><span class="line">    </span><br><span class="line">;   DELAY</span><br><span class="line">;	MOVLW 006H </span><br><span class="line">;	MOVWF 20H</span><br><span class="line">;	LOOP1</span><br><span class="line">;	    MOVLW 0EBH </span><br><span class="line">;	    MOVWF 21H </span><br><span class="line">;	    LOOP2</span><br><span class="line">;		MOVLW 0ECH </span><br><span class="line">;		MOVWF 22H </span><br><span class="line">;		LOOP3</span><br><span class="line">;		    DECFSZ 22H </span><br><span class="line">;		    GOTO LOOP3 </span><br><span class="line">;		DECFSZ 21H </span><br><span class="line">;		GOTO LOOP2</span><br><span class="line">;		banksel PORTA</span><br><span class="line">;		movlw 0FFH</span><br><span class="line">;		xorwf PORTA, f </span><br><span class="line">;	    DECFSZ 20H </span><br><span class="line">;	    GOTO LOOP1	</span><br><span class="line">;	    RETURN</span><br><span class="line">	    </span><br><span class="line">	end</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>再次检查各个引脚的电压，发现任然是原来的那种情况，只有一个引脚有电压差</p>
-</li>
-<li>再反复地调试了代码和硬件，终于发现把LOOP注释掉了，导致小灯只亮了一遍就跑出了，没有被阻塞，更改如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;p16f1786.inc&gt;</span><br><span class="line">ORG 0x0</span><br><span class="line"></span><br><span class="line">BANKSEL PORTA	;扫描到宏定义BANKSEL时，会自动查询BANK，</span><br><span class="line">		;然后把宏指令编译成相应的设置STATUS里面PR1和PR0的指令</span><br><span class="line">CLRF PORTA	;将PORTA清零</span><br><span class="line">BANKSEL LATA	;Data Latch</span><br><span class="line">CLRF LATA</span><br><span class="line">BANKSEL ANSELA</span><br><span class="line">CLRF ANSELA	;digital I/O</span><br><span class="line">BANKSEL TRISA</span><br><span class="line">MOVLW B&apos;00000000&apos;;Set RA&lt;5:3&gt; as inputs and set RA&lt;2:0&gt; as outputs</span><br><span class="line">MOVWF TRISA	;将‘00111000’赋值给TRISA</span><br><span class="line">		LOOP</span><br><span class="line">banksel PORTA</span><br><span class="line">movlw 0FFH</span><br><span class="line">xorwf PORTA, f</span><br><span class="line">CALL DELAY</span><br><span class="line">GOTO LOOP </span><br><span class="line">    </span><br><span class="line">    DELAY</span><br><span class="line">	MOVLW 006H </span><br><span class="line">	MOVWF 20H</span><br><span class="line">	LOOP1</span><br><span class="line">	    MOVLW 0EBH </span><br><span class="line">	    MOVWF 21H </span><br><span class="line">	    LOOP2</span><br><span class="line">		MOVLW 0ECH </span><br><span class="line">		MOVWF 22H </span><br><span class="line">		LOOP3</span><br><span class="line">		    DECFSZ 22H </span><br><span class="line">		    GOTO LOOP3 </span><br><span class="line">		DECFSZ 21H </span><br><span class="line">		GOTO LOOP2</span><br><span class="line">	    DECFSZ 20H </span><br><span class="line">	    GOTO LOOP1	</span><br><span class="line">	    RETURN</span><br><span class="line">	    </span><br><span class="line">	end</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/闪灯实验/" data-id="cjtjd6pxg002hn8ocmk7irfk9" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
+      <header class="article-header">
+        
   
-</article>
-
-
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/C入门笔记/">C++入门笔记</a>
+    </h1>
   
-    <article id="post-语法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/22/语法/" class="article-date">
-  <time datetime="2019-03-22T01:06:23.000Z" itemprop="datePublished">2019-03-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
+
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="JavaScript-MD5"><a href="#JavaScript-MD5" class="headerlink" title="JavaScript MD5"></a>JavaScript MD5</h1><h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p><a href="https://blueimp.github.io/JavaScript-MD5/" target="_blank" rel="noopener">JavaScript MD5 Demo</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>JavaScript MD5 implementation. Compatible with server-side environments like<br>Node.js, module loaders like RequireJS, Browserify or webpack and all web<br>browsers.</p>
-<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><h3 id="Client-side"><a href="#Client-side" class="headerlink" title="Client-side"></a>Client-side</h3><p>Include the (minified) JavaScript <a href="https://en.wikipedia.org/wiki/MD5" target="_blank" rel="noopener">MD5</a><br>script in your HTML markup:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/md5.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>In your application code, calculate the<br>(<a href="https://en.wikipedia.org/wiki/Hexadecimal" target="_blank" rel="noopener">hex</a>-encoded)<br><a href="https://en.wikipedia.org/wiki/MD5" target="_blank" rel="noopener">MD5</a> hash of a string by calling the <strong>md5</strong><br>method with the string as argument:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> hash = md5(<span class="string">"value"</span>); <span class="comment">// "2063c1608d6e0baf80249c42e2be5804"</span></span><br></pre></td></tr></table></figure>
-<h3 id="Server-side"><a href="#Server-side" class="headerlink" title="Server-side"></a>Server-side</h3><p>The following is an example how to use the JavaScript MD5 module on the<br>server-side with <a href="http://nodejs.org/" target="_blank" rel="noopener">Node.js</a>.</p>
-<p>Create a new directory and add the <strong>md5.js</strong> file. Or alternatively,<br>install the <strong>blueimp-md5</strong> package with <a href="https://www.npmjs.org/" target="_blank" rel="noopener">npm</a>:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install blueimp-md5</span><br></pre></td></tr></table></figure>
-<p>Add a file <strong>server.js</strong> with the following content:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">"http"</span>).createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// The md5 module exports the md5() function:</span></span><br><span class="line">    <span class="keyword">var</span> md5 = <span class="built_in">require</span>(<span class="string">"./md5"</span>),</span><br><span class="line">    <span class="comment">// Use the following version if you installed the package with npm:</span></span><br><span class="line">    <span class="comment">// var md5 = require("blueimp-md5"),</span></span><br><span class="line">        url  = <span class="built_in">require</span>(<span class="string">"url"</span>),</span><br><span class="line">        query = url.parse(req.url).query;</span><br><span class="line">    res.writeHead(<span class="number">200</span>, &#123;<span class="string">"Content-Type"</span>: <span class="string">"text/plain"</span>&#125;);</span><br><span class="line">    <span class="comment">// Calculate and print the MD5 hash of the url query:</span></span><br><span class="line">    res.end(md5(query));</span><br><span class="line">&#125;).listen(<span class="number">8080</span>, <span class="string">"localhost"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"Server running at http://localhost:8080/"</span>);</span><br></pre></td></tr></table></figure>
-<p>Run the application with the following command:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node server.js</span><br></pre></td></tr></table></figure>
-<h2 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h2><p>The JavaScript MD5 script has zero dependencies.</p>
-<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><p>Calculate the (<a href="https://en.wikipedia.org/wiki/Hexadecimal" target="_blank" rel="noopener">hex</a>-encoded)<br><a href="https://en.wikipedia.org/wiki/MD5" target="_blank" rel="noopener">MD5</a> hash of a given string value:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> hash = md5(<span class="string">"value"</span>); <span class="comment">// "2063c1608d6e0baf80249c42e2be5804"</span></span><br></pre></td></tr></table></figure>
-<p>Calculate the (<a href="https://en.wikipedia.org/wiki/Hexadecimal" target="_blank" rel="noopener">hex</a>-encoded)<br><a href="https://en.wikipedia.org/wiki/HMAC" target="_blank" rel="noopener">HMAC</a>-MD5 hash of a given string value and<br>key:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> hash = md5(<span class="string">"value"</span>, <span class="string">"key"</span>); <span class="comment">// "01433efd5f16327ea4b31144572c67f6"</span></span><br></pre></td></tr></table></figure>
-<p>Calculate the raw <a href="https://en.wikipedia.org/wiki/MD5" target="_blank" rel="noopener">MD5</a> hash of a given<br>string value:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> hash = md5(<span class="string">"value"</span>, <span class="literal">null</span>, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
-<p>Calculate the raw <a href="https://en.wikipedia.org/wiki/HMAC" target="_blank" rel="noopener">HMAC</a>-MD5 hash of a given<br>string value and key:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> hash = md5(<span class="string">"value"</span>, <span class="string">"key"</span>, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="Tests"><a href="#Tests" class="headerlink" title="Tests"></a>Tests</h2><p>The JavaScript MD5 project comes with<br><a href="https://en.wikipedia.org/wiki/Unit_testing" target="_blank" rel="noopener">Unit Tests</a>.<br>There are two different ways to run the tests:</p>
-<ul>
-<li>Open test/index.html in your browser or</li>
-<li>run <code>npm test</code> in the Terminal in the root path of the repository package.</li>
-</ul>
-<p>The first one tests the browser integration, the second one the<br><a href="http://nodejs.org/" target="_blank" rel="noopener">node.js</a> integration.</p>
-<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>The JavaScript MD5 script is released under the<br><a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT license</a>.</p>
-
+        <h1 id="C-入门阅读笔记"><a href="#C-入门阅读笔记" class="headerlink" title="C++入门阅读笔记"></a>C++入门阅读笔记</h1><p>[TOC]</p>
+<h3 id="1-C-中的类型限定符"><a href="#1-C-中的类型限定符" class="headerlink" title="1.C++ 中的类型限定符"></a>1.C++ 中的类型限定符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. const：const 类型的对象在程序执行期间不能被修改改变；</span><br><span class="line">2. volatile：修饰符 volatile 告诉编译器，变量的值可能以程序未明确指定的方式被改变；</span><br><span class="line">3. restrict：由 restrict 修饰的指针是唯一一种访问它所指向的对象的方式。只有 C99 增加了新的类型限定符 restrict。</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2018/10/06/C入门笔记/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/语法/" data-id="cjtjd6px6002cn8octmq6gfxo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/06/C入门笔记/" data-id="cjtjfqsvs006rs2ocjyea98es" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+
     </footer>
   </div>
   
@@ -723,230 +368,45 @@
   
     <article id="post-程序设计思想与方法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/22/程序设计思想与方法/" class="article-date">
-  <time datetime="2019-03-22T01:06:23.000Z" itemprop="datePublished">2019-03-22</time>
+    <a href="/2018/10/06/程序设计思想与方法/" class="article-date">
+  <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished">2018-10-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/微机原理/">微机原理</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/06/程序设计思想与方法/">程序设计思想与方法</a>
+    </h1>
+  
+
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="程序设计思想与方法"><a href="#程序设计思想与方法" class="headerlink" title="程序设计思想与方法"></a>程序设计思想与方法</h1><h2 id="第一章-计算与计算思维"><a href="#第一章-计算与计算思维" class="headerlink" title="第一章 计算与计算思维"></a>第一章 计算与计算思维</h2><h3 id="一、计算机语言"><a href="#一、计算机语言" class="headerlink" title="一、计算机语言"></a>一、计算机语言</h3><p>1.高级语言的翻译有两种方式：编译和解释；</p>
-<p>2.编译器（compiler）将高级语言程序（称为源代码）完整地翻译成等价的机器语言程序（称为目标代码）；</p>
-<h3 id="二、算法"><a href="#二、算法" class="headerlink" title="二、算法"></a>二、算法</h3><p>1.解决特定问题的、由一系列明确而可行的步骤 组成的过程，称为算法（algorithm①）；</p>
-<p>2.算法有两个要求：第一，每个步骤必须具备明确的可操作性；第二，构成算法的 所有步骤必须能在有限时间内完成。</p>
-<p>3.计算机科学要<br>回答的一个基本问题：什么是可计算的？如果能够为某个问题找到算法，该问题就称为可计 算的。</p>
-<h3 id="三、计算思维的的基本原则"><a href="#三、计算思维的的基本原则" class="headerlink" title="三、计算思维的的基本原则"></a>三、计算思维的的基本原则</h3><p>1.正如数学家在证明数学定理时有独特的数学思维、工程师在设计制造产品时 有独特的工程思维、艺术家在创作诗歌音乐绘画时有独特的艺术思维一样，计算机科学家在 用计算机解决问题时也有自己独特的思维方式和解决方法，我们统称之为 计算思维；</p>
-<p>2.“电子电路®门逻辑® 二进制®机器语言指令®高级语言程序”；</p>
-<h2 id="第三章-数据处理的流程控制"><a href="#第三章-数据处理的流程控制" class="headerlink" title="第三章 数据处理的流程控制"></a>第三章 数据处理的流程控制</h2><h3 id="一、循序控制结构"><a href="#一、循序控制结构" class="headerlink" title="一、循序控制结构"></a>一、循序控制结构</h3><p>1.由于复杂问 题的解法可能涉及复杂的执行次序，因此编程语言必须提供表达复杂控制流程的手段，称为 编程语言的控制结构。                                         </p>
-<h3 id="二、异常处理"><a href="#二、异常处理" class="headerlink" title="二、异常处理"></a>二、异常处理</h3><p>1.具体的检测方式有两种， 一种是在执行任务之前检测条件，另一种是执行任务之后检测返回状态码或错误码。</p>
-<p>2.异常处理机制</p>
-<p>异常处理机制的基本思想是：程序运行 时如果发生错误，就“抛出”一个异常，而系统能够“捕获”这个异常并执行特定的异常处 理代码。</p>
-<p><img src="https://wizardforcel.gitbooks.io/sjtu-cs902-courseware/content/img/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E6%96%B9%E6%B3%9579929.png" alt></p>
-<h3 id="三、结构化程序设计"><a href="#三、结构化程序设计" class="headerlink" title="三、结构化程序设计"></a>三、结构化程序设计</h3><p>1.开发新系统阶段的任务大体上就是程序设计，它本身又可划分为几个步骤，构成程序开 发周期（PDC）。PDC 的各个步骤如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1.明确需求：明确问题是什么，理解用户在功能方面的要求。</span><br><span class="line"></span><br><span class="line">2.制定程序规格：描述程序要“做什么”。</span><br><span class="line"></span><br><span class="line">3.设计程序逻辑：设计程序的解题过程，即描述“怎么做”。</span><br><span class="line"></span><br><span class="line">4.实现：使用一种编程语言来实现设计，即编写程序代码。</span><br><span class="line"></span><br><span class="line">5.测试与排错：用样本数据执行程序，测试结果是否与预期吻合。如果发现有错误（行 话称为 bug）则排除错误（debug）。</span><br><span class="line"></span><br><span class="line">6.维护程序：根据用户需求持续开发、改进程序。 程序规格描述程序的要做什么事情，对于简单程序通常只需要描述程序的输入和输出分别是什么。</span><br></pre></td></tr></table></figure></p>
-<p>2.好的算法和程序就像逻辑的诗歌。读和维护 都很愉快。</p>
-<h2 id="第四章-模块化编程"><a href="#第四章-模块化编程" class="headerlink" title="第四章 模块化编程"></a>第四章 模块化编程</h2><h3 id="一、模块化编程基本概念"><a href="#一、模块化编程基本概念" class="headerlink" title="一、模块化编程基本概念"></a>一、模块化编程基本概念</h3><p>1.模块一般具有如下特征：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">标准化：模块是具有标准尺寸和标准接口的预制功能单元，这是组装、互换等特征 的基础。</span><br><span class="line"></span><br><span class="line">可组装：多个模块可以方便、灵活地组合、配置，以构造不同大小、不同形状、不 同功能的系统。</span><br><span class="line"></span><br><span class="line">可替换：通过用一个模块去更换另一个模块，可以改变系统的局部功能而不影响系 统的其他部分。</span><br><span class="line"></span><br><span class="line">可维护：可以对模块进行局部修改或设置，以满足用户的需求。另外可以在现有系 统中增加新模块，以扩展系统功能。</span><br></pre></td></tr></table></figure>
-<h3 id="二、自顶向下设计"><a href="#二、自顶向下设计" class="headerlink" title="二、自顶向下设计"></a>二、自顶向下设计</h3><ol>
-<li>自顶向下设计也称为逐步求精（stepwise refinement），是将一个系统逐层分解为子系统的设计过程。</li>
-<li>用自顶向下方法编程序时，总是先写主程序，它是由根据系统功能划分而 成的功能子程序组成的。然后再分析每个子程序的需求，如果有必要就继续像主程序一样分 解下去。</li>
-</ol>
-<h3 id="三、自底向上实现与单元测试"><a href="#三、自底向上实现与单元测试" class="headerlink" title="三、自底向上实现与单元测试"></a>三、自底向上实现与单元测试</h3><p>1.自顶向下设计设计是创建层次化的模块结构的过程，而从实现的角度看，我们又是采取了相反的过程，即自底向上的实现。</p>
-<p>2.在模块化编程中，测试程序最适合采用单元测试技术，即先分别测试每一个小模块，然 后再逐步测试较大的模块，直至最后测试完整程序。</p>
-<p>3.典型的层次化软件体系结构的例子包括数据库的 ANSI-SPARC 三层模式、 网络技术的 ISO/OSI 七层模型、Web 应用开发中的三层体系结构等等。</p>
-<p>4.层次化体系结构的主要缺点是效率不如整体式结构，这是因为当程序员或用户面对顶层 构件请求某项服务时，这个请求需要从高层到低层逐层下传，最终由底层构件来实现功能， 再将结果逐层上传，直至顶层用户。这个逐层转换的过程显然很耗费时间。</p>
-<h2 id="第六章-大量数据的表示和处理"><a href="#第六章-大量数据的表示和处理" class="headerlink" title="第六章 大量数据的表示和处理"></a>第六章 大量数据的表示和处理</h2><h3 id="一、简单数据和复杂数据"><a href="#一、简单数据和复杂数据" class="headerlink" title="一、简单数据和复杂数据"></a>一、简单数据和复杂数据</h3><p>1.简单数据一般指单个数据，并且没有内部结构， 不可分割。复杂数据正相反，可在两方面呈现复杂性：一是数量多，即待处理的数据是由大 量相互关联的成员数据组成的；二是有内部结构，即数据在内部由若干分量组成，每个分量 本身可能又由更小的分量组成。</p>
-<h3 id="二、几种高级数据结构"><a href="#二、几种高级数据结构" class="headerlink" title="二、几种高级数据结构"></a>二、几种高级数据结构</h3><p>1.链表：列表是由许多数据按次序排列形成的一种数据结构，列表成员之间的逻辑关 系是由他们的排列次序表示的。</p>
-<p>但连续存储结构有也有缺点：如 果需要增加新成员，必须移动大量数据以便为新成员腾出空间；如果要删除某个数据，删除 后必须移动大量数据以便填补空缺、保持连续性。</p>
-<p><img src="https://wizardforcel.gitbooks.io/sjtu-cs902-courseware/content/img/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E6%96%B9%E6%B3%95200997.png" alt></p>
-<p>2.堆栈：堆栈（stack）也是一种数据集合体，其中的数据构成一种具有“后进先出（LIFO）”性 质的数据结构，即最后加入堆栈的数据总是首先取出。<br><img src="https://wizardforcel.gitbooks.io/sjtu-cs902-courseware/content/img/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E6%96%B9%E6%B3%95204066.png" alt></p>
-<p>3.队列队列（queue）也是数据集合体，其中的数据成员有序排列。与堆栈的“后进先出”相 反，队列具有“先进先出（FIFO）”的性质，即最先加入队列的数据将最先移出队列。<br><img src="https://wizardforcel.gitbooks.io/sjtu-cs902-courseware/content/img/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E6%96%B9%E6%B3%95206135.png" alt></p>
-<h2 id="第七章-面向对象思想与编程"><a href="#第七章-面向对象思想与编程" class="headerlink" title="第七章 面向对象思想与编程"></a>第七章 面向对象思想与编程</h2><p>面向对象思想和方法具有强大的描述复杂数据和构建复杂系统的能力，因此面向对象编 程已成为当今流行的编程范型，是大多数程序员在解决问题时的不二之选。</p>
-<h3 id="一、数据与操作：两种观点"><a href="#一、数据与操作：两种观点" class="headerlink" title="一、数据与操作：两种观点"></a>一、数据与操作：两种观点</h3><p>1.关于数据和操作这两部分的关系，在程序设计思想和方法的发展过程中存在两种不同的 观点：一种是传统的以操作为中心的面向过程观点，一种是现代的以数据为中心的面向对象 观点。</p>
-<h4 id="1、面向过程的观点"><a href="#1、面向过程的观点" class="headerlink" title="1、面向过程的观点"></a>1、面向过程的观点</h4><p>1.在数据与操作分离的传统观点下，通常以算法过程的设计为主线来展开程序设计，故可称为以过程为中心的程序设计。</p>
-<p>2.复杂程序中不但数据复杂，而且对数 据的操作也非常复杂，所有操作可能形成漫长而曲折的过程。为了应付操作过程的复杂性， 按照第 4 章所介绍的模块化编程思想，可以将复杂操作过程组织成为若干个较小的模块—— 函数，每个函数实现一个相对简单的、单一的功能。</p>
-<p>3.为了适应 GUI 程序这类没有明确的预定义操作次序、靠不确定的事件来驱动的程序和系 统的开发，提高开发效率和质量，计算机科学家提出了一种新的观点来看待数据与操作之间 的关系，即面向对象的观点。</p>
-<h4 id="2、面向对象观点"><a href="#2、面向对象观点" class="headerlink" title="2、面向对象观点"></a>2、面向对象观点</h4><p>1.数据与对数据的操作确实是紧密相关、不可分离的。既然如此，那我们干脆将数 据和操作两者结合在一起，抽象出一种实体：该实体拥有一些数据，同时也知道如何对这些 数据进行操作。</p>
-<p>2.我们将数据和对数据的操作融为一体，形成具有静态信息和动态行为的对象。 以面向对象的观点去描述现实世界，就是要将现实世界刻画成由各种对象组成，并且各对象之间进行交互、协作的系统。</p>
-<h4 id="3-类是类型概念的发展"><a href="#3-类是类型概念的发展" class="headerlink" title="3.类是类型概念的发展"></a>3.类是类型概念的发展</h4><p>1.类（class）是广义的数据类型，能够定义复杂数据的特性，包括静态特性（即数据）和动态特性（即对数据的操作方法）。</p>
-<h3 id="二、面向对象的编程"><a href="#二、面向对象的编程" class="headerlink" title="二、面向对象的编程"></a>二、面向对象的编程</h3><h4 id="1-类的定义"><a href="#1-类的定义" class="headerlink" title="1.类的定义"></a>1.类的定义</h4><p>1.抽象：人们在认识客观世界时，经常采用抽象方法来对客观世界的众多事物进行归纳、分类。 抽象就是忽略事物中与当前目标无关的、非本质的特征，而抽取与当前目标有关的、本质的特征。</p>
-<p>例如，对学校里一个个具体的学生张三、李四、王五等进行概括，可以抽取出学号、姓 名等数据属性，还可以抽取出选课、做项目、加入学生社团等行为属性，从而建立“学生类”。</p>
-<p>2.封装：封装（encapsulation）是指用类将对象的数据和操作结合成一个封闭的程序单元，并对 外部隐藏内部实现细节。</p>
-<p>隐藏信息包含两重意思：一是用户无需了解隐藏的信息就能使用该 类，二是不允许用户直接操作类中被隐藏的信息。</p>
-<p>3.事实上，类可以看作是传统结构 类型的发展，即类是添加了数据操作的“结构”。</p>
-<h4 id="2-对象的创建"><a href="#2-对象的创建" class="headerlink" title="2.对象的创建"></a>2.对象的创建</h4><p>1.一旦定义了类，就可以创建类的实例，也就是该类的一个对象②。类是抽象的，而对象<br>则是具体的。</p>
-<p>2.这里将类名当成一个函数来用，称为类的构造器（constructor，或称构造函数）。构造器返回 一个新对象，通常需要定义&lt;变量&gt;来引用这个新对象。</p>
-<h4 id="3-对象的调用"><a href="#3-对象的调用" class="headerlink" title="3.对象的调用"></a>3.对象的调用</h4><ol>
-<li>一旦创建了对象，就可以通过向对象发消息来调用对象的方法。消息的格式如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;对象&gt;.&lt;方法&gt;(&lt;实参&gt;)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="4-类与模块化"><a href="#4-类与模块化" class="headerlink" title="4.类与模块化"></a>4.类与模块化</h4><p>1.对复杂程序一般有两种分解方法：功能分解和数据分解。功能分解是面向过程编程的基 础，依赖于子程序（如函数）概念，以过程为中心来建立功能模块；数据分解则是面向对象 编程的基础，依赖于类的概念，以数据为中心来建立数据模块。</p>
-<p>2.当然可以让每个类单独构成一个模块，但这样一来，当类的数目很多时会导致模块 数目过多，反而增加程序的复杂性。</p>
-<h4 id="5-对象的集合体"><a href="#5-对象的集合体" class="headerlink" title="5.对象的集合体"></a>5.对象的集合体</h4><p>1.用 集合体表示大量的数据成员，而每个数据成员是一个具有复杂内部结构的对象。我们不妨用 下面的公式来表达这个思想：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">类 + 集合体 ＝ 任意复杂的数据</span><br></pre></td></tr></table></figure></p>
-<h3 id="三、超类与子类"><a href="#三、超类与子类" class="headerlink" title="三、超类与子类"></a>三、超类与子类</h3><p><img src="https://wizardforcel.gitbooks.io/sjtu-cs902-courseware/content/img/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E6%96%B9%E6%B3%95227730.png" alt></p>
-<p>为了描述这种一般与特殊的关系，面向对象语言中提供了相应的类定义方式。具有一般性的类称为超类（superclass），具有特殊性的类称为子类（subclass）①。例如在图 7.11 中， “人”是“学生”的超类，“学生”是“人”的子类；“人”也是“教师”的超类，“教师”是 “人”的子类；“学生”又是“研究生”的超类，“研究生”是“学生”的子类；等等。</p>
-<h4 id="1-继承"><a href="#1-继承" class="headerlink" title="1.继承"></a>1.继承</h4><p>1.子类拥有超类的一切特性，凡是超类适用的地方，子类也适用。</p>
-<p>2.子类除了继承超类的属性，还包含一些自己的特殊属性。</p>
-<p>3.这种定义方式下，子类中不必重复定义那些继承 来的属性，从而简化了子类定义。这也是继承机制带来了的另一个重要特色——代码重用（code reuse），即超类中的代码可以通过继承机制被子类重复使用。</p>
-<h4 id="2-复写"><a href="#2-复写" class="headerlink" title="2.复写"></a>2.复写</h4><p>1.子类除了原样继承超类的方法，还可以修改继承来的超类方法，以便以自己的方式行事。 这种在子类中重新定义超类方法的情况是面向对象的又一特色，称为覆写（override，或称重 定义）。</p>
-<p>2.注意，覆写是指在子类中重新实现超类的方法，该方法的调用界面（参数和返回值）是 不能改变的。另外，子类中覆写的方法仅适用于子类对象，并不能取代超类中的对应方法。</p>
-<h4 id="3-多态性"><a href="#3-多态性" class="headerlink" title="3.多态性"></a>3.多态性</h4><p>1.在 OOP 中，多个不同类的对象都支持相同的消息，但各对象响应消息的行为不同，这种能 力称为多态性（polymorphism），即同一操作具有不同形态的意思。</p>
-<p>2.多态性使得我们能够刻划不同类所提供的相似方法，对使用者来说易理解、易使用，能 够减少编程错误。相反，不同类的相似方法如果定义为不同名字，对使用者来说就很不方便。 例如，在 Windows 环境下，“双击”就是一个多态操作，双击不同对象导致的行为是不同的。 双击可执行文件，能够执行程序；双击 mp3 文件，可以播放音乐；双击窗口标题栏，可以极 大化或恢复窗口大小；等等。用户如果知道“双击”大体上执行“打开”这个动作的话，那 么学习使用 Windows 时就能举一反三。</p>
-<h3 id="四、面向对象的设计"><a href="#四、面向对象的设计" class="headerlink" title="四、面向对象的设计"></a>四、面向对象的设计</h3><ol>
-<li>传统的程序设计方法是结构化的自顶向下设计，其思想是将软件系统分解为若干个功能，<br>每个功能都是对数据的一个操作过程。功能又可以划分为若干个子功能，如此反复分解下去， 直至每个功能所对应的操作过程显而易见为止。在分解功能的同时，还要考虑各功能之间的 接口。这种方法是以过程（函数）为中心的，每个函数都是一个黑盒子，函数调用者只需了 解函数的功能，无需知道实现功能的细节。</li>
-</ol>
-<p>2.面向对象设计是以数据为中心来展开的。对于某种客观实体的数据，考虑可能施加在数 据上的各种操作，然后将数据和操作封装成一个黑盒子——对象。对象通过界面向外界提供 数据操作服务，服务的使用者只需了解服务接口，不必关心服务的实现细节。</p>
-<p>3.OOD 将一个复杂问题分解成一组相互协作的类，以类为设计单位可以大大减小设计的复杂性。</p>
-<p>4.迭代设计：对于复杂程序设计，没有人能够一次性地顺利走过设计全过程。在设计过程中，经常需 要在设计、测试、增加新类或为现有类增加新方法等步骤之间循环往复。</p>
-<h2 id="第八章-图形用户界面"><a href="#第八章-图形用户界面" class="headerlink" title="第八章 图形用户界面"></a>第八章 图形用户界面</h2><h3 id="一、图形用户界面概述"><a href="#一、图形用户界面概述" class="headerlink" title="一、图形用户界面概述"></a>一、图形用户界面概述</h3><p>1.在程序设计领域，一个程序的用户界面（user interface，简称 UI）指的是程序中与用户进行交互的部 分，用户通过 UI 向程序输入数据或者请求程序执行特定任务，而程序通过 UI 向用户显示各 种信息。</p>
-<p>2.事件驱动的程序一般都有一个主循环（main loop）或称事件循环，该循环不停地做两件 事：事件监测和事件处理。首先要监测是否发生了事件，如果有事件发生则调用相应的事件 处理程序，处理完毕再继续监测新事件。</p>
-<h3 id="二、GUI编程"><a href="#二、GUI编程" class="headerlink" title="二、GUI编程"></a>二、GUI编程</h3><h4 id="GUI-编程一般需要如下几个步骤："><a href="#GUI-编程一般需要如下几个步骤：" class="headerlink" title="GUI 编程一般需要如下几个步骤："></a>GUI 编程一般需要如下几个步骤：</h4><p>1.设计界面外观：这包括创建窗口和其他各种构件，并进行合适的布局。这一步与其 说是程序设计，不如说是美工设计。在流行的 Visual Basic、Eclipse 等集成开发环境 中，这一步只需用鼠标点击、拖放、调整大小就能完成。</p>
-<p>2.为每个构件定义事件处理程序：这一步是 GUI 开发的核心任务，决定着程序的功能 和与用户交互时的行为。</p>
-<p>3.编写应用程序的启动和总控部分：进行必要的初始化工作之后，进入主循环。 不同应用程序的用户界面虽然肯定会有不同，但构件的选择和布局是有很多共性的。读者如果用过一些 Windows 应用程序（如 MS Office 中的各种程序）的话，一定会发现众多 Windows 程序在界面风格方面的雷同。以下我们虽然用 Tkinter 来实现 GUI，但各种构件的 用法和布局的讨论是有普遍意义的。</p>
-<h4 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h4><p>1.框架就是一种容器，其主要用途是将一组相关的基本构件组合成为一个“复合” 构件。利用框架对窗口进行模块化分隔，即可建立复杂的图形界面结构。每个框架都是一个 独立的区域，可以独立地对其中包含的子构件进</p>
-<h4 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h4><p>布局指的是界面元素在界面中的位置安排。Tkinter 中提供了布局管理器，其任务是根据 程序员的要求以及其他一些约束来安排构件的位置。使用布局管理器的优点是程序员不需要 了解底层显示系统的细节，可以在较高层次上考虑界面布局问题。</p>
-<h4 id="对话框"><a href="#对话框" class="headerlink" title="对话框"></a>对话框</h4><p>对话框分为两种类型：模态（modal）和非模态（modeless）对话框①。模态对话框在关 闭之前将阻止程序其他窗口的操作，而非模态对话框则不会阻止程序其他窗口的操作。模态 对话框常用于向用户警告重要信息，或者等待用户输入必需的数据（如登录用户名和密码、 打开或保存文件输入文件名等）。</p>
-<h4 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h4><p>1.事件处理程序一般都是用户自定义的函数。这种函数在应用程序中定义，但不由应用程 序调用，而是由系统调用，所以一般称为回调（callback）函数。</p>
-<h4 id="键盘事件与焦点"><a href="#键盘事件与焦点" class="headerlink" title="键盘事件与焦点"></a>键盘事件与焦点</h4><p>当图形界面中存在许多构件时，如果是用鼠标直接点击某个窗口或构件，程序自然就知<br>道要操作哪个构件。但如果是按一下键盘，应该由哪个构件做出响应呢？GUI 引入了“焦点” 概念：图形界面中有唯一焦点，任何时刻只能有一个构件占有焦点，键盘事件总是发送到当 前占有焦点的构件。焦点的位置可以通过构件的 focus_set()方法来设置，也可以用键盘上的 Tab 键来轮转。</p>
-<h3 id="三、模型-视图设计方法"><a href="#三、模型-视图设计方法" class="headerlink" title="三、模型-视图设计方法"></a>三、模型-视图设计方法</h3><h4 id="1-将-GUI-应用程序封装成对象"><a href="#1-将-GUI-应用程序封装成对象" class="headerlink" title="1.将 GUI 应用程序封装成对象"></a>1.将 GUI 应用程序封装成对象</h4><p>1.GUI 编程的一个常用技术是将整个应用程序封装成一个类，在应用程序类中建立图形界 面并处理各种交互事件。</p>
-<p>2.具体来说，GUI 应用程序类应该首先创建一个主窗口，并在其中布 置所需的各种构件，然后再为各个构件编写事件处理程序（都是类的方法）。这种做法的好处 是：由于事件处理函数都定义为应用类的方法，而类的方法很自然地能访问类中的实例变量， 所以只要我们将界面中的各种构件也存储为实例变量，就能实现程序的处理代码与程序的图 形界面进行“无缝集成”。</p>
-<h4 id="2-模型与视图"><a href="#2-模型与视图" class="headerlink" title="2.模型与视图"></a>2.模型与视图</h4><p>1.复杂应用程序经常可以分解成两个部分：核心逻辑和用户界面。</p>
-<p>2.程序的核心逻辑部分称<br>为模型（model），它负责为应用问题建模，管理应用问题的数据和行为，并对来自用户界面 的数据请求或数据更新指令进行响应。</p>
-<p>3.程序的用户界面部分称为视图（view），它负责显示模 型的当前数据状态，响应用户的交互动作。模型和视图是相互独立的，可以分开设计和测试， 从而简化程序结构、降低设计难度，这称为模型－视图（MV）设计方法。</p>
-<h2 id="第九章-模拟开发与并发"><a href="#第九章-模拟开发与并发" class="headerlink" title="第九章 模拟开发与并发"></a>第九章 模拟开发与并发</h2><h3 id="一、模拟"><a href="#一、模拟" class="headerlink" title="一、模拟"></a>一、模拟</h3><p>1.利用计算机解决现实中的问题，首先需要在计算机中将问题表示出来，这个过程称为建模（modeling），即建立描述现实问题的一个模型（model）。</p>
-<p>2.谓混沌现象， 是指在确定性系统中发生的看上去随机、不规则的运动，即用确定性理论描述的系统却表现 出不确定的行为。</p>
-<h3 id="二、原型法"><a href="#二、原型法" class="headerlink" title="二、原型法"></a>二、原型法</h3><p>1.自顶向下设计是非常强大的程 序设计技术，但它也有不适用的场合。</p>
-<p>2.自顶向下设计的第一步是顶层设计，这需要设计者对问题的全局有清晰的认识。万一要 解决的问题非常复杂，或者用户需求不是很完整、清晰，这时顶层设计就非常困难。另外， 设计者有时候会卡在自顶向下层次中的某一层，这就导致下层的精化无法继续，从而影响整 个程序的开发。即便前面这两个问题都不存在，自顶向下设计也存在开发周期过长、工作量 太大的缺点。</p>
-<p>3.原型法（prototyping）。这种方法的思想是，先开发一个简单版 本，即功能少、界面简单的版本，然后再对这个简单版本逐步进行改善（添加或修改功能）， 直至完全满足用户需求。初始精简版程序称为原型（prototype）。应用原型法来进行软件开 发的步骤大致如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1）确认基本需求；</span><br><span class="line">（2）创建原型；</span><br><span class="line">（3）向用户演示或交付用户试用，获得反馈意见；</span><br><span class="line">（4）改善原型；回到（3），重复（3）、（4），直至用户最终认可。 可见，原型技术不是对整个问题按照“设计、实现、测试”的过程来开发，而是先按此</span><br></pre></td></tr></table></figure></p>
-<p>4.螺旋式开发并不是用来取代自顶向下设计的，这两种设计方法是互为补充 的关系。</p>
-<h3 id="三、并行计算"><a href="#三、并行计算" class="headerlink" title="三、并行计算"></a>三、并行计算</h3><h4 id="1-串行、并发与并行"><a href="#1-串行、并发与并行" class="headerlink" title="1.串行、并发与并行"></a>1.串行、并发与并行</h4><p>1.计算机执行程序时，如果采用按顺序执行的方式，即仅当一个程序执行完毕，下一个程序才能开始执行，则称为串行（serial）执行。</p>
-<p>2.为了提高 CPU 的利用率，计算机可以采用这样的执行方式：当程序 P1 因为等待输入或 其他原因而暂时不用 CPU 时，CPU 就去执行另一个程序 P2；当 P1 结束输入时，CPU 再回 去继续执行 P1。</p>
-<p>3.当然，如果计算机系统中有多个处理器（核心是 CPU），那么就可以做到真正的多个程 序“同时”执行，因为各 CPU 可以在同一时刻执行各自的指令。为了与单一 CPU 上的并发 相区别，我们称这种执行方式为并行（parallel）执行。</p>
-<h4 id="2-进程与线程"><a href="#2-进程与线程" class="headerlink" title="2.进程与线程"></a>2.进程与线程</h4><p>1.操作系统控制处理器在多个程序之间切换执行的过程称为调度。</p>
-<p>2.进程（process）是指程序的一次执行所形成的实体，每当程序 开始执行，就会创建一个进程。</p>
-<p>3.注意，程序与进程是不同的概念。首先，不同程序在计算机中执行，自然形成不同的进 程。其次，即使是同一个程序，当它在计算机中多次执行时，也会创建多个不同进程，这些 进程虽然具有相同的程序代码，但各有自己的上下文。</p>
-<p>4.多任务、多进程也有缺点。第一，实现多进程并发需要花费不少系统开销。因为 每创建一个进程都要为它分配一些内存，以便存储它的上下文；而操作系统在不同进程间进 行调度时需要保存和恢复进程上下文。第二，进程间通信比较困难。进程和进程是隔离的， 各进程拥有自己的地址空间，一个进程不能访问另一个进程的地址空间，从而在进程之间很 难共享信息。因此，对于两个需要传递信息的进程，相互通信很麻烦。</p>
-<p>5.为了解决上述两个问题，产生了线程的概念。传统程序是从第一行指令一直执行到最后 一行指令，程序中只有一个控制流。这就像写小说时，沿着唯一的故事线索推进。而所谓线程（thread），是指程序中的一段代码，它构成程序中一个相对独立的执行单位。线程概念 使我们可以从一个程序中分出多个控制流来执行多个任务，所以线程实际上是程序内部的多 任务机制。就好比一部小说在叙述过程中，同时存在着多个故事线索，多头并进。</p>
-<h4 id="3-多线程编程的应用"><a href="#3-多线程编程的应用" class="headerlink" title="3.多线程编程的应用"></a>3.多线程编程的应用</h4><p>1.多线程技术主要用于需要并发执行的场合。例如在很多游戏程序中，都需要维持一个动画场景，而玩家可以通过鼠标或键盘来输入操作指令，控制游戏的进行。</p>
-<p>2.多线程技术涉及所谓竞态条件（race condition），即因为未曾预料到的、对事件之间 相对时序的严重依赖而导致的异常行为。具体例子如：两个客户同时登录订票网站，都看到 某航班还剩一个座位，于是都下单预定该座位，最终必然会因为谁先来后到而引起纠纷。如 果两人是在售票点排队购票（串行执行）就没有这个问题。因此，多线程程序与串行程序是 不同的，需要分析并协调各线程间的复杂的执行时序，这导致编程和调试都很困难。</p>
-<h2 id="第十章-算法设计和分析"><a href="#第十章-算法设计和分析" class="headerlink" title="第十章 算法设计和分析"></a>第十章 算法设计和分析</h2><h3 id="一、枚举法"><a href="#一、枚举法" class="headerlink" title="一、枚举法"></a>一、枚举法</h3><p>采用枚举策略设计算法的一般步骤：</p>
-<p>(1) 确定枚举对象、枚举范围和判定条件；</p>
-<p>(2) 枚举各可能解，逐一验证是否所需的问题解。</p>
-<p>(3) 尽量减小枚举范围，提高算法效率。</p>
-<h3 id="二、递归"><a href="#二、递归" class="headerlink" title="二、递归"></a>二、递归</h3><p>递归是非常重要的算法设计方法，在解决很多具有递归性质的问题、结构的时候，设计<br>递归算法往往是直接而简单的。递归定义必须满足以下条件才是良定义的：</p>
-<ul>
-<li>有一个或多个无需递归的奠基情形；</li>
-<li>递归总是针对规模更小的问题。</li>
-<li><h3 id="三、分治法"><a href="#三、分治法" class="headerlink" title="三、分治法"></a>三、分治法</h3></li>
-</ul>
-<p>1.分治法（divide-and-conquer）是解决问题的一种常用策略，其思想是将难以处理的较大 问题分解为若干个较小的子问题，然后分别解决这些子问题，并从子问题的解构造出原问题 的解。“分”是指将原问题分解，“治”是指解决问题。</p>
-<p>2.排序法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(1)选择排序法</span><br><span class="line"></span><br><span class="line">其思想是：先从全体 n 个数据 中找出最小值，并将该最小值排在第一个位置；然后从剩下的 n-1 个数据中再次找出最小值，这个最小值实</span><br><span class="line">际上是全体数据的次小值，我们将它排在第二个位置；依此类推，直至从剩下 的 2 个数据中找出最小值，排在第 n-1 个位置，而剩下的最后一个数据（全体数据中的最大 值）可以直接排在第 n 个位置。</span><br><span class="line"></span><br><span class="line">（2）归并排序</span><br><span class="line"></span><br><span class="line">给定一个较大的数据集合 S，先将数据平分为两部分 S1 和 S2，然后分别对 S1 和 S2 进行 排序，从而得到两个“局部有序”的序列。接下去将这两</span><br><span class="line">个局部有序序列合并成为“全局有 序”序列，这个过程称为归并（merge）。</span><br></pre></td></tr></table></figure></p>
-<h3 id="四、贪心法"><a href="#四、贪心法" class="headerlink" title="四、贪心法"></a>四、贪心法</h3><p>1.贪心法指的是这样一种问题求解策 略：在求解过程的每一步都尽量作出在当前情况下局部最优的选择，以期最终能得到全局最 优解。</p>
-<p>2.当然，好的棋手是不会采用贪心策略来下棋的，他们会计算未来的很多步棋，然后选择 全局最优的着法。这说明贪心策略只能对某些问题（如上述最小支撑树问题）能产生全局最 优解，对另一些问题则不然。不过，贪心算法的优点是能够较快地找出解法，产生的结果经 常也是接近全局最优解的；而一心追求全局最优解则有可能导致无法在合理的时间内达到目 标，就像棋手如果指望算无遗策，那就要花费大量时间来计算着法，这几乎是不可能的。</p>
-<h3 id="五、算法分析"><a href="#五、算法分析" class="headerlink" title="五、算法分析"></a>五、算法分析</h3><h4 id="1-算法复杂度"><a href="#1-算法复杂度" class="headerlink" title="1.算法复杂度"></a>1.算法复杂度</h4><p>1.算法通常都设计成能处理任意大小的输入数据，这就导致算法的步数并不是固定的，而 是随着问题规模的变化而变化，因此算法的步数可表示为问题规模的函数。</p>
-<p>2.在描述算法复杂度时，n 对应于问题规模，f(n)是算法需执行的步数，g(n)是表示增长数 量级的某个函数。说算法的复杂度为 O(g(n))，意思就是当 n 足够大时，该算法的执行步数（时间）永远不会超过 c×g(n)。</p>
-<h4 id="2-算法分析实例"><a href="#2-算法分析实例" class="headerlink" title="2.算法分析实例"></a>2.算法分析实例</h4><p>1.线性搜索：线性搜索算法的思想是逐个检查列表成员，编码时可以用一个循环语句来实现。线性搜索算法在最坏情形下的运行时间与输入列表的大小 n 呈线性关系，即复杂度为 O(n)，称为线性时间算法。</p>
-<p>2.二分搜索算法的主体也是一个循环，但该循环不是逐个检查列表数据，而是每次检查位 于列表中点的数据，并根据该中点数据与要查找的数据的大小比较情况来排除掉左半列表或 右半列表。</p>
-<h4 id="六、不可计算问题"><a href="#六、不可计算问题" class="headerlink" title="六、不可计算问题"></a>六、不可计算问题</h4><p>1.图灵机</p>
-<p>英国数学家 Alan Turing 于 1936 年发明了一种抽象机器用于研究计算的本质，人们称这 种机器为图灵机（Turing machine）。图灵机能够模拟算法式计算，即按预定的规则一步一步 执行基本指令的过程。现代计算机就是这样按照预定的程序一步一步执行指令的，因此可以 视为图灵机的具体实现。</p>
-<p>图灵机的强大计算能力有一个重要表现，那就是一个图灵机可以模拟另一个图灵机的工 作。</p>
-<h2 id="第11章-计算-X"><a href="#第11章-计算-X" class="headerlink" title="第11章 计算+X"></a>第11章 计算+X</h2><p>1.当代科学研究有三大支柱：理论、实验和计算。</p>
-
+<p>2.编译器（compiler）将高级语言程序（称为源代码）完整地翻译成等价的机器语言程序（称为目标代码）；<br>
+        
+          </p><p class="article-more-link">
+            <a href="/2018/10/06/程序设计思想与方法/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/程序设计思想与方法/" data-id="cjtjd6pyt002sn8ocnutyodga" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/06/程序设计思想与方法/" data-id="cjtjfqsvu006ss2oc8es8zigd" class="article-share-link">Share</a>
       
       
-    </footer>
-  </div>
-  
-</article>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微机原理/">微机原理</a></li></ul>
 
-
-  
-    <article id="post-串口通信指令" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/22/串口通信指令/" class="article-date">
-  <time datetime="2019-03-22T01:06:22.000Z" itemprop="datePublished">2019-03-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="串口通信指令"><a href="#串口通信指令" class="headerlink" title="串口通信指令"></a>串口通信指令</h1><h2 id="一-指令说明："><a href="#一-指令说明：" class="headerlink" title="一 指令说明："></a>一 指令说明：</h2><h3 id="1-COMMAND命令控制LED1，LED2，BUZZER的ON和OFF；"><a href="#1-COMMAND命令控制LED1，LED2，BUZZER的ON和OFF；" class="headerlink" title="1.COMMAND命令控制LED1，LED2，BUZZER的ON和OFF；"></a>1.COMMAND命令控制LED1，LED2，BUZZER的ON和OFF；</h3><h3 id="2-PROCESS命令控制树莓派发送进程值；"><a href="#2-PROCESS命令控制树莓派发送进程值；" class="headerlink" title="2.PROCESS命令控制树莓派发送进程值；"></a>2.PROCESS命令控制树莓派发送进程值；</h3><h3 id="3-所有字母用大写。"><a href="#3-所有字母用大写。" class="headerlink" title="3.所有字母用大写。"></a>3.所有字母用大写。</h3><h2 id="二-具体指令："><a href="#二-具体指令：" class="headerlink" title="二 具体指令："></a>二 具体指令：</h2><h3 id="1-1-LED1-COMMAND-ON-开启小灯1，同时打印状态"><a href="#1-1-LED1-COMMAND-ON-开启小灯1，同时打印状态" class="headerlink" title="1. {1,LED1,COMMAND,ON}      //开启小灯1，同时打印状态"></a>1. {1,LED1,COMMAND,ON}      //开启小灯1，同时打印状态</h3><h3 id="2-1-LED1-COMMAND-OFF-熄灭小灯1"><a href="#2-1-LED1-COMMAND-OFF-熄灭小灯1" class="headerlink" title="2. {1,LED1,COMMAND,OFF}     //熄灭小灯1"></a>2. {1,LED1,COMMAND,OFF}     //熄灭小灯1</h3><h3 id="3-1-LED2-COMMAND-ON-开启小灯2，同时打印状态"><a href="#3-1-LED2-COMMAND-ON-开启小灯2，同时打印状态" class="headerlink" title="3. {1,LED2,COMMAND,ON}      //开启小灯2，同时打印状态"></a>3. {1,LED2,COMMAND,ON}      //开启小灯2，同时打印状态</h3><h3 id="4-1-LED2-COMMAND-OFF-熄灭小灯2"><a href="#4-1-LED2-COMMAND-OFF-熄灭小灯2" class="headerlink" title="4. {1,LED2,COMMAND,OFF}     //熄灭小灯2"></a>4. {1,LED2,COMMAND,OFF}     //熄灭小灯2</h3><h3 id="5-1-BUZZER-COMMAND-ON-开启蜂鸣器"><a href="#5-1-BUZZER-COMMAND-ON-开启蜂鸣器" class="headerlink" title="5. {1,BUZZER,COMMAND,ON}    //开启蜂鸣器"></a>5. {1,BUZZER,COMMAND,ON}    //开启蜂鸣器</h3><h3 id="6-1-BUZZER-COMMAND-OFF-关闭蜂鸣器"><a href="#6-1-BUZZER-COMMAND-OFF-关闭蜂鸣器" class="headerlink" title="6. {1,BUZZER,COMMAND,OFF}   //关闭蜂鸣器"></a>6. {1,BUZZER,COMMAND,OFF}   //关闭蜂鸣器</h3><h3 id="7-PROCESS-读取进程"><a href="#7-PROCESS-读取进程" class="headerlink" title="7. {,,PROCESS,}             //读取进程"></a>7. {,,PROCESS,}             //读取进程</h3>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/串口通信指令/" data-id="cjtjd6pvj000zn8ocaqi70rng" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-archlinux安装笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/22/archlinux安装笔记/" class="article-date">
-  <time datetime="2019-03-22T01:06:22.000Z" itemprop="datePublished">2019-03-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="archlinux-安装笔记"><a href="#archlinux-安装笔记" class="headerlink" title="archlinux 安装笔记"></a>archlinux 安装笔记</h1><h2 id="一-准备工作"><a href="#一-准备工作" class="headerlink" title="一.准备工作"></a>一.准备工作</h2><p> 1.安装<a href="https://www.baidu.com/link?url=LepTOXQc-bVXySu-vF-QDWSHm4eMiBMRd0qq4ajzmw_H9ap4ILYdC0hEweQ-LM1TgEbK_uxctpoqz6wSnn52LIssOB3v1M2JBWgjAxlXuJK&amp;wd=&amp;eqid=827c25cd0002c393000000035ac9ddba" target="_blank" rel="noopener">VMware虚拟机</a>；</p>
-<p>2.在<a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener">清华大学开源开源软件镜像站</a>下载archlinux的镜像；</p>
-<h2 id="二-开始装机"><a href="#二-开始装机" class="headerlink" title="二.开始装机"></a>二.开始装机</h2><p>1.打开VM，新建虚拟机，选择ubantu64位，大小选择25；</p>
-<p>2.创建好之后，点击开机按钮；</p>
-<p>3.大概等待几分钟，基本安装即可完成；</p>
-<h2 id="三-使用命令配置"><a href="#三-使用命令配置" class="headerlink" title="三.使用命令配置"></a>三.使用命令配置</h2><h3 id="1-连接到因特网"><a href="#1-连接到因特网" class="headerlink" title="1.连接到因特网"></a>1.连接到因特网</h3><ol>
-<li>守护进程 dhcpcd 已被默认启用来探测有线设备, 并会尝试连接，可以使用命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ping -c 3 archlinux.org</span><br><span class="line">ping -c 3 www.baidu.com</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>2.无线状态展示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iw -show</span><br></pre></td></tr></table></figure></p>
-<h3 id="2-设置密码"><a href="#2-设置密码" class="headerlink" title="2. 设置密码;"></a>2. 设置密码;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure>
-<h3 id="3-分区方法："><a href="#3-分区方法：" class="headerlink" title="3.分区方法："></a>3.分区方法：</h3><p>1.分区方案：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sda1—————20—————/boot/EFi</span><br><span class="line"></span><br><span class="line">sda2—————200M————/boot</span><br><span class="line"></span><br><span class="line">sda3—————100G————/</span><br></pre></td></tr></table></figure></p>
-<p>2.磁盘若被系统识别到，就会被分配为一个块设备，查看分区。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l</span><br></pre></td></tr></table></figure></p>
-<p>3.建立GPT分区表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/sda</span><br></pre></td></tr></table></figure></p>
-<p>4.建立分区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">回车：</span><br><span class="line"></span><br><span class="line">提示让输入开始扇区(一个扇区512B，按自己要分区容量大小进行计算) </span><br><span class="line">输入2048,回车</span><br><span class="line"></span><br><span class="line">让输入结束扇区，由于一个扇区512B，要创建200M的分区,应该输入：+200M；</span><br><span class="line"></span><br><span class="line">建立第二个分区： </span><br><span class="line">输入n; </span><br><span class="line">回车 </span><br><span class="line">输入开始扇区: 回车 （默认开始扇区即可） </span><br><span class="line">输入结束扇区:+200M</span><br><span class="line"></span><br><span class="line">建立第三个分区： </span><br><span class="line">输入n; </span><br><span class="line">回车 </span><br><span class="line">输入开始扇区:回车 （默认开始扇区即可） </span><br><span class="line">输入结束扇区:直接回车(默认大那个数字)</span><br><span class="line"></span><br><span class="line">输入:w 保存并退出；</span><br></pre></td></tr></table></figure></p>
-<p>5.格式化分区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkfs.fat -F32 /dev/sda1</span><br><span class="line">mkfs.ext4 /dev/sda2</span><br><span class="line">mkfs.ext4 /dev/sda3</span><br></pre></td></tr></table></figure></p>
-<p>6.挂载分区<br>首先将根分区挂载到 /mnt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/sda3 /mnt</span><br><span class="line">mkdir /mnt/boot</span><br><span class="line">mount /dev/sda2 /mnt/boot</span><br><span class="line">mkdir /mnt/boot/EFI</span><br><span class="line">mount /dev/sda1 /mnt/boot/EFI</span><br></pre></td></tr></table></figure></p>
-<p>7.如果使用多个分区，还需要为其他分区创建目录并挂载它们（/mnt/boot、/mnt/home)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /mnt/boot</span><br><span class="line">mount /dev/sda/boot</span><br></pre></td></tr></table></figure></p>
-<p>8.安装基本系统<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt base</span><br><span class="line">pacstrap -i /mnt base base-devel</span><br></pre></td></tr></table></figure></p>
-<p>9.Fstab<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span><br></pre></td></tr></table></figure></p>
-<h3 id="4-软件管理"><a href="#4-软件管理" class="headerlink" title="4.软件管理:"></a>4.软件管理:</h3><p>1.使用pacman来管理软件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#安装软件/软件组</span><br><span class="line">pacman -S [软件1] [软件2] ...</span><br><span class="line"></span><br><span class="line">#卸载软件/软件组</span><br><span class="line">pacman -R [软件1] [软件2] ...</span><br><span class="line"></span><br><span class="line">#刷新数据库</span><br><span class="line">pacman -Syy</span><br><span class="line"></span><br><span class="line">#升级整个系统</span><br><span class="line">pacman -Syyu</span><br></pre></td></tr></table></figure></p>
-<p>2.更改镜像源：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/pacman.conf</span><br><span class="line"></span><br><span class="line">#在文档结尾处加入下面的文字：</span><br><span class="line">    [archlinuxcn]</span><br><span class="line">    SigLevel = Optional TrustAll</span><br><span class="line">    Server = http://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch</span><br><span class="line">#保存退出，刷新pacman数据库</span><br></pre></td></tr></table></figure></p>
-<h3 id="5-图形界面配置"><a href="#5-图形界面配置" class="headerlink" title="5.图形界面配置;"></a>5.图形界面配置;</h3><p>此以Gnome为例，其它基本大同小异</p>
-<p>1.首先安装xorg-server，这是图形界面的基础。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S xorg-server</span><br></pre></td></tr></table></figure></p>
-<p>2.然后安装相关驱动，选择2（virtualbox-guest-utils）， 此为arch在虚拟机安装所需要的软件组。<br>3.再安装Gnome3桌面了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pabman -S gnome</span><br></pre></td></tr></table></figure></p>
-<p>4.让开机进入图形界面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable gdm.service</span><br></pre></td></tr></table></figure></p>
-<p>相关systenmctl的使用:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#show system status using:</span><br><span class="line">systemctl status</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#List running units:</span><br><span class="line">systemctl list-units</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#List failed units:</span><br><span class="line">systemctl -failed</span><br></pre></td></tr></table></figure>
-<p>5.安装中文字体<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S adode-source-han-sans-cn-fonts</span><br></pre></td></tr></table></figure></p>
-<p>6.安装chrome浏览器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S google-chrome</span><br></pre></td></tr></table></figure></p>
-<h3 id="6-用户管理"><a href="#6-用户管理" class="headerlink" title="6.用户管理"></a>6.用户管理</h3><p>1.新安装的arch只有一个root用户，使用root用户来进行日常系统管理是很危险的事情，说不定哪天手抖输了个rm -rf /*然后你就呵呵了。所以我们通常用普通用户来进行日常使用，有需要的时候就用sudo来获取root权限。<br>2.首先添加一个用户，并把它加到wheel组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -m  -G wheel -s  /bin/bash 【用户名】</span><br></pre></td></tr></table></figure></p>
-<p>3.设置密码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure></p>
-<p>4.最后设置wheel组的用户能用sudo获取root权限:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">visudo</span><br><span class="line">    #找到这样的一行,把前面的#去掉:</span><br><span class="line">    #%wheel ALL=(ALL) ALL</span><br><span class="line">按ESC键，输入x!回车就可以保存并退出</span><br></pre></td></tr></table></figure></p>
-<h3 id="7-总结操作系统的安装流程"><a href="#7-总结操作系统的安装流程" class="headerlink" title="7.总结操作系统的安装流程"></a>7.总结操作系统的安装流程</h3><p>安装archlinux最重要的是要去看archwiki上的教程，启动arch后先要进行分区，挂载分区，安装相关驱动，最后配置桌面等等。其实最重要的就是在于好好看wiki，不要去看其他半全不全的教程QAQ。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/archlinux安装笔记/" data-id="cjtjd6pve000un8ocu6pp6hrm" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
@@ -958,7 +418,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span>
   </nav>
 
 </section>
@@ -969,7 +429,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/网安组/">网安组</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2018Dian团队年终茶话会/">2018Dian团队年终茶话会</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java学习/">Java学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux学习/">Linux学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL学习/">SQL学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git学习/">git学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/微机原理/">微机原理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/">操作系统</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/敏捷开发/">敏捷开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/文学/">文学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/材料物理化学/">材料物理化学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/深信服/">深信服</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/网安组/">网安组</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/讲座分享/">讲座分享</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/讲座培训/">讲座培训</a></li></ul>
     </div>
   </div>
 
@@ -979,7 +439,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络安全/">网络安全</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dian/">Dian</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-虚拟机/">Java 虚拟机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PPT/">PPT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode调试/">Xcode调试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/《人月神话》/">《人月神话》</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/区块链/">区块链</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微机原理/">微机原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/散文/">散文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅游攻略/">旅游攻略</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习/">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/材料物理化学/">材料物理化学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/深信服/">深信服</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络安全/">网络安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/节目策划/">节目策划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/讲座分享/">讲座分享</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/逆向工程/">逆向工程</a></li></ul>
     </div>
   </div>
 
@@ -989,7 +449,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/网络安全/" style="font-size: 10px;">网络安全</a>
+      <a href="/tags/Android/" style="font-size: 12px;">Android</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Dian/" style="font-size: 12px;">Dian</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Java-虚拟机/" style="font-size: 10px;">Java 虚拟机</a> <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/PPT/" style="font-size: 10px;">PPT</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Xcode调试/" style="font-size: 10px;">Xcode调试</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/《人月神话》/" style="font-size: 10px;">《人月神话》</a> <a href="/tags/区块链/" style="font-size: 10px;">区块链</a> <a href="/tags/微机原理/" style="font-size: 14px;">微机原理</a> <a href="/tags/操作系统/" style="font-size: 12px;">操作系统</a> <a href="/tags/散文/" style="font-size: 12px;">散文</a> <a href="/tags/数据结构/" style="font-size: 18px;">数据结构</a> <a href="/tags/旅游攻略/" style="font-size: 10px;">旅游攻略</a> <a href="/tags/机器学习/" style="font-size: 12px;">机器学习</a> <a href="/tags/材料物理化学/" style="font-size: 14px;">材料物理化学</a> <a href="/tags/深信服/" style="font-size: 12px;">深信服</a> <a href="/tags/网络安全/" style="font-size: 12px;">网络安全</a> <a href="/tags/节目策划/" style="font-size: 12px;">节目策划</a> <a href="/tags/讲座分享/" style="font-size: 10px;">讲座分享</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/逆向工程/" style="font-size: 10px;">逆向工程</a>
     </div>
   </div>
 
@@ -1011,23 +471,23 @@
       <ul>
         
           <li>
-            <a href="/2019/03/22/第二章逆向分析HelloWord程序/">(no title)</a>
+            <a href="/2019/03/22/对分课堂阅读笔记/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/22/Chapter2VariablesandFundamentalDataTypes/">(no title)</a>
+            <a href="/2019/03/22/第一章基础/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/22/Chapter1CBasics/">(no title)</a>
+            <a href="/2019/03/22/第二章开始连接/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/22/第三章数据类型与运算符/">(no title)</a>
+            <a href="/2019/03/22/第三章网络互连md/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/22/第二章理解结构化程序设计/">(no title)</a>
+            <a href="/2019/03/22/第五章端到端协议/">(no title)</a>
           </li>
         
       </ul>
