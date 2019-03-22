@@ -62,75 +62,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-basetypes阅读笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/21/basetypes阅读笔记/" class="article-date">
-  <time datetime="2019-03-21T15:10:12.000Z" itemprop="datePublished">2019-03-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="basetypes阅读笔记"><a href="#basetypes阅读笔记" class="headerlink" title="basetypes阅读笔记"></a>basetypes阅读笔记</h1><p>[TOC]</p>
-<h3 id="1-MCArray"><a href="#1-MCArray" class="headerlink" title="1.MCArray"></a>1.MCArray</h3><p>（1）.Array简介</p>
-<ul>
-<li>继承了Object类；</li>
-</ul>
-<p>（2）.具体代码注释</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">    class MAILCORE_EXPORT Array : public Object &#123;</span><br><span class="line"></span><br><span class="line">    public:</span><br><span class="line">        Array();</span><br><span class="line">        virtual ~Array();</span><br><span class="line">        </span><br><span class="line">        static Array * array();//创建一个新的Array</span><br><span class="line">        static Array * arrayWithObject(Object * obj);//</span><br><span class="line">        </span><br><span class="line">        virtual unsigned int count();//返回array的长度</span><br><span class="line">        virtual void addObject(Object * obj);//添加一个指针到array</span><br><span class="line">        virtual void removeObjectAtIndex(unsigned int idx);//删除数组的某位置的内容</span><br><span class="line">        virtual void removeObject(Object * obj);//删除对象</span><br><span class="line">        virtual int indexOfObject(Object * obj);//初始化Object</span><br><span class="line">        virtual Object * objectAtIndex(unsigned int idx) ATTRIBUTE_RETURNS_NONNULL;//</span><br><span class="line">        virtual void replaceObject(unsigned int idx, Object * obj);//替换对象</span><br><span class="line">        virtual void insertObject(unsigned int idx, Object * obj);//插入对象</span><br><span class="line">        virtual void removeAllObjects();//删除对象所有的内容</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        virtual void addObjectsFromArray(Array * array);//从array添加对象</span><br><span class="line">        virtual Object * lastObject();//获取对象最后的内容</span><br><span class="line">        virtual void removeLastObject();//删除对象最后的内容</span><br><span class="line">        virtual bool containsObject(Object * obj);//是否包含某个内容</span><br><span class="line">        </span><br><span class="line">        virtual Array * sortedArray(int (* compare)(void * a, void * b, void * context), void * context);//筛选某个内容</span><br><span class="line">        virtual void sortArray(int (* compare)(void * a, void * b, void * context), void * context);//</span><br><span class="line">        virtual String * componentsJoinedByString(String * delimiter);//组件由String加入</span><br><span class="line">        </span><br><span class="line">    public: // subclass behavior</span><br><span class="line">        Array(Array * o);</span><br><span class="line">        virtual String * description();//数组的描述</span><br><span class="line">        virtual Object * copy();//复制一个对象</span><br><span class="line">        virtual HashMap * serializable();//哈希表序列化</span><br><span class="line">        virtual void importSerializable(HashMap * serializable);导入序列化</span><br><span class="line">        virtual bool isEqual(Object * otherObject);//是否和传入对象相同</span><br><span class="line"></span><br><span class="line">    private:</span><br><span class="line">        carray * mArray;</span><br><span class="line">        void init();//进行初始化</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2-MCAssert"><a href="#2-MCAssert" class="headerlink" title="2.MCAssert"></a>2.MCAssert</h3><p>（1）.MCAssert简介</p>
-<ul>
-<li>#include &lt;MailCore/MCUtils.h&gt;</li>
-<li>一个函数<br>（2）.注释<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">void MCAssertInternal(const char * filename, unsigned int line, int cond, const char * condString) CLANG_ANALYZER_NORETURN;</span><br><span class="line"></span><br><span class="line">//向某个文件的某一行插入文件</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="3-MCAutorelease"><a href="#3-MCAutorelease" class="headerlink" title="3.MCAutorelease"></a>3.MCAutorelease</h3><p>(1)MCAutorelease简介</p>
-<ul>
-<li>继承Object;</li>
-<li>对于Apple的特殊处理;<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#ifdef __APPLE__</span><br><span class="line">        void * mAppleAutoreleasePool;</span><br><span class="line">        static void * createAppleAutoreleasePool();</span><br><span class="line">        static void releaseAppleAutoreleasePool(void * appleAutoreleasePool);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>(2).AutoreleasePool简介<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"> class MAILCORE_EXPORT AutoreleasePool : public Object &#123;</span><br><span class="line">    public:</span><br><span class="line">        AutoreleasePool();//使用initsize预分配的单元格创建一个新的个数为4的指针数组</span><br><span class="line">        virtual ~AutoreleasePool();</span><br><span class="line">        </span><br><span class="line">        static void autorelease(Object * obj);//自动释放对象</span><br><span class="line">        </span><br><span class="line">    public: // subclass behavior</span><br><span class="line">        virtual String * description();//对对象进行描述</span><br><span class="line">        </span><br><span class="line">    private:</span><br><span class="line">        static void init();//初始化</span><br><span class="line">        static pthread_key_t autoreleasePoolStackKey;</span><br><span class="line">        carray * mPoolObjects;//创建一个结构</span><br><span class="line">        static carray * createAutoreleasePoolStackIfNeeded();//如果需要，创建自动释放池堆栈</span><br><span class="line">        static void destroyAutoreleasePoolStack(void *);//清除池堆栈</span><br><span class="line">        static void initAutoreleasePoolStackKey();//初始化池堆栈</span><br><span class="line">        static AutoreleasePool * currentAutoreleasePool();//当前自动释放池  ·</span><br><span class="line">        virtual void add(Object * obj);</span><br><span class="line">#ifdef __APPLE__</span><br><span class="line">        void * mAppleAutoreleasePool;</span><br><span class="line">        static void * createAppleAutoreleasePool();</span><br><span class="line">        static void releaseAppleAutoreleasePool(void * appleAutoreleasePool);</span><br><span class="line">#endif</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure></p>
-<h3 id="4-MCBase64"><a href="#4-MCBase64" class="headerlink" title="4.MCBase64"></a>4.MCBase64</h3><p>（1）MCBase64.h<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">extern char * MCDecodeBase64(const char * in, int len, int * p_outlen);//解码</span><br><span class="line">extern char * MCEncodeBase64(const char * in, int len);//编码</span><br></pre></td></tr></table></figure></p>
-<h3 id="5-MCConnectionLogger"><a href="#5-MCConnectionLogger" class="headerlink" title="5.MCConnectionLogger"></a>5.MCConnectionLogger</h3><p>(1)一个枚举<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">enum ConnectionLogType &#123;</span><br><span class="line">       // Received data</span><br><span class="line">       ConnectionLogTypeReceived,</span><br><span class="line">       // Sent data</span><br><span class="line">       ConnectionLogTypeSent,</span><br><span class="line">       // Sent private data</span><br><span class="line">       ConnectionLogTypeSentPrivate,</span><br><span class="line">       // Parse error</span><br><span class="line">       ConnectionLogTypeErrorParse,</span><br><span class="line">       // Error while receiving data - log() is called with a NULL buffer.</span><br><span class="line">       ConnectionLogTypeErrorReceived,</span><br><span class="line">       // Error while sending data - log() is called with a NULL buffer.</span><br><span class="line">       ConnectionLogTypeErrorSent,</span><br><span class="line">   &#125;;</span><br></pre></td></tr></table></figure></p>
-<p>(2)ConnectionLogger类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class MAILCORE_EXPORT ConnectionLogger &#123;</span><br><span class="line">   public:</span><br><span class="line">       virtual void log(void * sender, ConnectionLogType logType, Data * buffer) &#123;&#125;</span><br><span class="line">   &#125;;</span><br></pre></td></tr></table></figure></p>
-<h3 id="6-MCConnectionLoggerUtils"><a href="#6-MCConnectionLoggerUtils" class="headerlink" title="6.MCConnectionLoggerUtils"></a>6.MCConnectionLoggerUtils</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> ConnectionLogType getConnectionType(int log_type);//获取连接类型</span><br><span class="line">bool isBufferFromLogType(int log_type);//从Type判断缓冲器</span><br></pre></td></tr></table></figure>
-<h3 id="7-MCData"><a href="#7-MCData" class="headerlink" title="7.MCData"></a>7.MCData</h3><p>(1)MCData简介</p>
-<ul>
-<li>继承Object</li>
-<li>Apple的特殊处理<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#ifdef __APPLE__</span><br><span class="line">        virtual CFDataRef destructiveNSData();</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>(2)Data类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">class MAILCORE_EXPORT Data : public Object &#123;</span><br><span class="line">    public:</span><br><span class="line">        Data();//初始化</span><br><span class="line">        Data(int capacity);//分配capacity大小的内存</span><br><span class="line">        Data(const char * bytes, unsigned int length);//分配length大的内存，添加bytes</span><br><span class="line">        virtual ~Data();</span><br><span class="line">        </span><br><span class="line">        static Data * data();//创建一个data</span><br><span class="line">        static Data * dataWithCapacity(int capacity);</span><br><span class="line">        static Data * dataWithContentsOfFile(String * filename);//创建capacity大小的data</span><br><span class="line">        static Data * dataWithBytes(const char * bytes, unsigned int length);//分配length大的内存，添加bytes</span><br><span class="line">        </span><br><span class="line">        virtual char * bytes();//返回mbytes的值</span><br><span class="line">        virtual unsigned int length//返回mLength的值</span><br><span class="line"></span><br><span class="line">        virtual void increaseCapacity(unsigned int length);//分配allocate(mLength + length);</span><br><span class="line">        </span><br><span class="line">        virtual void appendData(Data * otherData);//添加otherData</span><br><span class="line">        virtual void appendBytes(const char * bytes, unsigned int length);//添加byte到lenghth大的data</span><br><span class="line">        virtual void setBytes(const char * bytes, unsigned int length);设置byte到lenghth大的data</span><br><span class="line">        virtual void setData(Data * otherData);//重置添加新值</span><br><span class="line">        </span><br><span class="line">        // Helpers</span><br><span class="line">        virtual String * stringWithDetectedCharset();</span><br><span class="line">        virtual String * stringWithDetectedCharset(String * charset, bool isHTML);</span><br><span class="line">        virtual String * stringWithCharset(const char * charset);</span><br><span class="line">        virtual Data * decodedDataUsingEncoding(Encoding encoding);</span><br><span class="line"></span><br><span class="line">        virtual String * base64String();</span><br><span class="line"></span><br><span class="line">        virtual ErrorCode writeToFile(String * filename);</span><br><span class="line"></span><br><span class="line">    public: // private</span><br><span class="line">        virtual String * charsetWithFilteredHTML(bool filterHTML, String * hintCharset = NULL);</span><br><span class="line"></span><br><span class="line">        /* Replace contents of Data instance with contents of a given bytes without extra copying.</span><br><span class="line">         Memory ownership transferred from client code to the Data instance.</span><br><span class="line">         Data destructor will call bytesDeallocator function for memory releasing.</span><br><span class="line">         */</span><br><span class="line">        void takeBytesOwnership(char * bytes, unsigned int length, BytesDeallocator bytesDeallocator);</span><br><span class="line"></span><br><span class="line">#ifdef __APPLE__</span><br><span class="line">        virtual CFDataRef destructiveNSData();</span><br><span class="line">#endif</span><br><span class="line">        </span><br><span class="line">    public: // subclass behavior</span><br><span class="line">        Data(Data * otherData);</span><br><span class="line">        virtual String * description();</span><br><span class="line">        virtual Object * copy();</span><br><span class="line">        virtual bool isEqual(Object * otherObject);</span><br><span class="line">        virtual unsigned int hash();</span><br><span class="line">        virtual HashMap * serializable();</span><br><span class="line">        virtual void importSerializable(HashMap * serializable);</span><br><span class="line">        </span><br><span class="line">    private:</span><br><span class="line">        char * mBytes;</span><br><span class="line">        unsigned int mLength;</span><br><span class="line">        unsigned int mAllocated;</span><br><span class="line">        bool mExternallyAllocatedMemory;</span><br><span class="line">        BytesDeallocator mBytesDeallocator;</span><br><span class="line">        void allocate(unsigned int length, bool force = false);</span><br><span class="line">        void init();</span><br><span class="line">        void reset();</span><br><span class="line">        String * charsetWithFilteredHTMLWithoutHint(bool filterHTML);</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure></p>
-<h3 id="8-MCDataDecoderUtils"><a href="#8-MCDataDecoderUtils" class="headerlink" title="8.MCDataDecoderUtils"></a>8.MCDataDecoderUtils</h3><p>解码函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Data * MCDecodeData(Data * encodedData, Encoding encoding, bool partialContent, Data ** pRemainingData);</span><br></pre></td></tr></table></figure></p>
-<h3 id="9-MCHash"><a href="#9-MCHash" class="headerlink" title="9.MCHash"></a>9.MCHash</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//哈希计算</span><br><span class="line"> unsigned int hashCompute(const char * key, unsigned int len);</span><br></pre></td></tr></table></figure>
-<h3 id="10-MCHashMap"><a href="#10-MCHashMap" class="headerlink" title="10.MCHashMap"></a>10.MCHashMap</h3><p>（1）MCHashMap简介</p>
-<ul>
-<li>继承Object类</li>
-</ul>
-<p>（2）HashMap类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">class MAILCORE_EXPORT HashMap : public Object &#123;</span><br><span class="line">public:</span><br><span class="line">    HashMap();//初始化</span><br><span class="line">    virtual ~HashMap();</span><br><span class="line">    </span><br><span class="line">    static HashMap * hashMap();</span><br><span class="line">    </span><br><span class="line">    virtual unsigned int count();//返回mcount</span><br><span class="line">    virtual void setObjectForKey(Object * key, Object * value);//设置Object的值</span><br><span class="line">    virtual void removeObjectForKey(Object * key);//去除key</span><br><span class="line">    virtual Object * objectForKey(Object * key);//创建一个key</span><br><span class="line">    virtual Array * allKeys();//创建一个数组指针</span><br><span class="line">    virtual Array * allValues();//创建一个数组值</span><br><span class="line">    virtual void removeAllObjects();//删除所有的对象</span><br><span class="line">    </span><br><span class="line">public: // subclass behavior</span><br><span class="line">    HashMap(HashMap * o);</span><br><span class="line">    virtual String * description();//描述</span><br><span class="line">    virtual Object * copy();//复制一个对象</span><br><span class="line">    virtual HashMap * serializable();//哈希表序列化</span><br><span class="line">    virtual void importSerializable(HashMap * serializable);</span><br><span class="line">    virtual bool isEqual(Object * otherObject);//是否存在某个对象</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">    unsigned int mAllocated;</span><br><span class="line">    unsigned int mCount;</span><br><span class="line">    void ** mCells;</span><br><span class="line">    HashMapIter * iteratorBegin();//迭代器开始</span><br><span class="line">    HashMapIter * iteratorNext(HashMapIter * iter);//迭代指针指向下一个</span><br><span class="line">    void allocate(unsigned int size);//分配size大的内存</span><br><span class="line">    void init();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<h3 id="11-MCHTMLCLeaner"><a href="#11-MCHTMLCLeaner" class="headerlink" title="11.MCHTMLCLeaner"></a>11.MCHTMLCLeaner</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//清除html的内容</span><br><span class="line">class MAILCORE_EXPORT HTMLCleaner &#123;</span><br><span class="line">    public:</span><br><span class="line">        static String * cleanHTML(String * input);</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/basetypes阅读笔记/" data-id="cjtis2jrf002ezoocz25nhtok" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-github使用教程" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/21/github使用教程/" class="article-date">
-  <time datetime="2019-03-21T15:10:11.000Z" itemprop="datePublished">2019-03-21</time>
+    <a href="/2019/03/22/github使用教程/" class="article-date">
+  <time datetime="2019-03-22T01:06:19.000Z" itemprop="datePublished">2019-03-22</time>
 </a>
     
   </div>
@@ -145,7 +80,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/github使用教程/" data-id="cjtis2jps000tzooc6lqv526g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/22/github使用教程/" data-id="cjtjd6pvf000vn8ocd988cxr6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -155,10 +90,10 @@
 
 
   
-    <article id="post-钱彦旻师兄语音识别现状" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Maicore2在linux下的编译" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/21/钱彦旻师兄语音识别现状/" class="article-date">
-  <time datetime="2019-03-21T15:10:11.000Z" itemprop="datePublished">2019-03-21</time>
+    <a href="/2019/03/22/Maicore2在linux下的编译/" class="article-date">
+  <time datetime="2019-03-22T01:06:19.000Z" itemprop="datePublished">2019-03-22</time>
 </a>
     
   </div>
@@ -167,172 +102,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="师兄简介"><a href="#师兄简介" class="headerlink" title="师兄简介"></a>师兄简介</h2><p>报告主题：智能语音识别技术<br>报告人简介：钱彦旻，思必驰-上海交大智能人机交互实验室副主任，上海交通大学计算机科学与工程系副教授，博士生导师。IEEE、ISCA会员，上海交通大学计算机科学与工程系副教授。清华大学博士，英国剑桥大学工程系MIL机器智能实验室博士后，上海市青年英才扬帆计划获得者，目前国际上最流行的语音识别开源工具包Kaldi的唯一亚洲创始成员。有10余年从事智能语音及语言处理、人机交互、模式识别及机器学习的研究和产业化工作经验。研究领域包括：语音识别，说话人和语种识别，语音情感感知，自然语言理解，深度学习建模，多媒体信号处理等。2014年，因在智能语音技术产业化方面的贡献，获得中国人工智能学会颁发的“吴文俊人工智能科学技术奖”。</p>
-<h2 id="一、智能语音交互发展"><a href="#一、智能语音交互发展" class="headerlink" title="一、智能语音交互发展"></a>一、智能语音交互发展</h2><h4 id="1-四大基础"><a href="#1-四大基础" class="headerlink" title="1.四大基础"></a>1.四大基础</h4><ul>
-<li>大数据</li>
-<li>云计算</li>
-<li>超级硬件</li>
-<li>深度学习</li>
+        <h3 id="Build-on-Linux"><a href="#Build-on-Linux" class="headerlink" title="Build on Linux"></a>Build on Linux</h3><ul>
+<li>Install the following debian packages:</li>
 </ul>
-<h4 id="2-三大爆点"><a href="#2-三大爆点" class="headerlink" title="2.三大爆点"></a>2.三大爆点</h4><ul>
-<li>大数据分析</li>
-<li>实体机器人</li>
-<li>人机交互</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libctemplate-dev libicu-dev libsasl2-dev libtidy-dev \</span><br><span class="line">    uuid-dev libxml2-dev libglib2.0-dev autoconf automake libtool</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Grab and compile the latest of libetpan: <a href="https://github.com/dinhviethoa/libetpan" target="_blank" rel="noopener">https://github.com/dinhviethoa/libetpan</a></li>
 </ul>
-<h4 id="3-图灵测试"><a href="#3-图灵测试" class="headerlink" title="3.图灵测试"></a>3.图灵测试</h4><p>&emsp;&emsp;为了检验一台机器是否能合情理地被说成在思想，人工智能的始祖艾伦?图灵提出了一种称作图灵试验的方法。此原则说：被测试的有一个人，另一个是声称自己有人类智力的机器。测试时，测试人与被测试人是分开的，测试人只有通过一些装置（如键盘）向被测试人问一些问题，这些问题随便是什么问题都可以。问过一些问题后，如果测试人能够正确地分出谁是人谁是机器，那机器就没有通过图灵测试，如果测试人没有分出谁是机器谁是人，那这个机器就是有人类智能的。</p>
-<h4 id="4-语音识别的难点"><a href="#4-语音识别的难点" class="headerlink" title="4.语音识别的难点"></a>4.语音识别的难点</h4><ul>
-<li>说话人</li>
-<li>环境</li>
-<li>设备</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/libetpan</span><br><span class="line">cd ~/libetpan</span><br><span class="line">git clone --depth=1 https://github.com/dinhviethoa/libetpan</span><br><span class="line">cd libetpan</span><br><span class="line">./autogen.sh</span><br><span class="line">make &gt;/dev/null</span><br><span class="line">sudo make install prefix=/usr &gt;/dev/null</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Compile MailCore 2:</li>
 </ul>
-<h2 id="二-语音识别深度了解"><a href="#二-语音识别深度了解" class="headerlink" title="二.语音识别深度了解"></a>二.语音识别深度了解</h2><h4 id="1-华人先驱"><a href="#1-华人先驱" class="headerlink" title="1.华人先驱"></a>1.华人先驱</h4><ul>
-<li>沈向阳</li>
-<li>洪小文</li>
-<li>李开复</li>
-<li>黄学东</li>
-</ul>
-<h2 id="三-开源资料"><a href="#三-开源资料" class="headerlink" title="三.开源资料"></a>三.开源资料</h2><ul>
-<li>kaldi来源包</li>
-<li>HTK</li>
-<li>CUDA</li>
-<li>书籍《语音识别实践》</li>
-</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd ~/mailcore2</span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ..</span><br><span class="line">sudo apt install libssl-dev</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/钱彦旻师兄语音识别现状/" data-id="cjtis2jr60029zooczdsz1m3i" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-androidstudio安装与学习" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/21/androidstudio安装与学习/" class="article-date">
-  <time datetime="2019-03-21T15:10:10.000Z" itemprop="datePublished">2019-03-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="android-studio安装与学习"><a href="#android-studio安装与学习" class="headerlink" title="android studio安装与学习"></a>android studio安装与学习</h2><h3 id="一、环境安装踩坑"><a href="#一、环境安装踩坑" class="headerlink" title="一、环境安装踩坑"></a>一、环境安装踩坑</h3><h4 id="1-windows下代理配置"><a href="#1-windows下代理配置" class="headerlink" title="1.windows下代理配置"></a>1.windows下代理配置</h4><ul>
-<li>Manual proxy configuration</li>
-</ul>
-<p>SOCKS</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Host Name:127.0.0.1</span><br><span class="line"></span><br><span class="line">Poet Number:1080</span><br></pre></td></tr></table></figure>
-<h4 id="2-mac下代理配置"><a href="#2-mac下代理配置" class="headerlink" title="2.mac下代理配置"></a>2.mac下代理配置</h4><ul>
-<li>Manual proxy configuration</li>
-</ul>
-<p>HTTP</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Host Name:127.0.0.1</span><br><span class="line"></span><br><span class="line">Poet Number:1087</span><br></pre></td></tr></table></figure>
-<h3 id="二、Android-Studio目录结构"><a href="#二、Android-Studio目录结构" class="headerlink" title="二、Android Studio目录结构"></a>二、Android Studio目录结构</h3><h4 id="1-新建工程项目后AS的Product目录结构如下所示："><a href="#1-新建工程项目后AS的Product目录结构如下所示：" class="headerlink" title="1.新建工程项目后AS的Product目录结构如下所示："></a>1.新建工程项目后AS的Product目录结构如下所示：</h4><ul>
-<li>.idea：//AS生成的工程配置文件，类似Eclipse的project.properties。</li>
-<li>app：//AS创建工程中的一个Module。</li>
-<li>gradle：//构建工具系统的jar和wrapper等，jar告诉了AS如何与系统安装的gradle构建联系。</li>
-<li>External Libraries：//不是一个文件夹，只是依赖lib文件，如SDK等。</li>
-</ul>
-<h4 id="2-新建工程项目后AS的Module目录结构如下所示："><a href="#2-新建工程项目后AS的Module目录结构如下所示：" class="headerlink" title="2.新建工程项目后AS的Module目录结构如下所示："></a>2.新建工程项目后AS的Module目录结构如下所示：</h4><ul>
-<li>build：//构建目录，相当于Eclipse中默认Java工程的bin目录，鼠标放在上面右键Show in Exploer即可打开文件夹，编译生成的apk也在这个目录的outs子目录，不过在AS的工程里是默认不显示out目的，就算有编译结果也不显示，右键打开通过文件夹直接可以看。</li>
-<li>libs：//依赖包，包含jar包和jni等包。</li>
-<li>src：//源码，相当于eclipse的工程。</li>
-<li><p>main：//主文件夹<br>-</p>
-<pre><code>- java：//Java代码，包含工程和新建是默认产生的Test工程源码。
-- res：//资源文件，类似Eclipse。
-    - layout：//App布局及界面元素配置，雷同Eclipse。
-
-    - menu：//App菜单配置，雷同Eclipse。 
-    - 
-    - values：//雷同Eclipse。
-        - dimens.xml：//定义css的配置文件。 
-        - strings.xml：//定义字符串的配置文件。 
-        - styles.xml：//定义style的配置文件。
-        ......：//arrays等其他文件。
-    ......：//assets等目录
-
-- AndroidManifest.xml：//App基本信息（Android管理文件） 
-- 
-- ic_launcher-web.png：//App图标 
-</code></pre></li>
-<li>build.gradle：//Module的Gradle构建脚本</li>
-</ul>
-<h2 id="三、Android系统特性与平台架构"><a href="#三、Android系统特性与平台架构" class="headerlink" title="三、Android系统特性与平台架构"></a>三、Android系统特性与平台架构</h2><h3 id="1-平台架构图："><a href="#1-平台架构图：" class="headerlink" title="1.平台架构图："></a>1.平台架构图：</h3><p><img src="http://www.runoob.com/wp-content/uploads/2015/06/16510882.jpg" alt></p>
-<h3 id="2-架构的简单理解："><a href="#2-架构的简单理解：" class="headerlink" title="2.架构的简单理解："></a>2.架构的简单理解：</h3><ul>
-<li>Application(应用程序层) 我们一般说的应用层的开发就是在这个层次上进行的，当然包括了系统内置的一组应用程序，使用的是Java语言</li>
-<li><p>Application Framework(应用程序框架层) 无论系统内置或者我们自己编写的App，都需要使用到这层，比如我们想弄来电黑名单，自动挂断电话，我们就需要用到电话管理(TelephonyManager) 通过该层我们就可以很轻松的实现挂断操作，而不需要关心底层实现</p>
-</li>
-<li><p>Libraries(库) + Android Runtime(Android运行时) Android给我们提供了一组C/C++库，为平台的不同组件所使用，比如媒体框架；而Android Runtime则由Android核心库集 + Dalvik虚拟机构成，Dalvik虚拟机是针对移动设备的虚拟机，它的特点:不需要很快的CPU计算速度和大量的内存空间;而每个App都单独地运行在单独的Dalvik虚拟机内每个app对于一条Dalvik进程）而他的简单运行流程如：<br><img src="http://www.runoob.com/wp-content/uploads/2015/06/12352621.jpg" alt></p>
-</li>
-<li>Linux内核 这里就是涉及底层驱动的东西了，一些系统服务，比如安全性，内存管理以及进程管理等</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/androidstudio安装与学习/" data-id="cjtis2jpt000uzoocbiwykgzb" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-EventBus使用详解" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/21/EventBus使用详解/" class="article-date">
-  <time datetime="2019-03-21T15:10:10.000Z" itemprop="datePublished">2019-03-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><h3 id="1-四种订阅函数"><a href="#1-四种订阅函数" class="headerlink" title="1.四种订阅函数"></a>1.四种订阅函数</h3><p>1、onEvent<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onEvent:如果使用onEvent作为订阅函数，那么该事件在哪个线程发布出来的，onEvent</span><br><span class="line">就会在这个线程中运行，也就是说发布事件和接收事件线程在同一个线程。使用这个方</span><br><span class="line">法时，在onEvent方法中不能执行耗时操作，如果执行耗时操作容易导致事件分发延迟</span><br></pre></td></tr></table></figure></p>
-<p>2、onEventMainThread<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">onEventMainThread:如果使用onEventMainThread作为订阅函数，那么不论事件是在哪</span><br><span class="line">个线程中发布出来的，onEventMainThread都会在UI线程中执行，接收事件就会在UI线</span><br><span class="line">程中运行，这个在Android中是非常有用的，因为在Android中只能在UI线程中跟新UI，</span><br><span class="line">所以在onEvnetMainThread方法中是不能执行耗时操作的。</span><br></pre></td></tr></table></figure></p>
-<p>3、onEventBackgroundThread<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onEventBackground:如果使用onEventBackgrond作为订阅函数，那么如果事件是在UI线</span><br><span class="line">程中发布出来的，那么onEventBackground就会在子线程中运行，如果事件本来就是子 </span><br><span class="line">线程中发布出来的，那么onEventBackground函数直接在该子线程中执行。</span><br></pre></td></tr></table></figure></p>
-<p>4、onEventAsync<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">onEventAsync：使用这个函数作为订阅函数，那么无论事件在哪个线程发布，都会创建</span><br><span class="line">新的子线程在执行onEventAsync.</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EventBus使用详解/" data-id="cjtis2jp4000azooclt5owcfe" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Sweeper学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/21/Sweeper学习笔记/" class="article-date">
-  <time datetime="2019-03-21T15:10:10.000Z" itemprop="datePublished">2019-03-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/Sweeper学习笔记/" data-id="cjtis2jpp000pzoocoashb7ta" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/22/Maicore2在linux下的编译/" data-id="cjtjd6pv0000gn8occs5bl7ik" class="article-share-link">Share</a>
       
       
     </footer>
@@ -344,8 +130,8 @@
   
     <article id="post-Java虚拟机" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/21/Java虚拟机/" class="article-date">
-  <time datetime="2019-03-21T15:10:09.000Z" itemprop="datePublished">2019-03-21</time>
+    <a href="/2019/03/22/Java虚拟机/" class="article-date">
+  <time datetime="2019-03-22T01:06:18.000Z" itemprop="datePublished">2019-03-22</time>
 </a>
     
   </div>
@@ -370,80 +156,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/Java虚拟机/" data-id="cjtis2jpc000fzooc9f5oap3q" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-InstallCentOS" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/21/InstallCentOS/" class="article-date">
-  <time datetime="2019-03-21T15:10:09.000Z" itemprop="datePublished">2019-03-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-Set-network"><a href="#1-Set-network" class="headerlink" title="1 Set network"></a>1 Set network</h2><p>(1)cat /etc/sysconfig/network-scripts/ifcfg-enp2s0<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">root@centos1 ~]# cat /etc/sysconfig/network-scripts/ifcfg-enp2s0</span><br><span class="line">HWADDR=00:E0:69:01:6A:96</span><br><span class="line">TYPE=Ethernet</span><br><span class="line">BOOTPROTO=dhcp</span><br><span class="line">DEFROUTE=yes</span><br><span class="line">PEERDNS=yes</span><br><span class="line">PEERROUTES=yes</span><br><span class="line">IPV4_FAILURE_FATAL=no</span><br><span class="line">IPV6INIT=yes</span><br><span class="line">IPV6_AUTOCONF=yes</span><br><span class="line">IPV6_DEFROUTE=yes</span><br><span class="line">IPV6_PEERDNS=yes</span><br><span class="line">IPV6_PEERROUTES=yes</span><br><span class="line">IPV6_FAILURE_FATAL=no</span><br><span class="line">NAME=enp2s0</span><br><span class="line">UUID=5b0a7d76-1602-4e19-aee6-29f57618ca01</span><br><span class="line">ONBOOT=no</span><br></pre></td></tr></table></figure></p>
-<p>You should set the last ONBOOT=no to yes</p>
-<p>(2)Restart centos<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo shutdown -r</span><br></pre></td></tr></table></figure></p>
-<p>(3)download something to try whether the network is ok<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum isntall vim</span><br></pre></td></tr></table></figure></p>
-<h2 id="2-Install-your-favorite-desktop-like-GNOME"><a href="#2-Install-your-favorite-desktop-like-GNOME" class="headerlink" title="2 Install your favorite desktop like GNOME"></a>2 Install your favorite desktop like GNOME</h2><p>(1)Download GNOME<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall &quot;GNOME Desktop&quot;</span><br></pre></td></tr></table></figure></p>
-<p>(2)Get which state that you start with<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl get-default</span><br></pre></td></tr></table></figure></p>
-<p>Generally you will get<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">multi-user.target</span><br></pre></td></tr></table></figure></p>
-<p>(3)Start GNOME<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl set-default graphical.target</span><br></pre></td></tr></table></figure></p>
-<p>(4)And then you should restart your centos,enjoy the Gnome.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo shutdown -r</span><br></pre></td></tr></table></figure></p>
-<p>(5)If you want go back to the txt terminal before.Just try<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl set-default multi-user.target</span><br></pre></td></tr></table></figure></p>
-<p>(6) Also, you maybe want to use the text window<br>,just try<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/inittab</span><br></pre></td></tr></table></figure></p>
-<p>change<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:id:5:initdefault</span><br></pre></td></tr></table></figure></p>
-<p>to<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:id:3:initdefault:</span><br></pre></td></tr></table></figure></p>
-<h2 id="3-Use-mac’s-ssh-connect-Linux"><a href="#3-Use-mac’s-ssh-connect-Linux" class="headerlink" title="3 Use mac’s ssh connect Linux"></a>3 Use mac’s ssh connect Linux</h2><p>(1) Get your Linux ip in your Linux<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifcofig</span><br></pre></td></tr></table></figure></p>
-<p>You will get<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">[yzh@localhost ~]$ ifconfig</span><br><span class="line">ens33: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.90.130  netmask 255.255.255.0  broadcast 192.168.90.255</span><br><span class="line">        inet6 fe80::8ff7:340:b11b:8aac  prefixlen 64  scopeid 0x20&lt;link&gt;</span><br><span class="line">        ether 00:0c:29:b4:9a:6e  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 78974  bytes 108181266 (103.1 MiB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 33157  bytes 2240749 (2.1 MiB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536</span><br><span class="line">        inet 127.0.0.1  netmask 255.0.0.0</span><br><span class="line">        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;</span><br><span class="line">        loop  txqueuelen 1000  (Local Loopback)</span><br><span class="line">        RX packets 72  bytes 6264 (6.1 KiB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 72  bytes 6264 (6.1 KiB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">virbr0: flags=4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.122.1  netmask 255.255.255.0  broadcast 192.168.122.255</span><br><span class="line">        ether 52:54:00:96:e8:1e  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 0  bytes 0 (0.0 B)</span><br></pre></td></tr></table></figure></p>
-<p>Your ip is 192.168.90.130</p>
-<p>(2) Using ssh to connect Linux<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.90.130</span><br></pre></td></tr></table></figure></p>
-<p>And input your password</p>
-<h2 id="4-Start-your-ssh"><a href="#4-Start-your-ssh" class="headerlink" title="4 Start your ssh"></a>4 Start your ssh</h2><p>(1) Checkout your ssh<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/sshd status</span><br></pre></td></tr></table></figure></p>
-<p>(2) If it is not running, just restart it<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/sshd restart</span><br></pre></td></tr></table></figure></p>
-<h2 id="5-Using-zsh-and-change-the-shell-which-is-my-favorite-shell"><a href="#5-Using-zsh-and-change-the-shell-which-is-my-favorite-shell" class="headerlink" title="5 Using zsh and change the shell which is my favorite shell"></a>5 Using zsh and change the shell which is my favorite shell</h2><p>(1) Download zsh<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure></p>
-<p>(2) Change the theme </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.zshrc</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZSH_THEME=&quot;agnoster&quot; # (this is one of the fancy ones)</span><br></pre></td></tr></table></figure>
-<h2 id="6-Check-the-init-config"><a href="#6-Check-the-init-config" class="headerlink" title="6 Check the init config"></a>6 Check the init config</h2><p>(1)Show the contents of an initramfs image<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsinitrd</span><br></pre></td></tr></table></figure></p>
-<p>(2)Copy and Unzip the image file<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cp initramfs-2.6.32-696.el6.x86_64.img /home/yzh/Documents</span><br><span class="line">cd /home/yzh/Documents</span><br><span class="line">ls</span><br><span class="line">file initramfs-2.6.32-696.el6.x86_64.img</span><br><span class="line">file --help</span><br><span class="line">mv initramfs-2.6.32-696.el6.x86_64.img initramfs-2.6.32-696.el6.x86_64.img.gz</span><br><span class="line">(this step is to change the file name)</span><br><span class="line">ls</span><br><span class="line">file initramfs-2.6.32-696.el6.x86_64.img.gz</span><br><span class="line">tar -zxvf initramfs-2.6.32-696.el6.x86_64.img.gz</span><br><span class="line">gzip -d initramfs-2.6.32-696.el6.x86_64.img.gz</span><br></pre></td></tr></table></figure></p>
-<p>and you  should recover the image file<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cpio -i &lt; initramfs-3.10.0-229.el7.x86_64.img</span><br></pre></td></tr></table></figure></p>
-<h2 id="7-Format-U-disk"><a href="#7-Format-U-disk" class="headerlink" title="7 Format U disk"></a>7 Format U disk</h2><p>(1)Check your U disk is umounted<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l</span><br></pre></td></tr></table></figure></p>
-<p>(2) Enter U disk and new a partition<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/sda</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n</span><br></pre></td></tr></table></figure>
-<p>(3) Format your disk<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 /dev/sdb</span><br></pre></td></tr></table></figure></p>
-<h2 id="8-Make-your-Linux-system-start-with-a-shell"><a href="#8-Make-your-Linux-system-start-with-a-shell" class="headerlink" title="8 Make your Linux system start with a shell"></a>8 Make your Linux system start with a shell</h2><p>(1)Add a port for new initrd.img<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /boot/grub</span><br><span class="line"></span><br><span class="line">vi grub.conf</span><br></pre></td></tr></table></figure></p>
-<p>like this<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># grub.conf generated by anaconda</span><br><span class="line">#</span><br><span class="line"># Note that you do not have to rerun grub after making changes to this file</span><br><span class="line"># NOTICE:  You have a /boot partition.  This means that</span><br><span class="line">#          all kernel and initrd paths are relative to /boot/, eg.</span><br><span class="line">#          root (hd0,0)</span><br><span class="line">#          kernel /vmlinuz-version ro root=/dev/mapper/vg_yzh-lv_root</span><br><span class="line">#          initrd /initrd-[generic-]version.img</span><br><span class="line">#boot=/dev/sda</span><br><span class="line">default=0</span><br><span class="line">timeout=5</span><br><span class="line">splashimage=(hd0,0)/grub/splash.xpm.gz</span><br><span class="line">hiddenmenu</span><br><span class="line">title CentOS Linux 6 (2.6.32-696.el6.x86_64)</span><br><span class="line">	root (hd0,0)</span><br><span class="line">	kernel /vmlinuz-2.6.32-696.el6.x86_64 ro root=/dev/mapper/vg_yzh-lv_root rd_LVM_LV=vg_yzh/lv_swap rd_NO_LUKS LANG=en_US.UTF-8 rd_LVM_LV=vg_yzh/lv_root rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=128M  KEYBOARDTYPE=pc KEYTABLE=us rd_NO_DM rhgb quiet</span><br><span class="line">	initrd /initramfs-2.6.32-696.el6.x86_64.img</span><br><span class="line">title my_litile_linux</span><br><span class="line">        root (hd0,0)</span><br><span class="line">        kernel /vmlinuz-2.6.32-696.el6.x86_64</span><br><span class="line">        initrd /Test.img</span><br></pre></td></tr></table></figure></p>
-<p>(2)Make an initd file<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /boot</span><br><span class="line"></span><br><span class="line">mkdir Test </span><br><span class="line"></span><br><span class="line">vim init</span><br></pre></td></tr></table></figure></p>
-<p>init file<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">exec /bin/sh</span><br></pre></td></tr></table></figure></p>
-<p>and then change the permission of init<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 init</span><br></pre></td></tr></table></figure></p>
-<p>(3)Copy Files of bash and sh with their dependent files<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /bin/bash /bin/sh bin</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ldd /bin/bash</span><br><span class="line"></span><br><span class="line">ldd /bin/sh</span><br><span class="line"></span><br><span class="line">cd Test</span><br><span class="line"></span><br><span class="line">mkdir lib64</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /lib64/libtinfo.so.5 /lib64/libdl.so.2 /lib64/libc.so.6 /lib64/ld-linux-x86-64.so.2 /lib64/libtinfo.so.5 /lib64/libdl.so.2 /lib64/libc.so.6 /lib64/ld-linux-x86-64.so.2 lib64</span><br></pre></td></tr></table></figure>
-<p>(4)package to Test.img<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . | cpio -H newc -o | gzip &gt; /boot/Test.img</span><br></pre></td></tr></table></figure></p>
-<p>(5)reboot and choose the my_litile_linux</p>
-<h2 id="9-Make-Kernel"><a href="#9-Make-Kernel" class="headerlink" title="9.Make Kernel"></a>9.Make Kernel</h2><h4 id="1-problem"><a href="#1-problem" class="headerlink" title="1 problem"></a>1 problem</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install  -y ncurses-devel</span><br><span class="line"></span><br><span class="line">sudo yum install openssl-devel</span><br></pre></td></tr></table></figure>
-<p>(1)make -j4</p>
-<p>(2)”make install” is smarter</p>
-<h2 id="10-ip-change"><a href="#10-ip-change" class="headerlink" title="10.ip change"></a>10.ip change</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ps -eaf | grep dhc</span><br><span class="line"></span><br><span class="line">ip route replace default via 172.16.255.2</span><br></pre></td></tr></table></figure>
-<h2 id="11-set-eth0-ip"><a href="#11-set-eth0-ip" class="headerlink" title="11.set eth0 ip"></a>11.set eth0 ip</h2><p>Just make it as a sh file<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">insmod /lib/modules/2.6.32-358.el6.x86_64/kernel/drivers/net/e1000/</span><br><span class="line">e1000.ko</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ifconfig eth0 up </span><br><span class="line"></span><br><span class="line">ifconfig lo up </span><br><span class="line"></span><br><span class="line">ifconfig eth0 172.16.225.128 255.255.255.0 up</span><br></pre></td></tr></table></figure></p>
-<h2 id="12-Check-which-command-and-file-need"><a href="#12-Check-which-command-and-file-need" class="headerlink" title="12.Check which command and file need"></a>12.Check which command and file need</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash -x /etc/init.d/sshd    start</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/InstallCentOS/" data-id="cjtis2jp9000ezooc7mjko3r1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/22/Java虚拟机/" data-id="cjtjd6pv2000hn8oc0puwsipl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -455,8 +168,8 @@
   
     <article id="post-Java" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/21/Java/" class="article-date">
-  <time datetime="2019-03-21T15:10:09.000Z" itemprop="datePublished">2019-03-21</time>
+    <a href="/2019/03/22/Java/" class="article-date">
+  <time datetime="2019-03-22T01:06:18.000Z" itemprop="datePublished">2019-03-22</time>
 </a>
     
   </div>
@@ -543,7 +256,213 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/Java/" data-id="cjtis2jrd002czooc9l4vklv9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/22/Java/" data-id="cjtjd6py1002kn8oco40s2n57" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-EventBus使用详解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/22/EventBus使用详解/" class="article-date">
+  <time datetime="2019-03-22T01:06:18.000Z" itemprop="datePublished">2019-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><h3 id="1-四种订阅函数"><a href="#1-四种订阅函数" class="headerlink" title="1.四种订阅函数"></a>1.四种订阅函数</h3><p>1、onEvent<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onEvent:如果使用onEvent作为订阅函数，那么该事件在哪个线程发布出来的，onEvent</span><br><span class="line">就会在这个线程中运行，也就是说发布事件和接收事件线程在同一个线程。使用这个方</span><br><span class="line">法时，在onEvent方法中不能执行耗时操作，如果执行耗时操作容易导致事件分发延迟</span><br></pre></td></tr></table></figure></p>
+<p>2、onEventMainThread<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">onEventMainThread:如果使用onEventMainThread作为订阅函数，那么不论事件是在哪</span><br><span class="line">个线程中发布出来的，onEventMainThread都会在UI线程中执行，接收事件就会在UI线</span><br><span class="line">程中运行，这个在Android中是非常有用的，因为在Android中只能在UI线程中跟新UI，</span><br><span class="line">所以在onEvnetMainThread方法中是不能执行耗时操作的。</span><br></pre></td></tr></table></figure></p>
+<p>3、onEventBackgroundThread<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onEventBackground:如果使用onEventBackgrond作为订阅函数，那么如果事件是在UI线</span><br><span class="line">程中发布出来的，那么onEventBackground就会在子线程中运行，如果事件本来就是子 </span><br><span class="line">线程中发布出来的，那么onEventBackground函数直接在该子线程中执行。</span><br></pre></td></tr></table></figure></p>
+<p>4、onEventAsync<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">onEventAsync：使用这个函数作为订阅函数，那么无论事件在哪个线程发布，都会创建</span><br><span class="line">新的子线程在执行onEventAsync.</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/22/EventBus使用详解/" data-id="cjtjd6puw000bn8oca6oplg3e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-androidstudio安装与学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/22/androidstudio安装与学习/" class="article-date">
+  <time datetime="2019-03-22T01:06:18.000Z" itemprop="datePublished">2019-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="android-studio安装与学习"><a href="#android-studio安装与学习" class="headerlink" title="android studio安装与学习"></a>android studio安装与学习</h2><h3 id="一、环境安装踩坑"><a href="#一、环境安装踩坑" class="headerlink" title="一、环境安装踩坑"></a>一、环境安装踩坑</h3><h4 id="1-windows下代理配置"><a href="#1-windows下代理配置" class="headerlink" title="1.windows下代理配置"></a>1.windows下代理配置</h4><ul>
+<li>Manual proxy configuration</li>
+</ul>
+<p>SOCKS</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Host Name:127.0.0.1</span><br><span class="line"></span><br><span class="line">Poet Number:1080</span><br></pre></td></tr></table></figure>
+<h4 id="2-mac下代理配置"><a href="#2-mac下代理配置" class="headerlink" title="2.mac下代理配置"></a>2.mac下代理配置</h4><ul>
+<li>Manual proxy configuration</li>
+</ul>
+<p>HTTP</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Host Name:127.0.0.1</span><br><span class="line"></span><br><span class="line">Poet Number:1087</span><br></pre></td></tr></table></figure>
+<h3 id="二、Android-Studio目录结构"><a href="#二、Android-Studio目录结构" class="headerlink" title="二、Android Studio目录结构"></a>二、Android Studio目录结构</h3><h4 id="1-新建工程项目后AS的Product目录结构如下所示："><a href="#1-新建工程项目后AS的Product目录结构如下所示：" class="headerlink" title="1.新建工程项目后AS的Product目录结构如下所示："></a>1.新建工程项目后AS的Product目录结构如下所示：</h4><ul>
+<li>.idea：//AS生成的工程配置文件，类似Eclipse的project.properties。</li>
+<li>app：//AS创建工程中的一个Module。</li>
+<li>gradle：//构建工具系统的jar和wrapper等，jar告诉了AS如何与系统安装的gradle构建联系。</li>
+<li>External Libraries：//不是一个文件夹，只是依赖lib文件，如SDK等。</li>
+</ul>
+<h4 id="2-新建工程项目后AS的Module目录结构如下所示："><a href="#2-新建工程项目后AS的Module目录结构如下所示：" class="headerlink" title="2.新建工程项目后AS的Module目录结构如下所示："></a>2.新建工程项目后AS的Module目录结构如下所示：</h4><ul>
+<li>build：//构建目录，相当于Eclipse中默认Java工程的bin目录，鼠标放在上面右键Show in Exploer即可打开文件夹，编译生成的apk也在这个目录的outs子目录，不过在AS的工程里是默认不显示out目的，就算有编译结果也不显示，右键打开通过文件夹直接可以看。</li>
+<li>libs：//依赖包，包含jar包和jni等包。</li>
+<li>src：//源码，相当于eclipse的工程。</li>
+<li><p>main：//主文件夹<br>-</p>
+<pre><code>- java：//Java代码，包含工程和新建是默认产生的Test工程源码。
+- res：//资源文件，类似Eclipse。
+    - layout：//App布局及界面元素配置，雷同Eclipse。
+
+    - menu：//App菜单配置，雷同Eclipse。 
+    - 
+    - values：//雷同Eclipse。
+        - dimens.xml：//定义css的配置文件。 
+        - strings.xml：//定义字符串的配置文件。 
+        - styles.xml：//定义style的配置文件。
+        ......：//arrays等其他文件。
+    ......：//assets等目录
+
+- AndroidManifest.xml：//App基本信息（Android管理文件） 
+- 
+- ic_launcher-web.png：//App图标 
+</code></pre></li>
+<li>build.gradle：//Module的Gradle构建脚本</li>
+</ul>
+<h2 id="三、Android系统特性与平台架构"><a href="#三、Android系统特性与平台架构" class="headerlink" title="三、Android系统特性与平台架构"></a>三、Android系统特性与平台架构</h2><h3 id="1-平台架构图："><a href="#1-平台架构图：" class="headerlink" title="1.平台架构图："></a>1.平台架构图：</h3><p><img src="http://www.runoob.com/wp-content/uploads/2015/06/16510882.jpg" alt></p>
+<h3 id="2-架构的简单理解："><a href="#2-架构的简单理解：" class="headerlink" title="2.架构的简单理解："></a>2.架构的简单理解：</h3><ul>
+<li>Application(应用程序层) 我们一般说的应用层的开发就是在这个层次上进行的，当然包括了系统内置的一组应用程序，使用的是Java语言</li>
+<li><p>Application Framework(应用程序框架层) 无论系统内置或者我们自己编写的App，都需要使用到这层，比如我们想弄来电黑名单，自动挂断电话，我们就需要用到电话管理(TelephonyManager) 通过该层我们就可以很轻松的实现挂断操作，而不需要关心底层实现</p>
+</li>
+<li><p>Libraries(库) + Android Runtime(Android运行时) Android给我们提供了一组C/C++库，为平台的不同组件所使用，比如媒体框架；而Android Runtime则由Android核心库集 + Dalvik虚拟机构成，Dalvik虚拟机是针对移动设备的虚拟机，它的特点:不需要很快的CPU计算速度和大量的内存空间;而每个App都单独地运行在单独的Dalvik虚拟机内每个app对于一条Dalvik进程）而他的简单运行流程如：<br><img src="http://www.runoob.com/wp-content/uploads/2015/06/12352621.jpg" alt></p>
+</li>
+<li>Linux内核 这里就是涉及底层驱动的东西了，一些系统服务，比如安全性，内存管理以及进程管理等</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/22/androidstudio安装与学习/" data-id="cjtjd6pvd000tn8ocdosnpem2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-遇到的各种坑" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/22/遇到的各种坑/" class="article-date">
+  <time datetime="2019-03-22T01:06:17.000Z" itemprop="datePublished">2019-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-Ubantu下使用不了pip"><a href="#1-Ubantu下使用不了pip" class="headerlink" title="1.Ubantu下使用不了pip"></a>1.Ubantu下使用不了pip</h3><p>抱错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ImportError cannot import name main</span><br></pre></td></tr></table></figure></p>
+<p>解决方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m pip install --user &quot;Packcage&quot;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/22/遇到的各种坑/" data-id="cjtjd6px7002dn8ocbllvskmr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-InstallCentOS" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/22/InstallCentOS/" class="article-date">
+  <time datetime="2019-03-22T01:06:17.000Z" itemprop="datePublished">2019-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-Set-network"><a href="#1-Set-network" class="headerlink" title="1 Set network"></a>1 Set network</h2><p>(1)cat /etc/sysconfig/network-scripts/ifcfg-enp2s0<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">root@centos1 ~]# cat /etc/sysconfig/network-scripts/ifcfg-enp2s0</span><br><span class="line">HWADDR=00:E0:69:01:6A:96</span><br><span class="line">TYPE=Ethernet</span><br><span class="line">BOOTPROTO=dhcp</span><br><span class="line">DEFROUTE=yes</span><br><span class="line">PEERDNS=yes</span><br><span class="line">PEERROUTES=yes</span><br><span class="line">IPV4_FAILURE_FATAL=no</span><br><span class="line">IPV6INIT=yes</span><br><span class="line">IPV6_AUTOCONF=yes</span><br><span class="line">IPV6_DEFROUTE=yes</span><br><span class="line">IPV6_PEERDNS=yes</span><br><span class="line">IPV6_PEERROUTES=yes</span><br><span class="line">IPV6_FAILURE_FATAL=no</span><br><span class="line">NAME=enp2s0</span><br><span class="line">UUID=5b0a7d76-1602-4e19-aee6-29f57618ca01</span><br><span class="line">ONBOOT=no</span><br></pre></td></tr></table></figure></p>
+<p>You should set the last ONBOOT=no to yes</p>
+<p>(2)Restart centos<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo shutdown -r</span><br></pre></td></tr></table></figure></p>
+<p>(3)download something to try whether the network is ok<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum isntall vim</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-Install-your-favorite-desktop-like-GNOME"><a href="#2-Install-your-favorite-desktop-like-GNOME" class="headerlink" title="2 Install your favorite desktop like GNOME"></a>2 Install your favorite desktop like GNOME</h2><p>(1)Download GNOME<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall &quot;GNOME Desktop&quot;</span><br></pre></td></tr></table></figure></p>
+<p>(2)Get which state that you start with<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl get-default</span><br></pre></td></tr></table></figure></p>
+<p>Generally you will get<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">multi-user.target</span><br></pre></td></tr></table></figure></p>
+<p>(3)Start GNOME<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl set-default graphical.target</span><br></pre></td></tr></table></figure></p>
+<p>(4)And then you should restart your centos,enjoy the Gnome.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo shutdown -r</span><br></pre></td></tr></table></figure></p>
+<p>(5)If you want go back to the txt terminal before.Just try<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl set-default multi-user.target</span><br></pre></td></tr></table></figure></p>
+<p>(6) Also, you maybe want to use the text window<br>,just try<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/inittab</span><br></pre></td></tr></table></figure></p>
+<p>change<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:id:5:initdefault</span><br></pre></td></tr></table></figure></p>
+<p>to<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:id:3:initdefault:</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-Use-mac’s-ssh-connect-Linux"><a href="#3-Use-mac’s-ssh-connect-Linux" class="headerlink" title="3 Use mac’s ssh connect Linux"></a>3 Use mac’s ssh connect Linux</h2><p>(1) Get your Linux ip in your Linux<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifcofig</span><br></pre></td></tr></table></figure></p>
+<p>You will get<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">[yzh@localhost ~]$ ifconfig</span><br><span class="line">ens33: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.90.130  netmask 255.255.255.0  broadcast 192.168.90.255</span><br><span class="line">        inet6 fe80::8ff7:340:b11b:8aac  prefixlen 64  scopeid 0x20&lt;link&gt;</span><br><span class="line">        ether 00:0c:29:b4:9a:6e  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 78974  bytes 108181266 (103.1 MiB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 33157  bytes 2240749 (2.1 MiB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536</span><br><span class="line">        inet 127.0.0.1  netmask 255.0.0.0</span><br><span class="line">        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;</span><br><span class="line">        loop  txqueuelen 1000  (Local Loopback)</span><br><span class="line">        RX packets 72  bytes 6264 (6.1 KiB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 72  bytes 6264 (6.1 KiB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">virbr0: flags=4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.122.1  netmask 255.255.255.0  broadcast 192.168.122.255</span><br><span class="line">        ether 52:54:00:96:e8:1e  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 0  bytes 0 (0.0 B)</span><br></pre></td></tr></table></figure></p>
+<p>Your ip is 192.168.90.130</p>
+<p>(2) Using ssh to connect Linux<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.90.130</span><br></pre></td></tr></table></figure></p>
+<p>And input your password</p>
+<h2 id="4-Start-your-ssh"><a href="#4-Start-your-ssh" class="headerlink" title="4 Start your ssh"></a>4 Start your ssh</h2><p>(1) Checkout your ssh<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/sshd status</span><br></pre></td></tr></table></figure></p>
+<p>(2) If it is not running, just restart it<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/sshd restart</span><br></pre></td></tr></table></figure></p>
+<h2 id="5-Using-zsh-and-change-the-shell-which-is-my-favorite-shell"><a href="#5-Using-zsh-and-change-the-shell-which-is-my-favorite-shell" class="headerlink" title="5 Using zsh and change the shell which is my favorite shell"></a>5 Using zsh and change the shell which is my favorite shell</h2><p>(1) Download zsh<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure></p>
+<p>(2) Change the theme </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.zshrc</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZSH_THEME=&quot;agnoster&quot; # (this is one of the fancy ones)</span><br></pre></td></tr></table></figure>
+<h2 id="6-Check-the-init-config"><a href="#6-Check-the-init-config" class="headerlink" title="6 Check the init config"></a>6 Check the init config</h2><p>(1)Show the contents of an initramfs image<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsinitrd</span><br></pre></td></tr></table></figure></p>
+<p>(2)Copy and Unzip the image file<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cp initramfs-2.6.32-696.el6.x86_64.img /home/yzh/Documents</span><br><span class="line">cd /home/yzh/Documents</span><br><span class="line">ls</span><br><span class="line">file initramfs-2.6.32-696.el6.x86_64.img</span><br><span class="line">file --help</span><br><span class="line">mv initramfs-2.6.32-696.el6.x86_64.img initramfs-2.6.32-696.el6.x86_64.img.gz</span><br><span class="line">(this step is to change the file name)</span><br><span class="line">ls</span><br><span class="line">file initramfs-2.6.32-696.el6.x86_64.img.gz</span><br><span class="line">tar -zxvf initramfs-2.6.32-696.el6.x86_64.img.gz</span><br><span class="line">gzip -d initramfs-2.6.32-696.el6.x86_64.img.gz</span><br></pre></td></tr></table></figure></p>
+<p>and you  should recover the image file<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cpio -i &lt; initramfs-3.10.0-229.el7.x86_64.img</span><br></pre></td></tr></table></figure></p>
+<h2 id="7-Format-U-disk"><a href="#7-Format-U-disk" class="headerlink" title="7 Format U disk"></a>7 Format U disk</h2><p>(1)Check your U disk is umounted<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l</span><br></pre></td></tr></table></figure></p>
+<p>(2) Enter U disk and new a partition<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/sda</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n</span><br></pre></td></tr></table></figure>
+<p>(3) Format your disk<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 /dev/sdb</span><br></pre></td></tr></table></figure></p>
+<h2 id="8-Make-your-Linux-system-start-with-a-shell"><a href="#8-Make-your-Linux-system-start-with-a-shell" class="headerlink" title="8 Make your Linux system start with a shell"></a>8 Make your Linux system start with a shell</h2><p>(1)Add a port for new initrd.img<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /boot/grub</span><br><span class="line"></span><br><span class="line">vi grub.conf</span><br></pre></td></tr></table></figure></p>
+<p>like this<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># grub.conf generated by anaconda</span><br><span class="line">#</span><br><span class="line"># Note that you do not have to rerun grub after making changes to this file</span><br><span class="line"># NOTICE:  You have a /boot partition.  This means that</span><br><span class="line">#          all kernel and initrd paths are relative to /boot/, eg.</span><br><span class="line">#          root (hd0,0)</span><br><span class="line">#          kernel /vmlinuz-version ro root=/dev/mapper/vg_yzh-lv_root</span><br><span class="line">#          initrd /initrd-[generic-]version.img</span><br><span class="line">#boot=/dev/sda</span><br><span class="line">default=0</span><br><span class="line">timeout=5</span><br><span class="line">splashimage=(hd0,0)/grub/splash.xpm.gz</span><br><span class="line">hiddenmenu</span><br><span class="line">title CentOS Linux 6 (2.6.32-696.el6.x86_64)</span><br><span class="line">	root (hd0,0)</span><br><span class="line">	kernel /vmlinuz-2.6.32-696.el6.x86_64 ro root=/dev/mapper/vg_yzh-lv_root rd_LVM_LV=vg_yzh/lv_swap rd_NO_LUKS LANG=en_US.UTF-8 rd_LVM_LV=vg_yzh/lv_root rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=128M  KEYBOARDTYPE=pc KEYTABLE=us rd_NO_DM rhgb quiet</span><br><span class="line">	initrd /initramfs-2.6.32-696.el6.x86_64.img</span><br><span class="line">title my_litile_linux</span><br><span class="line">        root (hd0,0)</span><br><span class="line">        kernel /vmlinuz-2.6.32-696.el6.x86_64</span><br><span class="line">        initrd /Test.img</span><br></pre></td></tr></table></figure></p>
+<p>(2)Make an initd file<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /boot</span><br><span class="line"></span><br><span class="line">mkdir Test </span><br><span class="line"></span><br><span class="line">vim init</span><br></pre></td></tr></table></figure></p>
+<p>init file<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">exec /bin/sh</span><br></pre></td></tr></table></figure></p>
+<p>and then change the permission of init<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 init</span><br></pre></td></tr></table></figure></p>
+<p>(3)Copy Files of bash and sh with their dependent files<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /bin/bash /bin/sh bin</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ldd /bin/bash</span><br><span class="line"></span><br><span class="line">ldd /bin/sh</span><br><span class="line"></span><br><span class="line">cd Test</span><br><span class="line"></span><br><span class="line">mkdir lib64</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /lib64/libtinfo.so.5 /lib64/libdl.so.2 /lib64/libc.so.6 /lib64/ld-linux-x86-64.so.2 /lib64/libtinfo.so.5 /lib64/libdl.so.2 /lib64/libc.so.6 /lib64/ld-linux-x86-64.so.2 lib64</span><br></pre></td></tr></table></figure>
+<p>(4)package to Test.img<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . | cpio -H newc -o | gzip &gt; /boot/Test.img</span><br></pre></td></tr></table></figure></p>
+<p>(5)reboot and choose the my_litile_linux</p>
+<h2 id="9-Make-Kernel"><a href="#9-Make-Kernel" class="headerlink" title="9.Make Kernel"></a>9.Make Kernel</h2><h4 id="1-problem"><a href="#1-problem" class="headerlink" title="1 problem"></a>1 problem</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install  -y ncurses-devel</span><br><span class="line"></span><br><span class="line">sudo yum install openssl-devel</span><br></pre></td></tr></table></figure>
+<p>(1)make -j4</p>
+<p>(2)”make install” is smarter</p>
+<h2 id="10-ip-change"><a href="#10-ip-change" class="headerlink" title="10.ip change"></a>10.ip change</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ps -eaf | grep dhc</span><br><span class="line"></span><br><span class="line">ip route replace default via 172.16.255.2</span><br></pre></td></tr></table></figure>
+<h2 id="11-set-eth0-ip"><a href="#11-set-eth0-ip" class="headerlink" title="11.set eth0 ip"></a>11.set eth0 ip</h2><p>Just make it as a sh file<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">insmod /lib/modules/2.6.32-358.el6.x86_64/kernel/drivers/net/e1000/</span><br><span class="line">e1000.ko</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ifconfig eth0 up </span><br><span class="line"></span><br><span class="line">ifconfig lo up </span><br><span class="line"></span><br><span class="line">ifconfig eth0 172.16.225.128 255.255.255.0 up</span><br></pre></td></tr></table></figure></p>
+<h2 id="12-Check-which-command-and-file-need"><a href="#12-Check-which-command-and-file-need" class="headerlink" title="12.Check which command and file need"></a>12.Check which command and file need</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash -x /etc/init.d/sshd    start</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/22/InstallCentOS/" data-id="cjtjd6puz000fn8oczrwx8mg5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -555,8 +474,8 @@
   
     <article id="post-FirststeptoLinux" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/21/FirststeptoLinux/" class="article-date">
-  <time datetime="2019-03-21T15:10:08.000Z" itemprop="datePublished">2019-03-21</time>
+    <a href="/2019/03/22/FirststeptoLinux/" class="article-date">
+  <time datetime="2019-03-22T01:06:17.000Z" itemprop="datePublished">2019-03-22</time>
 </a>
     
   </div>
@@ -684,7 +603,40 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/FirststeptoLinux/" data-id="cjtis2jp9000dzooc6iuh6n49" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/22/FirststeptoLinux/" data-id="cjtjd6puy000dn8oc1wbtn0ys" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Ubantusetssh" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/22/Ubantusetssh/" class="article-date">
+  <time datetime="2019-03-22T01:06:16.000Z" itemprop="datePublished">2019-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.You should download shadowsocks<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install shadowsocks</span><br></pre></td></tr></table></figure></p>
+<p>2.Write a congfig json<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/ss-conf.json</span><br></pre></td></tr></table></figure></p>
+<p>3.The content of config<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">“server”:”0.0.0.0”,</span><br><span class="line">“server_port”:8838,</span><br><span class="line">“local_address”:”127.0.0.1”,</span><br><span class="line">“local_port”:1080,</span><br><span class="line">“password”:”123456”,</span><br><span class="line">“timeout”:600,</span><br><span class="line">“method”:”aes-256-cfb”</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>4.Start the service<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ssserver -c /etc/ss-conf.json -d start</span><br></pre></td></tr></table></figure></p>
+<p>5.Set the server started with the starting of ubantu</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/rc.local</span><br></pre></td></tr></table></figure>
+<p>add this before exit()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/ss-conf.json start</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/22/Ubantusetssh/" data-id="cjtjd6pvc000qn8ocvdnuv7dp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -706,12 +658,33 @@
           <aside id="sidebar">
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/网安组/">网安组</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络安全/">网络安全</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/网络安全/" style="font-size: 10px;">网络安全</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
@@ -730,23 +703,23 @@
       <ul>
         
           <li>
-            <a href="/2019/03/21/白象的舞步来自南亚次大陆的网络攻击/">(no title)</a>
+            <a href="/2019/03/22/第二章逆向分析HelloWord程序/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/21/盗梦空间：云托管的apt/">(no title)</a>
+            <a href="/2019/03/22/Chapter2VariablesandFundamentalDataTypes/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/21/第二章逆向分析HelloWord程序/">(no title)</a>
+            <a href="/2019/03/22/Chapter1CBasics/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/21/Chapter1CBasics/">(no title)</a>
+            <a href="/2019/03/22/第三章数据类型与运算符/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/21/Chapter2VariablesandFundamentalDataTypes/">(no title)</a>
+            <a href="/2019/03/22/第二章理解结构化程序设计/">(no title)</a>
           </li>
         
       </ul>

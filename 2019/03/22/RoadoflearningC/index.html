@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>浮生若梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Road of learning C++[TOC] I.Details of using C++1.converting(1)Convert string to integer 12345678910111213141516171819202122232425// stoi example#include &amp;lt;iostream&amp;gt;   // std::cout#include &amp;lt;st">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浮生若梦">
+<meta property="og:url" content="http://yoursite.com/2019/03/22/RoadoflearningC/index.html">
+<meta property="og:site_name" content="浮生若梦">
+<meta property="og:description" content="Road of learning C++[TOC] I.Details of using C++1.converting(1)Convert string to integer 12345678910111213141516171819202122232425// stoi example#include &amp;lt;iostream&amp;gt;   // std::cout#include &amp;lt;st">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-22T01:06:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浮生若梦">
+<meta name="twitter:description" content="Road of learning C++[TOC] I.Details of using C++1.converting(1)Convert string to integer 12345678910111213141516171819202122232425// stoi example#include &amp;lt;iostream&amp;gt;   // std::cout#include &amp;lt;st">
+  
+    <link rel="alternate" href="/atom.xml" title="浮生若梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">浮生若梦</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-RoadoflearningC" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/22/RoadoflearningC/" class="article-date">
+  <time datetime="2019-03-22T01:06:35.000Z" itemprop="datePublished">2019-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Road-of-learning-C"><a href="#Road-of-learning-C" class="headerlink" title="Road of learning C++"></a>Road of learning C++</h1><p>[TOC]</p>
+<h2 id="I-Details-of-using-C"><a href="#I-Details-of-using-C" class="headerlink" title="I.Details of using C++"></a>I.Details of using C++</h2><h3 id="1-converting"><a href="#1-converting" class="headerlink" title="1.converting"></a>1.converting</h3><p>(1)Convert string to integer</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// stoi example</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;   // std::cout</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;     // std::string, std::stoi</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> str_dec = <span class="string">"2001, A Space Odyssey"</span>;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> str_hex = <span class="string">"40c3"</span>;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> str_bin = <span class="string">"-10010110001"</span>;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> str_auto = <span class="string">"0x7f"</span>;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">string</span>::size_type sz;   <span class="comment">// alias of size_t</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> i_dec = <span class="built_in">std</span>::stoi (str_dec,&amp;sz);</span><br><span class="line">  <span class="keyword">int</span> i_hex = <span class="built_in">std</span>::stoi (str_hex,<span class="literal">nullptr</span>,<span class="number">16</span>);</span><br><span class="line">  <span class="keyword">int</span> i_bin = <span class="built_in">std</span>::stoi (str_bin,<span class="literal">nullptr</span>,<span class="number">2</span>);</span><br><span class="line">  <span class="keyword">int</span> i_auto = <span class="built_in">std</span>::stoi (str_auto,<span class="literal">nullptr</span>,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; str_dec &lt;&lt; <span class="string">": "</span> &lt;&lt; i_dec &lt;&lt; <span class="string">" and ["</span> &lt;&lt; str_dec.substr(sz) &lt;&lt; <span class="string">"]\n"</span>;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; str_hex &lt;&lt; <span class="string">": "</span> &lt;&lt; i_hex &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; str_bin &lt;&lt; <span class="string">": "</span> &lt;&lt; i_bin &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; str_auto &lt;&lt; <span class="string">": "</span> &lt;&lt; i_auto &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>(2)Convert string to long int<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">// stol example</span><br><span class="line">#include &lt;iostream&gt;   // std::cout</span><br><span class="line">#include &lt;string&gt;     // std::string, std::stol</span><br><span class="line"></span><br><span class="line">int main ()</span><br><span class="line">&#123;</span><br><span class="line">  std::string str_dec = &quot;1987520&quot;;</span><br><span class="line">  std::string str_hex = &quot;2f04e009&quot;;</span><br><span class="line">  std::string str_bin = &quot;-11101001100100111010&quot;;</span><br><span class="line">  std::string str_auto = &quot;0x7fffff&quot;;</span><br><span class="line"></span><br><span class="line">  std::string::size_type sz;   // alias of size_t</span><br><span class="line"></span><br><span class="line">  long li_dec = std::stol (str_dec,&amp;sz);</span><br><span class="line">  long li_hex = std::stol (str_hex,nullptr,16);</span><br><span class="line">  long li_bin = std::stol (str_bin,nullptr,2);</span><br><span class="line">  long li_auto = std::stol (str_auto,nullptr,0);</span><br><span class="line"></span><br><span class="line">  std::cout &lt;&lt; str_dec &lt;&lt; &quot;: &quot; &lt;&lt; li_dec &lt;&lt; &apos;\n&apos;;</span><br><span class="line">  std::cout &lt;&lt; str_hex &lt;&lt; &quot;: &quot; &lt;&lt; li_hex &lt;&lt; &apos;\n&apos;;</span><br><span class="line">  std::cout &lt;&lt; str_bin &lt;&lt; &quot;: &quot; &lt;&lt; li_bin &lt;&lt; &apos;\n&apos;;</span><br><span class="line">  std::cout &lt;&lt; str_auto &lt;&lt; &quot;: &quot; &lt;&lt; li_auto &lt;&lt; &apos;\n&apos;;</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>(3)Convert bool to string<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">std::to_string(bool);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/22/RoadoflearningC/" data-id="cjtjd6pv9000nn8ocv6wrorxb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/03/22/RefactoringImprovingtheDesignofExistingCode/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/22/ExperienceofCinSF/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/网安组/">网安组</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络安全/">网络安全</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/网络安全/" style="font-size: 10px;">网络安全</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/22/第二章逆向分析HelloWord程序/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/Chapter2VariablesandFundamentalDataTypes/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/Chapter1CBasics/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/第三章数据类型与运算符/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/第二章理解结构化程序设计/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 闳<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

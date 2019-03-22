@@ -62,84 +62,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-log模块学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/21/log模块学习笔记/" class="article-date">
-  <time datetime="2019-03-21T15:10:34.000Z" itemprop="datePublished">2019-03-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="log模块学习笔记"><a href="#log模块学习笔记" class="headerlink" title="log模块学习笔记"></a>log模块学习笔记</h1><p>[TOC]</p>
-<h2 id="一-Trivial-logging"><a href="#一-Trivial-logging" class="headerlink" title="一 Trivial logging"></a>一 Trivial logging</h2><p>1.样例代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;boost/log/trivial.hpp&gt;</span><br><span class="line"></span><br><span class="line">int main(int, char*[])</span><br><span class="line">&#123;</span><br><span class="line">    BOOST_LOG_TRIVIAL(trace) &lt;&lt; &quot;A trace severity message&quot;;</span><br><span class="line">    BOOST_LOG_TRIVIAL(debug) &lt;&lt; &quot;A debug severity message&quot;;</span><br><span class="line">    BOOST_LOG_TRIVIAL(info) &lt;&lt; &quot;An informational severity message&quot;;</span><br><span class="line">    BOOST_LOG_TRIVIAL(warning) &lt;&lt; &quot;A warning severity message&quot;;</span><br><span class="line">    BOOST_LOG_TRIVIAL(error) &lt;&lt; &quot;An error severity message&quot;;</span><br><span class="line">    BOOST_LOG_TRIVIAL(fatal) &lt;&lt; &quot;A fatal severity message&quot;;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>2.注意点</p>
-<ul>
-<li>The BOOST_LOG_TRIVIAL macro accepts a severity level and results in a stream-like object that supports insertion operator.</li>
-<li>the library offers a few advantagesthe library offers a few advantages than std::cout<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. Besides the record message, each log record in the output contains a timestamp, the current thread identifier and severity level.</span><br><span class="line">2.It is safe to write logs from different threads concurrently, log messages will not be corrupted.</span><br><span class="line">3.As will be shown later, filtering can be applied.</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="二-Trivial-logging-with-filters"><a href="#二-Trivial-logging-with-filters" class="headerlink" title="二 Trivial logging with filters"></a>二 Trivial logging with filters</h2><p>1.代码样例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">void init()</span><br><span class="line">&#123;</span><br><span class="line">    logging::core::get()-&gt;set_filter</span><br><span class="line">    (</span><br><span class="line">        logging::trivial::severity &gt;= logging::trivial::info</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(int, char*[])</span><br><span class="line">&#123;</span><br><span class="line">    init();</span><br><span class="line"></span><br><span class="line">    BOOST_LOG_TRIVIAL(trace) &lt;&lt; &quot;A trace severity message&quot;;</span><br><span class="line">    BOOST_LOG_TRIVIAL(debug) &lt;&lt; &quot;A debug severity message&quot;;</span><br><span class="line">    BOOST_LOG_TRIVIAL(info) &lt;&lt; &quot;An informational severity message&quot;;</span><br><span class="line">    BOOST_LOG_TRIVIAL(warning) &lt;&lt; &quot;A warning severity message&quot;;</span><br><span class="line">    BOOST_LOG_TRIVIAL(error) &lt;&lt; &quot;An error severity message&quot;;</span><br><span class="line">    BOOST_LOG_TRIVIAL(fatal) &lt;&lt; &quot;A fatal severity message&quot;;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>2.注意点</p>
-<ul>
-<li><p>显示结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[2018-06-05 00:07:39.439453] [0x00007f3d06d6e740] [info]    An informational severity message</span><br><span class="line">[2018-06-05 00:07:39.439637] [0x00007f3d06d6e740] [warning] A warning severity message</span><br><span class="line">[2018-06-05 00:07:39.439680] [0x00007f3d06d6e740] [error]   An error severity message</span><br><span class="line">[2018-06-05 00:07:39.439714] [0x00007f3d06d6e740] [fatal]   A fatal severity message</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>不能使用‘=’</p>
-</li>
-</ul>
-<h2 id="三-Setting-up-sinks"><a href="#三-Setting-up-sinks" class="headerlink" title="三 Setting up sinks"></a>三 Setting up sinks</h2><h2 id="四-Creating-loggers-and-writing-logs"><a href="#四-Creating-loggers-and-writing-logs" class="headerlink" title="四 Creating loggers and writing logs"></a>四 Creating loggers and writing logs</h2><h3 id="1-Global-logger-objects"><a href="#1-Global-logger-objects" class="headerlink" title="1. Global logger objects"></a>1. Global logger objects</h3><p>In case you cannot put a logger into your class (suppose you don’t have one), the library provides a way of declaring global loggers like this:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BOOST_LOG_INLINE_GLOBAL_LOGGER_DEFAULT(my_logger, src::logger_mt)</span><br></pre></td></tr></table></figure></p>
-<h3 id="2-Writing-logs"><a href="#2-Writing-logs" class="headerlink" title="2.Writing logs"></a>2.Writing logs</h3><p>No matter what kind of logger you use (class member or global, thread-safe or not), to write a log record into a logger you can write something like this:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">logging::record rec = lg.open_record();</span><br><span class="line">if (rec)</span><br><span class="line">&#123;</span><br><span class="line">    logging::record_ostream strm(rec);</span><br><span class="line">    strm &lt;&lt; &quot;Hello, World!&quot;;</span><br><span class="line">    strm.flush();</span><br><span class="line">    lg.push_record(boost::move(rec));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Of course, the above syntax can easily be wrapped in a macro and, in fact, users are encouraged to write their own macros instead of using the C++ logger interface directly. The log record above can be written like this:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BOOST_LOG(lg) &lt;&lt; &quot;Hello, World!&quot;;</span><br></pre></td></tr></table></figure></p>
-<h2 id="五-Adding-more-information-to-log-Attributes"><a href="#五-Adding-more-information-to-log-Attributes" class="headerlink" title="五 Adding more information to log: Attributes"></a>五 Adding more information to log: Attributes</h2><h3 id="1-Commonly-used-attributes"><a href="#1-Commonly-used-attributes" class="headerlink" title="1.Commonly used attributes"></a>1.Commonly used attributes</h3><p>There are attributes that are likely to be used in nearly any application. Log record counter and a time stamp are good candidates. They can be added with a single function call:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logging::add_common_attributes();</span><br></pre></td></tr></table></figure></p>
-<h3 id="2-Defining-attribute-placeholders"><a href="#2-Defining-attribute-placeholders" class="headerlink" title="2.Defining attribute placeholders"></a>2.Defining attribute placeholders</h3><h2 id="六-其他要点笔记"><a href="#六-其他要点笔记" class="headerlink" title="六 其他要点笔记"></a>六 其他要点笔记</h2><h4 id="1-常用的简写"><a href="#1-常用的简写" class="headerlink" title="1.常用的简写"></a>1.常用的简写</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">namespace logging = boost::log;</span><br><span class="line">namespace src = boost::log::sources;</span><br><span class="line">namespace expr = boost::log::expressions;</span><br><span class="line">namespace sinks = boost::log::sinks;</span><br><span class="line">namespace attrs = boost::log::attributes;</span><br><span class="line">namespace keywords = boost::log::keywords;</span><br></pre></td></tr></table></figure>
-<h4 id="2-要点"><a href="#2-要点" class="headerlink" title="2.要点"></a>2.要点</h4><ol>
-<li>trivial头文件可用于一般的控制台输出，日志等级被定义在改头文件；</li>
-<li>全局日志等级过滤使用logging::core::get()-&gt;set_filter();</li>
-<li><p>如果不仅仅需要简单的控制台输出，这时候就要添加sink，使用logging::add_file_log可添加文件sink后端，格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">logging::add_file_log (</span><br><span class="line">keywords::file_name=&quot;sample_%N.log&quot;, //文件名格式 </span><br><span class="line">keywords::rotation_size=10*1024*1024, //超过此大小自动建立新文件 </span><br><span class="line">keywords::time_based_rotation=sinks::file::rotation_at_time_point(0,0,0),//每隔指定时间重建新文件 </span><br><span class="line">keywords::format=&quot;[%TimeStamp%]:%Message%&quot; //日志消息格式 </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>除了文件后端，更常用的是文本流后端sinks::text_ostream_backend，与别的后端不同，文本流后端可以添加多个输出对象，这些对象由于都在同一个sink中，所以输出格式是一样的，这种做法的性能比添加文件后端更高，但是会失去对文件的控制能力。</p>
-</li>
-<li>对于大规模应用程序，为了方便查看记录，各模块的日志应该相互独立，因此一个logger一般是不够的，我们需要自己建立logger。logger的建立方法很简单，new一个src::logger就可以了…</li>
-<li>attribute是log record的附加信息，不同于一般的消息记录，属性可以被单独拿出来处理，作为某种过滤条件，或者其他使用。属性分为全局属性，特定线程属性和特定源的属性。</li>
-<li>格式化输出消息，前文有set_formatter的用法。格式化消息可以使用stl格式expr::stream&lt;&lt;xxx，也可以使用boost::format格式，即expr::format(“%1%)%xxx这种。</li>
-</ol>
-<h2 id="七-boost-filesystem常用用法详解"><a href="#七-boost-filesystem常用用法详解" class="headerlink" title="七 boost::filesystem常用用法详解"></a>七 boost::filesystem常用用法详解</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;boost/filesystem.hpp&gt;   </span><br><span class="line">  </span><br><span class="line">&#123;  </span><br><span class="line">    boost::filesystem::path path(&quot;/test/test1&quot;);   //初始化   </span><br><span class="line">    boost::filesystem::path old_cpath = boost::filesystem::current_path(); //取得当前程序所在目录    </span><br><span class="line">    boost::filesystem::path parent_path = old_cpath.parent_path();//取old_cpath的上一层父目录路径   </span><br><span class="line">    boost::filesystem::path file_path = old_cpath / &quot;file&quot;; //path支持重载/运算符  </span><br><span class="line">    if(boost::filesystem::exists(file_path))  //判断文件存在性    </span><br><span class="line">    &#123;    </span><br><span class="line">        std::string strPath = file_path.string();  </span><br><span class="line">        int x = 1;  </span><br><span class="line">    &#125;   </span><br><span class="line">    else   </span><br><span class="line">    &#123;    </span><br><span class="line">        //目录不存在;     </span><br><span class="line">        boost::filesystem::create_directory(file_path);  //目录不存在，创建   </span><br><span class="line">    &#125;    </span><br><span class="line">    bool bIsDirectory = boost::filesystem::is_directory(file_path); //判断file_path是否为目录  </span><br><span class="line">    boost::filesystem::recursive_directory_iterator beg_iter(file_path);  </span><br><span class="line">    boost::filesystem::recursive_directory_iterator end_iter;  </span><br><span class="line">    for (; beg_iter != end_iter; ++beg_iter)  </span><br><span class="line">    &#123;  </span><br><span class="line">        if (boost::filesystem::is_directory(*beg_iter))  </span><br><span class="line">        &#123;  </span><br><span class="line">            continue;  </span><br><span class="line">        &#125;  </span><br><span class="line">        else  </span><br><span class="line">        &#123;     </span><br><span class="line">            std::string strPath = beg_iter-&gt;path().string();  //遍历出来的文件名  </span><br><span class="line">            int x=1;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    boost::filesystem::path new_file_path = file_path / &quot;test.txt&quot;;  </span><br><span class="line">    if(boost::filesystem::is_regular_file(new_file_path))   //判断是否为普通文件  </span><br><span class="line">    &#123;    </span><br><span class="line">        UINT sizefile = boost::filesystem::file_size(new_file_path);  //文件大小(字节)  </span><br><span class="line">        int x =1;  </span><br><span class="line">    &#125;     </span><br><span class="line">    boost::filesystem::remove(new_file_path);//删除文件new_file_path    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="八-形象的比喻"><a href="#八-形象的比喻" class="headerlink" title="八 形象的比喻"></a>八 形象的比喻</h2><p>水 （Hello, World!）</p>
-<p>水槽（sink）</p>
-<p>流向哪里（console,file）</p>
-<p>从哪里取（source）</p>
-<p>水的等级（severity level）</p>
-<p>过滤输出（filter）</p>
-<p>格式输出（format）</p>
-<p>各部分连接者（core）</p>
-<h2 id="九-Sink-frontends"><a href="#九-Sink-frontends" class="headerlink" title="九 Sink frontends"></a>九 Sink frontends</h2><h2 id="十-Sink-backends"><a href="#十-Sink-backends" class="headerlink" title="十 Sink backends"></a>十 Sink backends</h2><p>1.With the auto_flush method one can tell the sink to automatically flush the buffers of all attached streams after each log record is written. </p>
-<p>2.Text stream backend<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. It supports formatting log records into strings and putting into one or several streams. Each attached stream gets the same result of formatting, so if you </span><br><span class="line">need to format log records differently for different streams, you will need to create several sinks - each with its own formatter.</span><br><span class="line"></span><br><span class="line">2.The backend also provides a feature that may come useful when debugging your application.</span><br></pre></td></tr></table></figure></p>
-<p>3.Text file backend<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. Log file rotation based on file size and/or time</span><br><span class="line"></span><br><span class="line">2.Flexible log file naming</span><br><span class="line"></span><br><span class="line">3.Placing the rotated files into a special location in the file system</span><br><span class="line"></span><br><span class="line">4.Deleting the oldest files in order to free more space on the file system</span><br></pre></td></tr></table></figure></p>
-<p>4.Text multi-file backend<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">You can see we used a regular formatter in order to specify file naming pattern. Now, every log record with a distinct value of the &quot;RequestID&quot; attribute will be </span><br><span class="line">stored in a separate file, no matter how many different requests are being processed by the application concurrently. You can also find the multiple_files </span><br><span class="line">example in the library distribution, which shows a similar technique to separate logs generated by different threads of the application.</span><br></pre></td></tr></table></figure></p>
-<p>5.Syslog backend<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.The syslog backend, as comes from its name, provides support for the syslog API that is available on virtually any UNIX-like platform. On Windows there </span><br><span class="line">exists at least one public implementation of the syslog client API.</span><br><span class="line"></span><br><span class="line">2.The backend also supports severity level translation from the application-specific values to the syslog-defined values.</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/log模块学习笔记/" data-id="cjtis2jrf002fzooclcln6o77" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-14周任务" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/21/14周任务/" class="article-date">
-  <time datetime="2019-03-21T15:10:34.000Z" itemprop="datePublished">2019-03-21</time>
+    <a href="/2019/03/22/14周任务/" class="article-date">
+  <time datetime="2019-03-22T01:06:38.000Z" itemprop="datePublished">2019-03-22</time>
 </a>
     
   </div>
@@ -159,7 +85,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/14周任务/" data-id="cjtis2joi0002zooci6huaz4w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/22/14周任务/" data-id="cjtjd6pu70000n8ocwjnpsjdy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -169,10 +95,10 @@
 
 
   
-    <article id="post-Mailcore2源码阅读" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-邮件模块分工" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/21/Mailcore2源码阅读/" class="article-date">
-  <time datetime="2019-03-21T15:10:34.000Z" itemprop="datePublished">2019-03-21</time>
+    <a href="/2019/03/22/邮件模块分工/" class="article-date">
+  <time datetime="2019-03-22T01:06:37.000Z" itemprop="datePublished">2019-03-22</time>
 </a>
     
   </div>
@@ -181,25 +107,51 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Mailcore2-源码阅读笔记"><a href="#Mailcore2-源码阅读笔记" class="headerlink" title="Mailcore2 源码阅读笔记"></a>Mailcore2 源码阅读笔记</h1><p>[TOC]</p>
-<h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>&emsp;&emsp;MailCore是一个第三方的邮件SDK，支持POP和IMAP 方式接收邮件，以及smtp邮件发送.</p>
-<h2 id="二、POP"><a href="#二、POP" class="headerlink" title="二、POP"></a>二、POP</h2><h3 id="1-需要先创建MCOPOPSession，并配置连接邮箱需要的各个参数"><a href="#1-需要先创建MCOPOPSession，并配置连接邮箱需要的各个参数" class="headerlink" title="1.需要先创建MCOPOPSession，并配置连接邮箱需要的各个参数"></a>1.需要先创建MCOPOPSession，并配置连接邮箱需要的各个参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">MCOPOPSession *session = [[MCOPOPSession alloc] init];</span><br><span class="line"></span><br><span class="line">session.hostname = @&quot;pop.qq.com&quot;;</span><br><span class="line"></span><br><span class="line">session.port = 995;</span><br><span class="line"></span><br><span class="line">[session setUsername:@&quot;myMail@qq.com&quot;];</span><br><span class="line"></span><br><span class="line">[sessionsetPassword:@&quot;yourPsw&quot;];</span><br><span class="line"></span><br><span class="line">[sessionsetConnectionType:MCOConnectionTypeTLS];</span><br></pre></td></tr></table></figure>
-<h3 id="2-配置好参数后，创建MCOPOPOperation，通过该对象来操作邮件"><a href="#2-配置好参数后，创建MCOPOPOperation，通过该对象来操作邮件" class="headerlink" title="2.配置好参数后，创建MCOPOPOperation，通过该对象来操作邮件"></a>2.配置好参数后，创建MCOPOPOperation，通过该对象来操作邮件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">MCOPOPOperation * checkOp = [sessioncheckAccountOperation];</span><br><span class="line"></span><br><span class="line">//开启异步请求，检查目前该配置是否能正确登录邮箱</span><br><span class="line"></span><br><span class="line">[checkOp start:^(NSError *error) &#123;</span><br><span class="line">         NSLog(@&quot;finished checking account.&quot;);</span><br><span class="line">         </span><br><span class="line">         if (error == nil) &#123;</span><br><span class="line">          //正确登录邮箱</span><br><span class="line">          /*在这里获取邮件头，通过邮件头可以获得邮件内容，详情看下面*/</span><br><span class="line">         &#125; else &#123;</span><br><span class="line"></span><br><span class="line">             NSLog(@&quot;登录邮箱失败，请检查网络重试,error loading account: %@&quot;, error);</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">         checkOp = nil;</span><br><span class="line"></span><br><span class="line">    &#125;];</span><br></pre></td></tr></table></figure>
-<h3 id="3-获取邮件头，通过MCOPOPFetchMessagesOperation来获取邮件头"><a href="#3-获取邮件头，通过MCOPOPFetchMessagesOperation来获取邮件头" class="headerlink" title="3.获取邮件头，通过MCOPOPFetchMessagesOperation来获取邮件头"></a>3.获取邮件头，通过MCOPOPFetchMessagesOperation来获取邮件头</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">MCOPOPFetchMessagesOperation * op = [session fetchMessagesOperation];</span><br><span class="line"></span><br><span class="line">//异步获取邮件头MCOPOPMessageInfo，保存在messages里</span><br><span class="line"></span><br><span class="line">[op start:^(NSError * error,NSArray * messages) &#123;</span><br><span class="line"></span><br><span class="line">    if (error==nil) &#123;</span><br><span class="line"></span><br><span class="line">  //通过messages中的邮件头信息，可以进一步请求获得最终的邮件内容,获取方法见下面4</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-<h3 id="4-通过MCOPOPMessageInfo获取邮件内容-得到MCOMessageParser，可从中获得邮件标题，正文，附件等信息"><a href="#4-通过MCOPOPMessageInfo获取邮件内容-得到MCOMessageParser，可从中获得邮件标题，正文，附件等信息" class="headerlink" title="4.通过MCOPOPMessageInfo获取邮件内容,得到MCOMessageParser，可从中获得邮件标题，正文，附件等信息"></a>4.通过MCOPOPMessageInfo获取邮件内容,得到MCOMessageParser，可从中获得邮件标题，正文，附件等信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">MCOPOPMessageInfo *messageInfo= messages[0];//拿到一个邮件头</span><br><span class="line"></span><br><span class="line">int index= messageInfo.index;</span><br><span class="line"></span><br><span class="line">MCOPOPFetchMessageOperation*messageOperation=[session fetchMessageOperationWithIndex: index];</span><br><span class="line"></span><br><span class="line">//开启异步请求, messageData为邮件内容</span><br><span class="line"></span><br><span class="line">[messageOperation start:^(NSError * error, NSData *messageData) &#123;</span><br><span class="line"></span><br><span class="line">    // messageData is the RFC 822 formatted message data.</span><br><span class="line"></span><br><span class="line">         if (!error) &#123;</span><br><span class="line"></span><br><span class="line">    //由data转换为MCOMessageParser</span><br><span class="line"></span><br><span class="line">             MCOMessageParser * msgPaser =[MCOMessageParser messageParserWithData:messageData];</span><br><span class="line"></span><br><span class="line">    //可从msgPaser获得邮件信息，如：msgPaser.header.subject为邮件标题</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">             NSString *htmlString=[msgPaserhtmlBodyRendering];//获取邮件html正文</span><br><span class="line"></span><br><span class="line">                 messageOperation=nil;</span><br><span class="line"></span><br><span class="line">             &#125;else&#123;</span><br><span class="line"></span><br><span class="line">               </span><br><span class="line"></span><br><span class="line">                 NSLog(@&quot;获取邮件消息失败&quot;);</span><br><span class="line"></span><br><span class="line">             &#125;</span><br><span class="line"></span><br><span class="line">         &#125;];</span><br></pre></td></tr></table></figure>
-<h3 id="5-关于MCOMessageParser"><a href="#5-关于MCOMessageParser" class="headerlink" title="5.关于MCOMessageParser"></a>5.关于MCOMessageParser</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// MCOMessageHeader包含了邮件标题，时间等头信息</span><br><span class="line"></span><br><span class="line">MCOMessageHeader *header=msgPaser.header;</span><br><span class="line"></span><br><span class="line">//获得邮件正文的HTML内容,一般使用webView加载</span><br><span class="line"></span><br><span class="line">NSString * bodyHtml =[msgPaser htmlBodyRendering];</span><br><span class="line"></span><br><span class="line">//获取附件(多个)</span><br><span class="line"></span><br><span class="line">NSMutableArray *attachments=[[NSMutableArrayalloc]initWithArray:_msgPaser.attachments];</span><br><span class="line"></span><br><span class="line">MCOAttachment *attachment=attachments[0]; //拿到一个附件MCOAttachment,可从中得到文件名，文件内容data</span><br></pre></td></tr></table></figure>
-<h2 id="三、IMAP"><a href="#三、IMAP" class="headerlink" title="三、IMAP"></a>三、IMAP</h2><h3 id="1-需要先创建MCOIMAPSession，并配置连接邮箱需要的各个参数"><a href="#1-需要先创建MCOIMAPSession，并配置连接邮箱需要的各个参数" class="headerlink" title="1.需要先创建MCOIMAPSession，并配置连接邮箱需要的各个参数"></a>1.需要先创建MCOIMAPSession，并配置连接邮箱需要的各个参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">session = [[MCOIMAPSessionalloc]init];</span><br><span class="line"></span><br><span class="line">session.hostname =@&quot;imap.qq.com&quot;;</span><br><span class="line"></span><br><span class="line">session.port =993;</span><br><span class="line"></span><br><span class="line">[session setUsername:@&quot;mail@qq.com&quot;];</span><br><span class="line"></span><br><span class="line">[session setPassword:@&quot;psw&quot;];</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">[session setConnectionType:MCOConnectionTypeTLS];</span><br><span class="line"></span><br><span class="line">session.connectionLogger = ^(void * connectionID,MCOConnectionLogType type,NSData * data) &#123;</span><br><span class="line"></span><br><span class="line">        if (type != MCOConnectionLogTypeSentPrivate) &#123;</span><br><span class="line"></span><br><span class="line">            NSLog(@&quot;eventlogged:%p %i withData: %@&quot;, connectionID, type, [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">//检查登录邮箱</span><br><span class="line"></span><br><span class="line">MCOIMAPOperation *checkOp = [sessioncheckAccountOperation];</span><br><span class="line"></span><br><span class="line">    [checkOp start:^(NSError *error) &#123;</span><br><span class="line"></span><br><span class="line">         NSLog(@&quot;finished checking account.&quot;);</span><br><span class="line"></span><br><span class="line">         if (error == nil) &#123;</span><br><span class="line"></span><br><span class="line">//在这里获取邮件</span><br><span class="line"></span><br><span class="line">            [self getmail];</span><br><span class="line"></span><br><span class="line">         &#125; else &#123;</span><br><span class="line"></span><br><span class="line">             NSLog(@&quot;error loading account: %@&quot;, error);</span><br><span class="line"></span><br><span class="line">            [self hideLoading];</span><br><span class="line"></span><br><span class="line">            ALERT_SHOW(@&quot;登录邮箱失败，请检查网络重试&quot;);</span><br><span class="line"></span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">         checkOp = nil;</span><br><span class="line">    &#125;];</span><br></pre></td></tr></table></figure>
-<h3 id="2-获取邮件"><a href="#2-获取邮件" class="headerlink" title="2.获取邮件"></a>2.获取邮件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">MCOIMAPMessagesRequestKind requestKind = (MCOIMAPMessagesRequestKind)</span><br><span class="line"></span><br><span class="line">    (MCOIMAPMessagesRequestKindHeaders |MCOIMAPMessagesRequestKindStructure |</span><br><span class="line"></span><br><span class="line">     MCOIMAPMessagesRequestKindInternalDate |MCOIMAPMessagesRequestKindHeaderSubject |</span><br><span class="line"></span><br><span class="line">     MCOIMAPMessagesRequestKindFlags);</span><br><span class="line"></span><br><span class="line">MCOIndexSet *uids = [MCOIndexSetindexSetWithRange:MCORangeMake(1,UINT64_MAX)];</span><br><span class="line"></span><br><span class="line">MCOIMAPFetchMessagesOperation *fetchOperation = [sessionfetchMessagesByUIDOperationWithFolder:@&quot;INBOX&quot;requestKind:requestKinduids:uids];</span><br><span class="line"></span><br><span class="line">    //异步请求邮件，fetchedMessages为邮件列表，里面存放MCOIMAPMessage对象</span><br><span class="line"></span><br><span class="line">[fetchOperationstart:^(NSError * error,NSArray * fetchedMessages,MCOIndexSet * vanishedMessages) &#123;</span><br><span class="line"></span><br><span class="line">        if(error) &#123;</span><br><span class="line"></span><br><span class="line">            NSLog(@&quot;获取邮件列表失败。Error downloading message headers:%@&quot;, error);</span><br><span class="line"></span><br><span class="line">        &#125;else&#123;</span><br><span class="line"></span><br><span class="line">            // 在这里操作邮件内容，见3          </span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-<h3 id="3-操作邮件内容"><a href="#3-操作邮件内容" class="headerlink" title="3.操作邮件内容"></a>3.操作邮件内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//拿出一个邮件MCOIMAPMessage(里面包含邮件头等信息)</span><br><span class="line"></span><br><span class="line">MCOIMAPMessage *message = fetchedMessages [0];</span><br><span class="line"></span><br><span class="line">//使用MCOIMAPMessageRenderingOperation来获得邮件概要信息</span><br><span class="line"></span><br><span class="line">NSString *uidKey = [NSStringstringWithFormat:@&quot;%d&quot;, message.uid];</span><br><span class="line"></span><br><span class="line">MCOIMAPMessageRenderingOperation *  messageRenderingOperation = [sessionplainTextBodyRenderingOperationWithMessage:messagefolder:@&quot;INBOX&quot;];</span><br><span class="line"></span><br><span class="line">        [messageRenderingOperationstart:^(NSString * plainTextBodyString,NSError * error) &#123;</span><br><span class="line"></span><br><span class="line">            // plainTextBodyString为邮件的正文文本信息</span><br><span class="line"></span><br><span class="line">        &#125;];</span><br></pre></td></tr></table></figure>
-<h3 id="4-取到邮件内容，最终取得该邮件的MCOMessageParser"><a href="#4-取到邮件内容，最终取得该邮件的MCOMessageParser" class="headerlink" title="4.取到邮件内容，最终取得该邮件的MCOMessageParser"></a>4.取到邮件内容，最终取得该邮件的MCOMessageParser</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">MCOIMAPFetchContentOperation * op = [sessionfetchMessageOperationWithFolder: @&quot;INBOX&quot;uid:[messageuid]];</span><br><span class="line">        //    [_opsaddObject:op];</span><br><span class="line"></span><br><span class="line">        [op start:^(NSError * error,NSData * data) &#123;</span><br><span class="line"></span><br><span class="line">            if ([error code] != MCOErrorNone) &#123;</span><br><span class="line"></span><br><span class="line">                ALERT_SHOW(@&quot;获取邮件数据失败&quot;);</span><br><span class="line"></span><br><span class="line">                return;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            NSAssert(data != nil, @&quot;data != nil&quot;);</span><br><span class="line"></span><br><span class="line">            //拿到MCOMessageParser后，如何处理，跟上文pop提到的MCOMessageParser一致</span><br><span class="line"></span><br><span class="line">            MCOMessageParser * msgPaser = [MCOMessageParsermessageParserWithData:data];</span><br><span class="line"></span><br><span class="line">        &#125;];</span><br></pre></td></tr></table></figure>
-<h2 id="四、SMTP"><a href="#四、SMTP" class="headerlink" title="四、SMTP"></a>四、SMTP</h2><h3 id="1-先创建MCOSMTPSession-配置好各个连接smtp邮箱的参数"><a href="#1-先创建MCOSMTPSession-配置好各个连接smtp邮箱的参数" class="headerlink" title="1.先创建MCOSMTPSession,配置好各个连接smtp邮箱的参数"></a>1.先创建MCOSMTPSession,配置好各个连接smtp邮箱的参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">MCOSMTPSession*smtpSession = [[[MCOSMTPSessionalloc]init]autorelease];</span><br><span class="line"></span><br><span class="line">smtpSession.username = @&quot;yoursmtp@qq.com&quot;;</span><br><span class="line"></span><br><span class="line">smtpSession.password = @&quot;yourpws&quot;;</span><br><span class="line"></span><br><span class="line">smtpSession.hostname = @&quot;smtp.qq.com&quot;;</span><br><span class="line"></span><br><span class="line">smtpSession.port = 465;</span><br><span class="line"></span><br><span class="line">smtpSession.connectionType = MCOConnectionTypeTLS;</span><br></pre></td></tr></table></figure>
-<h3 id="2-使用MCOMessageBuilder构建邮件体的发送内容"><a href="#2-使用MCOMessageBuilder构建邮件体的发送内容" class="headerlink" title="2.使用MCOMessageBuilder构建邮件体的发送内容"></a>2.使用MCOMessageBuilder构建邮件体的发送内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line">MCOMessageBuilder * builder = [[[MCOMessageBuilderalloc]init]autorelease];</span><br><span class="line"></span><br><span class="line">//构建邮件头</span><br><span class="line"></span><br><span class="line">   [[builder header] setFrom:[MCOAddress addressWithDisplayName:nil mailbox: @&quot;yoursmtp@qq.com&quot;]];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//设置邮件的接受人(可以多个)</span><br><span class="line"></span><br><span class="line">NSMutableArray *to = [NSMutableArrayarray];</span><br><span class="line"></span><br><span class="line">    NSArray *recipients=[@&quot;32232@qq.com;toyou@qq.com&quot;componentsSeparatedByString:@&quot;;&quot;];</span><br><span class="line"></span><br><span class="line">for(NSString *toAddressin recipients) &#123;</span><br><span class="line"></span><br><span class="line">//使用MCOAddress封装邮箱地址</span><br><span class="line"></span><br><span class="line">        MCOAddress *newAddress = [MCOAddressaddressWithMailbox:toAddress];</span><br><span class="line"></span><br><span class="line">[to addObject:newAddress];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    [[builder header] setTo:to];</span><br><span class="line"></span><br><span class="line">//设置抄送人(多个)</span><br><span class="line"></span><br><span class="line">NSArray *CC=[@&quot;cc32232@qq.com;cctoyou@qq.com&quot;componentsSeparatedByString:@&quot;;&quot;];</span><br><span class="line"></span><br><span class="line">        NSMutableArray *cc = [NSMutableArrayarray];</span><br><span class="line"></span><br><span class="line">        for(NSString *ccAddressin CC) &#123;</span><br><span class="line"></span><br><span class="line">            MCOAddress *newAddress = [MCOAddressaddressWithMailbox:ccAddress];</span><br><span class="line"></span><br><span class="line">                [ccaddObject:newAddress];</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">       [[builder header] setCc:cc];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//设置密送人（多个）</span><br><span class="line"></span><br><span class="line">           NSArray *BCC=[@&quot;bc32232@qq.com;bctoyou@qq.com&quot;componentsSeparatedByString:@&quot;;&quot;];</span><br><span class="line"></span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">        NSMutableArray *bcc = [NSMutableArrayarray];</span><br><span class="line"></span><br><span class="line">        for(NSString *bccAddressin BCC) &#123;</span><br><span class="line"></span><br><span class="line">            MCOAddress *newAddress = [MCOAddressaddressWithMailbox:bccAddress];</span><br><span class="line"></span><br><span class="line">               [bcc addObject:newAddress];</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        [[builder header] setBcc:bcc];</span><br><span class="line"></span><br><span class="line">//设置邮件标题</span><br><span class="line"></span><br><span class="line">[[builder header] setSubject: @&quot;给你的邮件&quot;];</span><br><span class="line"></span><br><span class="line">//设置邮件正文（纯文本）</span><br><span class="line"></span><br><span class="line">[builder setTextBody: @&quot;测试邮件的正文部分&quot;];</span><br><span class="line"></span><br><span class="line">ps:如果邮件是回复或者转发，原邮件中往往有附件以及正文中有其他图片资源，如果有需要你可将原文原封不动的也带过去，这里发送的正文就可以如下配置：</span><br><span class="line"></span><br><span class="line">NSString * bodyHtml=@”&lt;p&gt;我是原邮件正文&lt;/p&gt;”;</span><br><span class="line"></span><br><span class="line">NSString *body=@&quot;我是邮件回复的内容&quot;;</span><br><span class="line"></span><br><span class="line">NSMutableString*fullBodyHtml=[NSMutableStringstringWithFormat:@&quot;%@&lt;br/&gt;-------------原始邮件-------------&lt;br/&gt;%@&quot;,[body stringByReplacingOccurrencesOfString:@&quot;\n&quot;withString:@&quot;&lt;br/&gt;&quot;],bodyHtml];</span><br><span class="line"></span><br><span class="line"> [builder setHTMLBody:fullBodyHtml];</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">//添加正文里的附加资源</span><br><span class="line"></span><br><span class="line">NSArray *inattachments=msgPaser.htmlInlineAttachments;</span><br><span class="line"></span><br><span class="line">        for (MCOAttachment*attachmentininattachments) &#123;</span><br><span class="line"></span><br><span class="line">           [builder addRelatedAttachment:attachment];//添加html正文里的附加资源（图片）</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">//添加邮件附件</span><br><span class="line"></span><br><span class="line">for (MCOAttachment*attachmentinattachments) &#123;</span><br><span class="line"></span><br><span class="line">           [builder addAttachment:attachment];//添加附件</span><br><span class="line"></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3-将构建好的邮件体发送出去"><a href="#3-将构建好的邮件体发送出去" class="headerlink" title="3.将构建好的邮件体发送出去"></a>3.将构建好的邮件体发送出去</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">NSData * rfc822Data =[builder data];</span><br><span class="line"></span><br><span class="line">MCOSMTPSendOperation *sendOperation = [smtpSessionsendOperationWithData:rfc822Data];</span><br><span class="line"></span><br><span class="line">[sendOperation start:^(NSError *error) &#123;</span><br><span class="line"></span><br><span class="line">        if(error) &#123;</span><br><span class="line"></span><br><span class="line">            NSLog(@&quot;%@邮件发送失败Error sending email:%@&quot;, username, error);</span><br><span class="line"></span><br><span class="line">        &#125; else &#123;</span><br><span class="line"></span><br><span class="line">            NSLog(@&quot;%@ Successfullysent email!&quot;, username);</span><br><span class="line"></span><br><span class="line">            UIAlertView *alert=[[UIAlertViewalloc]initWithTitle:@&quot;温馨提示&quot;message:@&quot;发送成功&quot;delegate:selfcancelButtonTitle:@&quot;确认&quot;otherButtonTitles:nil];</span><br><span class="line"></span><br><span class="line">            [alert show];</span><br><span class="line"></span><br><span class="line">            [alert release];</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;];</span><br></pre></td></tr></table></figure>
+        <h2 id="邮件模块分工"><a href="#邮件模块分工" class="headerlink" title="邮件模块分工"></a>邮件模块分工</h2><h3 id="一、大致分化"><a href="#一、大致分化" class="headerlink" title="一、大致分化"></a>一、大致分化</h3><p>1.分为POP3、IMAP、Exchange三个协议；</p>
+<p>2.上层有Folder、Message、MessageHeader三个基类；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.基类 and 派生类</span><br><span class="line">一个类可以派生自多个类，这意味着，它可以从多个基类继承数据和函数。定义一个派生类，我们使用一个类派生列表来指定基类。类派生列表以一个或多个基类命名，形式如下：</span><br><span class="line"></span><br><span class="line">class derived-class: access-specifier base-class</span><br><span class="line"></span><br><span class="line">其中，访问修饰符 access-specifier 是 public、protected 或 private 其中的一个，base-class 是之前定义过的某个类的名称。</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/Mailcore2源码阅读/" data-id="cjtis2jre002dzoocwahb5rwt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/22/邮件模块分工/" data-id="cjtjd6pxd002fn8oc71t3eovk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-XcodeDebug使用手册" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/22/XcodeDebug使用手册/" class="article-date">
+  <time datetime="2019-03-22T01:06:37.000Z" itemprop="datePublished">2019-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Xcode-Debug使用手册"><a href="#Xcode-Debug使用手册" class="headerlink" title="Xcode Debug使用手册"></a>Xcode Debug使用手册</h2><h3 id="一、LLDB基础知识"><a href="#一、LLDB基础知识" class="headerlink" title="一、LLDB基础知识"></a>一、LLDB基础知识</h3><h4 id="1-LLDB控制台"><a href="#1-LLDB控制台" class="headerlink" title="1.LLDB控制台"></a>1.LLDB控制台</h4><p>(1).Xcode中内嵌了LLDB控制台，在Xcode中代码的下方，我们可以看到LLDB控制台。<br><img src="http://upload-images.jianshu.io/upload_images/1122433-97b0619a169dcb50.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p>(2).LLDB控制台平时会输出一些log信息。如果我们想输入命令调试，必须让程序进入暂停状态。让程序进入暂停状态的方式主要有2种：</p>
+<ul>
+<li>断点或者watchpoint: 在代码中设置一个断点（watchpoint），当程序运行到断点位置的时候，会进入stop状态</li>
+<li>直接暂停，控制台上方有一个暂停按钮，上图红框已标出，点击即可暂停程序</li>
+</ul>
+<h4 id="2-LLDB语法"><a href="#2-LLDB语法" class="headerlink" title="2.LLDB语法"></a>2.LLDB语法</h4><ul>
+<li>command: breakpoint 表示断点命令</li>
+<li>action: set 表示设置断点</li>
+<li>option: -n 表示根据方法name设置断点</li>
+<li>arguement: mian 表示方法名为mian</li>
+</ul>
+<h4 id="3-LLDB命令"><a href="#3-LLDB命令" class="headerlink" title="3.LLDB命令"></a>3.LLDB命令</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/22/XcodeDebug使用手册/" data-id="cjtjd6pvd000sn8ocf0pr2jra" class="article-share-link">Share</a>
       
       
     </footer>
@@ -211,8 +163,8 @@
   
     <article id="post-AndroidStudio工程使用说明" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/21/AndroidStudio工程使用说明/" class="article-date">
-  <time datetime="2019-03-21T15:10:33.000Z" itemprop="datePublished">2019-03-21</time>
+    <a href="/2019/03/22/AndroidStudio工程使用说明/" class="article-date">
+  <time datetime="2019-03-22T01:06:37.000Z" itemprop="datePublished">2019-03-22</time>
 </a>
     
   </div>
@@ -257,7 +209,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/AndroidStudio工程使用说明/" data-id="cjtis2jor0006zoocozks7zhr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/22/AndroidStudio工程使用说明/" data-id="cjtjd6pui0006n8ocnyaf8cpw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -267,10 +219,10 @@
 
 
   
-    <article id="post-邮件模块分工" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Objective-C入门教程" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/21/邮件模块分工/" class="article-date">
-  <time datetime="2019-03-21T15:10:33.000Z" itemprop="datePublished">2019-03-21</time>
+    <a href="/2019/03/22/Objective-C入门教程/" class="article-date">
+  <time datetime="2019-03-22T01:06:36.000Z" itemprop="datePublished">2019-03-22</time>
 </a>
     
   </div>
@@ -279,86 +231,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="邮件模块分工"><a href="#邮件模块分工" class="headerlink" title="邮件模块分工"></a>邮件模块分工</h2><h3 id="一、大致分化"><a href="#一、大致分化" class="headerlink" title="一、大致分化"></a>一、大致分化</h3><p>1.分为POP3、IMAP、Exchange三个协议；</p>
-<p>2.上层有Folder、Message、MessageHeader三个基类；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.基类 and 派生类</span><br><span class="line">一个类可以派生自多个类，这意味着，它可以从多个基类继承数据和函数。定义一个派生类，我们使用一个类派生列表来指定基类。类派生列表以一个或多个基类命名，形式如下：</span><br><span class="line"></span><br><span class="line">class derived-class: access-specifier base-class</span><br><span class="line"></span><br><span class="line">其中，访问修饰符 access-specifier 是 public、protected 或 private 其中的一个，base-class 是之前定义过的某个类的名称。</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/邮件模块分工/" data-id="cjtis2jr40027zoocla7ulfj0" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-XcodeDebug使用手册" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/21/XcodeDebug使用手册/" class="article-date">
-  <time datetime="2019-03-21T15:10:33.000Z" itemprop="datePublished">2019-03-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Xcode-Debug使用手册"><a href="#Xcode-Debug使用手册" class="headerlink" title="Xcode Debug使用手册"></a>Xcode Debug使用手册</h2><h3 id="一、LLDB基础知识"><a href="#一、LLDB基础知识" class="headerlink" title="一、LLDB基础知识"></a>一、LLDB基础知识</h3><h4 id="1-LLDB控制台"><a href="#1-LLDB控制台" class="headerlink" title="1.LLDB控制台"></a>1.LLDB控制台</h4><p>(1).Xcode中内嵌了LLDB控制台，在Xcode中代码的下方，我们可以看到LLDB控制台。<br><img src="http://upload-images.jianshu.io/upload_images/1122433-97b0619a169dcb50.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
-<p>(2).LLDB控制台平时会输出一些log信息。如果我们想输入命令调试，必须让程序进入暂停状态。让程序进入暂停状态的方式主要有2种：</p>
-<ul>
-<li>断点或者watchpoint: 在代码中设置一个断点（watchpoint），当程序运行到断点位置的时候，会进入stop状态</li>
-<li>直接暂停，控制台上方有一个暂停按钮，上图红框已标出，点击即可暂停程序</li>
+        <h2 id="Objective-C-入门教程"><a href="#Objective-C-入门教程" class="headerlink" title="Objective-C 入门教程"></a>Objective-C 入门教程</h2><h3 id="一、Objective-C：C的超集"><a href="#一、Objective-C：C的超集" class="headerlink" title="一、Objective-C：C的超集"></a>一、Objective-C：C的超集</h3><p>&emsp;&emsp;Objective-Objective-C是C语言的严格超集－－任何C语言程序不经修改就可以直接通过Objective-C编译器，在Objective-C中使用C语言代码也是完全合法的。Objective-C被描述为盖在C语言上的薄薄一层，因为Objective-C的原意就是在C语言主体上加入面向对象的特性。</p>
+<h3 id="二、Objective-C代码的文件扩展名"><a href="#二、Objective-C代码的文件扩展名" class="headerlink" title="二、Objective-C代码的文件扩展名"></a>二、Objective-C代码的文件扩展名</h3><ul>
+<li>.h头文件:头文件包含类，类型，函数和常数的声明。</li>
+<li>.m源代码文件:这是典型的源代码文件扩展名，可以包含 Objective-C 和 C 代码。</li>
+<li>.mm源代码文件:带有这种扩展名的源代码文件，除了可以包含Objective-C和C代码以外还可以包含C+ +代码。仅在你的Objective-C代码中确实需要使用C++类或者特性的时候才用这种扩展名。</li>
 </ul>
-<h4 id="2-LLDB语法"><a href="#2-LLDB语法" class="headerlink" title="2.LLDB语法"></a>2.LLDB语法</h4><ul>
-<li>command: breakpoint 表示断点命令</li>
-<li>action: set 表示设置断点</li>
-<li>option: -n 表示根据方法name设置断点</li>
-<li>arguement: mian 表示方法名为mian</li>
+<h3 id="三、类"><a href="#三、类" class="headerlink" title="三、类"></a>三、类</h3><h4 id="1-类的基础知识"><a href="#1-类的基础知识" class="headerlink" title="1.类的基础知识"></a>1.类的基础知识</h4><ul>
+<li>Objective-C 的类规格说明包含了两个部分：定义（interface）与实现（implementation）。定义（interface）部分包含了类声明和实例变量的定义，以及类相关的方法。</li>
+<li>类的定义文件遵循C语言之惯例以.h为后缀，实现文件以.m为后缀。</li>
 </ul>
-<h4 id="3-LLDB命令"><a href="#3-LLDB命令" class="headerlink" title="3.LLDB命令"></a>3.LLDB命令</h4>
+<h4 id="2-类声明图"><a href="#2-类声明图" class="headerlink" title="2.类声明图"></a>2.类声明图</h4><p><img src="http://www.runoob.com/wp-content/uploads/2015/08/2011021920525849.jpg" alt></p>
+<h4 id="3-Interface"><a href="#3-Interface" class="headerlink" title="3.Interface"></a>3.Interface</h4><p>&emsp;&emsp;定义部分，清楚定义了类的名称、数据成员和方法。 以关键字@interface作为开始，@end作为结束。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@interface MyObject : NSObject &#123;</span><br><span class="line">    int memberVar1; // 实体变量</span><br><span class="line">    id  memberVar2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+(return_type) class_method; // 类方法</span><br><span class="line"></span><br><span class="line">-(return_type) instance_method1; // 实例方法</span><br><span class="line">-(return_type) instance_method2: (int) p1;</span><br><span class="line">-(return_type) instance_method3: (int) p1 andPar: (int) p2;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<h4 id="4-Implementation"><a href="#4-Implementation" class="headerlink" title="4.Implementation"></a>4.Implementation</h4><p>&emsp;&emsp;实现区块则包含了公开方法的实现，以及定义私有（private）变量及方法。 以关键字@implementation作为区块起头，@end结尾。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">@implementation MyObject &#123;</span><br><span class="line">  int memberVar3; //私有實體變數</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+(return_type) class_method &#123;</span><br><span class="line">    .... //method implementation</span><br><span class="line">&#125;</span><br><span class="line">-(return_type) instance_method1 &#123;</span><br><span class="line">     ....</span><br><span class="line">&#125;</span><br><span class="line">-(return_type) instance_method2: (int) p1 &#123;</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br><span class="line">-(return_type) instance_method3: (int) p1 andPar: (int) p2 &#123;</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;值得一提的是不只Interface区块可定义实体变量，Implementation区块也可以定义实体变量，两者的差别在于访问权限的不同，Interface区块内的实体变量默认权限为protected，宣告于implementation区块的实体变量则默认为private。</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/XcodeDebug使用手册/" data-id="cjtis2jpr000szooc5dofbtei" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-周计划会议纪要" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/21/周计划会议纪要/" class="article-date">
-  <time datetime="2019-03-21T15:10:32.000Z" itemprop="datePublished">2019-03-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="周计划会议纪要"><a href="#周计划会议纪要" class="headerlink" title="周计划会议纪要"></a>周计划会议纪要</h1><h3 id="1-个人的具体任务"><a href="#1-个人的具体任务" class="headerlink" title="1.个人的具体任务"></a>1.个人的具体任务</h3><p>1.刘羿：有两个接口要联调，新建分支存在问题，记得让曾耀沛改代码规范；</p>
-<p>2.周瑞松：重新搭infer的环境、记得更改代码规范；</p>
-<p>3.周展科：解决base分支问题；</p>
-<p>4.杨金昊：写tojson；</p>
-<p>5.易子闳：和卢神确认回复和转发形式；</p>
-<p>6.王钰博：和易子闳再次确认回复转发的流程；</p>
-<h3 id="2-联调总结"><a href="#2-联调总结" class="headerlink" title="2.联调总结"></a>2.联调总结</h3><p>1.业务层有些接口测得不仔细，联调是需要改；</p>
-<h3 id="3-重要问题"><a href="#3-重要问题" class="headerlink" title="3.重要问题"></a>3.重要问题</h3><p>1.ping命令的实现还没有写（王钰博）；</p>
-<p>2.刘家东：完成数据库代码规范；</p>
-<h3 id="4-个人总结"><a href="#4-个人总结" class="headerlink" title="4.个人总结"></a>4.个人总结</h3>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/周计划会议纪要/" data-id="cjtis2jq10015zoocptd1i2nr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/22/Objective-C入门教程/" data-id="cjtjd6pv4000jn8ockiz4nyqt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -370,8 +263,8 @@
   
     <article id="post-C入门笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/21/C入门笔记/" class="article-date">
-  <time datetime="2019-03-21T15:10:32.000Z" itemprop="datePublished">2019-03-21</time>
+    <a href="/2019/03/22/C入门笔记/" class="article-date">
+  <time datetime="2019-03-22T01:06:36.000Z" itemprop="datePublished">2019-03-22</time>
 </a>
     
   </div>
@@ -572,49 +465,7 @@ value_comp()     返回比较元素value的函数
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/C入门笔记/" data-id="cjtis2jrv002jzoocojo18k9a" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Objective-C入门教程" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/21/Objective-C入门教程/" class="article-date">
-  <time datetime="2019-03-21T15:10:32.000Z" itemprop="datePublished">2019-03-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Objective-C-入门教程"><a href="#Objective-C-入门教程" class="headerlink" title="Objective-C 入门教程"></a>Objective-C 入门教程</h2><h3 id="一、Objective-C：C的超集"><a href="#一、Objective-C：C的超集" class="headerlink" title="一、Objective-C：C的超集"></a>一、Objective-C：C的超集</h3><p>&emsp;&emsp;Objective-Objective-C是C语言的严格超集－－任何C语言程序不经修改就可以直接通过Objective-C编译器，在Objective-C中使用C语言代码也是完全合法的。Objective-C被描述为盖在C语言上的薄薄一层，因为Objective-C的原意就是在C语言主体上加入面向对象的特性。</p>
-<h3 id="二、Objective-C代码的文件扩展名"><a href="#二、Objective-C代码的文件扩展名" class="headerlink" title="二、Objective-C代码的文件扩展名"></a>二、Objective-C代码的文件扩展名</h3><ul>
-<li>.h头文件:头文件包含类，类型，函数和常数的声明。</li>
-<li>.m源代码文件:这是典型的源代码文件扩展名，可以包含 Objective-C 和 C 代码。</li>
-<li>.mm源代码文件:带有这种扩展名的源代码文件，除了可以包含Objective-C和C代码以外还可以包含C+ +代码。仅在你的Objective-C代码中确实需要使用C++类或者特性的时候才用这种扩展名。</li>
-</ul>
-<h3 id="三、类"><a href="#三、类" class="headerlink" title="三、类"></a>三、类</h3><h4 id="1-类的基础知识"><a href="#1-类的基础知识" class="headerlink" title="1.类的基础知识"></a>1.类的基础知识</h4><ul>
-<li>Objective-C 的类规格说明包含了两个部分：定义（interface）与实现（implementation）。定义（interface）部分包含了类声明和实例变量的定义，以及类相关的方法。</li>
-<li>类的定义文件遵循C语言之惯例以.h为后缀，实现文件以.m为后缀。</li>
-</ul>
-<h4 id="2-类声明图"><a href="#2-类声明图" class="headerlink" title="2.类声明图"></a>2.类声明图</h4><p><img src="http://www.runoob.com/wp-content/uploads/2015/08/2011021920525849.jpg" alt></p>
-<h4 id="3-Interface"><a href="#3-Interface" class="headerlink" title="3.Interface"></a>3.Interface</h4><p>&emsp;&emsp;定义部分，清楚定义了类的名称、数据成员和方法。 以关键字@interface作为开始，@end作为结束。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@interface MyObject : NSObject &#123;</span><br><span class="line">    int memberVar1; // 实体变量</span><br><span class="line">    id  memberVar2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+(return_type) class_method; // 类方法</span><br><span class="line"></span><br><span class="line">-(return_type) instance_method1; // 实例方法</span><br><span class="line">-(return_type) instance_method2: (int) p1;</span><br><span class="line">-(return_type) instance_method3: (int) p1 andPar: (int) p2;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<h4 id="4-Implementation"><a href="#4-Implementation" class="headerlink" title="4.Implementation"></a>4.Implementation</h4><p>&emsp;&emsp;实现区块则包含了公开方法的实现，以及定义私有（private）变量及方法。 以关键字@implementation作为区块起头，@end结尾。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">@implementation MyObject &#123;</span><br><span class="line">  int memberVar3; //私有實體變數</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+(return_type) class_method &#123;</span><br><span class="line">    .... //method implementation</span><br><span class="line">&#125;</span><br><span class="line">-(return_type) instance_method1 &#123;</span><br><span class="line">     ....</span><br><span class="line">&#125;</span><br><span class="line">-(return_type) instance_method2: (int) p1 &#123;</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br><span class="line">-(return_type) instance_method3: (int) p1 andPar: (int) p2 &#123;</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;值得一提的是不只Interface区块可定义实体变量，Implementation区块也可以定义实体变量，两者的差别在于访问权限的不同，Interface区块内的实体变量默认权限为protected，宣告于implementation区块的实体变量则默认为private。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/Objective-C入门教程/" data-id="cjtis2jpi000izooc5f02dh3f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/22/C入门笔记/" data-id="cjtjd6pys002rn8ocf5bl5stt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -626,8 +477,8 @@ value_comp()     返回比较元素value的函数
   
     <article id="post-Cprimer阅读笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/21/Cprimer阅读笔记/" class="article-date">
-  <time datetime="2019-03-21T15:10:32.000Z" itemprop="datePublished">2019-03-21</time>
+    <a href="/2019/03/22/Cprimer阅读笔记/" class="article-date">
+  <time datetime="2019-03-22T01:06:36.000Z" itemprop="datePublished">2019-03-22</time>
 </a>
     
   </div>
@@ -676,7 +527,101 @@ value_comp()     返回比较元素value的函数
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/Cprimer阅读笔记/" data-id="cjtis2jp20008zooc9xr17f0f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/22/Cprimer阅读笔记/" data-id="cjtjd6pum0009n8oca8brvfrs" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-RefactoringImprovingtheDesignofExistingCode" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/22/RefactoringImprovingtheDesignofExistingCode/" class="article-date">
+  <time datetime="2019-03-22T01:06:35.000Z" itemprop="datePublished">2019-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Refactoring-Improving-the-Design-of-Existing-Code"><a href="#Refactoring-Improving-the-Design-of-Existing-Code" class="headerlink" title="Refactoring: Improving the Design of Existing Code"></a>Refactoring: Improving the Design of Existing Code</h2><h2 id="Chapter-1-Refactoring-a-First-Example"><a href="#Chapter-1-Refactoring-a-First-Example" class="headerlink" title="Chapter 1 Refactoring ,a First Example"></a>Chapter 1 Refactoring ,a First Example</h2><h3 id="1-The-First-Step-in-Refactoring"><a href="#1-The-First-Step-in-Refactoring" class="headerlink" title="1. The First Step in Refactoring"></a>1. The First Step in Refactoring</h3><p>1.I need to build a solid set of tests for that section of code. The tests are essential because even though I follow refactorings structured to avoid most of the opportunities for introducing bugs, I’m still human and still make mistakes. Thus I need solid tests.</p>
+<p>2.Before you start refactoring, check that you have a solid suite of tests. These tests must be self-checking.</p>
+<h3 id="2-Decomposing-and-Redistributing-the-Statement-Methon"><a href="#2-Decomposing-and-Redistributing-the-Statement-Methon" class="headerlink" title="2.Decomposing and Redistributing the Statement Methon"></a>2.Decomposing and Redistributing the Statement Methon</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/22/RefactoringImprovingtheDesignofExistingCode/" data-id="cjtjd6pv8000mn8ocbzph7tjc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-RoadoflearningC" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/22/RoadoflearningC/" class="article-date">
+  <time datetime="2019-03-22T01:06:35.000Z" itemprop="datePublished">2019-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Road-of-learning-C"><a href="#Road-of-learning-C" class="headerlink" title="Road of learning C++"></a>Road of learning C++</h1><p>[TOC]</p>
+<h2 id="I-Details-of-using-C"><a href="#I-Details-of-using-C" class="headerlink" title="I.Details of using C++"></a>I.Details of using C++</h2><h3 id="1-converting"><a href="#1-converting" class="headerlink" title="1.converting"></a>1.converting</h3><p>(1)Convert string to integer</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// stoi example</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;   // std::cout</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;     // std::string, std::stoi</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> str_dec = <span class="string">"2001, A Space Odyssey"</span>;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> str_hex = <span class="string">"40c3"</span>;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> str_bin = <span class="string">"-10010110001"</span>;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> str_auto = <span class="string">"0x7f"</span>;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">string</span>::size_type sz;   <span class="comment">// alias of size_t</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> i_dec = <span class="built_in">std</span>::stoi (str_dec,&amp;sz);</span><br><span class="line">  <span class="keyword">int</span> i_hex = <span class="built_in">std</span>::stoi (str_hex,<span class="literal">nullptr</span>,<span class="number">16</span>);</span><br><span class="line">  <span class="keyword">int</span> i_bin = <span class="built_in">std</span>::stoi (str_bin,<span class="literal">nullptr</span>,<span class="number">2</span>);</span><br><span class="line">  <span class="keyword">int</span> i_auto = <span class="built_in">std</span>::stoi (str_auto,<span class="literal">nullptr</span>,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; str_dec &lt;&lt; <span class="string">": "</span> &lt;&lt; i_dec &lt;&lt; <span class="string">" and ["</span> &lt;&lt; str_dec.substr(sz) &lt;&lt; <span class="string">"]\n"</span>;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; str_hex &lt;&lt; <span class="string">": "</span> &lt;&lt; i_hex &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; str_bin &lt;&lt; <span class="string">": "</span> &lt;&lt; i_bin &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; str_auto &lt;&lt; <span class="string">": "</span> &lt;&lt; i_auto &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>(2)Convert string to long int<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">// stol example</span><br><span class="line">#include &lt;iostream&gt;   // std::cout</span><br><span class="line">#include &lt;string&gt;     // std::string, std::stol</span><br><span class="line"></span><br><span class="line">int main ()</span><br><span class="line">&#123;</span><br><span class="line">  std::string str_dec = &quot;1987520&quot;;</span><br><span class="line">  std::string str_hex = &quot;2f04e009&quot;;</span><br><span class="line">  std::string str_bin = &quot;-11101001100100111010&quot;;</span><br><span class="line">  std::string str_auto = &quot;0x7fffff&quot;;</span><br><span class="line"></span><br><span class="line">  std::string::size_type sz;   // alias of size_t</span><br><span class="line"></span><br><span class="line">  long li_dec = std::stol (str_dec,&amp;sz);</span><br><span class="line">  long li_hex = std::stol (str_hex,nullptr,16);</span><br><span class="line">  long li_bin = std::stol (str_bin,nullptr,2);</span><br><span class="line">  long li_auto = std::stol (str_auto,nullptr,0);</span><br><span class="line"></span><br><span class="line">  std::cout &lt;&lt; str_dec &lt;&lt; &quot;: &quot; &lt;&lt; li_dec &lt;&lt; &apos;\n&apos;;</span><br><span class="line">  std::cout &lt;&lt; str_hex &lt;&lt; &quot;: &quot; &lt;&lt; li_hex &lt;&lt; &apos;\n&apos;;</span><br><span class="line">  std::cout &lt;&lt; str_bin &lt;&lt; &quot;: &quot; &lt;&lt; li_bin &lt;&lt; &apos;\n&apos;;</span><br><span class="line">  std::cout &lt;&lt; str_auto &lt;&lt; &quot;: &quot; &lt;&lt; li_auto &lt;&lt; &apos;\n&apos;;</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>(3)Convert bool to string<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">std::to_string(bool);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/22/RoadoflearningC/" data-id="cjtjd6pv9000nn8ocv6wrorxb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ExperienceofCinSF" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/22/ExperienceofCinSF/" class="article-date">
+  <time datetime="2019-03-22T01:06:35.000Z" itemprop="datePublished">2019-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Experience-of-C-in-SF"><a href="#Experience-of-C-in-SF" class="headerlink" title="Experience of C++ in SF"></a>Experience of C++ in SF</h1><p>[TOC]</p>
+<h2 id="1-Attachment-moudule"><a href="#1-Attachment-moudule" class="headerlink" title="1.Attachment moudule"></a>1.Attachment moudule</h2><h3 id="1-perfect-using-in-Attachment"><a href="#1-perfect-using-in-Attachment" class="headerlink" title="(1) perfect using in Attachment"></a>(1) perfect using in Attachment</h3><h4 id="a-Checkout-of-parameter"><a href="#a-Checkout-of-parameter" class="headerlink" title="a. Checkout of parameter"></a>a. Checkout of parameter</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * set attachment id</span></span><br><span class="line"><span class="comment"> * @param  attachmentId is a string</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">void</span> Attachment::setAttachmentId(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp;attachmentId) &#123;</span><br><span class="line">	<span class="comment">//Checkout of parameter</span></span><br><span class="line">	<span class="keyword">if</span> (attachmentId.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		SE_LOG_WARN(kAttachmentModule,<span class="string">"set attachmentId get an empty string"</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	m_attachmentId = attachmentId;</span><br><span class="line">	SE_LOG_DEBUG(kAttachmentModule,<span class="string">"setattachmentId success"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="b-Using-get-to-judge-shared-ptr-is-null"><a href="#b-Using-get-to-judge-shared-ptr-is-null" class="headerlink" title="b.Using get to judge shared_ptr is null"></a>b.Using get to judge shared_ptr is null</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">shared_ptr</span>&lt;Attachment&gt; attachment;</span><br><span class="line"><span class="keyword">if</span>(attachment.get() == <span class="literal">NULL</span>) &#123;</span><br><span class="line">	<span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>c.Using empty to judge string is empty<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">std::string Id; </span><br><span class="line">// check Id is empty</span><br><span class="line">if (Id.empty()) &#123;</span><br><span class="line">	SE_LOG_ERROR(kAttachmentModule,&quot;getAttachment get an empty Id&quot;);</span><br><span class="line">	return finalget;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-Knowledge-in-Attachment"><a href="#2-Knowledge-in-Attachment" class="headerlink" title="(2) Knowledge in Attachment"></a>(2) Knowledge in Attachment</h3><h4 id="a-uint64-t"><a href="#a-uint64-t" class="headerlink" title="a.uint64_t"></a>a.uint64_t</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">uint8_t</span><br><span class="line">uint16_t</span><br><span class="line">uint32_t</span><br><span class="line">uint64_t</span><br><span class="line"> </span><br><span class="line">unsigned integer type with width of exactly 8, 16, 32 and 64 bits respectively </span><br><span class="line">(provided only if the implementation directly supports the type)</span><br></pre></td></tr></table></figure>
+<h4 id="b-using-of-rapidJson"><a href="#b-using-of-rapidJson" class="headerlink" title="b.using of rapidJson"></a>b.using of rapidJson</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//define </span></span><br><span class="line">StringBuffer strbuf; </span><br><span class="line">Writer&lt;StringBuffer&gt; writer(strbuf); </span><br><span class="line"></span><br><span class="line"><span class="comment">//How to write json</span></span><br><span class="line">writer.StartObject(); </span><br><span class="line">writer.Key(F_JSON_ATT_ID);</span><br><span class="line">writer.String(m_id.c_str());</span><br><span class="line"></span><br><span class="line"><span class="comment">//Write Bool</span></span><br><span class="line">writer.Key(F_JSON_ATT_IS_Forward); </span><br><span class="line">writer.Bool(True);</span><br><span class="line"></span><br><span class="line"><span class="comment">//Write Int</span></span><br><span class="line">writer.Key(F_JSON_ATT_DOWNLOADDATE); </span><br><span class="line">writer.Uint64(m_downloadDate); </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//Ending of writing</span></span><br><span class="line">writer.EndObject(); </span><br><span class="line"></span><br><span class="line"><span class="comment">//Return std::string </span></span><br><span class="line"><span class="keyword">return</span> <span class="keyword">return</span> strbuf.GetString();</span><br></pre></td></tr></table></figure>
+<h4 id="c-std-lock-guard"><a href="#c-std-lock-guard" class="headerlink" title="c.std::lock_guard"></a>c.std::lock_guard</h4><p>(1)what is std::lock_guard<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The class lock_guard is a mutex wrapper that provides a convenient RAII-style </span><br><span class="line">mechanism for owning a mutex for the duration of a scoped block.</span><br></pre></td></tr></table></figure></p>
+<p>(2)how to using std::lock_guard<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;thread&gt;</span><br><span class="line">#include &lt;mutex&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line"> </span><br><span class="line">int g_i = 0;</span><br><span class="line">std::mutex g_i_mutex;  // protects g_i</span><br><span class="line"> </span><br><span class="line">void safe_increment()</span><br><span class="line">&#123;</span><br><span class="line">    std::lock_guard&lt;std::mutex&gt; lock(g_i_mutex);</span><br><span class="line">    ++g_i;</span><br><span class="line"> </span><br><span class="line">    std::cout &lt;&lt; std::this_thread::get_id() &lt;&lt; &quot;: &quot; &lt;&lt; g_i &lt;&lt; &apos;\n&apos;;</span><br><span class="line"> </span><br><span class="line">    // g_i_mutex is automatically released when lock</span><br><span class="line">    // goes out of scope</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    std::cout &lt;&lt; &quot;main: &quot; &lt;&lt; g_i &lt;&lt; &apos;\n&apos;;</span><br><span class="line"> </span><br><span class="line">    std::thread t1(safe_increment);</span><br><span class="line">    std::thread t2(safe_increment);</span><br><span class="line"> </span><br><span class="line">    t1.join();</span><br><span class="line">    t2.join();</span><br><span class="line"> </span><br><span class="line">    std::cout &lt;&lt; &quot;main: &quot; &lt;&lt; g_i &lt;&lt; &apos;\n&apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>(3)output<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">main: <span class="number">0</span></span><br><span class="line"><span class="number">140641306900224</span>: <span class="number">1</span></span><br><span class="line"><span class="number">140641298507520</span>: <span class="number">2</span></span><br><span class="line">main: <span class="number">2</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="d-std-thread"><a href="#d-std-thread" class="headerlink" title="d.std::thread"></a>d.std::thread</h4><h2 id="2-DataBase-Moudul"><a href="#2-DataBase-Moudul" class="headerlink" title="2.DataBase Moudul;"></a>2.DataBase Moudul;</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/22/ExperienceofCinSF/" data-id="cjtjd6pux000cn8oc270ih56f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -698,12 +643,33 @@ value_comp()     返回比较元素value的函数
           <aside id="sidebar">
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/网安组/">网安组</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络安全/">网络安全</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/网络安全/" style="font-size: 10px;">网络安全</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
@@ -722,23 +688,23 @@ value_comp()     返回比较元素value的函数
       <ul>
         
           <li>
-            <a href="/2019/03/21/白象的舞步来自南亚次大陆的网络攻击/">(no title)</a>
+            <a href="/2019/03/22/第二章逆向分析HelloWord程序/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/21/盗梦空间：云托管的apt/">(no title)</a>
+            <a href="/2019/03/22/Chapter2VariablesandFundamentalDataTypes/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/21/第二章逆向分析HelloWord程序/">(no title)</a>
+            <a href="/2019/03/22/Chapter1CBasics/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/21/Chapter1CBasics/">(no title)</a>
+            <a href="/2019/03/22/第三章数据类型与运算符/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/21/Chapter2VariablesandFundamentalDataTypes/">(no title)</a>
+            <a href="/2019/03/22/第二章理解结构化程序设计/">(no title)</a>
           </li>
         
       </ul>

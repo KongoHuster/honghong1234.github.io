@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>浮生若梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Usage of git1.Git Tools - Submodules1.Why you should use sumbmodules1234It often happens that while working on one project, you need to use another project from within it. Perhaps it’s a library that">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浮生若梦">
+<meta property="og:url" content="http://yoursite.com/2019/03/22/Git使用方法/index.html">
+<meta property="og:site_name" content="浮生若梦">
+<meta property="og:description" content="Usage of git1.Git Tools - Submodules1.Why you should use sumbmodules1234It often happens that while working on one project, you need to use another project from within it. Perhaps it’s a library that">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-22T01:06:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浮生若梦">
+<meta name="twitter:description" content="Usage of git1.Git Tools - Submodules1.Why you should use sumbmodules1234It often happens that while working on one project, you need to use another project from within it. Perhaps it’s a library that">
+  
+    <link rel="alternate" href="/atom.xml" title="浮生若梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">浮生若梦</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Git使用方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/22/Git使用方法/" class="article-date">
+  <time datetime="2019-03-22T01:06:34.000Z" itemprop="datePublished">2019-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Usage-of-git"><a href="#Usage-of-git" class="headerlink" title="Usage of git"></a>Usage of git</h2><h3 id="1-Git-Tools-Submodules"><a href="#1-Git-Tools-Submodules" class="headerlink" title="1.Git Tools - Submodules"></a>1.Git Tools - Submodules</h3><h4 id="1-Why-you-should-use-sumbmodules"><a href="#1-Why-you-should-use-sumbmodules" class="headerlink" title="1.Why you should use sumbmodules"></a>1.Why you should use sumbmodules</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">It often happens that while working on one project, you need to use another project from within it. Perhaps it’s a library that </span><br><span class="line">a third party developed or that you’re developing separately and </span><br><span class="line">using in multiple parent projects. A common issue arises in these scenarios: you want to be able to treat the two projects </span><br><span class="line">as separate yet still be able to use one from within the other.</span><br></pre></td></tr></table></figure>
+<h4 id="2-Starting-with-Submodules"><a href="#2-Starting-with-Submodules" class="headerlink" title="2.Starting with Submodules"></a>2.Starting with Submodules</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule add https://github.com/chaconinc/DbConnector</span><br><span class="line">Cloning into &apos;DbConnector&apos;...</span><br><span class="line">remote: Counting objects: 11, done.</span><br><span class="line">remote: Compressing objects: 100% (10/10), done.</span><br><span class="line">remote: Total 11 (delta 0), reused 11 (delta 0)</span><br><span class="line">Unpacking objects: 100% (11/11), done.</span><br><span class="line">Checking connectivity... done.</span><br></pre></td></tr></table></figure>
+<h4 id="3-How-to-clone-a-project-with-a-sumbmodule"><a href="#3-How-to-clone-a-project-with-a-sumbmodule" class="headerlink" title="3.How to clone a project with a sumbmodule"></a>3.How to clone a project with a sumbmodule</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule init</span><br><span class="line">Submodule &apos;DbConnector&apos; (https://github.com/chaconinc/DbConnector) registered for path &apos;DbConnector&apos;</span><br><span class="line">$ git submodule update</span><br><span class="line">Cloning into &apos;DbConnector&apos;...</span><br><span class="line">remote: Counting objects: 11, done.</span><br><span class="line">remote: Compressing objects: 100% (10/10), done.</span><br><span class="line">remote: Total 11 (delta 0), reused 11 (delta 0)</span><br><span class="line">Unpacking objects: 100% (11/11), done.</span><br><span class="line">Checking connectivity... done.</span><br><span class="line">Submodule path &apos;DbConnector&apos;: checked out &apos;c3f01dc8862123d317dd46284b05b6892c7b29bc&apos;</span><br></pre></td></tr></table></figure>
+<h3 id="2-Set-your-username"><a href="#2-Set-your-username" class="headerlink" title="2.Set your username"></a>2.Set your username</h3><p>1.Open Git Bash.</p>
+<p>2.Set a Git username:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;Mona Lisa&quot;</span><br></pre></td></tr></table></figure></p>
+<p>3.Confirm that you have set the Git username correctly:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name</span><br></pre></td></tr></table></figure></p>
+<p>4.Set your email<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email yzihong307@gmail.com</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-Git-log"><a href="#3-Git-log" class="headerlink" title="3. Git log"></a>3. Git log</h3><p>1.Get the note that you can get a documentation<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man git-log</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git help log</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/22/Git使用方法/" data-id="cjtjd6puy000en8oct21okwgj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/03/22/SQL/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/22/深信服代码规范总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/网安组/">网安组</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络安全/">网络安全</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/网络安全/" style="font-size: 10px;">网络安全</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/22/第二章逆向分析HelloWord程序/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/Chapter2VariablesandFundamentalDataTypes/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/Chapter1CBasics/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/第三章数据类型与运算符/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/第二章理解结构化程序设计/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 闳<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
