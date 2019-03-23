@@ -208,68 +208,6 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/10/06/C语言作业/" title="C语言作业" itemprop="url">C语言作业</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="柳柳" target="_blank" itemprop="author">柳柳</a>
-		
-  <p class="article-time">
-    <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished"> Published 2018-10-06</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="1-采用多文件编译方式运行main"><a href="#1-采用多文件编译方式运行main" class="headerlink" title="1.采用多文件编译方式运行main"></a>1.采用多文件编译方式运行main</h3><p>指令输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">patch -p0 main.c  v1.0.patch  // 给main.c文件打上补丁</span><br><span class="line">gcc -c add_minus.c  </span><br><span class="line">gcc main.c add_minus.o</span><br></pre></td></tr></table></figure></p>
-<p>运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;./a.out</span><br></pre></td></tr></table></figure></p>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2018/10/06/C语言作业/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/讲座培训/">讲座培训</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Dian/">Dian</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
       <a href="/2018/10/06/Dian团队文档培训感想/" title="Dian团队文档培训感想" itemprop="url">Dian团队文档培训感想</a>
   </h1>
   <p class="article-author">By
@@ -526,7 +464,7 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/10/06/InstallCentOS/" title="Install CentOS" itemprop="url">Install CentOS</a>
+      <a href="/2018/10/06/AI之论文阅读笔记/" title="AI之论文阅读笔记--李泽康" itemprop="url">AI之论文阅读笔记--李泽康</a>
   </h1>
   <p class="article-author">By
        
@@ -539,12 +477,17 @@
 </header>
     <div class="article-content">
         
-        <h2 id="1-Set-network"><a href="#1-Set-network" class="headerlink" title="1 Set network"></a>1 Set network</h2><p>(1)cat /etc/sysconfig/network-scripts/ifcfg-enp2s0<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">root@centos1 ~]# cat /etc/sysconfig/network-scripts/ifcfg-enp2s0</span><br><span class="line">HWADDR=00:E0:69:01:6A:96</span><br><span class="line">TYPE=Ethernet</span><br><span class="line">BOOTPROTO=dhcp</span><br><span class="line">DEFROUTE=yes</span><br><span class="line">PEERDNS=yes</span><br><span class="line">PEERROUTES=yes</span><br><span class="line">IPV4_FAILURE_FATAL=no</span><br><span class="line">IPV6INIT=yes</span><br><span class="line">IPV6_AUTOCONF=yes</span><br><span class="line">IPV6_DEFROUTE=yes</span><br><span class="line">IPV6_PEERDNS=yes</span><br><span class="line">IPV6_PEERROUTES=yes</span><br><span class="line">IPV6_FAILURE_FATAL=no</span><br><span class="line">NAME=enp2s0</span><br><span class="line">UUID=5b0a7d76-1602-4e19-aee6-29f57618ca01</span><br><span class="line">ONBOOT=no</span><br></pre></td></tr></table></figure></p>
+        <p>[TOC]</p>
+<h2 id="一-论文概况"><a href="#一-论文概况" class="headerlink" title="一.论文概况"></a>一.论文概况</h2><ol>
+<li>论文名：《Playing Atari with Deep Reinforcement Learning》</li>
+<li>作者：Volodymyr Mnih等</li>
+</ol>
+<h2 id="二-论文简介及解决问题"><a href="#二-论文简介及解决问题" class="headerlink" title="二.论文简介及解决问题"></a>二.论文简介及解决问题</h2><p>&emsp;&emsp;本文提出了一种深度学习方法，利用强化学习的方法，直接从高维的感知输入中学习控制策略。<br>
         
         
         <p class="article-more-link">
           
-            <a href="/2018/10/06/InstallCentOS/#more">Read More</a>
+            <a href="/2018/10/06/AI之论文阅读笔记/#more">Read More</a>
           
        </p>
     </div>
@@ -553,13 +496,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/Linux学习/">Linux学习</a>
+  <a class="article-category-link" href="/categories/讲座分享/">讲座分享</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Linux/">Linux</a>
+  <span></span> <a href="/tags/机器学习/">机器学习</a>
   </div>
 
 </div>
@@ -622,6 +565,67 @@
   <div class="article-tags">
   
   <span></span> <a href="/tags/git/">git</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/10/06/InstallCentOS/" title="Install CentOS" itemprop="url">Install CentOS</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="柳柳" target="_blank" itemprop="author">柳柳</a>
+		
+  <p class="article-time">
+    <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished"> Published 2018-10-06</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="1-Set-network"><a href="#1-Set-network" class="headerlink" title="1 Set network"></a>1 Set network</h2><p>(1)cat /etc/sysconfig/network-scripts/ifcfg-enp2s0<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">root@centos1 ~]# cat /etc/sysconfig/network-scripts/ifcfg-enp2s0</span><br><span class="line">HWADDR=00:E0:69:01:6A:96</span><br><span class="line">TYPE=Ethernet</span><br><span class="line">BOOTPROTO=dhcp</span><br><span class="line">DEFROUTE=yes</span><br><span class="line">PEERDNS=yes</span><br><span class="line">PEERROUTES=yes</span><br><span class="line">IPV4_FAILURE_FATAL=no</span><br><span class="line">IPV6INIT=yes</span><br><span class="line">IPV6_AUTOCONF=yes</span><br><span class="line">IPV6_DEFROUTE=yes</span><br><span class="line">IPV6_PEERDNS=yes</span><br><span class="line">IPV6_PEERROUTES=yes</span><br><span class="line">IPV6_FAILURE_FATAL=no</span><br><span class="line">NAME=enp2s0</span><br><span class="line">UUID=5b0a7d76-1602-4e19-aee6-29f57618ca01</span><br><span class="line">ONBOOT=no</span><br></pre></td></tr></table></figure></p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2018/10/06/InstallCentOS/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux学习/">Linux学习</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Linux/">Linux</a>
   </div>
 
 </div>
@@ -826,6 +830,10 @@
 			
 		
 			
+				<li><a href="/tags/材料物理化学/" title="材料物理化学">材料物理化学<sup>3</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/操作系统/" title="操作系统">操作系统<sup>3</sup></a></li>
 			
 		
@@ -838,11 +846,7 @@
 			
 		
 			
-				<li><a href="/tags/材料物理化学/" title="材料物理化学">材料物理化学<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/节目策划/" title="节目策划">节目策划<sup>2</sup></a></li>
+				<li><a href="/tags/Android/" title="Android">Android<sup>2</sup></a></li>
 			
 		
 			
@@ -850,11 +854,11 @@
 			
 		
 			
-				<li><a href="/tags/Android/" title="Android">Android<sup>2</sup></a></li>
+				<li><a href="/tags/散文/" title="散文">散文<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/散文/" title="散文">散文<sup>2</sup></a></li>
+				<li><a href="/tags/机器学习/" title="机器学习">机器学习<sup>2</sup></a></li>
 			
 		
 			
@@ -862,7 +866,7 @@
 			
 		
 			
-				<li><a href="/tags/机器学习/" title="机器学习">机器学习<sup>2</sup></a></li>
+				<li><a href="/tags/节目策划/" title="节目策划">节目策划<sup>2</sup></a></li>
 			
 		
 			
@@ -878,7 +882,7 @@
 			
 		
 			
-				<li><a href="/tags/PPT/" title="PPT">PPT<sup>1</sup></a></li>
+				<li><a href="/tags/Objective-C/" title="Objective-C">Objective-C<sup>1</sup></a></li>
 			
 		
 			
