@@ -4,25 +4,20 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>第五章 数组和广义表 | 闳</title>
+    <title>闳</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="柳柳">
     
 
     
-    <meta name="description" content="一、多维数组1.数组VS顺序表 数组和顺序表的本质不同。数组作为一种数据类型，作用是将类型相同的数据存储在一整块内存中，数组中存储的数据之间没有任何逻辑关系，谁也不认识谁。  如果用一句话来描述两者之间的关系，就是：用数组来存储的线性表是顺序表。   二、矩阵压缩存储1.对称矩阵 如果n阶矩阵中的元素满足： aij = aji ( i 为行标， j 为列标)，就称这个矩阵为对称矩阵。  2.稀疏矩">
-<meta name="keywords" content="数据结构">
-<meta property="og:type" content="article">
-<meta property="og:title" content="第五章 数组和广义表">
-<meta property="og:url" content="http://yoursite.com/2018/10/06/第五章数组和广义表/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="闳">
+<meta property="og:url" content="http://yoursite.com/page/8/index.html">
 <meta property="og:site_name" content="闳">
-<meta property="og:description" content="一、多维数组1.数组VS顺序表 数组和顺序表的本质不同。数组作为一种数据类型，作用是将类型相同的数据存储在一整块内存中，数组中存储的数据之间没有任何逻辑关系，谁也不认识谁。  如果用一句话来描述两者之间的关系，就是：用数组来存储的线性表是顺序表。   二、矩阵压缩存储1.对称矩阵 如果n阶矩阵中的元素满足： aij = aji ( i 为行标， j 为列标)，就称这个矩阵为对称矩阵。  2.稀疏矩">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-31T13:38:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第五章 数组和广义表">
-<meta name="twitter:description" content="一、多维数组1.数组VS顺序表 数组和顺序表的本质不同。数组作为一种数据类型，作用是将类型相同的数据存储在一整块内存中，数组中存储的数据之间没有任何逻辑关系，谁也不认识谁。  如果用一句话来描述两者之间的关系，就是：用数组来存储的线性表是顺序表。   二、矩阵压缩存储1.对称矩阵 如果n阶矩阵中的元素满足： aij = aji ( i 为行标， j 为列标)，就称这个矩阵为对称矩阵。  2.稀疏矩">
+<meta name="twitter:title" content="闳">
 
     
     <link rel="alternative" href="/atom.xml" title="闳" type="application/atom+xml">
@@ -76,13 +71,15 @@
 </div>
     </header>
     <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
-  
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
+      <div id="main">
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/10/06/第五章数组和广义表/" title="第五章 数组和广义表" itemprop="url">第五章 数组和广义表</a>
+      <a href="/2018/10/06/程序设计思想与方法/" title="程序设计思想与方法" itemprop="url">程序设计思想与方法</a>
   </h1>
   <p class="article-author">By
        
@@ -93,97 +90,58 @@
     
   </p>
 </header>
-	<div class="article-content">
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
-		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、多维数组"><span class="toc-number">1.</span> <span class="toc-text">一、多维数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数组VS顺序表"><span class="toc-number">1.1.</span> <span class="toc-text">1.数组VS顺序表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、矩阵压缩存储"><span class="toc-number">2.</span> <span class="toc-text">二、矩阵压缩存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-对称矩阵"><span class="toc-number">2.1.</span> <span class="toc-text">1.对称矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-稀疏矩阵"><span class="toc-number">2.2.</span> <span class="toc-text">2.稀疏矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-十字链表"><span class="toc-number">2.3.</span> <span class="toc-text">3.十字链表</span></a></li></ol></li></ol>
-		
-		</div>
-		
-		<h2 id="一、多维数组"><a href="#一、多维数组" class="headerlink" title="一、多维数组"></a>一、多维数组</h2><h3 id="1-数组VS顺序表"><a href="#1-数组VS顺序表" class="headerlink" title="1.数组VS顺序表"></a>1.数组VS顺序表</h3><ul>
-<li><p>数组和顺序表的本质不同。数组作为一种数据类型，作用是将类型相同的数据存储在一整块内存中，数组中存储的数据之间没有任何逻辑关系，谁也不认识谁。</p>
-</li>
-<li><p>如果用一句话来描述两者之间的关系，就是：用数组来存储的线性表是顺序表。</p>
-</li>
-</ul>
-<h2 id="二、矩阵压缩存储"><a href="#二、矩阵压缩存储" class="headerlink" title="二、矩阵压缩存储"></a>二、矩阵压缩存储</h2><h3 id="1-对称矩阵"><a href="#1-对称矩阵" class="headerlink" title="1.对称矩阵"></a>1.对称矩阵</h3><ul>
-<li>如果n阶矩阵中的元素满足： aij = aji ( i 为行标， j 为列标)，就称这个矩阵为对称矩阵。</li>
-</ul>
-<h3 id="2-稀疏矩阵"><a href="#2-稀疏矩阵" class="headerlink" title="2.稀疏矩阵"></a>2.稀疏矩阵</h3><ul>
-<li>稀疏矩阵，简单的说，就是矩阵中只含有少量的非 0 元素，相比于使用普通方式将矩阵中的所有数据元素一一存储，不如只存储非 0 元素更节省内存空间。</li>
-</ul>
-<h3 id="3-十字链表"><a href="#3-十字链表" class="headerlink" title="3.十字链表"></a>3.十字链表</h3><ul>
-<li>例如在进行“将矩阵 B 加到矩阵 A 上”的操作时，矩阵 A 中的数据元素会发生很大的变化，之前的 0 元素可能变成非 0 元素，非 0 元素也可能变成 0 （正负数相加为 0）。在这种情况下，就需要使用链表的存储结构来存储矩阵，这种存储方式称为：十字链表法。</li>
-</ul>
-  
-	</div>
-		<footer class="article-footer clearfix">
+    <div class="article-content">
+        
+        <h2 id="第一章-计算与计算思维"><a href="#第一章-计算与计算思维" class="headerlink" title="第一章 计算与计算思维"></a>第一章 计算与计算思维</h2><h3 id="一、计算机语言"><a href="#一、计算机语言" class="headerlink" title="一、计算机语言"></a>一、计算机语言</h3><p>1.高级语言的翻译有两种方式：编译和解释；</p>
+<p>2.编译器（compiler）将高级语言程序（称为源代码）完整地翻译成等价的机器语言程序（称为目标代码）；<br>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2018/10/06/程序设计思想与方法/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/算法/">算法</a>
+  <a class="article-category-link" href="/categories/微机原理/">微机原理</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/数据结构/">数据结构</a>
+  <span></span> <a href="/tags/微机原理/">微机原理</a>
   </div>
 
 </div>
 
 
 
-	<div class="article-share" id="share">
-	
-	  <div data-url="http://yoursite.com/2018/10/06/第五章数组和广义表/" data-title="第五章 数组和广义表 | 闳" data-tsina="" class="share clearfix">
-	  </div>
-	
-	</div>
 
+<div class="comments-count">
+	
+</div>
 
 </footer>
 
-   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/2018/10/06/第二部分化学动力学初步/" title="第二部分 化学动力学初步">
-  <strong>上一篇：</strong><br/>
-  <span>
-  第二部分 化学动力学初步</span>
-</a>
+
+    </article>
+
+
+
+
+
+
+
+  <nav id="page-nav" class="clearfix">
+    <a class="extend prev" rel="prev" href="/page/7/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span>
+  </nav>
+
 </div>
-
-
-<div class="next">
-<a href="/2018/10/06/第五章端到端协议/"  title="第五章 端到端协议">
- <strong>下一篇：</strong><br/> 
- <span>第五章 端到端协议
-</span>
-</a>
-</div>
-
-</nav>
-
-	
-
-
-
-</div>  
       <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
- 
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、多维数组"><span class="toc-number">1.</span> <span class="toc-text">一、多维数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数组VS顺序表"><span class="toc-number">1.1.</span> <span class="toc-text">1.数组VS顺序表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、矩阵压缩存储"><span class="toc-number">2.</span> <span class="toc-text">二、矩阵压缩存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-对称矩阵"><span class="toc-number">2.1.</span> <span class="toc-text">1.对称矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-稀疏矩阵"><span class="toc-number">2.2.</span> <span class="toc-text">2.稀疏矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-十字链表"><span class="toc-number">2.3.</span> <span class="toc-text">3.十字链表</span></a></li></ol></li></ol>
- 
-  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
@@ -496,89 +454,12 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
-      
-      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  c.click(function(){
-    ta.css('display', 'block').addClass('fadeIn');
-  });
-  o.click(function(){
-    ta.css('display', 'none');
-  });
-  $(window).scroll(function(){
-    ta.css("top",Math.max(140,320-$(this).scrollTop()));
-  });
-});
-</script>
-
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina'),
-      description = $this.attr('description');
-  var html = [
-  '<div class="hoverqrcode clearfix"></div>',
-  '<a class="overlay" id="qrcode"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
-  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
-
-  $('.hoverqrcode').hide();
-
-  var myWidth = 0;
-  function updatehoverqrcode(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-    var qrsize = myWidth > 1024 ? 200:100;
-    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
-    var p = $('.article-share-qrcode').position();
-    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
-                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
-                          .qrcode(options);
-  };
-  $(window).resize(function(){
-    $('.hoverqrcode').hide();
-  });
-  $('.article-share-qrcode').click(function(){
-    updatehoverqrcode();
-    $('.hoverqrcode').toggle();
-  });
-  $('.article-share-qrcode').hover(function(){}, function(){
-      $('.hoverqrcode').hide();
-  });
-});   
-</script>
 
 
 
@@ -651,4 +532,4 @@ var _hmt = _hmt || [];
 <!-- Tiny_search End -->
 
   </body>
-</html>
+ </html>
