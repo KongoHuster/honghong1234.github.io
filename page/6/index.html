@@ -79,6 +79,220 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2018/10/06/第五章数组和广义表/" title="第五章 数组和广义表" itemprop="url">第五章 数组和广义表</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="柳柳" target="_blank" itemprop="author">柳柳</a>
+		
+  <p class="article-time">
+    <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished"> Published 2018-10-06</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="一、多维数组"><a href="#一、多维数组" class="headerlink" title="一、多维数组"></a>一、多维数组</h2><h3 id="1-数组VS顺序表"><a href="#1-数组VS顺序表" class="headerlink" title="1.数组VS顺序表"></a>1.数组VS顺序表</h3><ul>
+<li><p>数组和顺序表的本质不同。数组作为一种数据类型，作用是将类型相同的数据存储在一整块内存中，数组中存储的数据之间没有任何逻辑关系，谁也不认识谁。</p>
+</li>
+<li><p>如果用一句话来描述两者之间的关系，就是：用数组来存储的线性表是顺序表。</p>
+</li>
+</ul>
+<h2 id="二、矩阵压缩存储"><a href="#二、矩阵压缩存储" class="headerlink" title="二、矩阵压缩存储"></a>二、矩阵压缩存储</h2><h3 id="1-对称矩阵"><a href="#1-对称矩阵" class="headerlink" title="1.对称矩阵"></a>1.对称矩阵</h3><ul>
+<li>如果n阶矩阵中的元素满足： aij = aji ( i 为行标， j 为列标)，就称这个矩阵为对称矩阵。</li>
+</ul>
+<h3 id="2-稀疏矩阵"><a href="#2-稀疏矩阵" class="headerlink" title="2.稀疏矩阵"></a>2.稀疏矩阵</h3><ul>
+<li>稀疏矩阵，简单的说，就是矩阵中只含有少量的非 0 元素，相比于使用普通方式将矩阵中的所有数据元素一一存储，不如只存储非 0 元素更节省内存空间。</li>
+</ul>
+<h3 id="3-十字链表"><a href="#3-十字链表" class="headerlink" title="3.十字链表"></a>3.十字链表</h3><ul>
+<li>例如在进行“将矩阵 B 加到矩阵 A 上”的操作时，矩阵 A 中的数据元素会发生很大的变化，之前的 0 元素可能变成非 0 元素，非 0 元素也可能变成 0 （正负数相加为 0）。在这种情况下，就需要使用链表的存储结构来存储矩阵，这种存储方式称为：十字链表法。</li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/数据结构/">数据结构</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/10/06/第五章端到端协议/" title="第五章 端到端协议" itemprop="url">第五章 端到端协议</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="柳柳" target="_blank" itemprop="author">柳柳</a>
+		
+  <p class="article-time">
+    <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished"> Published 2018-10-06</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="一、支持通用服务"><a href="#一、支持通用服务" class="headerlink" title="一、支持通用服务"></a>一、支持通用服务</h2><ul>
+<li>目标 1: 网络支持各种不同的应用 </li>
+<li>目标 2: 网络在现实网络条件下支持各种不同的应用</li>
+</ul>
+<h2 id="二、进程间如何通信"><a href="#二、进程间如何通信" class="headerlink" title="二、进程间如何通信"></a>二、进程间如何通信</h2><h3 id="1-传输层-上层协议的观点"><a href="#1-传输层-上层协议的观点" class="headerlink" title="1.传输层: 上层协议的观点"></a>1.传输层: 上层协议的观点</h3><ul>
+<li>保证消息的传输</li>
+<li>传送过程中保证消息发送时的顺序</li>
+<li>最多传送每个消息的一个副本</li>
+<li>支持任意大的消息</li>
+<li>支持发送方与接收方之间的同步</li>
+<li>允许接收方对发送方进行流量控制</li>
+<li><p>支持每台主机上的多个应用进程</p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2018/10/06/第五章端到端协议/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/计算机网络/">计算机网络</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/计算机网络/">计算机网络</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/10/06/第六章TCP/" title="第六章 TCP" itemprop="url">第六章 TCP</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="柳柳" target="_blank" itemprop="author">柳柳</a>
+		
+  <p class="article-time">
+    <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished"> Published 2018-10-06</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="一、拥塞"><a href="#一、拥塞" class="headerlink" title="一、拥塞"></a>一、拥塞</h2><h4 id="1-当网络负载持续大于其承载能力则发生拥塞"><a href="#1-当网络负载持续大于其承载能力则发生拥塞" class="headerlink" title="1.当网络负载持续大于其承载能力则发生拥塞"></a>1.当网络负载持续大于其承载能力则发生拥塞</h4><h4 id="2-拥塞现象的体现"><a href="#2-拥塞现象的体现" class="headerlink" title="2.拥塞现象的体现"></a>2.拥塞现象的体现</h4><ul>
+<li>持续的分组丢失</li>
+<li>分组时延不断增加</li>
+</ul>
+<h2 id="二、资源分配"><a href="#二、资源分配" class="headerlink" title="二、资源分配"></a>二、资源分配</h2><h3 id="1-网络模型"><a href="#1-网络模型" class="headerlink" title="1. 网络模型"></a>1. 网络模型</h3><ul>
+<li>分组交换网</li>
+<li>无连接流</li>
+<li>服务模型
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2018/10/06/第六章TCP/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/计算机网络/">计算机网络</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/计算机网络/">计算机网络</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2018/10/06/第六章树/" title="一、算法时间复杂度和空间复杂度的计算" itemprop="url">一、算法时间复杂度和空间复杂度的计算</a>
   </h1>
   <p class="article-author">By
@@ -197,74 +411,6 @@
   <div class="article-tags">
   
   <span></span> <a href="/tags/数据结构/">数据结构</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2018/10/06/第六章TCP/" title="第六章 TCP" itemprop="url">第六章 TCP</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="柳柳" target="_blank" itemprop="author">柳柳</a>
-		
-  <p class="article-time">
-    <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished"> Published 2018-10-06</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="一、拥塞"><a href="#一、拥塞" class="headerlink" title="一、拥塞"></a>一、拥塞</h2><h4 id="1-当网络负载持续大于其承载能力则发生拥塞"><a href="#1-当网络负载持续大于其承载能力则发生拥塞" class="headerlink" title="1.当网络负载持续大于其承载能力则发生拥塞"></a>1.当网络负载持续大于其承载能力则发生拥塞</h4><h4 id="2-拥塞现象的体现"><a href="#2-拥塞现象的体现" class="headerlink" title="2.拥塞现象的体现"></a>2.拥塞现象的体现</h4><ul>
-<li>持续的分组丢失</li>
-<li>分组时延不断增加</li>
-</ul>
-<h2 id="二、资源分配"><a href="#二、资源分配" class="headerlink" title="二、资源分配"></a>二、资源分配</h2><h3 id="1-网络模型"><a href="#1-网络模型" class="headerlink" title="1. 网络模型"></a>1. 网络模型</h3><ul>
-<li>分组交换网</li>
-<li>无连接流</li>
-<li>服务模型
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2018/10/06/第六章TCP/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/计算机网络/">计算机网络</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/计算机网络/">计算机网络</a>
   </div>
 
 </div>
@@ -661,7 +807,7 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/10/06/EventBus使用详解/" title="EventBus使用详解" itemprop="url">EventBus使用详解</a>
+      <a href="/2018/10/06/FirststeptoLinux/" title="First step to Linux" itemprop="url">First step to Linux</a>
   </h1>
   <p class="article-author">By
        
@@ -674,74 +820,12 @@
 </header>
     <div class="article-content">
         
-        <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><h3 id="1-四种订阅函数"><a href="#1-四种订阅函数" class="headerlink" title="1.四种订阅函数"></a>1.四种订阅函数</h3><p>1、onEvent<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onEvent:如果使用onEvent作为订阅函数，那么该事件在哪个线程发布出来的，onEvent</span><br><span class="line">就会在这个线程中运行，也就是说发布事件和接收事件线程在同一个线程。使用这个方</span><br><span class="line">法时，在onEvent方法中不能执行耗时操作，如果执行耗时操作容易导致事件分发延迟</span><br></pre></td></tr></table></figure></p>
-<p>2、onEventMainThread<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">onEventMainThread:如果使用onEventMainThread作为订阅函数，那么不论事件是在哪</span><br><span class="line">个线程中发布出来的，onEventMainThread都会在UI线程中执行，接收事件就会在UI线</span><br><span class="line">程中运行，这个在Android中是非常有用的，因为在Android中只能在UI线程中跟新UI，</span><br><span class="line">所以在onEvnetMainThread方法中是不能执行耗时操作的。</span><br></pre></td></tr></table></figure></p>
+        <h2 id="First-step-to-Linux"><a href="#First-step-to-Linux" class="headerlink" title="First step to Linux"></a>First step to Linux</h2><h3 id="1-GNU"><a href="#1-GNU" class="headerlink" title="1 GNU"></a>1 GNU</h3><p>1.GNU is an operating system that is free software—that is, it respects users’ freedom. The GNU operating system consists of GNU packages (programs specifically released by the GNU Project) as well as free software released by third parties. The development of GNU made it possible to use a computer without software that would trample your freedom<br>
         
         
         <p class="article-more-link">
           
-            <a href="/2018/10/06/EventBus使用详解/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Android/">Android</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Android/">Android</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2018/10/06/遇到的各种坑/" title="遇到的各种坑" itemprop="url">遇到的各种坑</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="柳柳" target="_blank" itemprop="author">柳柳</a>
-		
-  <p class="article-time">
-    <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished"> Published 2018-10-06</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="1-Ubantu下使用不了pip"><a href="#1-Ubantu下使用不了pip" class="headerlink" title="1.Ubantu下使用不了pip"></a>1.Ubantu下使用不了pip</h3><p>报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ImportError cannot import name main</span><br></pre></td></tr></table></figure></p>
-<p>解决方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m pip install --user &quot;Packcage&quot;</span><br></pre></td></tr></table></figure></p>
-
-        
-        
-        <p class="article-more-link">
+            <a href="/2018/10/06/FirststeptoLinux/#more">Read More</a>
           
        </p>
     </div>
@@ -757,67 +841,6 @@
   <div class="article-tags">
   
   <span></span> <a href="/tags/Linux/">Linux</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2018/10/06/钱彦旻师兄语音识别现状/" title="钱彦旻师兄_语音识别现状" itemprop="url">钱彦旻师兄_语音识别现状</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="柳柳" target="_blank" itemprop="author">柳柳</a>
-		
-  <p class="article-time">
-    <time datetime="2018-10-06T08:07:40.000Z" itemprop="datePublished"> Published 2018-10-06</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="师兄简介"><a href="#师兄简介" class="headerlink" title="师兄简介"></a>师兄简介</h2><p>报告主题：智能语音识别技术<br>报告人简介：钱彦旻，思必驰-上海交大智能人机交互实验室副主任，上海交通大学计算机科学与工程系副教授，博士生导师。IEEE、ISCA会员，上海交通大学计算机科学与工程系副教授。清华大学博士，英国剑桥大学工程系MIL机器智能实验室博士后，上海市青年英才扬帆计划获得者，目前国际上最流行的语音识别开源工具包Kaldi的唯一亚洲创始成员。有10余年从事智能语音及语言处理、人机交互、模式识别及机器学习的研究和产业化工作经验。研究领域包括：语音识别，说话人和语种识别，语音情感感知，自然语言理解，深度学习建模，多媒体信号处理等。2014年，因在智能语音技术产业化方面的贡献，获得中国人工智能学会颁发的“吴文俊人工智能科学技术奖”。<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2018/10/06/钱彦旻师兄语音识别现状/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/讲座分享/">讲座分享</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/讲座分享/">讲座分享</a>
   </div>
 
 </div>
@@ -928,7 +951,7 @@
 		  
 		
 		  
-			<li><a href="/categories/网安组/" title="网安组">网安组<sup>3</sup></a></li>
+			<li><a href="/categories/网安组/" title="网安组">网安组<sup>4</sup></a></li>
 		  
 		
 		  
@@ -965,15 +988,19 @@
 			
 		
 			
-				<li><a href="/tags/计算机网络/" title="计算机网络">计算机网络<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Linux/" title="Linux">Linux<sup>5</sup></a></li>
 			
 		
 			
+				<li><a href="/tags/计算机网络/" title="计算机网络">计算机网络<sup>5</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Dian/" title="Dian">Dian<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/材料物理化学/" title="材料物理化学">材料物理化学<sup>3</sup></a></li>
 			
 		
 			
@@ -985,11 +1012,7 @@
 			
 		
 			
-				<li><a href="/tags/材料物理化学/" title="材料物理化学">材料物理化学<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/每日安排/" title="每日安排">每日安排<sup>2</sup></a></li>
+				<li><a href="/tags/散文/" title="散文">散文<sup>2</sup></a></li>
 			
 		
 			
@@ -997,11 +1020,15 @@
 			
 		
 			
-				<li><a href="/tags/网络安全/" title="网络安全">网络安全<sup>2</sup></a></li>
+				<li><a href="/tags/渗透学习/" title="渗透学习">渗透学习<sup>2</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/秦儿/" title="秦儿">秦儿<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/网络安全/" title="网络安全">网络安全<sup>2</sup></a></li>
 			
 		
 			
@@ -1013,7 +1040,7 @@
 			
 		
 			
-				<li><a href="/tags/散文/" title="散文">散文<sup>2</sup></a></li>
+				<li><a href="/tags/每日安排/" title="每日安排">每日安排<sup>2</sup></a></li>
 			
 		
 			
@@ -1021,19 +1048,15 @@
 			
 		
 			
-				<li><a href="/tags/Java-虚拟机/" title="Java 虚拟机">Java 虚拟机<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/对分易/" title="对分易">对分易<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Objective-C/" title="Objective-C">Objective-C<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/敏捷开发/" title="敏捷开发">敏捷开发<sup>1</sup></a></li>
+				<li><a href="/tags/区块链/" title="区块链">区块链<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode调试/" title="Xcode调试">Xcode调试<sup>1</sup></a></li>
 			
 		
 		</ul>
